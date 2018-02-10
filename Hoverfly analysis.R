@@ -1,14 +1,13 @@
-#Initial analyses
+#Hoverfly analyses
 
-
-PredAllo=read.csv("PredAlloPoll10218.csv",header=T)
-str(PredAllo)
-PredAllo$Latitude=as.numeric(PredAllo$Latitude)
+PredAllo=read.csv("PredAlloPoll10218.csv",header=T)\
 
 ##Individual data frames
 PredAllo.split=split(PredAllo,PredAllo$Taxa)
 BEE=as.data.frame(PredAllo.split[[1]])
 HOV=PredAllo.split[[2]]
+
+## Excluding Spain for now
 HOV=HOV[1:162,]
 
 levels(BEE$Genus)

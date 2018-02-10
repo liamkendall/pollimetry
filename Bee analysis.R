@@ -1,7 +1,14 @@
 ###Bee analyses
 
+#Graphing parameters
 par(mfrow=c(2,2))
 par(pty="s")
+
+#Libraries
+
+##Individual data frames
+PredAllo.split=split(PredAllo,PredAllo$Taxa)
+BEE=as.data.frame(PredAllo.split[[1]])
 
 #One specimen without genus
 BEE=BEE[-454,]

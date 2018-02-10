@@ -2,8 +2,6 @@
 
 ##Greenleaf et al. 2007
 
-
-
 GreenleafMax=function(x){exp(-1.363 + 3.366*log(x))}
   
 GreenleafTyp=function(x){exp(-1.643 + 3.242*log(x))}

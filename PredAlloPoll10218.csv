@@ -333,7 +333,7 @@ BEE,SpainBF606,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apidae,Apinae,Anthophorini,Antho
 BEE,SpainBF614,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apidae,Xylocopinae,Xylocopinini,Xylocopa,NA,cantabrita,NA,NA,NA,0.0118,2.39,8.65,20.6735
 BEE,SpainBF621,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apidae,Apinae,Anthophorini,Amegilla,NA,quadrifasciata,Female,NA,NA,0.0647,4.11,13.82,56.8002
 BEE,SpainBF624,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apidae,Apinae,Anthophorini,Amegilla,NA,quadrifasciata,Female,NA,NA,0.0242,3.18,12.65,40.227
-BEE,SpainBF625,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Megachilidae,Megachilinae,Anthidini,xylocopa,NA,sticticum,Male,NA,NA,0.0438,3.66,14.26,52.1916
+BEE,SpainBF625,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Megachilidae,Megachilinae,Anthidini,Xylocopa,NA,sticticum,Male,NA,NA,0.0438,3.66,14.26,52.1916
 BEE,SpainBF626,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Megachilidae,Megachilinae,Anthidini,Pseudoanthidium,NA,melanorum,Female,NA,NA,0.0289,3.45,12.18,42.021
 BEE,SpainBF63,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Andrenidae,Panurginae,Panurgini,Panurgus,NA,calcaratus,Female,NA,NA,0.0125,1.26,5.33,6.7158
 BEE,SpainBF634,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Megachilidae,Megachilinae,Osmiini,Osmia,NA,bicornis,Male,NA,NA,0.0063,2.94,10.28,30.2232
@@ -662,7 +662,7 @@ BEE,ALLO-CSI-121,Australia,SA_NT,Dune W Binns Track,-25.75472222,135.2630556,202
 BEE,ALLO-CSI-122,Australia,SA_NT,Dune W Binns Track,-25.75472222,135.2630556,202,21/3/17,NA,Malaise,Megachilidae,Megachilinae,Megachilini,Megachile,Unplaced,callura,Female,0.0041,0,0.0041,2.294,10.66,24.45404
 BEE,ALLO-CSI-123,Australia,SA_NT,Dune W Binns Track,-25.75472222,135.2630556,202,21/3/17,NA,Malaise,Megachilidae,Megachilinae,Megachilini,Megachile,Unplaced,apicata,Female,0.0052,0,0.0052,2.548,10.676,27.202448
 BEE,ALLO-CSI-124,Australia,SA_NT,Dune W Binns Track,-25.75472222,135.2630556,202,21/3/17,NA,Malaise,Halictidae,Nomiinae,Nomiini,Lipotriches,Austronomia,lipsp4,Male,0.0048,0,0.0048,2.882,11.389,32.823098
-BEE,ALLO-CSI-125,Australia,SA_NT,Dune W Binns Track,-25.75472222,135.2630556,202,21/3/17,NA,Malaise,Apidae,Apinae,Melectini,Thyreus ,Thyreus,waroonensis,Male,0.0611,0.038672,0.022428,4.657,17.029,79.304053
+BEE,ALLO-CSI-125,Australia,SA_NT,Dune W Binns Track,-25.75472222,135.2630556,202,21/3/17,NA,Malaise,Apidae,Apinae,Melectini,Thyreus,Thyreus,waroonensis,Male,0.0611,0.038672,0.022428,4.657,17.029,79.304053
 BEE,ALLO-CSI-126,Australia,SA_NT,Dune W Binns Track,-25.75472222,135.2630556,202,21/3/17,NA,Malaise,Apidae,Apinae,Anthophorini,Amegilla,Notomegilla,chlorocyanea,Female,0.0754,0.038672,0.036728,5.5,20.171,110.9405
 BEE,ALLO-CSI-127,Australia,SA_NT,Dune W Binns Track,-25.75472222,135.2630556,202,21/3/17,NA,Malaise,Colletidae,Euryglossinae,NA,Euhesma,Euhesma,euhsp1,Female,0.0011,0,0.0011,1.599,8.145,13.023855
 BEE,ALLO-CSI-128,Australia,SA_NT,Dune W Binns Track,-25.75472222,135.2630556,202,21/3/17,NA,Malaise,Colletidae,Euryglossinae,NA,Euhesma,Euhesma,euhsp1,Female,0.0008,0,0.0008,1.354,7.565,10.24301
@@ -674,7 +674,7 @@ BEE,ALLO-CSI-136,Australia,SA_NT,"Witjira NP, Melaleuca",-26.42166667,135.501666
 BEE,ALLO-CSI-137,Australia,SA_NT,"Witjira NP, Melaleuca",-26.42166667,135.5016667,201,22/3/17,NA,Malaise,Halictidae,Nomiinae,Nomiini,Lipotriches,Austronomia,lipsp4,Female,0.0021,0,0.0021,1.759,11.104,19.531936
 BEE,ALLO-CSI-138,Australia,SA_NT,"Witjira NP, Melaleuca",-26.42166667,135.5016667,201,22/3/17,NA,Malaise,Halictidae,Halictinae,Halictini,Lasioglossum,Chilalictus,lassp8,Female,0.0012,0,0.0012,1.504,7.693,11.570272
 BEE,ALLO-CSI-139,Australia,SA_NT,"Witjira NP, Melaleuca",-26.42166667,135.5016667,201,22/3/17,NA,Malaise,Halictidae,Halictinae,Halictini,Lasioglossum,Chilalictus,lassp8,Female,0.0033,0,0.0033,1.688,7.926,13.379088
-BEE,ALLO-CSI-14,Australia,SA_NT,"Witjira NP, Pumi Bore",-26.2847222,136.0980556,201,22/3/17,NA,Malaise,Apidae,Apinae,Melectini,Thyreus ,Thyreus,waroonensis,Female,0.0605,0.038672,0.021828,3.919,19.813,77.647147
+BEE,ALLO-CSI-14,Australia,SA_NT,"Witjira NP, Pumi Bore",-26.2847222,136.0980556,201,22/3/17,NA,Malaise,Apidae,Apinae,Melectini,Thyreus,Thyreus,waroonensis,Female,0.0605,0.038672,0.021828,3.919,19.813,77.647147
 BEE,ALLO-CSI-140,Australia,SA_NT,"Witjira NP, Melaleuca",-26.42166667,135.5016667,201,22/3/17,NA,Malaise,Halictidae,Halictinae,Halictini,Lasioglossum,Chilalictus,lassp8,Female,0.001,0,0.001,1.567,7.204,11.288668
 BEE,ALLO-CSI-141,Australia,SA_NT,"Witjira NP, Melaleuca",-26.42166667,135.5016667,201,22/3/17,NA,Malaise,Halictidae,Halictinae,Halictini,Lasioglossum,Chilalictus,lassp8,Female,0.0011,0,0.0011,1.571,7.672,12.052712
 BEE,ALLO-CSI-142,Australia,SA_NT,"Witjira NP, Melaleuca",-26.42166667,135.5016667,201,22/3/17,NA,Malaise,Halictidae,Halictinae,Halictini,Lasioglossum,Chilalictus,lassp8,Female,0.0008,0,0.0008,1.631,7.715,12.583165

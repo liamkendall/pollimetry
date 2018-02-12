@@ -4,7 +4,7 @@ PredAllo=read.csv("PredAlloPoll10218.csv",header=T)
 
 ##Individual data frames
 PredAllo.split=split(PredAllo,PredAllo$Taxa)
-BEE=as.data.frame(PredAllo.split[[1]])
+BEE=PredAllo.split[[1]]
 HOV=PredAllo.split[[2]]
 
 #One specimen without genus

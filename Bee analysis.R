@@ -1,10 +1,12 @@
 ###Bee analyses
 
-#Graphing parameters
-par(mfrow=c(2,2))
-par(pty="s")
+PredAllo=read.csv("PredAlloPoll10218.csv",header=T)
 
-#Libraries
+##Individual data frames
+PredAllo.split=split(PredAllo,PredAllo$Taxa)
+BEE=as.data.frame(PredAllo.split[[1]])
+HOV=PredAllo.split[[2]]
+
 
 ##Individual data frames
 PredAllo.split=split(PredAllo,PredAllo$Taxa)
@@ -13,6 +15,13 @@ BEE=as.data.frame(PredAllo.split[[1]])
 #One specimen without genus
 BEE=BEE[-454,]
 BEE[454,]
+
+
+#Graphing parameters
+par(mfrow=c(2,2))
+par(pty="s")
+
+#Libraries
 #1
 Bee.ITm1=lm(log(Spec.wgt)~log(IT),BEE)
 plot(Bee.ITm1)
@@ -31,10 +40,15 @@ plot(Bee.ITm5)
 is.na(BEE$Genus)
 
 summary(Bee.ITm1)
+#Adjusted R-squared:  0.8488 
 summary(Bee.ITm2)
+#Adjusted R-squared:  0.9268 
 summary(Bee.ITm3)
+#Adjusted R-squared:  0.9314 
 summary(Bee.ITm4)
+#Adjusted R-squared:  0.9351 
 summary(Bee.ITm5)
+#Adjusted R-squared:  0.9421 
 
 anova(Bee.ITm1,Bee.ITm2,Bee.ITm3,Bee.ITm5)
 #Analysis of Variance Table
@@ -144,3 +158,37 @@ summary(Bee.ITBLm4)
 #Adjusted R-squared:  0.9442
 summary(Bee.ITBLm5)
 #Adjusted R-squared:  0.9466 
+
+
+#########
+# Is gender important??)
+
+#One specimen without genus
+table(BEE$Sex)
+#1
+Bee.ITSm1=lm(log(Spec.wgt)~log(IT)+Sex,BEE)
+plot(Bee.ITSm1)
+#2
+Bee.ITSm2=lm(log(Spec.wgt)~log(IT)+Country+Sex,BEE)
+plot(Bee.ITSm2)
+#3
+Bee.ITSm3=lm(log(Spec.wgt)~log(IT)+Country+Subfamily+Sex,BEE)
+plot(Bee.ITSm3)
+#4
+Bee.ITSm4=lm(log(Spec.wgt)~log(IT)+Country+Tribe+Sex,BEE)
+plot(Bee.ITSm4)
+#5
+Bee.ITSm5=lm(log(Spec.wgt)~log(IT)+Country+Genus+Sex,BEE)
+plot(Bee.ITSm5)
+
+summary(Bee.ITSm1)
+#Adjusted R-squared:  0.8507 
+summary(Bee.ITSm2)
+#Adjusted R-squared:  0.927 
+summary(Bee.ITSm3)
+#Adjusted R-squared:  0.9317 
+summary(Bee.ITSm4)
+#Adjusted R-squared:  0.9353 
+summary(Bee.ITSm5)
+#Adjusted R-squared:  0.9425 
+

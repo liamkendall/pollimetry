@@ -4,13 +4,12 @@ PredAllo=read.csv("PredAlloPoll10218.csv",header=T)
 
 ##Individual data frames
 PredAllo.split=split(PredAllo,PredAllo$Taxa)
-BEE=as.data.frame(PredAllo.split[[1]])
+BEE=PredAllo.split[[1]]
 HOV=PredAllo.split[[2]]
 
 #One specimen without genus
 BEE=BEE[-454,]
 BEE[454,]
-
 
 #Graphing parameters
 par(mfrow=c(2,2))
@@ -46,6 +45,7 @@ summary(Bee.ITm5)
 #Adjusted R-squared:  0.9421 
 
 anova(Bee.ITm1,Bee.ITm2,Bee.ITm3,Bee.ITm5)
+
 #Analysis of Variance Table
 
 #Model 1: log(Spec.wgt) ~ log(IT)

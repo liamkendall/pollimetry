@@ -5,7 +5,6 @@ library(nlme)
 library(MuMIn)
 library(arm)
 library(ape)
-library(phylolm)
 
 ##Method 1
 

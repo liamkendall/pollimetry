@@ -12,6 +12,9 @@ HOV=HOV[1:162,]
 
 levels(BEE$Genus)
 
+aggregate(BEE$Spec.wgt~BEE$Species,FUN="mean")
+
+
 ##
 par(mfrow=c(2,2))
 par(pty="s")

@@ -1,0 +1,5256 @@
+Gene	Accession No.	Species
+abdA	AY703685	Apis mellifera
+abdA	XM3402141	Bombus terrestris
+abdA	EF013109	Chalybion californicum
+abdA	DQ352874	Philanthus sp. CSM-2006
+AK	EU163007	Aglae caerulea
+AK	FJ042187	Aparatrigona impunctata
+AK	EU163042	Apis andreniformis
+AK	EU163040	Apis cerana
+AK	AY267178	Apis dorsata
+AK	EU184831	Apis florea
+AK	EU163026	Apis koschevnikovi
+AK	NM1011603	Apis mellifera
+AK	DQ813029	Apotrigona infuscata
+AK	DQ813032	Axestotrigona ferruginea
+AK	DQ788391	Bombus affinis
+AK	DQ788392	Bombus alagesianus
+AK	EF032398	Bombus alboanalis
+AK	DQ788393	Bombus alpinus
+AK	DQ788394	Bombus apollineus
+AK	DQ788395	Bombus appositus
+AK	AF492897	Bombus ardens
+AK	DQ788396	Bombus argillaceus
+AK	DQ788397	Bombus armeniacus
+AK	AF492857	Bombus ashtoni
+AK	EF032406	Bombus asiaticus
+AK	DQ788398	Bombus atratus
+AK	DQ788399	Bombus atripes
+AK	EF032402	Bombus avanus
+AK	DQ788400	Bombus avinoviellus
+AK	DQ788401	Bombus baeri
+AK	DQ788402	Bombus balteatus
+AK	DQ788403	Bombus barbutellus
+AK	AF492896	Bombus beaticola
+AK	DQ788404	Bombus bellicosus
+AK	AF492904	Bombus bicoloratus
+AK	AF492876	Bombus bifarius
+AK	DQ788405	Bombus bimaculatus
+AK	DQ788406	Bombus biroi
+AK	AF492858	Bombus bohemicus
+AK	AF492909	Bombus borealis
+AK	DQ788407	Bombus brachycephalus
+AK	DQ788408	Bombus breviceps
+AK	DQ788409	Bombus brodmannicus
+AK	DQ788410	Bombus californicus
+AK	AF492901	Bombus caliginosus
+AK	AF492860	Bombus campestris
+AK	DQ788411	Bombus centralis
+AK	DQ788412	Bombus chinensis
+AK	AF492881	Bombus cingulatus
+AK	AY267169	Bombus citrinus
+AK	DQ788413	Bombus coccineus
+AK	DQ788414	Bombus confusus
+AK	AY267166	Bombus consobrinus
+AK	DQ788415	Bombus convexus
+AK	EF032413	Bombus cornutus
+AK	AF492906	Bombus crotchii
+AK	DQ788416	Bombus cryptarum
+AK	AF492864	Bombus dahlbomii
+AK	AF492891	Bombus defector
+AK	AY267170	Bombus deuteronymus
+AK	DQ788417	Bombus difficillimus
+AK	DQ788418	Bombus digressus
+AK	DQ788419	Bombus diligens
+AK	DQ788420	Bombus distinguendus
+AK	AF492894	Bombus diversus
+AK	DQ788421	Bombus ecuadorius
+AK	DQ788422	Bombus ephippiatus
+AK	DQ788423	Bombus erzurumensis
+AK	DQ788424	Bombus excellens
+AK	DQ788425	Bombus exil
+AK	DQ788426	Bombus eximius
+AK	AF492859	Bombus fernaldae
+AK	AF492863	Bombus fervidus
+AK	DQ788427	Bombus festivus
+AK	DQ788428	Bombus filchnerae
+AK	AF492883	Bombus flavescens
+AK	DQ788429	Bombus flavidus
+AK	AF492882	Bombus flavifrons
+AK	AF492872	Bombus formosellus
+AK	DQ788430	Bombus fragrans
+AK	EF032403	Bombus franklini
+AK	AF492907	Bombus fraternus
+AK	DQ788431	Bombus frigidus
+AK	DQ788432	Bombus friseanus
+AK	DQ788433	Bombus funebris
+AK	EF032415	Bombus funerarius
+AK	DQ788434	Bombus gerstaeckeri
+AK	EF032408	Bombus grahami
+AK	AF492905	Bombus griseocollis
+AK	AF492916	Bombus haemorrhoidalis
+AK	DQ788435	Bombus handlirschi
+AK	DQ788436	Bombus handlirschianus
+AK	DQ788437	Bombus hedini
+AK	AF492895	Bombus honshuensis
+AK	AF492853	Bombus hortorum
+AK	DQ788438	Bombus hortulanus
+AK	DQ788439	Bombus humilis
+AK	AF492911	Bombus huntii
+AK	DQ788440	Bombus hyperboreus
+AK	EF032401	Bombus hypnorum
+AK	AF492889	Bombus hypocrita
+AK	AF492898	Bombus ignitus
+AK	DQ788441	Bombus imitator
+AK	DQ788442	Bombus impetuosus
+AK	DQ788443	Bombus incertus
+AK	FJ159107	Bombus inexspectatus
+AK	DQ788444	Bombus infirmus
+AK	DQ788445	Bombus infrequens
+AK	AF492908	Bombus insularis
+AK	DQ788446	Bombus jonellus
+AK	DQ788447	Bombus kashmirensis
+AK	DQ788448	Bombus keriensis
+AK	AF492902	Bombus koreanus
+AK	DQ788449	Bombus kulingensis
+AK	DQ788450	Bombus ladakhensis
+AK	DQ788451	Bombus laesus
+AK	AF492871	Bombus lapidarius
+AK	DQ788452	Bombus lapponicus
+AK	DQ788453	Bombus lemniscatus
+AK	DQ788454	Bombus lepidus
+AK	DQ788455	Bombus longipes
+AK	DQ788456	Bombus lucorum
+AK	DQ788457	Bombus macgregori
+AK	DQ788458	Bombus maxillosus
+AK	DQ788459	Bombus medius
+AK	DQ788460	Bombus melaleucus
+AK	AF492877	Bombus melanopygus
+AK	AF492856	Bombus melanurus
+AK	AF492890	Bombus mendax
+AK	EF032414	Bombus mesomelas
+AK	DQ788461	Bombus mexicanus
+AK	DQ788462	Bombus miniatus
+AK	AF492880	Bombus mixtus
+AK	DQ788463	Bombus mlokosievitzii
+AK	DQ788464	Bombus moderatus
+AK	DQ788465	Bombus modestus
+AK	DQ788466	Bombus monticola
+AK	DQ788467	Bombus morio
+AK	DQ788468	Bombus morrisoni
+AK	AF492868	Bombus mucidus
+AK	DQ788469	Bombus muscorum
+AK	DQ788470	Bombus neoboreus
+AK	AF492892	Bombus nevadensis
+AK	DQ788472	Bombus niveatus
+AK	DQ788473	Bombus nobilis
+AK	DQ788474	Bombus norvegicus
+AK	DQ788475	Bombus oberti
+AK	DQ788476	Bombus occidentalis
+AK	DQ788477	Bombus opifex
+AK	DQ788478	Bombus parthenius
+AK	AF492867	Bombus pascuorum
+AK	AF492886	Bombus patagiatus
+AK	EF032411	Bombus pennsylvanicus
+AK	AF492878	Bombus perplexus
+AK	DQ788480	Bombus persicus
+AK	DQ788481	Bombus personatus
+AK	DQ788482	Bombus picipes
+AK	AF492903	Bombus polaris
+AK	DQ788483	Bombus pomorum
+AK	DQ788484	Bombus portchinsky
+AK	DQ788485	Bombus potanini
+AK	AF492899	Bombus pratorum
+AK	AY267171	Bombus pseudobaicalensis
+AK	DQ788486	Bombus pullatus
+AK	DQ788487	Bombus pyrenaeus
+AK	DQ788488	Bombus quadricolor
+AK	DQ788489	Bombus religiosus
+AK	DQ788490	Bombus remotus
+AK	EF032405	Bombus robustus
+AK	DQ788491	Bombus rubicundus
+AK	AF492865	Bombus ruderarius
+AK	AF492910	Bombus ruderatus
+AK	AF492900	Bombus rufocinctus
+AK	DQ788492	Bombus rufofasciatus
+AK	AF492861	Bombus rupestris
+AK	EF032399	Bombus sandersoni
+AK	AF492866	Bombus schrencki
+AK	DQ788493	Bombus securus
+AK	DQ788494	Bombus semenoviellus
+AK	DQ788495	Bombus shaposhnikovi
+AK	EF032407	Bombus sibiricus
+AK	DQ788496	Bombus sichelii
+AK	DQ788497	Bombus simillimus
+AK	DQ788498	Bombus sitkensis
+AK	DQ788499	Bombus skorikovi
+AK	EF032410	Bombus sonorus
+AK	AF492874	Bombus soroeensis
+AK	DQ788501	Bombus sporadicus
+AK	DQ788502	Bombus steindachneri
+AK	AF492893	Bombus subterraneus
+AK	DQ788503	Bombus suckleyi
+AK	DQ788504	Bombus sulfureus
+AK	DQ788505	Bombus supremus
+AK	AF492854	Bombus sushkini
+AK	DQ788506	Bombus sylvarum
+AK	DQ788507	Bombus sylvestris
+AK	DQ788508	Bombus sylvicola
+AK	AF492912	Bombus ternarius
+AK	XM3401454	Bombus terrestris
+AK	AF492885	Bombus terricola
+AK	DQ788509	Bombus tibetanus
+AK	AF492855	Bombus tichenkoi
+AK	DQ788510	Bombus transversalis
+AK	AF492870	Bombus tricornis
+AK	AF492851	Bombus trifasciatus
+AK	FJ175317	Bombus trifasciatus trifasciatus
+AK	DQ788511	Bombus trinominatus
+AK	EF032404	Bombus tucumanus
+AK	AF492852	Bombus ussurensis
+AK	EU163038	Bombus vagans
+AK	AF492915	Bombus vandykei
+AK	DQ788513	Bombus variabilis
+AK	DQ788514	Bombus velox
+AK	DQ788515	Bombus vestalis
+AK	DQ788516	Bombus veteranus
+AK	DQ788517	Bombus vogti
+AK	AY267165	Bombus volucelloides
+AK	DQ788518	Bombus vorticosus
+AK	AF492913	Bombus vosnesenskii
+AK	DQ788519	Bombus waltoni
+AK	DQ788520	Bombus weisi
+AK	DQ788521	Bombus wilmattae
+AK	AF492873	Bombus wurflenii
+AK	DQ788522	Bombus zonatus
+AK	FJ042188	Celetrigona aff. longicornis CR-2009
+AK	FJ042189	Cephalotrigona aff. capitata CR-2009
+AK	FJ042191	Cephalotrigona capitata
+AK	FJ042190	Cephalotrigona sp. B CR-2009
+AK	DQ813033	Cephalotrigona sp. CR-2006
+AK	EU163019	Cephalotrigona sp. MP106
+AK	EU163080	Cephalotrigona sp. MP89
+AK	DQ813034	Dactylurina staudingeri
+AK	DQ813035	Dolichotrigona browni
+AK	FJ042192	Dolichotrigona chachapoya
+AK	FJ042193	Duckeola ghilianii
+AK	EU184833	Epiclopus gayi
+AK	EU163011	Eufriesea caerulescens
+AK	EU163005	Euglossa asarophora
+AK	EU163006	Euglossa decorata
+AK	EU163009	Euglossa villosa
+AK	EU163008	Eulaema peruviana
+AK	EU163010	Exaerete azteca
+AK	FJ042198	Friesella schrottkyi
+AK	FJ042201	Frieseomelitta silvestrii
+AK	FJ042199	Frieseomelitta trichocerata
+AK	FJ042200	Frieseomelitta varia
+AK	DQ813036	Geniotrigona incisa
+AK	DQ788524	Geniotrigona thoracica
+AK	FJ042203	Geotrigona fulvatra
+AK	DQ813039	Geotrigona fulvohirta
+AK	EU163028	Geotrigona kraussi
+AK	FJ042204	Geotrigona mombuca
+AK	FJ042202	Geotrigona subgrisea
+AK	DQ813042	Heterotrigona bakeri
+AK	DQ813040	Heterotrigona erythrogaster
+AK	DQ788525	Heterotrigona itama
+AK	DQ212138	Hylaeus amiculus
+AK	DQ212142	Hylaeus anthracinus
+AK	DQ212143	Hylaeus connectens
+AK	DQ212144	Hylaeus difficilis
+AK	DQ212137	Hylaeus elegans
+AK	DQ212141	Hylaeus globula
+AK	DQ212145	Hylaeus hula
+AK	DQ212146	Hylaeus inquilina
+AK	DQ212147	Hylaeus kauaiensis
+AK	DQ212148	Hylaeus kokeensis
+AK	DQ212149	Hylaeus kona
+AK	DQ212139	Hylaeus leptocephalus
+AK	DQ212150	Hylaeus longiceps
+AK	DQ212151	Hylaeus pele
+AK	DQ212152	Hylaeus pubescens
+AK	DQ212140	Hylaeus punctatus
+AK	DQ212153	Hylaeus solaris
+AK	DQ813043	Hypotrigona gribodoi
+AK	DQ813044	Hypotrigona ruspolii
+AK	DQ813045	Lepidotrigona terminata
+AK	DQ813047	Lepidotrigona ventralis
+AK	FJ042206	Lestrimelitta aff. limao CR-2009
+AK	FJ042207	Lestrimelitta limao
+AK	FJ042205	Lestrimelitta maracaia
+AK	EU163027	Lestrimelitta sp. MP115
+AK	FJ042209	Leurotrigona muelleri
+AK	FJ042208	Leurotrigona pusilla
+AK	DQ813049	Liotrigona madecassa
+AK	DQ813048	Liotrigona mahafalya
+AK	DQ813050	Lophotrigona canifrons
+AK	DQ813053	Meliplebeia ogouensis
+AK	FJ042218	Melipona aff. brachychaeta CR-2009
+AK	EU163053	Melipona aff. costaricaensis MP33
+AK	FJ042210	Melipona aff. mimetica CR-2009
+AK	FJ042214	Melipona aff. rufiventris CR-2009
+AK	EU163085	Melipona amazonica
+AK	EU163076	Melipona asilvai
+AK	FJ042224	Melipona beecheii
+AK	FJ042195	Melipona bicolor
+AK	EU163077	Melipona bicolor bicolor
+AK	FJ042197	Melipona bradleyi
+AK	EU163061	Melipona captiosa
+AK	EU163056	Melipona compressipes compressipes
+AK	EU163047	Melipona compressipes interrupta
+AK	EU163039	Melipona costaricaensis
+AK	FJ042212	Melipona crinita
+AK	FJ042211	Melipona eburnea
+AK	FJ042222	Melipona fasciata
+AK	FJ042223	Melipona fasciculata
+AK	EU163046	Melipona favosa
+AK	EU163037	Melipona fuliginosa
+AK	EU163044	Melipona fulva
+AK	EU163055	Melipona fuscopilosa
+AK	DQ813051	Melipona grandis
+AK	FJ042215	Melipona illota
+AK	EU163064	Melipona illustris
+AK	EU163063	Melipona lateralis
+AK	EU163075	Melipona mandacaia
+AK	FJ042196	Melipona marginata
+AK	EU163029	Melipona melanopleura
+AK	EU163054	Melipona melanoventer
+AK	EU163058	Melipona micheneri
+AK	EU163065	Melipona nebulosa
+AK	EU163059	Melipona ogilviei
+AK	EU163012	Melipona panamica
+AK	EU163050	Melipona quadrifasciata anthidioides
+AK	EU163074	Melipona quinquefasciata
+AK	EU163051	Melipona rufiventris
+AK	EU163068	Melipona rufiventris flavolineata
+AK	EU163070	Melipona rufiventris rufiventris
+AK	FJ042216	Melipona scutellaris
+AK	EU163057	Melipona seminigra atrofulva
+AK	FJ042217	Melipona seminigra merrillae
+AK	EU163079	Melipona solani
+AK	FJ042221	Melipona sp. B CR-2009
+AK	EU163034	Melipona sp. MP127
+AK	EU163067	Melipona sp. MP70
+AK	EU163078	Melipona sp. MP85
+AK	EU163081	Melipona sp. MP90
+AK	EU163082	Melipona sp. MP91
+AK	EU163084	Melipona sp. MP93
+AK	EU163087	Melipona sp. MP96
+AK	EU163089	Melipona sp. MP98
+AK	FJ042213	Melipona titania
+AK	EU163073	Melipona triplaridis
+AK	FJ042194	Melipona tumupasae
+AK	FJ042226	Melipona variegatipes
+AK	DQ813052	Meliponula bocandei
+AK	EU163031	Meliwillea bivea
+AK	FJ042227	Mourella caerulea
+AK	DQ813054	Nannotrigona melanocera
+AK	FJ042229	Nannotrigona perilampoides
+AK	FJ042228	Nannotrigona schultzei
+AK	EU163017	Nannotrigona sp. MP104
+AK	FJ042230	Nannotrigona testaceicornis
+AK	FJ042231	Nogueirapis butteli
+AK	FJ042232	Nogueirapis mirandula
+AK	DQ813055	Odontotrigona haematoptera
+AK	FJ042236	Oxytrigona mediorufa
+AK	FJ042235	Oxytrigona mellicolor
+AK	FJ042234	Oxytrigona mulfordi
+AK	FJ042233	Oxytrigona obscura
+AK	FJ042237	Oxytrigona tataira
+AK	FJ042255	Parapartamona fumata
+AK	FJ042256	Parapartamona tungurahuana
+AK	FJ042246	Paratrigona guigliae
+AK	FJ042247	Paratrigona lineata
+AK	FJ042244	Paratrigona lineatifrons
+AK	DQ813057	Paratrigona onorei
+AK	FJ042245	Paratrigona pacifica
+AK	DQ813056	Partamona auripennis
+AK	FJ042239	Partamona epiphytophila
+AK	FJ042243	Partamona musarum
+AK	FJ042241	Partamona orizabaensis
+AK	FJ042238	Partamona testacea
+AK	FJ042240	Partamona vicina
+AK	DQ813058	Platytrigona hobbyi
+AK	FJ042252	Plebeia droryana
+AK	EU163014	Plebeia franki
+AK	DQ813059	Plebeia frontalis
+AK	FJ042249	Plebeia minima
+AK	FJ042251	Plebeia moureana
+AK	FJ042253	Plebeia sp. A CR-2009
+AK	FJ042248	Plebeia sp. B CR-2009
+AK	FJ042250	Plebeia sp. C CR-2009
+AK	FJ042254	Plebeia tobagoensis
+AK	DQ813060	Plebeiella lendliana
+AK	DQ813061	Plebeina hildebrandti
+AK	FJ042258	Ptilotrigona lurida
+AK	FJ042257	Ptilotrigona pereneae
+AK	FJ042265	Scaptotrigona bipunctata
+AK	FJ042266	Scaptotrigona depilis
+AK	FJ042264	Scaptotrigona mexicana
+AK	FJ042263	Scaptotrigona pectoralis
+AK	DQ813063	Scaptotrigona polysticta
+AK	FJ042259	Scaptotrigona sp. A CR-2009
+AK	FJ042261	Scaptotrigona sp. B CR-2009
+AK	FJ042260	Scaptotrigona sp. C CR-2009
+AK	EU163015	Scaptotrigona sp. MP102
+AK	EU163016	Scaptotrigona sp. MP103
+AK	FJ042262	Scaptotrigona tricolorata
+AK	FJ042269	Scaura latitarsis
+AK	FJ042267	Scaura longula
+AK	FJ042268	Scaura tenuis
+AK	FJ042270	Schwarziana quadripunctata
+AK	FJ042272	Schwarzula coccidophila
+AK	FJ042271	Schwarzula timida
+AK	DQ813064	Sundatrigona moorei
+AK	FJ042281	Tetragona clavipes
+AK	FJ042284	Tetragona dissecta
+AK	FJ042283	Tetragona goettei
+AK	FJ042286	Tetragona perangulata
+AK	FJ042282	Tetragona sp. CR-2009
+AK	FJ042285	Tetragona ziegleri
+AK	DQ813072	Tetragonilla atripes
+AK	DQ813075	Tetragonilla collina
+AK	DQ813073	Tetragonilla fuscibasis
+AK	DQ813074	Tetragonilla rufibasalis
+AK	DQ813076	Tetragonisca angustula
+AK	FJ042279	Tetragonisca weyrauchi
+AK	DQ813083	Tetragonula carbonaria
+AK	DQ813102	Tetragonula cf. iridipennis CR-2006
+AK	DQ813085	Tetragonula cf. laeviceps CR-2006
+AK	DQ813098	Tetragonula cf. pagdeni CR-2006
+AK	DQ813080	Tetragonula clypearis
+AK	DQ813096	Tetragonula fuscobalteata
+AK	DQ813079	Tetragonula geissleri
+AK	DQ813090	Tetragonula hirashimai
+AK	DQ813084	Tetragonula hockingsi
+AK	DQ813092	Tetragonula laeviceps
+AK	DQ813093	Tetragonula melanocephala
+AK	DQ813097	Tetragonula melina
+AK	DQ813081	Tetragonula mellipes
+AK	DQ813089	Tetragonula minor
+AK	DQ813077	Tetragonula pagdeni
+AK	DQ813087	Tetragonula sapiens
+AK	DQ813094	Tetragonula sarawakensis
+AK	DQ813088	Tetragonula sirindhornae
+AK	DQ813100	Tetragonula sp. A CR-2006
+AK	DQ813101	Tetragonula sp. B CR-2006
+AK	DQ813099	Tetragonula zucchi
+AK	DQ813065	Tetrigona apicalis
+AK	DQ813067	Tetrigona binghami
+AK	DQ813066	Tetrigona melanoleuca
+AK	FJ042280	Trichotrigona extranea
+AK	EU049755	Trigona albipennis
+AK	DQ813070	Trigona amalthea
+AK	DQ813071	Trigona amazonensis
+AK	EU049756	Trigona cf. fuscipennis CR-2007a
+AK	EU049767	Trigona cf. fuscipennis CR-2007b
+AK	EU049754	Trigona cf. recursa CR-2007
+AK	EU049748	Trigona chanchamayoensis
+AK	EU049749	Trigona cilipes
+AK	EU049760	Trigona corvina
+AK	EU049751	Trigona crassipes
+AK	EU049753	Trigona dallatorreana
+AK	EU049762	Trigona fulviventris
+AK	EU049759	Trigona fuscipennis
+AK	DQ813069	Trigona guianae
+AK	EU049768	Trigona hyalinata
+AK	EU049764	Trigona hypogea
+AK	EU049750	Trigona lacteipennis
+AK	EU049761	Trigona nigerrima
+AK	EU049752	Trigona pallens
+AK	EU049765	Trigona recursa
+AK	EU049757	Trigona silvestriana
+AK	EU163022	Trigona sp. MP109
+AK	EU049766	Trigona spinipes
+AK	EU049758	Trigona truculenta
+AK	EU049763	Trigona williana
+AK	FJ042277	Trigonisca bidentata
+AK	FJ042276	Trigonisca buyssoni
+AK	FJ042278	Trigonisca nataliae
+AK	FJ042273	Trigonisca sp. A CR-2009
+AK	FJ042274	Trigonisca sp. B CR-2009
+AK	FJ042275	Trigonisca sp. C CR-2009
+AK	DQ813068	Trigonisca townsendi
+AK	AY267179	Xylocopa amamensis
+bub3	EU184823	Apis cerana
+bub3	EU184822	Apis dorsata
+bub3	EU184821	Apis florea
+bub3	XM393536	Apis mellifera
+bub3	EU184816	Bombus ardens
+bub3	EU184817	Bombus diversus
+bub3	XM003393212	Bombus terrestris
+bub3	EU184819	Cephalotrigona capitata
+bub3	EU980039	Dactylurina staudingeri
+bub3	EU980040	Dolichotrigona chachapoya
+bub3	EU980041	Hypotrigona ruspolii
+bub3	EU980042	Lepidotrigona ventralis
+bub3	EU980043	Liotrigona madecassa
+bub3	EU980044	Lisotrigona furva
+bub3	EU980045	Melipona grandis
+bub3	EU184820	Meliponula bocandei
+bub3	EU980046	Odontotrigona haematoptera
+bub3	EU980047	Plebeia sp. A CR-2009
+bub3	EU980048	Scaptotrigona tricolorata
+bub3	EU980052	Tetragonula fuscobalteata
+bub3	EU980049	Tetrigona binghami
+bub3	EU980051	Trigona amazonensis
+bub3	EU184818	Trigona fuscipennis
+bub3	EU980050	Trigonisca sp. A CR-2009
+cad	HQ995847	Afranthidium karooense
+cad	HQ995902	Afroheriades primus
+cad	EU851428	Afroheriades sp. CJP-2008
+cad	HQ995844	Aglaoapis tridentata
+cad	DQ067117	Anacrabro ocellatus
+cad	DQ067126	Andrena brooksi
+cad	DQ067127	Andrena nasonii
+cad	HQ995848	Anthidium illustre
+cad	DQ067197	Anthidium oblongatum
+cad	EU851420	Anthidium punctatum
+cad	HQ995849	Anthodioctes mapirensis
+cad	EU184808	Apis cerana
+cad	EU184807	Apis dorsata
+cad	EU184806	Apis florea
+cad	DQ067178	Apis mellifera
+cad	EU851431	Ashmeadiella aff. gillettei CJP-2008
+cad	HQ995903	Ashmeadiella aridula
+cad	EU851432	Ashmeadiella holtii
+cad	EU851429	Ashmeadiella timberlakei
+cad	EU851433	Ashmeadiella xenomastax
+cad	HQ995850	Aspidosmia arnoldi
+cad	HQ995851	Aspidosmia volkmanni
+cad	EU851437	Atoposmia aff. daleae CJP-2008
+cad	EU851439	Atoposmia copelandica
+cad	EU851434	Atoposmia elongata
+cad	EU851435	Atoposmia hebitis
+cad	HQ995904	Atoposmia mirifica
+cad	EU851438	Atoposmia timberlakei
+cad	HQ995852	Bathanthidium binghami
+cad	DQ067116	Bembix dentilabris
+cad	HQ995853	Benanthis madagascariensis
+cad	EU184803	Bombus ardens
+cad	EU184804	Bombus diversus
+cad	EU122058	Bombus pascuorum
+cad	XM003400133	Bombus terrestris
+cad	DQ067130	Calliopsis anthidia
+cad	DQ067129	Calliopsis pugionis
+cad	GU945209	Capicola hantamensis
+cad	DQ067141	Caupolicana vestita
+cad	EU184805	Cephalotrigona capitata
+cad	DQ067190	Ceratina calcarata
+cad	EU851442	Chelostoma aureocinctum
+cad	EU863099	Chelostoma bytinskii
+cad	EU851443	Chelostoma californicum
+cad	EU851444	Chelostoma campanularum
+cad	EU863100	Chelostoma cockerelli
+cad	EU863090	Chelostoma diodon
+cad	EU863101	Chelostoma distinctum
+cad	EU863091	Chelostoma edentulum
+cad	EU863092	Chelostoma emarginatum
+cad	HQ995905	Chelostoma florisomne
+cad	EU863102	Chelostoma foveolatum
+cad	DQ067192	Chelostoma fuliginosum
+cad	EU863093	Chelostoma grande
+cad	EU863103	Chelostoma hellenicum
+cad	EU863104	Chelostoma incisulum
+cad	EU851440	Chelostoma lamellum
+cad	EU863105	Chelostoma laticaudum
+cad	EU863106	Chelostoma marginatum incisuloides
+cad	EU863107	Chelostoma minutum
+cad	EU863094	Chelostoma mocsaryi
+cad	EU863095	Chelostoma nasutum
+cad	EU863108	Chelostoma phaceliae
+cad	EU851446	Chelostoma philadelphi
+cad	EU851445	Chelostoma rapunculi
+cad	EU863096	Chelostoma sp. 2 CJP-2008
+cad	EU863097	Chelostoma sp. 3 CJP-2008
+cad	EU863109	Chelostoma styriacum
+cad	EU863098	Chelostoma transversum
+cad	EU863110	Chelostoma ventrale
+cad	DQ067146	Chilimelissa rozeni
+cad	DQ067115	Clitemnestra bipunctata
+cad	DQ067123	Clypeadon haigi
+cad	DQ067193	Coelioxys afra
+cad	DQ067139	Colletes inaequalis
+cad	DQ067140	Colletes skinneri
+cad	DQ067157	Conanthalictus conanthi
+cad	EU122060	Ctenoplectra albolimbata
+cad	EU122062	Ctenoplectra antinorii
+cad	EU122063	Ctenoplectra armata
+cad	EU122064	Ctenoplectra australica
+cad	EU122065	Ctenoplectra bequaerti
+cad	EU122066	Ctenoplectra davidi
+cad	EU122067	Ctenoplectra florisomnis
+cad	EU122070	Ctenoplectra kelloggi
+cad	EU122072	Ctenoplectra polita
+cad	EU122077	Ctenoplectra terminalis
+cad	EU122061	Ctenoplectrina alluaudi
+cad	EU122075	Ctenoplectrina n. sp. HS-2007
+cad	DQ067161	Dasypoda argentata
+cad	DQ067162	Dasypoda hirtipes
+cad	DQ067163	Dasypoda visnaga
+cad	HQ995854	Dianthidium arizonicum
+cad	DQ067150	Dieunomia heteropoda
+cad	DQ067151	Dieunomia nevadensis
+cad	HQ995845	Dioxys moesta
+cad	DQ067142	Diphaglossa gayi
+cad	HQ995855	Duckeanthidium thielei
+cad	HQ995856	Eoanthidium turnericum
+cad	HQ995857	Epanthidium bicoloratum
+cad	GU945210	Eremaphanta iranica
+cad	DQ067122	Eucerceris tricolor
+cad	HQ995828	Fidelia braunsiana
+cad	HQ995830	Fidelia friesei
+cad	HQ995825	Fidelia kobrowi
+cad	HQ995831	Fidelia pallidula
+cad	HQ995826	Fidelia paradoxa
+cad	HQ995829	Fidelia ulrikei
+cad	HQ995827	Fidelia villosa
+cad	HQ995832	Fideliopsis hessei
+cad	HQ995833	Fideliopsis major
+cad	HQ995834	Fideliopsis ornata
+cad	HQ995906	Haetosmia brachyura
+cad	EU851447	Haetosmia circumventa
+cad	EU851450	Heriades crucifer
+cad	DQ067194	Heriades crucifera
+cad	EU851449	Heriades punctulifer
+cad	EU851448	Heriades truncorum
+cad	DQ067167	Hesperapis larreae
+cad	DQ067168	Hesperapis regularis
+cad	DQ067166	Hesperapis rhodocerata
+cad	DQ067165	Hesperapis sp. Hesp940
+cad	HQ995907	Hofferia schmiedeknechti
+cad	DQ067187	Holcopasites ruthae
+cad	HQ995908	Hoplitis adunca
+cad	EU851462	Hoplitis aff. onychophora CJP-2008
+cad	EU851472	Hoplitis albifrons
+cad	EU851456	Hoplitis annulata crenulata
+cad	EU851469	Hoplitis antalyae
+cad	EU851464	Hoplitis biscutellae
+cad	EU851457	Hoplitis bisulca
+cad	EU851479	Hoplitis brachypogon
+cad	EU851458	Hoplitis hemisphaerica
+cad	EU851463	Hoplitis hypocrita
+cad	EU851461	Hoplitis illustris
+cad	EU851477	Hoplitis incanescens
+cad	EU851470	Hoplitis lebanotica
+cad	EU851452	Hoplitis leucomelana
+cad	EU851453	Hoplitis mitis
+cad	EU851466	Hoplitis mojavensis
+cad	EU851475	Hoplitis moricei
+cad	EU851474	Hoplitis nasuta
+cad	EU851471	Hoplitis paralias
+cad	EU851454	Hoplitis pilosifrons
+cad	EU851478	Hoplitis platalea
+cad	EU851465	Hoplitis robusta
+cad	EU851459	Hoplitis sp. CJP-2008
+cad	EU851468	Hoplitis tigrina
+cad	EU851455	Hoplitis tridentata
+cad	EU851473	Hoplitis tuberculata
+cad	EU851476	Hoplitis villiersi
+cad	EU851460	Hoplitis villosa
+cad	EU851480	Hoplitis zuni
+cad	EU851483	Hoplosmia pinquis
+cad	EU851482	Hoplosmia scutellaris
+cad	EU851481	Hoplosmia spinulosa
+cad	DQ067144	Hylaeus amiculus
+cad	HQ995858	Hypanthidioides marginata
+cad	HQ995859	Hypanthidium obscurius
+cad	HQ995860	Icteranthidium ferrugineum
+cad	DQ067180	Leiopodus singularis
+cad	DQ067152	Lipotriches patellifera
+cad	DQ067191	Lithurgus apicalis
+cad	HQ995837	Lithurgus chrysurus
+cad	DQ067195	Lithurgus echinocacti
+cad	HQ995838	Lithurgus pullatus
+cad	HQ995839	Lithurgus rubricatus
+cad	HQ995840	Lithurgus scabrosus
+cad	HQ995841	Lithurgus tibialis
+cad	DQ067153	Macronomia aureozonata
+cad	DQ067154	Macronomia sanguinolenta
+cad	DQ067170	Macropis europaea
+cad	DQ067171	Macropis nuda
+cad	DQ067131	Macrotera latior
+cad	DQ067181	Martinapis luteicornis
+cad	HQ995871	Megachile (Aethomegachile) sp. CJP-2011
+cad	HQ995874	Megachile (Austrochile) sp. CJP-2011
+cad	HQ995880	Megachile (Chrysosarus) sp. CJP-2011
+cad	HQ995887	Megachile (Hackeriapis) sp. CJP-2011
+cad	HQ995888	Megachile (Largella) sp. CJP-2011
+cad	HQ995897	Megachile (Rhodomegachile) sp. CJP-2011
+cad	HQ995877	Megachile aethiops
+cad	HQ995881	Megachile albisecta
+cad	HQ995878	Megachile angelarum
+cad	HQ995886	Megachile bombiformis
+cad	HQ995895	Megachile ericetorum
+cad	HQ995893	Megachile fabricator
+cad	HQ995872	Megachile fimbriata
+cad	HQ995883	Megachile mandibularis
+cad	HQ995899	Megachile maritima
+cad	HQ995890	Megachile maxillosa
+cad	HQ995891	Megachile melanopyga
+cad	HQ995896	Megachile microsoma
+cad	HQ995892	Megachile nevadensis
+cad	HQ995873	Megachile parallela
+cad	HQ995876	Megachile parietina
+cad	HQ995884	Megachile patellimana
+cad	HQ995885	Megachile pilidens
+cad	DQ067196	Megachile pugnata
+cad	HQ995898	Megachile remeata
+cad	HQ995875	Megachile sculpturalis
+cad	HQ995894	Megachile sidalceae
+cad	HQ995879	Megachile spinotulata
+cad	HQ995889	Megachile texana
+cad	HQ995882	Megachile zapoteca
+cad	DQ067169	Meganomia binghami
+cad	DQ067172	Melitta capensis
+cad	DQ067173	Melitta eickworti
+cad	DQ067174	Melitta leporina
+cad	DQ067134	Melitturga clavicornis
+cad	DQ067132	Meliturgula haematospila
+cad	DQ067133	Meliturgula minima
+cad	HQ995842	Microthurge sp. JS-2010
+cad	HQ995835	Neofidelia longirostris
+cad	HQ995836	Neofidelia profuga
+cad	EU122078	Nomada fucata
+cad	DQ067155	Nomia tetrazonata
+cad	HQ995861	Notanthidium steloides
+cad	EU851484	Noteriades sp. CJP-2008
+cad	HQ995900	Noteriades sp. CJP-2011
+cad	HQ995909	Ochreriades fasciatus
+cad	EU851495	Osmia anceps
+cad	EU851490	Osmia andrenoides
+cad	EU851500	Osmia apicata
+cad	EU851492	Osmia aurulenta
+cad	EU851502	Osmia bicolor
+cad	EU851499	Osmia brevicornis
+cad	EU851493	Osmia coloradensis
+cad	EU851504	Osmia cornuta
+cad	EU851496	Osmia difficilis
+cad	EU851506	Osmia ferruginea
+cad	EU851507	Osmia gallarum
+cad	EU851491	Osmia glauca
+cad	EU851486	Osmia integra
+cad	EU851497	Osmia juxta
+cad	EU851510	Osmia latisulcata
+cad	HQ995910	Osmia lignaria
+cad	EU851489	Osmia montana
+cad	EU851501	Osmia nemoris
+cad	EU851494	Osmia niveata
+cad	EU851508	Osmia rhodoensis
+cad	EU851487	Osmia rufohirta
+cad	EU851488	Osmia sybarita
+cad	EU851509	Osmia tergestensis
+cad	EU851503	Osmia tingitana
+cad	EU851498	Osmia xanthomelana
+cad	EU851512	Othinosmia aff. securicornis CJP-2008
+cad	HQ995911	Othinosmia globicola
+cad	HQ995912	Othinosmia securicornis
+cad	DQ067118	Oxybelus abdominalis
+cad	HQ995862	Pachyanthidium benguelense
+cad	DQ067135	Panurgus calcaratus
+cad	HQ995846	Paradioxys pannonica
+cad	DQ067188	Paranomada velutina
+cad	HQ995863	Paranthidium jugatorium
+cad	HQ995823	Pararhophites orobinus
+cad	HQ995824	Pararhophites quadratus
+cad	DQ067149	Patellapis (Zonalictus) sp. BND-2006
+cad	DQ067124	Philanthus gibbosus
+cad	DQ067119	Plenoculus nr. parvus BND-2010
+cad	DQ067137	Protandrena verbesinae
+cad	HQ995913	Protosmia humeralis
+cad	EU851513	Protosmia longiceps
+cad	EU851515	Protosmia minutula
+cad	EU851514	Protosmia rubifloris
+cad	DQ067128	Protoxaea gloriosa
+cad	DQ067156	Pseudapis obesula
+cad	HQ995864	Pseudoanthidium scapulare
+cad	HQ995914	Pseudoheriades moricei
+cad	DQ067138	Pseudopanurgus fraterculus
+cad	HQ995901	Radoszkowskiana rufiventris
+cad	DQ067175	Rediviva mcgregori
+cad	HQ995865	Rhodanthidium septemdentatum
+cad	DQ067158	Rophites algirus
+cad	GU945211	Samba atra
+cad	GU945212	Samba fasciata
+cad	DQ067164	Samba griseonigra
+cad	GU945213	Samba ogilviei
+cad	GU945214	Samba spinosa
+cad	DQ067125	Sceliphron caementarium
+cad	DQ067145	Scrapter heterodoxus
+cad	HQ995866	Serapista rufipes
+cad	DQ067147	Sphecodes pecosensis
+cad	DQ067148	Sphecodes sp. Spsp1055
+cad	EU851421	Stelis punctulatissima
+cad	HQ995867	Stelis sp. 'paiute'
+cad	HQ995915	Stenoheriades asiaticus
+cad	EU851519	Stenosmia aff. aravensis CJP-2008
+cad	EU851520	Stenosmia minima
+cad	DQ067176	Stenotritus sp. BND-2004
+cad	DQ067121	Stigmus fulvipes
+cad	DQ067160	Systropha glabriventris
+cad	DQ067120	Tachysphex yolo
+cad	DQ067183	Tetralonia cinctula
+cad	DQ067184	Thyreus delumbatus
+cad	EU851422	Trachusa byssina
+cad	HQ995868	Trachusa larreae
+cad	HQ995869	Trachusa pubescens
+cad	HQ995843	Trichothurgus herbsti
+cad	DQ067189	Triepeolus robustus
+cad	HQ995916	Wainia eremoplana
+cad	DQ067143	Xanthesma furcifera
+cad	EU122079	Xylocopa violacea
+cad	DQ067186	Zacosmia maculata
+camkii	EU184799	 Anthophora plumipes
+camkii	EU184795	 Apis cerana
+camkii	EU184794	 Apis dorsata
+camkii	EU184793	 Apis florea
+camkii	NM001134950	 Apis mellifera
+camkii	EU184789	 Bombus ardens
+camkii	EU184790	 Bombus diversus
+camkii	EU184796	 Centris cockerelli
+camkii	EU184791	 Cephalotrigona capitata
+camkii	EU184797	 Epiclopus gayi
+camkii	EU184788	 Eufriesea pulchra
+camkii	EU184787	 Exaerete frontalis
+camkii	EU184792	 Meliponula bocandei
+camkii	EU184798	 Thyreus takaonis
+dnk	EU184784	Apis dorsata
+dnk	XM625216	Apis mellifera
+dnk	EU184779	Bombus ardens
+dnk	EU184780	Bombus diversus
+dnk	XM003395329	Bombus terrestris
+dnk	EU184782	Cephalotrigona capitata
+dnk	EU980053	Hypotrigona ruspolii
+dnk	EU980054	Lepidotrigona ventralis
+dnk	EU980055	Lisotrigona furva
+dnk	EU980056	Melipona grandis
+dnk	EU184783	Meliponula bocandei
+dnk	EU980057	Odontotrigona haematoptera
+dnk	EU980058	Plebeia sp. A CR-2009
+dnk	EU980062	Tetragonula fuscobalteata
+dnk	EU980059	Tetrigona binghami
+dnk	EU980061	Trigona amazonensis
+dnk	EU184781	Trigona fuscipennis
+dnk	EU980060	Trigonisca sp. A CR-2009
+ecrb1	AB490055	 Ammophila infesta
+ecrb1	NM001159355	 Apis mellifera
+ecrb1	AB490051	 Bombus hypocrita
+ecrb1	XM003401618	 Bombus terrestris
+ecrb1	AB490054	 Coelioxys fenestrata
+ecrb1	AB490053	 Osmia cornifrons
+ecrb1	AB490052	 Xylocopa appendiculata
+ef1af1	AY363015	Agapostemon kohliellus
+ef1af1	JF806338	Agapostemon tyleri
+ef1af1	DQ149694	Allodape friesei
+ef1af1	AJ416773	Allodape mucronata
+ef1af1	AJ416774	Allodape skaifeorum
+ef1af1	AY247264	Allodapula acutigera
+ef1af1	DQ149695	Allodapula empeyi
+ef1af1	JF806339	Alocandrena porterae
+ef1af1	AY363037	Anacrabro ocellatus
+ef1af1	AY362984	Andrena n. sp. Ansp643
+ef1af1	AY362985	Andrena nasonii
+ef1af1	AY363025	Anthidium oblongatum
+ef1af1	NM001011628	Apis mellifera
+ef1af1	JF806341	Augochlorella pomoniella
+ef1af1	AY363036	Bicyrtes ventralis
+ef1af1	XM003399641	Bombus terrestris
+ef1af1	AJ416777	Braunsapis albipennis
+ef1af1	AJ416778	Braunsapis bouyssoui
+ef1af1	AJ416780	Braunsapis otavica
+ef1af1	AJ416779	Braunsapis paradoxa
+ef1af1	AJ416775	Braunsapis protuberans
+ef1af1	AJ416782	Braunsapis sp. NJB-2001
+ef1af1	AJ416776	Braunsapis unicolor
+ef1af1	AJ416781	Braunsapis vitrea
+ef1af1	AJ416772	Brevineura elongata
+ef1af1	AJ416770	Brevineura froggatti
+ef1af1	AJ416769	Brevineura ploratula
+ef1af1	AY005276	Brevineura rufitarsis
+ef1af1	AJ416771	Brevineura xanthoclypeata
+ef1af1	AY362988	Calliopsis anthidia
+ef1af1	JF806342	Calliopsis pugionis
+ef1af1	AY362989	Calliopsis subalpina
+ef1af1	AY362999	Callomelitta antipodes
+ef1af1	AY250208	Ceratina boninensis
+ef1af1	AY362998	Ceratina calcarata
+ef1af1	AY250209	Ceratina dentipes
+ef1af1	AY250210	Ceratina flavipes
+ef1af1	AY250211	Ceratina iwatai
+ef1af1	AY250212	Ceratina japonica
+ef1af1	AY250213	Ceratina megastigmata
+ef1af1	AY250214	Ceratina okinawana okinawana
+ef1af1	AY250215	Ceratina okinawana sakinshimensis
+ef1af1	AY250217	Ceratina satoi
+ef1af1	AY250216	Ceratina sp. ALC-2003
+ef1af1	AJ416848	Ceratina sp. NJB-2001
+ef1af1	EF013245	Chalybion californicum
+ef1af1	AY363028	Chelostoma fuliginosum
+ef1af1	AY363013	Chilimelissa rozeni
+ef1af1	AY363001	Colletes consors
+ef1af1	AY363003	Colletes dimidiatus
+ef1af1	AY363004	Colletes inaequalis
+ef1af1	AJ416784	Compsomelissa borneri
+ef1af1	JF806345	Conanthalictus wilmattae
+ef1af1	AY362994	Ctenoplectra albolimbata
+ef1af1	AY363029	Dasypoda argentata
+ef1af1	JF806350	Dieunomia nevadensis
+ef1af1	AY363020	Dufourea malacothricis
+ef1af1	AY363021	Dufourea mulleri
+ef1af1	AY362986	Euherbstia excellens
+ef1af1	AY363008	Euryglossa ephippiata
+ef1af1	AY363009	Euryglossina pseudoatomaria
+ef1af1	AJ416759	Exoneura angophorae
+ef1af1	AJ416762	Exoneura nigrescens
+ef1af1	AJ416761	Exoneura nigrihirta
+ef1af1	AJ416760	Exoneura robusta
+ef1af1	DQ149696	Exoneurella eremophila
+ef1af1	AJ416767	Exoneurella eremophilia
+ef1af1	AJ416765	Exoneurella lawsoni
+ef1af1	AJ416768	Exoneurella setosa
+ef1af1	AJ416766	Exoneurella tridentata
+ef1af1	DQ149698	Exoneuridia hakkariensis
+ef1af1	AY363024	Fideliopsis major
+ef1af1	JF806346	Halictus rubicundus
+ef1af1	AJ416785	Halterapis nigrinervis
+ef1af1	AY363030	Hesperapis larreae
+ef1af1	AY363031	Hesperapis regularis
+ef1af1	JF806347	Holcopasites ruthae
+ef1af1	AY363011	Hylaeus honestus
+ef1af1	AY363012	Hylaeus modestus
+ef1af1	AJ416763	Inquilina dawsoni
+ef1af1	DQ149697	Inquilina excavata
+ef1af1	AJ416764	Inquilina schwarzi
+ef1af1	AY362996	Leiopodus singularis
+ef1af1	AY363026	Lithurgus echinocacti
+ef1af1	AJ416783	Macrogalea candida
+ef1af1	AY245174	Macrogalea magenge
+ef1af1	DQ149699	Macrogalea zanzibarica
+ef1af1	AY363033	Macropis europaea
+ef1af1	AY362990	Macrotera latior
+ef1af1	HM461885	Manuelia gayatina
+ef1af1	HM461884	Manuelia gayi
+ef1af1	HM461886	Manuelia postica
+ef1af1	AY363027	Megachile pugnata
+ef1af1	AY363014	Megalopta genalis
+ef1af1	AY362995	Melissodes sp. Mesp229
+ef1af1	AY363034	Melitta eickworti
+ef1af1	JF806349	Melitta leporina
+ef1af1	JF806348	Melitturga clavicornis
+ef1af1	DQ149693	Neoceratina sp. SMT-2005
+ef1af1	AY363017	Nomia triangulifera
+ef1af1	AY363019	Nomioides facilis
+ef1af1	JF806351	Oxybelus sp. SGB-2011
+ef1af1	JF806352	Panurgus calcaratus
+ef1af1	AY363005	Paracolletes sp. 19Para
+ef1af1	JF806354	Paranomada velutina
+ef1af1	JF806353	Penapis penai
+ef1af1	AY362991	Protandrena mexicanorum
+ef1af1	AY363022	Protodufourea parca
+ef1af1	AY362987	Protoxaea gloriosa
+ef1af1	AY363018	Pseudapis unidentata
+ef1af1	JF806355	Rediviva mcgregori
+ef1af1	JF806356	Redivivoides simulans
+ef1af1	AY363023	Rophites algirus
+ef1af1	AY363032	Samba griseonigra
+ef1af1	AY363042	Sceliphron caementarium
+ef1af1	JF806357	Scrapter ruficornis
+ef1af1	AY363016	Sphecodes minor
+ef1af1	AY363035	Stenotritus sp. BND-2004
+ef1af1	JF806358	Stenotritus sp. SGB-2011
+ef1af1	AY363038	Stigmus fulvipes
+ef1af1	JF806360	Stizoides sp. SGB-2011
+ef1af1	JF806359	Systropha curvicornis
+ef1af1	AY362997	Triepeolus rozeni
+ef1af1	AY363010	Xanthesma furcifera
+ef1af1	JF806361	Xeralictus bicuspidariae
+ef1af1	AY005296	Xylocopa acutipennis
+ef1af1	EU180119	Xylocopa aeratus
+ef1af1	EU180117	Xylocopa albifrons
+ef1af1	EU445979	Xylocopa albinotum
+ef1af1	EU445977	Xylocopa amamensis
+ef1af1	EU445976	Xylocopa appendiculata circumvolans
+ef1af1	AY005288	Xylocopa aruana
+ef1af1	AY005279	Xylocopa auripennis auripennis
+ef1af1	AY005281	Xylocopa bombylans
+ef1af1	EU445987	Xylocopa caerulea
+ef1af1	EU180112	Xylocopa caffra
+ef1af1	EU445989	Xylocopa collaris
+ef1af1	EU445985	Xylocopa confusa
+ef1af1	EU180109	Xylocopa dimidiata
+ef1af1	AY005283	Xylocopa erythrina
+ef1af1	EU180111	Xylocopa flavicollis
+ef1af1	EU445978	Xylocopa flavifrons
+ef1af1	AY005293	Xylocopa flavorufa
+ef1af1	AY005302	Xylocopa frontalis
+ef1af1	AY005300	Xylocopa gualanensis
+ef1af1	EU180113	Xylocopa inconstans
+ef1af1	AY005286	Xylocopa iris
+ef1af1	AY005295	Xylocopa latipes
+ef1af1	AY005289	Xylocopa lieftincki
+ef1af1	EU180118	Xylocopa lugubris
+ef1af1	AY005277	Xylocopa micans
+ef1af1	AY005298	Xylocopa micheneri micheneri
+ef1af1	AY005292	Xylocopa nigrita
+ef1af1	EU180108	Xylocopa nobilis tricolor
+ef1af1	EU445983	Xylocopa ogasawarensis
+ef1af1	AY005294	Xylocopa olivieri
+ef1af1	EU180116	Xylocopa provida
+ef1af1	AY005290	Xylocopa pubescens
+ef1af1	AY005291	Xylocopa scioensis
+ef1af1	AY005284	Xylocopa sicheli
+ef1af1	EU180114	Xylocopa smithii
+ef1af1	EU180110	Xylocopa sp. India
+ef1af1	EU445984	Xylocopa sp. KWZ10
+ef1af1	EU445980	Xylocopa sp. KWZ5
+ef1af1	AY005287	Xylocopa sulcatipes
+ef1af1	AY005282	Xylocopa tabaniformis tabaniformis
+ef1af1	AY005278	Xylocopa tranquebarica
+ef1af1	EU445981	Xylocopa tranquebarorum
+ef1af1	AY005301	Xylocopa truxali
+ef1af1	AY005299	Xylocopa varipuncta
+ef1af1	AY005280	Xylocopa violacea
+ef1af1	AY005285	Xylocopa virginica virginica
+ef1af1	EU180115	Xylocopa watmoughi
+ef1af1	JF806337	Zacosmia maculata
+ef1af2	NM001014993	 Apis mellifera
+ef1af2	XM003401944	 Bombus terrestris
+ef1af2	EF601193	Acamptopoeum submetallicum
+ef1af2	HQ995698	Afranthidium karooense
+ef1af2	EU851532	Afroheriades primus
+ef1af2	EU851533	Afroheriades sp. CJP-2008
+ef1af2	AF140318	Agapostemon kohliellus
+ef1af2	AF435371	Agapostemon leunculus
+ef1af2	AF140319	Agapostemon sericeus
+ef1af2	AF140320	Agapostemon tyleri
+ef1af2	AF140321	Agapostemon virescens
+ef1af2	EU851524	Aglaoapis tridentata
+ef1af2	DQ149701	Allodape friesei
+ef1af2	HQ270146	Allodapula dichroa
+ef1af2	DQ149704	Allodapula empeyi
+ef1af2	AY585099	Alocandrena porterae
+ef1af2	GU245011	Ammobates punctatus
+ef1af2	GU245010	Ammobates sp. JS-2010
+ef1af2	GU244965	Ammobatoides luctuosus
+ef1af2	EU367211	Ammophila sp. 1 EMP-2008
+ef1af2	DQ884687	Amphylaeus obscuriceps
+ef1af2	GQ410718	Ampulex compressa
+ef1af2	AY585160	Anacrabro ocellatus
+ef1af2	GU244912	Ancyla asiatica
+ef1af2	GU244913	Ancyla holtzi anatolica
+ef1af2	EF601191	Ancylandrena atoposoma
+ef1af2	EF601178	Ancylandrena larreae
+ef1af2	AF504484	Andrena aff. manifesta LLL-2002
+ef1af2	AF504485	Andrena aff. rava LLL-2002
+ef1af2	AF504486	Andrena aff. rubens LLL-2002
+ef1af2	AF504426	Andrena afimbriata
+ef1af2	EF599166	Andrena albopunctata
+ef1af2	AF504427	Andrena aliciae
+ef1af2	AF504428	Andrena aliciarum
+ef1af2	AF504494	Andrena anatolis
+ef1af2	AF504508	Andrena andrenoides
+ef1af2	AF504429	Andrena ardis
+ef1af2	AF504509	Andrena arenicola
+ef1af2	EF601194	Andrena asteris
+ef1af2	AF504431	Andrena auripes
+ef1af2	AF504497	Andrena avulsa
+ef1af2	EF601190	Andrena banksi
+ef1af2	AF504432	Andrena barberi
+ef1af2	AF504433	Andrena beameri
+ef1af2	EF593373	Andrena benefica
+ef1af2	AF504434	Andrena biscutellata
+ef1af2	AF504435	Andrena braccata
+ef1af2	EF601189	Andrena bradleyi
+ef1af2	AF504480	Andrena brooksi
+ef1af2	AF504436	Andrena bullata
+ef1af2	AF504438	Andrena calvata
+ef1af2	AF504502	Andrena carlini
+ef1af2	AF504481	Andrena chaparralensis
+ef1af2	EF599167	Andrena cineraria
+ef1af2	AF504492	Andrena citrinihirta
+ef1af2	EF601188	Andrena crataegi
+ef1af2	AF504439	Andrena crawfordi
+ef1af2	AF504499	Andrena cressonii
+ef1af2	AF504514	Andrena dapsilis
+ef1af2	AF504440	Andrena discreta
+ef1af2	EF601187	Andrena distans
+ef1af2	AF504503	Andrena dolomellea
+ef1af2	EF601186	Andrena dunningi
+ef1af2	AF504511	Andrena erigeniae
+ef1af2	EF601185	Andrena erythrogaster
+ef1af2	EF593374	Andrena ezoensis
+ef1af2	AF504501	Andrena faceta
+ef1af2	AF504518	Andrena flaminea
+ef1af2	EF593375	Andrena foveopunctata
+ef1af2	EF601184	Andrena fragilis
+ef1af2	EF593376	Andrena fukuokensis
+ef1af2	AF504441	Andrena fulvipennis
+ef1af2	AF504442	Andrena fumosa
+ef1af2	AF504443	Andrena gardineri
+ef1af2	EF601183	Andrena geranii
+ef1af2	EF593377	Andrena haemorrhoa japonibia
+ef1af2	EF593378	Andrena halictoides
+ef1af2	EF593379	Andrena hanedai
+ef1af2	AF504444	Andrena haynesi
+ef1af2	EF601182	Andrena helianthi
+ef1af2	AF504447	Andrena helianthiformis
+ef1af2	EF593380	Andrena hikosana
+ef1af2	EF601180	Andrena hirticincta
+ef1af2	AF504448	Andrena humeralis
+ef1af2	AF504506	Andrena illinoiensis
+ef1af2	EF601179	Andrena imitatrix
+ef1af2	AF504449	Andrena inculta
+ef1af2	AF504450	Andrena isocomae
+ef1af2	EF593381	Andrena japonica
+ef1af2	EF593382	Andrena knuthi
+ef1af2	AF504452	Andrena krigiana
+ef1af2	EF601177	Andrena lauta
+ef1af2	AF504453	Andrena levigata
+ef1af2	AF504454	Andrena limatula
+ef1af2	AF504507	Andrena linsleyi
+ef1af2	EF593383	Andrena luridiloma
+ef1af2	AF504488	Andrena macoupinensis
+ef1af2	AF504510	Andrena mellea
+ef1af2	AF504455	Andrena melliventris
+ef1af2	AF504457	Andrena micheneriana
+ef1af2	EF593384	Andrena mikado
+ef1af2	AF504521	Andrena miranda
+ef1af2	EF601176	Andrena miserabilis
+ef1af2	EF593386	Andrena mitakensis
+ef1af2	AF504458	Andrena monticola
+ef1af2	AF504487	Andrena n. sp. 'goth'
+ef1af2	AF504513	Andrena n. sp. LLL-2002c
+ef1af2	AF504517	Andrena n. sp. LLL-2002d
+ef1af2	AF504519	Andrena nasonii
+ef1af2	AF504482	Andrena neffi
+ef1af2	AF504498	Andrena nigrifrons
+ef1af2	EF593387	Andrena nitidiuscula
+ef1af2	AF504504	Andrena nivalis
+ef1af2	EF601175	Andrena nubecula
+ef1af2	AF504459	Andrena ofella
+ef1af2	EF593388	Andrena okinawana
+ef1af2	EF601174	Andrena olivacea
+ef1af2	EF593389	Andrena omogensis
+ef1af2	AF504462	Andrena pecosana
+ef1af2	AF504522	Andrena perplexa
+ef1af2	AF504463	Andrena perpunctata
+ef1af2	EF601173	Andrena persimulata
+ef1af2	AF504464	Andrena placata
+ef1af2	AF504490	Andrena plebeia
+ef1af2	AF504515	Andrena primulifrons
+ef1af2	EF593390	Andrena prostomias
+ef1af2	EF601181	Andrena pulverea
+ef1af2	AF504465	Andrena reflexa
+ef1af2	EF593391	Andrena richardsi
+ef1af2	AF504466	Andrena rubens
+ef1af2	AF504467	Andrena rudbeckiae
+ef1af2	EF601172	Andrena rugosa
+ef1af2	AF504491	Andrena sagittagalea
+ef1af2	EF593392	Andrena sakagamii
+ef1af2	EF593393	Andrena sasakii
+ef1af2	EF593394	Andrena semirugosa brassicae
+ef1af2	AF504468	Andrena senticulosa
+ef1af2	AF504469	Andrena simplex
+ef1af2	AF504472	Andrena simulata
+ef1af2	AF504473	Andrena sitiliae
+ef1af2	EF601171	Andrena solenopalpa
+ef1af2	AY230129	Andrena sp. Ansp643
+ef1af2	AF504493	Andrena sp. LLL-2002a
+ef1af2	AF504495	Andrena sp. LLL-2002b
+ef1af2	EF593395	Andrena subopaca
+ef1af2	EF593396	Andrena takachihoi
+ef1af2	AF504474	Andrena tegularis
+ef1af2	EF593397	Andrena togashii
+ef1af2	AF504475	Andrena tonkaworum
+ef1af2	AF504516	Andrena trapezoidea
+ef1af2	EF593398	Andrena tsukubana
+ef1af2	AF504476	Andrena utahensis
+ef1af2	EF593399	Andrena valeriana
+ef1af2	AF504478	Andrena verecunda
+ef1af2	AF504512	Andrena 'viciae'
+ef1af2	EF601170	Andrena vicina
+ef1af2	AF504483	Andrena vogleri
+ef1af2	AF504479	Andrena vulpicolor
+ef1af2	EF601169	Andrena wilkella
+ef1af2	EF593400	Andrena yamato
+ef1af2	DQ884624	Andrenopsis sp. EABA-2006
+ef1af2	GU244995	Anthidiellum notatum
+ef1af2	HQ995699	Anthidium illustre
+ef1af2	AY585145	Anthidium oblongatum
+ef1af2	GU244996	Anthidium porterae
+ef1af2	EU851525	Anthidium punctatum
+ef1af2	HQ995700	Anthodioctes mapirensis
+ef1af2	GU244948	Anthophorula completa
+ef1af2	GU244949	Anthophorula sp. 1 JS-2010
+ef1af2	GU244950	Anthophorula sp. 2 JS-2010
+ef1af2	AF504525	Anthrenoides sp. LLL-2002
+ef1af2	FJ042288	Aparatrigona impunctata
+ef1af2	EU814525	Apidae sp. MorondavaA
+ef1af2	EU814527	Apidae sp. MorondavaB
+ef1af2	EU814529	Apidae sp. Ramena
+ef1af2	EU163210	Apis andreniformis
+ef1af2	EU163208	Apis cerana
+ef1af2	EU163191	Apis dorsata
+ef1af2	EU163209	Apis florea
+ef1af2	EU163193	Apis koschevnikovi
+ef1af2	AY208279	Apis nigrocincta
+ef1af2	DQ813104	Apotrigona infuscata
+ef1af2	GU244978	Arhysoceble sp. JS-2010
+ef1af2	EF599169	Arhysosage ochracea
+ef1af2	EU851536	Ashmeadiella aff. gillettei CJP-2008
+ef1af2	EU851535	Ashmeadiella aridula
+ef1af2	EU851537	Ashmeadiella holtii
+ef1af2	EU851534	Ashmeadiella timberlakei
+ef1af2	EU851538	Ashmeadiella xenomastax
+ef1af2	HQ995701	Aspidosmia arnoldi
+ef1af2	HQ995702	Aspidosmia volkmanni
+ef1af2	EU851542	Atoposmia aff. daleae CJP-2008
+ef1af2	EU851544	Atoposmia copelandica
+ef1af2	EU851539	Atoposmia elongata
+ef1af2	EU851540	Atoposmia hebitis
+ef1af2	EU851541	Atoposmia mirifica
+ef1af2	EU851543	Atoposmia timberlakei
+ef1af2	AF140314	Augochlora pura
+ef1af2	AF435373	Augochlorella pomoniella
+ef1af2	AF140315	Augochloropsis metallica
+ef1af2	EF601168	Austropanurgus punctatus
+ef1af2	DQ813105	Austroplebeia symei
+ef1af2	DQ813109	Axestotrigona ferruginea
+ef1af2	DQ884617	Baeocolletes minimus
+ef1af2	DQ884609	Baeocolletes sp. EABA-2006
+ef1af2	HQ995703	Bathanthidium binghami
+ef1af2	DQ884593	Belopria nitidior
+ef1af2	AY585168	Bembix americana
+ef1af2	EU367212	Bembix amoena
+ef1af2	AY585165	Bembix dentilabris
+ef1af2	HQ995704	Benanthis madagascariensis
+ef1af2	GU244981	Biastes truncatus
+ef1af2	AY585161	Bicyrtes ventralis
+ef1af2	DQ788144	Bombus affinis
+ef1af2	DQ788145	Bombus alagesianus
+ef1af2	EF032360	Bombus alboanalis
+ef1af2	DQ788146	Bombus alpinus
+ef1af2	DQ788147	Bombus apollineus
+ef1af2	DQ788148	Bombus appositus
+ef1af2	AF492964	Bombus ardens
+ef1af2	DQ788150	Bombus argillaceus
+ef1af2	DQ788151	Bombus armeniacus
+ef1af2	AF492924	Bombus ashtoni
+ef1af2	EF032369	Bombus asiaticus
+ef1af2	DQ788152	Bombus atratus
+ef1af2	DQ788153	Bombus atripes
+ef1af2	DQ788154	Bombus auricomus
+ef1af2	EF032365	Bombus avanus
+ef1af2	DQ788155	Bombus avinoviellus
+ef1af2	DQ788156	Bombus baeri
+ef1af2	DQ788157	Bombus balteatus
+ef1af2	DQ788158	Bombus barbutellus
+ef1af2	AF492963	Bombus beaticola
+ef1af2	DQ788159	Bombus bellicosus
+ef1af2	AF492971	Bombus bicoloratus
+ef1af2	AF492943	Bombus bifarius
+ef1af2	DQ788161	Bombus bimaculatus
+ef1af2	DQ788162	Bombus biroi
+ef1af2	AF492925	Bombus bohemicus
+ef1af2	AF492976	Bombus borealis
+ef1af2	DQ788163	Bombus brachycephalus
+ef1af2	DQ788164	Bombus brasiliensis
+ef1af2	DQ788165	Bombus breviceps
+ef1af2	DQ788166	Bombus brodmannicus
+ef1af2	DQ788167	Bombus californicus
+ef1af2	AF492968	Bombus caliginosus
+ef1af2	AF492927	Bombus campestris
+ef1af2	DQ788169	Bombus centralis
+ef1af2	DQ788170	Bombus chinensis
+ef1af2	AF492948	Bombus cingulatus
+ef1af2	AY267137	Bombus citrinus
+ef1af2	DQ788172	Bombus coccineus
+ef1af2	DQ788173	Bombus confusus
+ef1af2	AY267134	Bombus consobrinus
+ef1af2	DQ788174	Bombus convexus
+ef1af2	EF032377	Bombus cornutus
+ef1af2	AF492973	Bombus crotchii
+ef1af2	DQ788175	Bombus cryptarum
+ef1af2	AF492931	Bombus dahlbomii
+ef1af2	AF492958	Bombus defector
+ef1af2	AY267138	Bombus deuteronymus
+ef1af2	DQ788177	Bombus difficillimus
+ef1af2	DQ788178	Bombus digressus
+ef1af2	DQ788179	Bombus diligens
+ef1af2	DQ788180	Bombus distinguendus
+ef1af2	AF492961	Bombus diversus
+ef1af2	DQ788181	Bombus ecuadorius
+ef1af2	DQ788182	Bombus ephippiatus
+ef1af2	DQ788183	Bombus erzurumensis
+ef1af2	DQ788184	Bombus excellens
+ef1af2	DQ788185	Bombus exil
+ef1af2	DQ788186	Bombus eximius
+ef1af2	AF492926	Bombus fernaldae
+ef1af2	AF492930	Bombus fervidus
+ef1af2	DQ788187	Bombus festivus
+ef1af2	DQ788188	Bombus filchnerae
+ef1af2	AF492950	Bombus flavescens
+ef1af2	DQ788189	Bombus flavidus
+ef1af2	DQ788190	Bombus flavifrons
+ef1af2	AF492939	Bombus formosellus
+ef1af2	DQ788191	Bombus fragrans
+ef1af2	EF032366	Bombus franklini
+ef1af2	AF492974	Bombus fraternus
+ef1af2	DQ788192	Bombus frigidus
+ef1af2	DQ788193	Bombus friseanus
+ef1af2	DQ788194	Bombus funebris
+ef1af2	EF032378	Bombus funerarius
+ef1af2	DQ788195	Bombus gerstaeckeri
+ef1af2	EF032371	Bombus grahami
+ef1af2	AF492972	Bombus griseocollis
+ef1af2	EF032364	Bombus haematurus
+ef1af2	AF492983	Bombus haemorrhoidalis
+ef1af2	DQ788197	Bombus handlirschi
+ef1af2	DQ788198	Bombus handlirschianus
+ef1af2	DQ788199	Bombus hedini
+ef1af2	AF492962	Bombus honshuensis
+ef1af2	DQ788200	Bombus hortorum
+ef1af2	DQ788201	Bombus hortulanus
+ef1af2	DQ788202	Bombus humilis
+ef1af2	AF492978	Bombus huntii
+ef1af2	DQ788204	Bombus hyperboreus
+ef1af2	DQ788205	Bombus hypnorum
+ef1af2	AF492956	Bombus hypocrita
+ef1af2	DQ788207	Bombus ignitus
+ef1af2	DQ788208	Bombus imitator
+ef1af2	EF032373	Bombus impetuosus
+ef1af2	DQ788211	Bombus incertus
+ef1af2	DQ788212	Bombus infirmus
+ef1af2	DQ788213	Bombus infrequens
+ef1af2	AF492975	Bombus insularis
+ef1af2	DQ788214	Bombus jonellus
+ef1af2	DQ788215	Bombus kashmirensis
+ef1af2	DQ788216	Bombus keriensis
+ef1af2	AF492969	Bombus koreanus
+ef1af2	DQ788217	Bombus kulingensis
+ef1af2	AY739575	Bombus ladakhensis
+ef1af2	DQ788218	Bombus laesus
+ef1af2	DQ788219	Bombus lapidarius
+ef1af2	DQ788220	Bombus lapponicus
+ef1af2	DQ788221	Bombus lemniscatus
+ef1af2	DQ788222	Bombus lepidus
+ef1af2	DQ788223	Bombus longipes
+ef1af2	DQ788224	Bombus lucorum
+ef1af2	DQ788226	Bombus macgregori
+ef1af2	DQ788227	Bombus maxillosus
+ef1af2	DQ788228	Bombus medius
+ef1af2	DQ788143	Bombus melaleucus
+ef1af2	DQ788229	Bombus melanopygus
+ef1af2	AF492923	Bombus melanurus
+ef1af2	AF492957	Bombus mendax
+ef1af2	DQ788231	Bombus mesomelas
+ef1af2	DQ788232	Bombus mexicanus
+ef1af2	DQ788233	Bombus miniatus
+ef1af2	AF492947	Bombus mixtus
+ef1af2	DQ788235	Bombus mlokosievitzii
+ef1af2	DQ788236	Bombus moderatus
+ef1af2	AY267141	Bombus modestus
+ef1af2	DQ788238	Bombus monticola
+ef1af2	DQ788239	Bombus morio
+ef1af2	AY267136	Bombus morrisoni
+ef1af2	AF492935	Bombus mucidus
+ef1af2	DQ788241	Bombus muscorum
+ef1af2	DQ788242	Bombus neoboreus
+ef1af2	DQ788243	Bombus nevadensis
+ef1af2	DQ788244	Bombus niveatus
+ef1af2	DQ788245	Bombus nobilis
+ef1af2	DQ788246	Bombus norvegicus
+ef1af2	DQ788247	Bombus oberti
+ef1af2	DQ788248	Bombus occidentalis
+ef1af2	DQ788249	Bombus opifex
+ef1af2	AF492951	Bombus parthenius
+ef1af2	AF492934	Bombus pascuorum
+ef1af2	DQ788252	Bombus patagiatus
+ef1af2	AY208281	Bombus pennsylvanicus
+ef1af2	DQ788254	Bombus perplexus
+ef1af2	DQ788255	Bombus persicus
+ef1af2	DQ788256	Bombus personatus
+ef1af2	DQ788257	Bombus picipes
+ef1af2	AF492970	Bombus polaris
+ef1af2	DQ788258	Bombus pomorum
+ef1af2	DQ788259	Bombus portchinsky
+ef1af2	DQ788260	Bombus potanini
+ef1af2	AF492966	Bombus pratorum
+ef1af2	EF032368	Bombus pressus
+ef1af2	EF032372	Bombus pseudobaicalensis
+ef1af2	DQ788261	Bombus pullatus
+ef1af2	DQ788262	Bombus pyrenaeus
+ef1af2	DQ788263	Bombus quadricolor
+ef1af2	DQ788264	Bombus religiosus
+ef1af2	DQ788265	Bombus remotus
+ef1af2	DQ788266	Bombus robustus
+ef1af2	DQ788267	Bombus rubicundus
+ef1af2	AF492932	Bombus ruderarius
+ef1af2	AF492977	Bombus ruderatus
+ef1af2	DQ788268	Bombus rufocinctus
+ef1af2	DQ788269	Bombus rufofasciatus
+ef1af2	AF492928	Bombus rupestris
+ef1af2	EF032361	Bombus sandersoni
+ef1af2	AF492933	Bombus schrencki
+ef1af2	DQ788270	Bombus securus
+ef1af2	DQ788271	Bombus semenoviellus
+ef1af2	DQ788272	Bombus shaposhnikovi
+ef1af2	EF032370	Bombus sibiricus
+ef1af2	DQ788273	Bombus sichelii
+ef1af2	DQ788274	Bombus simillimus
+ef1af2	DQ788275	Bombus sitkensis
+ef1af2	DQ788276	Bombus skorikovi
+ef1af2	EF032376	Bombus sonorus
+ef1af2	DQ788278	Bombus soroeensis
+ef1af2	EU254246	Bombus sp. Santiago
+ef1af2	AY267140	Bombus sporadicus
+ef1af2	DQ788280	Bombus steindachneri
+ef1af2	DQ788281	Bombus subterraneus
+ef1af2	DQ788282	Bombus suckleyi
+ef1af2	DQ788283	Bombus sulfureus
+ef1af2	DQ788284	Bombus supremus
+ef1af2	AF492921	Bombus sushkini
+ef1af2	DQ788285	Bombus sylvarum
+ef1af2	DQ788286	Bombus sylvestris
+ef1af2	DQ788287	Bombus sylvicola
+ef1af2	AF492979	Bombus ternarius
+ef1af2	DQ788289	Bombus terricola
+ef1af2	DQ788290	Bombus tibetanus
+ef1af2	AF492922	Bombus tichenkoi
+ef1af2	DQ788291	Bombus transversalis
+ef1af2	AF492937	Bombus tricornis
+ef1af2	AF492918	Bombus trifasciatus
+ef1af2	DQ788292	Bombus trinominatus
+ef1af2	EF032367	Bombus tucumanus
+ef1af2	AF492919	Bombus ussurensis
+ef1af2	EU163206	Bombus vagans
+ef1af2	DQ788294	Bombus vandykei
+ef1af2	DQ788295	Bombus variabilis
+ef1af2	DQ788296	Bombus velox
+ef1af2	DQ788297	Bombus vestalis
+ef1af2	DQ788298	Bombus veteranus
+ef1af2	DQ788299	Bombus vogti
+ef1af2	AY267133	Bombus volucelloides
+ef1af2	DQ788300	Bombus vorticosus
+ef1af2	DQ788301	Bombus vosnesenskii
+ef1af2	DQ788302	Bombus waltoni
+ef1af2	DQ788303	Bombus weisi
+ef1af2	DQ788304	Bombus wilmattae
+ef1af2	DQ788305	Bombus wurflenii
+ef1af2	DQ788306	Bombus zonatus
+ef1af2	DQ884600	Brachyglossula communis
+ef1af2	GU245019	Brachynomada margaretae
+ef1af2	GU244982	Brachynomada sp. JS-2010
+ef1af2	EF190112	Braunsapis foveata
+ef1af2	EF190111	Braunsapis leptozonia
+ef1af2	GU245038	Braunsapis madecassella
+ef1af2	DQ160177	Braunsapis sp. Malawi
+ef1af2	DQ160175	Braunsapis sp. St-Marie-1
+ef1af2	DQ160176	Braunsapis sp. St-Marie-2
+ef1af2	DQ160174	Braunsapis sp. Taolagnaro
+ef1af2	DQ160173	Braunsapis sp. Toliara
+ef1af2	DQ149703	Braunsapis unicolor
+ef1af2	DQ149702	Braunsapis vitrea
+ef1af2	DQ149718	Brevineura elongata
+ef1af2	HQ268561	Brevineura sp. A Queensland
+ef1af2	HQ268559	Brevineura sp. C Queensland
+ef1af2	HQ268557	Brevineura sp. New South Wales
+ef1af2	DQ149717	Brevineura xanthoclypeata
+ef1af2	DQ884574	Cadeguala albopilosa
+ef1af2	DQ884577	Cadeguala occidentalis
+ef1af2	DQ884578	Cadegualina andina
+ef1af2	AF435375	Caenohalictus sp. BND-1
+ef1af2	AF435376	Caenohalictus sp. BND-2
+ef1af2	AF435377	Caenohalictus sp. BND-3
+ef1af2	GU244974	Caenonomada sp. JS-2010
+ef1af2	GU244983	Caenoprosopina holmbergi
+ef1af2	GU245020	Caenoprosopis crabronina
+ef1af2	EF599171	Calliopsis andreniformis
+ef1af2	AY585100	Calliopsis anthidia
+ef1af2	AY585101	Calliopsis fracta
+ef1af2	AF504526	Calliopsis micheneri
+ef1af2	AY585102	Calliopsis pugionis
+ef1af2	EF601192	Calliopsis subalpina
+ef1af2	AY585126	Callohesma calliopsella
+ef1af2	AY585122	Callomelitta antipodes
+ef1af2	EF599170	Callonychium atacamense
+ef1af2	EF599175	Camptopoeum frontale
+ef1af2	EF599176	Camptopoeum negevense
+ef1af2	EF594329	Capicola hantamensis
+ef1af2	EF594327	Capicola nanula
+ef1af2	EF594328	Capicola nigerrima
+ef1af2	DQ884576	Caupolicana bicolor
+ef1af2	DQ884575	Caupolicana quadrifasciata
+ef1af2	AY585124	Caupolicana vestita
+ef1af2	FJ042289	Celetrigona aff. longicornis CR-2009
+ef1af2	EU203249	Cellariella brooksi
+ef1af2	DQ884589	Cephalocolletes isabelae
+ef1af2	DQ884602	Cephalocolletes laticeps
+ef1af2	FJ042290	Cephalotrigona aff. capitata CR-2009
+ef1af2	FJ042292	Cephalotrigona capitata
+ef1af2	FJ042291	Cephalotrigona sp. B CR-2009
+ef1af2	DQ813110	Cephalotrigona sp. CR-2006
+ef1af2	EU163186	Cephalotrigona sp. MP106
+ef1af2	EU163248	Cephalotrigona sp. MP89
+ef1af2	AY585108	Ceratina calcarata
+ef1af2	GU244984	Ceratina cyanea
+ef1af2	GU321640	Ceratina cyaniventris
+ef1af2	DQ149700	Ceratina japonica
+ef1af2	GU245044	Ceratina sp. JS-2010
+ef1af2	EU367213	Chalybion californicum
+ef1af2	EU851547	Chelostoma aureocinctum
+ef1af2	EU863120	Chelostoma bytinskii
+ef1af2	EU851548	Chelostoma californicum
+ef1af2	EU851549	Chelostoma campanularum
+ef1af2	EU863121	Chelostoma cockerelli
+ef1af2	EU863111	Chelostoma diodon
+ef1af2	EU863122	Chelostoma distinctum
+ef1af2	EU863112	Chelostoma edentulum
+ef1af2	EU863113	Chelostoma emarginatum
+ef1af2	EU851546	Chelostoma florisomne
+ef1af2	EU863123	Chelostoma foveolatum
+ef1af2	AY585146	Chelostoma fuliginosum
+ef1af2	EU863114	Chelostoma grande
+ef1af2	EU863124	Chelostoma hellenicum
+ef1af2	EU863125	Chelostoma incisulum
+ef1af2	EU851545	Chelostoma lamellum
+ef1af2	EU863126	Chelostoma laticaudum
+ef1af2	EU863127	Chelostoma marginatum incisuloides
+ef1af2	EU863128	Chelostoma minutum
+ef1af2	EU863115	Chelostoma mocsaryi
+ef1af2	EU863116	Chelostoma nasutum
+ef1af2	EU863129	Chelostoma phaceliae
+ef1af2	EU851551	Chelostoma philadelphi
+ef1af2	EU851550	Chelostoma rapunculi
+ef1af2	EU863117	Chelostoma sp. 2 CJP-2008
+ef1af2	EU863118	Chelostoma sp. 3 CJP-2008
+ef1af2	EU863130	Chelostoma styriacum
+ef1af2	EU863119	Chelostoma transversum
+ef1af2	EU863131	Chelostoma ventrale
+ef1af2	DQ872751	Chilicola araucana
+ef1af2	DQ884663	Chilicola herbsti
+ef1af2	DQ872754	Chilicola inermis
+ef1af2	DQ872750	Chilicola patagonica
+ef1af2	DQ884662	Chilicola rostrata
+ef1af2	DQ872745	Chilicola sp. 1 EABA-2006
+ef1af2	DQ872746	Chilicola sp. 2 EABA-2006
+ef1af2	DQ872747	Chilicola sp. 3 EABA-2006
+ef1af2	DQ872748	Chilicola sp. 4 EABA-2006
+ef1af2	DQ872749	Chilicola sp. 5 EABA-2006
+ef1af2	DQ872753	Chilicola sp. 6 EABA-2006
+ef1af2	AY585121	Chilicola styliventris
+ef1af2	DQ872744	Chilicola vernalis
+ef1af2	DQ884661	Chilicola vicugna
+ef1af2	AF435392	Chilicolletes delahozii
+ef1af2	DQ884656	Chilimelissa australis
+ef1af2	DQ872740	Chilimelissa chusmiza
+ef1af2	DQ884658	Chilimelissa irwini
+ef1af2	DQ872739	Chilimelissa laureli
+ef1af2	DQ872737	Chilimelissa mucar
+ef1af2	DQ884657	Chilimelissa nortina
+ef1af2	DQ872742	Chilimelissa pedroi
+ef1af2	DQ872738	Chilimelissa rosie
+ef1af2	AY585120	Chilimelissa rozeni
+ef1af2	DQ884659	Chilimelissa sp. 1 EABA-2006
+ef1af2	DQ872736	Chilimelissa sp. 2 EABA-2006
+ef1af2	DQ872743	Chilimelissa sp. 3 EABA-2006
+ef1af2	EF599173	Clavipanurgus desertus
+ef1af2	AY585163	Clypeadon haigi
+ef1af2	EU367214	Clypeadon taurulus
+ef1af2	GU244980	Coelioxoides sp. JS-2010
+ef1af2	GU244986	Coelioxoides waltheriae
+ef1af2	EU851528	Coelioxys afra
+ef1af2	GU245004	Coelioxys alternata
+ef1af2	DQ884625	Colletellus velutinellus
+ef1af2	DQ085576	Colletes acutus
+ef1af2	DQ884646	Colletes bicolor
+ef1af2	DQ884642	Colletes compactus
+ef1af2	DQ884641	Colletes distinctus
+ef1af2	DQ884649	Colletes floralis
+ef1af2	DQ884651	Colletes furfuraceus
+ef1af2	DQ085561	Colletes halophilus
+ef1af2	DQ085553	Colletes hederae
+ef1af2	AY585123	Colletes inaequalis
+ef1af2	DQ884643	Colletes pascoensis
+ef1af2	DQ884647	Colletes seminitidus
+ef1af2	DQ884644	Colletes simulans
+ef1af2	AY230130	Colletes skinneri
+ef1af2	DQ884648	Colletes sp. EABA-2006
+ef1af2	DQ085571	Colletes succinctus
+ef1af2	DQ884645	Colletes thoracicus
+ef1af2	DQ085577	Colletes wolfi
+ef1af2	DQ149719	Compsomelissa borneri
+ef1af2	GU245039	Compsomelissa keiseri
+ef1af2	EF411176	Conanthalictus conanthi
+ef1af2	AF435378	Conanthalictus wilmattae
+ef1af2	GU244941	Ctenioschelus goryi
+ef1af2	DQ884570	Ctenocolletes nigricans
+ef1af2	DQ884571	Ctenocolletes rufescens
+ef1af2	DQ884572	Ctenocolletes smaragdinus
+ef1af2	AY585118	Ctenoplectra albolimbata
+ef1af2	EU122136	Ctenoplectra antinorii
+ef1af2	EU122137	Ctenoplectra armata
+ef1af2	EU122138	Ctenoplectra australica
+ef1af2	EU122139	Ctenoplectra bequaerti
+ef1af2	EU122140	Ctenoplectra davidi
+ef1af2	EU122141	Ctenoplectra florisomnis
+ef1af2	EU122144	Ctenoplectra kelloggi
+ef1af2	EU122145	Ctenoplectra polita
+ef1af2	EU122150	Ctenoplectra terminalis
+ef1af2	EU122135	Ctenoplectrina alluaudi
+ef1af2	EU122149	Ctenoplectrina n. sp. HS-2007
+ef1af2	GU244925	Ctenoplectrina sp. JS-2010
+ef1af2	EF411173	Curvinomia ridleyi
+ef1af2	DQ813111	Dactylurina staudingeri
+ef1af2	AY585148	Dasypoda argentata
+ef1af2	EF594333	Dasypoda braccata
+ef1af2	EF594334	Dasypoda crassicornis
+ef1af2	EF594331	Dasypoda dusmeti
+ef1af2	EF594337	Dasypoda frieseana
+ef1af2	AY585149	Dasypoda hirtipes
+ef1af2	EF594332	Dasypoda oraniensis
+ef1af2	EF594336	Dasypoda pyriformis
+ef1af2	EF594338	Dasypoda spinigera
+ef1af2	EF594339	Dasypoda suripes
+ef1af2	HQ995705	Dianthidium arizonicum
+ef1af2	GU244993	Dianthidium subparvum
+ef1af2	AF435396	Dieunomia nevadensis
+ef1af2	AF435397	Dieunomia triangulifera
+ef1af2	AF435380	Dinagapostemon sp. BND-1
+ef1af2	AF435381	Dinagapostemon sp. BND-2
+ef1af2	HQ995696	Dioxys moesta
+ef1af2	GU244997	Dioxys pomonae
+ef1af2	AY585125	Diphaglossa gayi
+ef1af2	GU245025	Doeringiella sp. JS-2010
+ef1af2	DQ813112	Dolichotrigona browni
+ef1af2	FJ042293	Dolichotrigona chachapoya
+ef1af2	HQ995706	Duckeanthidium thielei
+ef1af2	FJ042294	Duckeola ghilianii
+ef1af2	EF411181	Dufourea holocyana
+ef1af2	AF435382	Dufourea malacothricis
+ef1af2	AF435383	Dufourea mulleri
+ef1af2	AF435384	Dufourea novaeangliae
+ef1af2	EF411180	Dufourea spinifera
+ef1af2	EF411179	Dufourea spirula
+ef1af2	DQ884598	Edwyniana sp. EABA-2006
+ef1af2	HQ995707	Eoanthidium turnericum
+ef1af2	HQ995708	Epanthidium bicoloratum
+ef1af2	GU244987	Epeoloides coecutiens
+ef1af2	GU244966	Epeoloides pilosula
+ef1af2	GU245022	Epeolus scutellaris
+ef1af2	GU245026	Epeolus sp. JS-2010
+ef1af2	GU244988	Epeolus variegatus
+ef1af2	GU244935	Epiclopus gayi
+ef1af2	GU936598	Eremaphanta iranica
+ef1af2	GU244936	Ericrocis lata
+ef1af2	AY585162	Eucerceris tricolor
+ef1af2	GU244947	Eufriesea surinamensis
+ef1af2	GU244946	Euglossa piliventris
+ef1af2	EF601167	Euherbstia excellens
+ef1af2	DQ884654	Euhesma crabronica
+ef1af2	DQ884652	Euhesma platyrhina
+ef1af2	DQ884653	Euhesma sp. EABA-2006
+ef1af2	GU244945	Eulaema meriana
+ef1af2	DQ884599	Eulonchopria punctatissima
+ef1af2	DQ884588	Eulonchopria simplicicrus
+ef1af2	EU203259	Eupetersia seyrigi
+ef1af2	DQ884611	Euryglossidia sp. 1 EABA-2006
+ef1af2	DQ884612	Euryglossidia sp. 2 EABA-2006
+ef1af2	DQ884613	Euryglossidia sp. 3 EABA-2006
+ef1af2	DQ884618	Euryglossidia sp. 4 EABA-2006
+ef1af2	DQ884619	Euryglossidia sp. 5 EABA-2006
+ef1af2	AY585127	Euryglossina globuliceps
+ef1af2	GU244944	Exaerete sp. JS-2010
+ef1af2	DQ884626	Excolletes sp. EABA-2006
+ef1af2	GU244989	Exomalopsis sp. JS-2010
+ef1af2	DQ149705	Exoneura angophorae
+ef1af2	GU245041	Exoneura bicolor
+ef1af2	HQ268575	Exoneura illustris
+ef1af2	DQ149707	Exoneura nigrescens
+ef1af2	HQ268563	Exoneura pictifrons
+ef1af2	DQ149706	Exoneura robusta
+ef1af2	HQ268573	Exoneura sp. A New South Wales
+ef1af2	HQ268567	Exoneura sp. A South Australia
+ef1af2	DQ149709	Exoneura sp. Adelaide
+ef1af2	HQ268577	Exoneura sp. B South Australia
+ef1af2	HQ268565	Exoneura sp. C Western Australia
+ef1af2	HQ268569	Exoneura sp. Dandenong
+ef1af2	DQ149708	Exoneura sp. Tasmania
+ef1af2	HQ268571	Exoneura sp. X Queensland
+ef1af2	DQ149712	Exoneurella eremophila
+ef1af2	DQ149713	Exoneurella lawsoni
+ef1af2	DQ149711	Exoneurella setosa
+ef1af2	HQ268555	Exoneurella sp. D Western Australia
+ef1af2	DQ149710	Exoneurella tridentata
+ef1af2	DQ149722	Exoneuridia hakkariensis
+ef1af2	HQ995683	Fidelia braunsiana
+ef1af2	HQ995685	Fidelia friesei
+ef1af2	HQ995680	Fidelia kobrowi
+ef1af2	HQ995686	Fidelia pallidula
+ef1af2	HQ995681	Fidelia paradoxa
+ef1af2	HQ995684	Fidelia ulrikei
+ef1af2	HQ995682	Fidelia villosa
+ef1af2	HQ995687	Fideliopsis hessei
+ef1af2	DQ141113	Fideliopsis major
+ef1af2	HQ995688	Fideliopsis ornata
+ef1af2	GU244943	Florilegus sp. JS-2010
+ef1af2	EU163187	Friesella schrottkyi
+ef1af2	EU163188	Frieseomelitta silvestrii
+ef1af2	FJ042300	Frieseomelitta trichocerata
+ef1af2	FJ042301	Frieseomelitta varia
+ef1af2	DQ813113	Geniotrigona incisa
+ef1af2	DQ813115	Geniotrigona thoracica
+ef1af2	DQ884655	Geodiscelis longiceps
+ef1af2	FJ042304	Geotrigona fulvatra
+ef1af2	DQ813116	Geotrigona fulvohirta
+ef1af2	EU163196	Geotrigona kraussi
+ef1af2	FJ042305	Geotrigona mombuca
+ef1af2	FJ042303	Geotrigona subgrisea
+ef1af2	DQ884623	Glossurocolletes bilobatus
+ef1af2	AF435386	Goeletapis peruensis
+ef1af2	AY585131	Goniocolletes fimbriatinus
+ef1af2	AF435387	Habralictus sp. BND-2001
+ef1af2	HQ995748	Haetosmia brachyura
+ef1af2	EU851552	Haetosmia circumventa
+ef1af2	DQ884604	Halictanthrena malpighiacearum
+ef1af2	AF140304	Halictus confusus
+ef1af2	AF140296	Halictus crenicornis
+ef1af2	AF140332	Halictus farinosus
+ef1af2	AF140298	Halictus fulvipes
+ef1af2	AF140305	Halictus gemmeus
+ef1af2	AF140306	Halictus kessleri
+ef1af2	AF140299	Halictus ligatus
+ef1af2	AF140301	Halictus maculatus
+ef1af2	AF140333	Halictus parallelus
+ef1af2	AF140327	Halictus poeyi
+ef1af2	AF140312	Halictus pollinosus
+ef1af2	AF140328	Halictus pseudomaculatus
+ef1af2	AF140334	Halictus quadricinctus
+ef1af2	AF140336	Halictus rubicundus
+ef1af2	AF140330	Halictus scabiosae
+ef1af2	AF140331	Halictus sexcinctus
+ef1af2	AF140297	Halictus simplex
+ef1af2	AF140307	Halictus smaragdulus
+ef1af2	AF140308	Halictus subauratus
+ef1af2	AF140310	Halictus tripartitus
+ef1af2	AF140311	Halictus tumulorum
+ef1af2	AF140313	Halictus vestitus
+ef1af2	EU254249	Halterapis isaloensis
+ef1af2	DQ149720	Halterapis minuta
+ef1af2	DQ149721	Halterapis seyrigi
+ef1af2	DQ884638	Hemicotelles ruizii
+ef1af2	EU851555	Heriades crucifer
+ef1af2	EU851554	Heriades punctulifer
+ef1af2	EU851553	Heriades truncorum
+ef1af2	EF594326	Hesperapis cockerelli
+ef1af2	AY230131	Hesperapis larreae
+ef1af2	AY585151	Hesperapis regularis
+ef1af2	EF594324	Hesperapis rhodocerata
+ef1af2	AY585152	Hesperapis sp. Hesp940
+ef1af2	EF594325	Hesperapis trochanterata
+ef1af2	DQ813119	Heterotrigona bakeri
+ef1af2	DQ813117	Heterotrigona erythrogaster
+ef1af2	DQ813118	Heterotrigona itama
+ef1af2	DQ884615	Hexantheda missionica
+ef1af2	GU245028	Hexepeolus rhodogyne
+ef1af2	EU851556	Hofferia schmiedeknechti
+ef1af2	GU245013	Holcopasites arizonicus
+ef1af2	GU245012	Holcopasites calliopsidis
+ef1af2	GU245014	Holcopasites insoletus
+ef1af2	GU245016	Holcopasites minimus
+ef1af2	AY585112	Holcopasites ruthae
+ef1af2	GU245015	Holcopasites stevensi
+ef1af2	AF264839	Homalictus megastigmus
+ef1af2	AF435389	Homalictus punctatum
+ef1af2	DQ813120	Homotrigona fimbriata
+ef1af2	GU244939	Hopliphora velutina
+ef1af2	EU851572	Hoplitis adunca
+ef1af2	EU851567	Hoplitis aff. onychophora CJP-2008
+ef1af2	EU851577	Hoplitis albifrons
+ef1af2	EU851561	Hoplitis annulata crenulata
+ef1af2	EU851574	Hoplitis antalyae
+ef1af2	EU851569	Hoplitis biscutellae
+ef1af2	EU851562	Hoplitis bisulca
+ef1af2	EU851584	Hoplitis brachypogon
+ef1af2	EU851563	Hoplitis hemisphaerica
+ef1af2	EU851568	Hoplitis hypocrita
+ef1af2	EU851566	Hoplitis illustris
+ef1af2	EU851582	Hoplitis incanescens
+ef1af2	EU851575	Hoplitis lebanotica
+ef1af2	EU851557	Hoplitis leucomelana
+ef1af2	EU851558	Hoplitis mitis
+ef1af2	EU851571	Hoplitis mojavensis
+ef1af2	EU851580	Hoplitis moricei
+ef1af2	EU851579	Hoplitis nasuta
+ef1af2	EU851576	Hoplitis paralias
+ef1af2	EU851559	Hoplitis pilosifrons
+ef1af2	EU851583	Hoplitis platalea
+ef1af2	EU851570	Hoplitis robusta
+ef1af2	EU851564	Hoplitis sp. CJP-2008
+ef1af2	EU851573	Hoplitis tigrina
+ef1af2	EU851560	Hoplitis tridentata
+ef1af2	EU851578	Hoplitis tuberculata
+ef1af2	EU851581	Hoplitis villiersi
+ef1af2	EU851565	Hoplitis villosa
+ef1af2	EU851585	Hoplitis zuni
+ef1af2	DQ884590	Hoplocolletes ventralis
+ef1af2	EF411174	Hoplonomia amboiensis
+ef1af2	EU851588	Hoplosmia pinquis
+ef1af2	EU851587	Hoplosmia scutellaris
+ef1af2	EU851586	Hoplosmia spinulosa
+ef1af2	DQ884672	Hylaeus affinis
+ef1af2	DQ884670	Hylaeus albonitens
+ef1af2	DQ884668	Hylaeus alcyoneus
+ef1af2	AY585128	Hylaeus amiculus
+ef1af2	DQ884680	Hylaeus aralis
+ef1af2	DQ884702	Hylaeus bidentatus
+ef1af2	DQ884699	Hylaeus bituberculatus
+ef1af2	DQ884708	Hylaeus burnsi
+ef1af2	DQ884706	Hylaeus chlorosomus
+ef1af2	DQ212159	Hylaeus connectens
+ef1af2	DQ884686	Hylaeus constrictiformis
+ef1af2	DQ884704	Hylaeus cyaneomicans
+ef1af2	DQ884707	Hylaeus cyanophilus
+ef1af2	DQ884678	Hylaeus cyanurus
+ef1af2	DQ212160	Hylaeus difficilis
+ef1af2	DQ884677	Hylaeus disjunctus
+ef1af2	AY585129	Hylaeus elegans
+ef1af2	DQ884682	Hylaeus eugeniellus
+ef1af2	DQ884689	Hylaeus exleyae
+ef1af2	DQ884690	Hylaeus extensus
+ef1af2	DQ212158	Hylaeus globula
+ef1af2	DQ212161	Hylaeus hula
+ef1af2	DQ884675	Hylaeus hurdi
+ef1af2	DQ884669	Hylaeus inquilina
+ef1af2	DQ212163	Hylaeus kauaiensis
+ef1af2	DQ212164	Hylaeus kokeensis
+ef1af2	DQ212165	Hylaeus kona
+ef1af2	DQ884671	Hylaeus leptocephalus
+ef1af2	DQ884701	Hylaeus leptospermi
+ef1af2	DQ212166	Hylaeus longiceps
+ef1af2	DQ884685	Hylaeus microphenax
+ef1af2	DQ884681	Hylaeus nubilosus
+ef1af2	DQ884676	Hylaeus ofarrelli
+ef1af2	DQ212167	Hylaeus pele
+ef1af2	DQ884667	Hylaeus preposterosus
+ef1af2	DQ884683	Hylaeus primulipictus
+ef1af2	AY585130	Hylaeus proximus
+ef1af2	DQ212168	Hylaeus pubescens
+ef1af2	DQ884674	Hylaeus punctatus
+ef1af2	DQ884705	Hylaeus quadratus
+ef1af2	DQ884679	Hylaeus ruficeps
+ef1af2	DQ884688	Hylaeus sculptus
+ef1af2	DQ884664	Hylaeus simplus
+ef1af2	DQ212169	Hylaeus solaris
+ef1af2	DQ884666	Hylaeus sp. EABA-2006
+ef1af2	DQ884700	Hylaeus trilobatus
+ef1af2	DQ884665	Hylaeus vittatifrons
+ef1af2	DQ884673	Hylaeus wootoni
+ef1af2	DQ884691	Hyleoides concinna
+ef1af2	HQ995709	Hypanthidioides marginata
+ef1af2	HQ995710	Hypanthidium obscurius
+ef1af2	GU244957	Hypotrigona gribodoi
+ef1af2	DQ813122	Hypotrigona ruspolii
+ef1af2	HQ995711	Icteranthidium ferrugineum
+ef1af2	DQ149714	Inquilina excavata
+ef1af2	DQ149715	Inquilina schwarzi
+ef1af2	DQ149716	Inquilina sp. Adelaide
+ef1af2	GU244952	Isepeolus atripilis
+ef1af2	GU244951	Isepeolus cortesi
+ef1af2	GU244953	Isepeolus luctuosus
+ef1af2	GU244954	Isepeolus wagenknechti
+ef1af2	AY585166	Isodontia mexicana
+ef1af2	DQ884601	Kylopasiphae pruinosa
+ef1af2	DQ884597	Kylopasiphae sp. EABA-2006
+ef1af2	DQ884627	Lamprocolletes chalybeatus
+ef1af2	AF264814	Lasioglossum albipes
+ef1af2	AF272246	Lasioglossum albocinctum
+ef1af2	AF264861	Lasioglossum alphenum
+ef1af2	AF264815	Lasioglossum apristum
+ef1af2	AF264856	Lasioglossum asteris
+ef1af2	AF435390	Lasioglossum athabascense
+ef1af2	AF264816	Lasioglossum boreale
+ef1af2	AF435365	Lasioglossum brevicorne
+ef1af2	AF435385	Lasioglossum calceatum
+ef1af2	AF264841	Lasioglossum callizonium
+ef1af2	AF264818	Lasioglossum cinctipes
+ef1af2	AF264788	Lasioglossum cognatum
+ef1af2	AF264819	Lasioglossum comagenense
+ef1af2	AF264789	Lasioglossum conspicuum
+ef1af2	AF264790	Lasioglossum convexum
+ef1af2	AF264842	Lasioglossum coriaceum
+ef1af2	AF264801	Lasioglossum cressonii
+ef1af2	AF264843	Lasioglossum desertum
+ef1af2	AF264850	Lasioglossum discum
+ef1af2	AF264820	Lasioglossum duplex
+ef1af2	AF264791	Lasioglossum erythrurum
+ef1af2	AF264802	Lasioglossum figueresi
+ef1af2	AF264792	Lasioglossum florale
+ef1af2	AF264821	Lasioglossum fulvicorne
+ef1af2	AF264844	Lasioglossum fuscipenne
+ef1af2	AF264834	Lasioglossum gattaca
+ef1af2	AF264803	Lasioglossum gundlachii
+ef1af2	AF264804	Lasioglossum hyalinum
+ef1af2	AF264857	Lasioglossum hybodinum
+ef1af2	AF264805	Lasioglossum imitatum
+ef1af2	AF435367	Lasioglossum inconditum
+ef1af2	AF435366	Lasioglossum interruptum
+ef1af2	AF264845	Lasioglossum laevigatum
+ef1af2	AF264793	Lasioglossum lanarium
+ef1af2	AF264822	Lasioglossum laticeps
+ef1af2	AF264848	Lasioglossum lativentre
+ef1af2	AF264846	Lasioglossum leucozonium
+ef1af2	AF435368	Lasioglossum limbellum
+ef1af2	AF264823	Lasioglossum lineare
+ef1af2	AF435372	Lasioglossum lithuscum
+ef1af2	AF435369	Lasioglossum lucidulum
+ef1af2	AF435388	Lasioglossum lustrans
+ef1af2	AF264849	Lasioglossum majus
+ef1af2	AF264826	Lasioglossum malachurum
+ef1af2	AF264825	Lasioglossum marginatum
+ef1af2	AF264794	Lasioglossum mediopolitum
+ef1af2	AF264824	Lasioglossum mediterraneum
+ef1af2	AF264795	Lasioglossum mirandum
+ef1af2	AF264827	Lasioglossum morio
+ef1af2	EU203279	Lasioglossum nicolli
+ef1af2	AF264828	Lasioglossum nigripes
+ef1af2	AF264859	Lasioglossum noctivagum
+ef1af2	AF264860	Lasioglossum oenotherae
+ef1af2	AF264798	Lasioglossum olgae
+ef1af2	AF264796	Lasioglossum parasphecodum
+ef1af2	AF264806	Lasioglossum parvum
+ef1af2	AF264829	Lasioglossum pauxillum
+ef1af2	AF264851	Lasioglossum pavonotum
+ef1af2	AF264830	Lasioglossum pectorale
+ef1af2	AF264807	Lasioglossum pilosum
+ef1af2	AF264831	Lasioglossum politum
+ef1af2	AF264832	Lasioglossum puncticolle
+ef1af2	AF264833	Lasioglossum quebecense
+ef1af2	AF264808	Lasioglossum rohweri
+ef1af2	AF435391	Lasioglossum scitulum
+ef1af2	AF264853	Lasioglossum sexnotatum
+ef1af2	AF264852	Lasioglossum sisymbrii
+ef1af2	AF264858	Lasioglossum sp. 'Cobboboonee'
+ef1af2	AF264799	Lasioglossum sp. NDA(1)-A
+ef1af2	AF264835	Lasioglossum subtropicum
+ef1af2	AF264797	Lasioglossum supralucens
+ef1af2	AF264809	Lasioglossum tegulare
+ef1af2	AF264854	Lasioglossum titusi
+ef1af2	AF264836	Lasioglossum truncatum
+ef1af2	AF264810	Lasioglossum umbripenne
+ef1af2	AF264811	Lasioglossum vierecki
+ef1af2	AF435370	Lasioglossum villosulum
+ef1af2	AF435379	Lasioglossum zephyrum
+ef1af2	AF264855	Lasioglossum zonulum
+ef1af2	GU244969	Leiopodus abnormis
+ef1af2	AY585113	Leiopodus singularis
+ef1af2	GU244968	Leiopodus sp. JS-2010
+ef1af2	GU244970	Leiopodus trochantericus
+ef1af2	DQ884632	Leioproctus conospermi
+ef1af2	AY585132	Leioproctus irroratus
+ef1af2	DQ884633	Leioproctus lanceolatus
+ef1af2	DQ884634	Leioproctus megachalcoides
+ef1af2	DQ884631	Leioproctus pappus
+ef1af2	DQ884635	Leioproctus platycephalus
+ef1af2	AY585133	Leioproctus plumosus
+ef1af2	AY585143	Leioproctus sp. BND-2004
+ef1af2	DQ884637	Leioproctus sp. EABA-2006
+ef1af2	DQ813125	Lepidotrigona terminata
+ef1af2	AF492984	Lepidotrigona ventralis
+ef1af2	FJ042307	Lestrimelitta aff. limao CR-2009
+ef1af2	AY208287	Lestrimelitta limao
+ef1af2	FJ042306	Lestrimelitta maracaia
+ef1af2	GU244964	Lestrimelitta sp. JS-2010
+ef1af2	EU163195	Lestrimelitta sp. MP115
+ef1af2	FJ042310	Leurotrigona muelleri
+ef1af2	FJ042309	Leurotrigona pusilla
+ef1af2	DQ813127	Liotrigona madecassa
+ef1af2	DQ813126	Liotrigona mahafalya
+ef1af2	EU122152	Liotrigona sp. HS-2007
+ef1af2	EU254243	Liotrigona sp. Ifaty
+ef1af2	AF435395	Lipotriches australica
+ef1af2	DQ813128	Lisotrigona furva
+ef1af2	EU851523	Lithurgus chrysurus
+ef1af2	DQ141116	Lithurgus echinocacti
+ef1af2	HQ995690	Lithurgus pullatus
+ef1af2	HQ995691	Lithurgus rubricatus
+ef1af2	HQ995692	Lithurgus scabrosus
+ef1af2	HQ995693	Lithurgus tibialis
+ef1af2	DQ884622	Lonchopria robertsi
+ef1af2	DQ884620	Lonchopria similis
+ef1af2	DQ884621	Lonchopria sp. EABA-2006
+ef1af2	DQ813129	Lophotrigona canifrons
+ef1af2	DQ149724	Macrogalea antanosy
+ef1af2	EF103601	Macrogalea berentyensis
+ef1af2	EF103600	Macrogalea ellioti
+ef1af2	EF103602	Macrogalea infernalis
+ef1af2	EF190108	Macrogalea maizina
+ef1af2	EF190110	Macrogalea scaevolae
+ef1af2	EF190106	Macrogalea sp. Malawi
+ef1af2	EF103603	Macrogalea sp. Ramena
+ef1af2	DQ149723	Macrogalea zanzibarica
+ef1af2	AY585154	Macropis europaea
+ef1af2	EF594323	Macropis fulvipes
+ef1af2	AY585155	Macropis nuda
+ef1af2	EF599186	Macrotera echinocacti
+ef1af2	EF599185	Macrotera latior
+ef1af2	AF504527	Macrotera texana
+ef1af2	GU245046	Manuelia gayatina
+ef1af2	HQ995720	Megachile (Aethomegachile) sp. CJP-2011
+ef1af2	HQ995723	Megachile (Austrochile) sp. CJP-2011
+ef1af2	HQ995726	Megachile (Chelostomoda) sp. CJP-2011
+ef1af2	HQ995729	Megachile (Chrysosarus) sp. CJP-2011
+ef1af2	HQ995734	Megachile (Hackeriapis) sp. CJP-2011
+ef1af2	HQ995735	Megachile (Largella) sp. CJP-2011
+ef1af2	HQ995744	Megachile (Rhodomegachile) sp. CJP-2011
+ef1af2	HQ995725	Megachile aethiops
+ef1af2	EU851529	Megachile albisecta
+ef1af2	HQ995727	Megachile angelarum
+ef1af2	HQ995733	Megachile bombiformis
+ef1af2	HQ995742	Megachile ericetorum
+ef1af2	HQ995740	Megachile fabricator
+ef1af2	HQ995721	Megachile fimbriata
+ef1af2	HQ995731	Megachile mandibularis
+ef1af2	HQ995746	Megachile maritima
+ef1af2	HQ995737	Megachile maxillosa
+ef1af2	HQ995738	Megachile melanopyga
+ef1af2	HQ995743	Megachile microsoma
+ef1af2	HQ995739	Megachile nevadensis
+ef1af2	HQ995722	Megachile parallela
+ef1af2	EU851530	Megachile parietina
+ef1af2	HQ995732	Megachile patellimana
+ef1af2	EU851531	Megachile pilidens
+ef1af2	AY585147	Megachile pugnata
+ef1af2	HQ995745	Megachile remeata
+ef1af2	HQ995724	Megachile sculpturalis
+ef1af2	HQ995741	Megachile sidalceae
+ef1af2	HQ995728	Megachile spinotulata
+ef1af2	HQ995736	Megachile texana
+ef1af2	EU122153	Megachile willughbiella
+ef1af2	HQ995730	Megachile zapoteca
+ef1af2	JN106101	Megalopta aeneicollis
+ef1af2	JN106118	Megalopta aff. fornix ECUA E1
+ef1af2	JN106119	Megalopta aff. fornix ECUA G1
+ef1af2	JN106104	Megalopta atra
+ef1af2	JN106105	Megalopta byroni
+ef1af2	JN106107	Megalopta centralis
+ef1af2	JN106102	Megalopta cf. aeneicollis BOLI A4
+ef1af2	JN106103	Megalopta cf. aeneicollis BOLI A5
+ef1af2	JN106121	Megalopta cf. genalis ECUA A1
+ef1af2	JN106122	Megalopta cf. genalis ECUA D2
+ef1af2	JN106123	Megalopta cf. genalis FRGU A3
+ef1af2	JN106124	Megalopta cf. genalis FRGU E9
+ef1af2	JN106117	Megalopta fornix
+ef1af2	AF140316	Megalopta genalis
+ef1af2	JN106125	Megalopta sp. morph-j
+ef1af2	JN106126	Megalopta sp. morph-p
+ef1af2	JN106127	Megaloptidia nocturna
+ef1af2	JN106130	Megaloptidia saulensis
+ef1af2	AY585103	Megandrena enceliae
+ef1af2	DQ141114	Meganomia binghami
+ef1af2	GU244998	Melecta albifrons
+ef1af2	GU244999	Melectoides bellus
+ef1af2	DQ813132	Meliplebeia ogouensis
+ef1af2	FJ042319	Melipona aff. brachychaeta CR-2009
+ef1af2	EU163221	Melipona aff. costaricaensis MP33
+ef1af2	FJ042311	Melipona aff. mimetica CR-2009
+ef1af2	FJ042315	Melipona aff. rufiventris CR-2009
+ef1af2	EU163253	Melipona amazonica
+ef1af2	EU163244	Melipona asilvai
+ef1af2	EU163213	Melipona beecheii
+ef1af2	FJ042296	Melipona bicolor
+ef1af2	EU163245	Melipona bicolor bicolor
+ef1af2	FJ042298	Melipona bradleyi
+ef1af2	EU163229	Melipona captiosa
+ef1af2	EU163224	Melipona compressipes compressipes
+ef1af2	EU163215	Melipona compressipes interrupta
+ef1af2	EU163216	Melipona costaricaensis
+ef1af2	EU163251	Melipona crinita
+ef1af2	FJ042312	Melipona eburnea
+ef1af2	FJ042323	Melipona fasciata
+ef1af2	FJ042324	Melipona fasciculata
+ef1af2	EU163214	Melipona favosa
+ef1af2	EU163205	Melipona fuliginosa
+ef1af2	EU163212	Melipona fulva
+ef1af2	EU163223	Melipona fuscopilosa
+ef1af2	EU163256	Melipona grandis
+ef1af2	EU163254	Melipona illota
+ef1af2	EU163232	Melipona illustris
+ef1af2	EU163231	Melipona lateralis
+ef1af2	EU163243	Melipona mandacaia
+ef1af2	EU163240	Melipona marginata
+ef1af2	EU163197	Melipona melanopleura
+ef1af2	EU163222	Melipona melanoventer
+ef1af2	EU163226	Melipona micheneri
+ef1af2	EU163227	Melipona ogilviei
+ef1af2	EU163179	Melipona panamica
+ef1af2	EU163237	Melipona quadrifasciata anthidioides
+ef1af2	EU163242	Melipona quinquefasciata
+ef1af2	EU163236	Melipona rufiventris flavolineata
+ef1af2	EU163238	Melipona rufiventris rufiventris
+ef1af2	EU163239	Melipona scutellaris
+ef1af2	EU163225	Melipona seminigra atrofulva
+ef1af2	FJ042318	Melipona seminigra merrillae
+ef1af2	EU163247	Melipona solani
+ef1af2	FJ042322	Melipona sp. B CR-2009
+ef1af2	GU244959	Melipona sp. JS-2010
+ef1af2	EU163202	Melipona sp. MP127
+ef1af2	EU163235	Melipona sp. MP70
+ef1af2	EU163246	Melipona sp. MP85
+ef1af2	EU163249	Melipona sp. MP90
+ef1af2	EU163250	Melipona sp. MP91
+ef1af2	EU163252	Melipona sp. MP93
+ef1af2	EU163255	Melipona sp. MP96
+ef1af2	EU163257	Melipona sp. MP98
+ef1af2	FJ042314	Melipona titania
+ef1af2	FJ042295	Melipona tumupasae
+ef1af2	FJ042327	Melipona variegatipes
+ef1af2	EU163204	Meliponula bocandei
+ef1af2	GU244958	Meliponula ferruginea
+ef1af2	GU244942	Melissodes desponsa
+ef1af2	GU245005	Melitta arrogans
+ef1af2	AY585156	Melitta capensis
+ef1af2	EF594317	Melitta dimidiata
+ef1af2	AY585157	Melitta eickworti
+ef1af2	EF594321	Melitta ezoana
+ef1af2	EF594320	Melitta haemorrhoidalis
+ef1af2	AY585158	Melitta leporina
+ef1af2	EF594318	Melitta nigricans
+ef1af2	EF601162	Melittoides melittoides
+ef1af2	EF599177	Melitturga albescens
+ef1af2	AY585104	Melitturga clavicornis
+ef1af2	EF599180	Meliturgula haematospila
+ef1af2	EF599179	Meliturgula scriptifrons
+ef1af2	EU163199	Meliwillea bivea
+ef1af2	DQ884693	Meroglossa impressifrons
+ef1af2	DQ884694	Meroglossa itamuca
+ef1af2	DQ884692	Meroglossa striaticeps
+ef1af2	GU244940	Mesocheira bicolor
+ef1af2	GU244937	Mesonychium asteria
+ef1af2	GU244938	Mesoplia rufipes
+ef1af2	AF140322	Mexalictus arizonensis
+ef1af2	EU367215	Microbembex argyropleura
+ef1af2	HQ995694	Microthurge sp. JS-2010
+ef1af2	DQ884639	Mourecotelles mixta
+ef1af2	FJ042328	Mourella caerulea
+ef1af2	EF032902	Mydrosoma aterrimum
+ef1af2	DQ813133	Nannotrigona melanocera
+ef1af2	FJ042330	Nannotrigona perilampoides
+ef1af2	FJ042329	Nannotrigona schultzei
+ef1af2	EU163184	Nannotrigona sp. MP104
+ef1af2	FJ042331	Nannotrigona testaceicornis
+ef1af2	GU244972	Nanorhathymus sp. JS-2010
+ef1af2	DQ160178	Nasutapis sp. Malawi
+ef1af2	EF599181	Neffapis longilingua
+ef1af2	AF140317	Neocorynura discolor
+ef1af2	HQ995689	Neofidelia longirostris
+ef1af2	GU244990	Neofidelia sp. JS-2010
+ef1af2	GU245029	Neolarra orbiculata
+ef1af2	DQ884628	Neopasiphae mirabilis
+ef1af2	GU245017	Neopasites cressoni
+ef1af2	DQ884603	Niltonia virgilii
+ef1af2	FJ042332	Nogueirapis butteli
+ef1af2	EU163198	Nogueirapis mirandula
+ef1af2	EF599168	Nolanomelissa toroi
+ef1af2	EU122154	Nomada fucata
+ef1af2	GU245030	Nomada maculata
+ef1af2	GU245031	Nomada signata
+ef1af2	AF435398	Nomia tetrazonata
+ef1af2	DQ884606	Nomiocolletes jenseni
+ef1af2	AF435394	Nomioides facilis
+ef1af2	EU203250	Nomioides tumidus
+ef1af2	HQ995712	Notanthidium steloides
+ef1af2	EU851589	Noteriades sp. CJP-2008
+ef1af2	EU851590	Ochreriades fasciatus
+ef1af2	DQ884629	Odontocolletes asper
+ef1af2	DQ884630	Odontocolletes pachydontus
+ef1af2	DQ813134	Odontotrigona haematoptera
+ef1af2	GU245021	Odyneropsis sp. JS-2010
+ef1af2	GU245008	Oreopasites barbarae
+ef1af2	EF601161	Orphana wagenknechti
+ef1af2	GU245033	Osiris sp. JS-2010
+ef1af2	EU851600	Osmia anceps
+ef1af2	EU851595	Osmia andrenoides
+ef1af2	EU851605	Osmia apicata
+ef1af2	EU851597	Osmia aurulenta
+ef1af2	EU851607	Osmia bicolor
+ef1af2	EU851604	Osmia brevicornis
+ef1af2	EU851598	Osmia coloradensis
+ef1af2	EU851609	Osmia cornuta
+ef1af2	EU851601	Osmia difficilis
+ef1af2	EU851611	Osmia ferruginea
+ef1af2	EU851612	Osmia gallarum
+ef1af2	EU851596	Osmia glauca
+ef1af2	EU851591	Osmia integra
+ef1af2	EU851602	Osmia juxta
+ef1af2	EU851615	Osmia latisulcata
+ef1af2	EU851610	Osmia lignaria
+ef1af2	EU851594	Osmia montana
+ef1af2	EU851606	Osmia nemoris
+ef1af2	EU851599	Osmia niveata
+ef1af2	EU851613	Osmia rhodoensis
+ef1af2	EU851592	Osmia rufohirta
+ef1af2	EU851593	Osmia sybarita
+ef1af2	EU851614	Osmia tergestensis
+ef1af2	EU851608	Osmia tingitana
+ef1af2	EU851603	Osmia xanthomelana
+ef1af2	EU851617	Othinosmia aff. securicornis CJP-2008
+ef1af2	EU851616	Othinosmia globicola
+ef1af2	AY585169	Oxybelus abdominalis
+ef1af2	FJ042337	Oxytrigona mediorufa
+ef1af2	FJ042336	Oxytrigona mellicolor
+ef1af2	FJ042335	Oxytrigona mulfordi
+ef1af2	FJ042334	Oxytrigona obscura
+ef1af2	FJ042338	Oxytrigona tataira
+ef1af2	HQ995713	Pachyanthidium benguelense
+ef1af2	DQ884695	Palaeorhiza sp. 1 EABA-2006
+ef1af2	DQ884696	Palaeorhiza sp. 2 EABA-2006
+ef1af2	DQ884698	Palaeorhiza sp. 4 EABA-2006
+ef1af2	EF599174	Panurginus albopilosus
+ef1af2	EF601195	Panurginus occidentalis
+ef1af2	AF504528	Panurginus polytrichus
+ef1af2	EF601196	Panurginus turcomanicus
+ef1af2	EF599197	Panurgus banksianus proximus
+ef1af2	AY585105	Panurgus calcaratus
+ef1af2	EF599187	Panurgus calceatus
+ef1af2	EF599188	Panurgus canescens
+ef1af2	EF599196	Panurgus cephalotes
+ef1af2	EF599191	Panurgus convergens
+ef1af2	EF599199	Panurgus dentatus
+ef1af2	EF599193	Panurgus dentipes
+ef1af2	EF599190	Panurgus farinosus
+ef1af2	EF599194	Panurgus maroccanus
+ef1af2	EF599189	Panurgus nigriscopus
+ef1af2	EF599201	Panurgus niloticus
+ef1af2	EF599195	Panurgus perezi
+ef1af2	EF599200	Panurgus pici
+ef1af2	EF599198	Panurgus pyropygus
+ef1af2	EF599192	Panurgus rungsi
+ef1af2	DQ884584	Paracolletes crassipes
+ef1af2	DQ884585	Paracolletes frederici
+ef1af2	DQ884586	Paracolletes robustus
+ef1af2	HQ995697	Paradioxys pannonica
+ef1af2	AY585115	Paranomada velutina
+ef1af2	GU244994	Paranthidium jugatorium
+ef1af2	FJ042356	Parapartamona fumata
+ef1af2	FJ042357	Parapartamona tungurahuana
+ef1af2	HQ995679	Pararhophites orobinus
+ef1af2	EU851522	Pararhophites quadratus
+ef1af2	GU244975	Paratetrapedia sp. JS-2010
+ef1af2	EU203255	Parathrincostoma seyrigi
+ef1af2	FJ042347	Paratrigona guigliae
+ef1af2	FJ042348	Paratrigona lineata
+ef1af2	FJ042345	Paratrigona lineatifrons
+ef1af2	DQ813136	Paratrigona onorei
+ef1af2	FJ042346	Paratrigona pacifica
+ef1af2	GU244967	Parepeolus aterrimus
+ef1af2	DQ813135	Partamona auripennis
+ef1af2	FJ042340	Partamona epiphytophila
+ef1af2	FJ042344	Partamona musarum
+ef1af2	FJ042342	Partamona orizabaensis
+ef1af2	FJ042339	Partamona testacea
+ef1af2	FJ042341	Partamona vicina
+ef1af2	GU245035	Pasites maculatus
+ef1af2	AF435374	Patellapis (Chaetalictus) sp. BND-2001
+ef1af2	AF435393	Patellapis (Lomatalictus) sp. BND-2001
+ef1af2	AF435400	Patellapis (Pachyhalictus) sp. BND-2001
+ef1af2	EU203272	Patellapis (Zonalictus) sp. BND-2007
+ef1af2	EU203267	Patellapis abessinica
+ef1af2	EU203269	Patellapis albofasciata
+ef1af2	EU203268	Patellapis andreniformis
+ef1af2	EU203278	Patellapis braunsella
+ef1af2	EU203275	Patellapis castanea
+ef1af2	EU203265	Patellapis cf. minutior BND-2007
+ef1af2	EU203274	Patellapis coccinea
+ef1af2	EU203276	Patellapis inelegans
+ef1af2	EU203273	Patellapis joffrei
+ef1af2	EU203277	Patellapis lyalli
+ef1af2	EU203263	Patellapis malachurina
+ef1af2	EU203261	Patellapis minima
+ef1af2	EU203264	Patellapis montagui
+ef1af2	EU203266	Patellapis n. sp. 10
+ef1af2	EU203260	Patellapis n. sp. 114
+ef1af2	EU203262	Patellapis n. sp. 66
+ef1af2	EU203270	Patellapis vittata
+ef1af2	EU203271	Patellapis zacephala
+ef1af2	AF435401	Penapis penai
+ef1af2	AF435402	Penapis toroi
+ef1af2	AF504529	Perdita albipennis
+ef1af2	EF599184	Perdita californica
+ef1af2	EF599182	Perdita halictoides
+ef1af2	EF599183	Perdita trisignata
+ef1af2	DQ884592	Perditomorpha brunerii
+ef1af2	DQ884607	Perditomorpha leucostoma
+ef1af2	DQ884595	Perditomorpha rufiventris
+ef1af2	DQ884616	Perditomorpha sp. EABA-2006
+ef1af2	DQ884614	Perditomorpha stilborhina
+ef1af2	DQ884610	Phenacolletes mimus
+ef1af2	GQ410710	Pison chilense
+ef1af2	DQ813137	Platytrigona hobbyi
+ef1af2	FJ042353	Plebeia droryana
+ef1af2	EU163181	Plebeia franki
+ef1af2	DQ813138	Plebeia frontalis
+ef1af2	FJ042350	Plebeia minima
+ef1af2	FJ042352	Plebeia moureana
+ef1af2	FJ042354	Plebeia sp. A CR-2009
+ef1af2	FJ042349	Plebeia sp. B CR-2009
+ef1af2	FJ042351	Plebeia sp. C CR-2009
+ef1af2	FJ042355	Plebeia tobagoensis
+ef1af2	DQ813139	Plebeiella lendliana
+ef1af2	GU244962	Plebeina hildebrandti
+ef1af2	AY585170	Plenoculus nr. parvus BND-2010
+ef1af2	EF599178	Plesiopanurgus zizus
+ef1af2	EF594330	Promelitta alboclypeata
+ef1af2	AF504530	Protandrena albitarsus
+ef1af2	AF435399	Protodufourea parca
+ef1af2	DQ884636	Protomorpha alloeopus
+ef1af2	EU851621	Protosmia humeralis
+ef1af2	EU851618	Protosmia longiceps
+ef1af2	EU851620	Protosmia minutula
+ef1af2	EU851619	Protosmia rubifloris
+ef1af2	AY585106	Protoxaea gloriosa
+ef1af2	AF504531	Psaenythia sp. LLL-2002
+ef1af2	AF140323	Pseudagapostemon brasiliensis
+ef1af2	AF435403	Pseudagapostemon pissisi
+ef1af2	AF435404	Pseudapis unidentata
+ef1af2	HQ995714	Pseudoanthidium scapulare
+ef1af2	EU851622	Pseudoheriades moricei
+ef1af2	EF601165	Pseudopanurgus andrenoides
+ef1af2	EF599172	Pseudopanurgus fraterculus
+ef1af2	AF504532	Pseudopanurgus rugosus
+ef1af2	EF601164	Pseudopanurgus sp. Hegr43
+ef1af2	DQ884573	Ptiloglossa sp. EABA-2006
+ef1af2	DQ884581	Ptiloglossa tarsata
+ef1af2	DQ884579	Ptiloglossa thoracica
+ef1af2	DQ884580	Ptiloglossidia fallax
+ef1af2	FJ042359	Ptilotrigona lurida
+ef1af2	FJ042358	Ptilotrigona pereneae
+ef1af2	HQ995747	Radoszkowskiana rufiventris
+ef1af2	AY585159	Rediviva mcgregori
+ef1af2	EF594322	Rediviva saetigera
+ef1af2	AY585142	Redivivoides simulans
+ef1af2	GU244971	Rhathymus sp. JS-2010
+ef1af2	GU244973	Rhathymus unicolor
+ef1af2	GU245027	Rhinepeolus rufiventris
+ef1af2	AF435405	Rhinetula denticrus
+ef1af2	HQ995715	Rhodanthidium septemdentatum
+ef1af2	AY585144	Rophites algirus
+ef1af2	AF435406	Ruizantheda mutabilis
+ef1af2	AF435407	Ruizantheda proxima
+ef1af2	GU936599	Samba atra
+ef1af2	GU936600	Samba fasciata
+ef1af2	AY585153	Samba griseonigra
+ef1af2	GU936601	Samba ogilviei
+ef1af2	EF594340	Samba spinosa
+ef1af2	FJ042366	Scaptotrigona bipunctata
+ef1af2	AY208288	Scaptotrigona depilis
+ef1af2	GU244963	Scaptotrigona hellwegeri
+ef1af2	FJ042365	Scaptotrigona mexicana
+ef1af2	FJ042364	Scaptotrigona pectoralis
+ef1af2	EU163185	Scaptotrigona polysticta
+ef1af2	FJ042360	Scaptotrigona sp. A CR-2009
+ef1af2	FJ042362	Scaptotrigona sp. B CR-2009
+ef1af2	FJ042361	Scaptotrigona sp. C CR-2009
+ef1af2	EU163182	Scaptotrigona sp. MP102
+ef1af2	EU163183	Scaptotrigona sp. MP103
+ef1af2	FJ042363	Scaptotrigona tricolorata
+ef1af2	FJ042370	Scaura latitarsis
+ef1af2	FJ042368	Scaura longula
+ef1af2	FJ042369	Scaura tenuis
+ef1af2	AY585167	Sceliphron caementarium
+ef1af2	FJ042371	Schwarziana quadripunctata
+ef1af2	FJ042373	Schwarzula coccidophila
+ef1af2	FJ042372	Schwarzula timida
+ef1af2	EF032901	Scrapter algoensis
+ef1af2	AY585135	Scrapter erubescens
+ef1af2	AY585136	Scrapter heterodoxus
+ef1af2	AY585137	Scrapter niger
+ef1af2	AY585138	Scrapter ruficornis
+ef1af2	HQ995716	Serapista rufipes
+ef1af2	EU203256	Sphecodes autumnalis
+ef1af2	EU203257	Sphecodes clematidis
+ef1af2	EU203258	Sphecodes confertus
+ef1af2	AF435408	Sphecodes cressonii
+ef1af2	AF140324	Sphecodes minor
+ef1af2	AF435409	Sphecodes persimilis
+ef1af2	AF140325	Sphecodes ranunculi
+ef1af2	GU245009	Sphecodopsis capensis
+ef1af2	EF411178	Sphecodosoma beameri
+ef1af2	AF435410	Sphecodosoma pratti
+ef1af2	DQ884594	Spinolapis caerulescens
+ef1af2	DQ884605	Spinolapis sp. EABA-2006
+ef1af2	GQ410716	Stangeella cyaniventris
+ef1af2	GU245002	Stelis linsleyi
+ef1af2	EU851526	Stelis punctulatissima
+ef1af2	HQ995717	Stelis sp. 'paiute'
+ef1af2	EU851623	Stenoheriades asiaticus
+ef1af2	EU851624	Stenosmia aff. aravensis CJP-2008
+ef1af2	EU851625	Stenosmia minima
+ef1af2	DQ141115	Stenotritus sp. BND-2004
+ef1af2	AY585164	Stizoides foxi
+ef1af2	DQ813143	Sundatrigona moorei
+ef1af2	AF435411	Systropha curvicornis
+ef1af2	EF411177	Systropha glabriventris
+ef1af2	AF435412	Systropha planidens
+ef1af2	AY585171	Tachysphex yolo
+ef1af2	GU244976	Tapinotaspidini sp. JS-2010
+ef1af2	GU244977	Tapinotaspoides sp. JS-2010
+ef1af2	DQ884591	Tetraglossula anthracina
+ef1af2	FJ042383	Tetragona clavipes
+ef1af2	FJ042386	Tetragona dissecta
+ef1af2	AY208289	Tetragona dorsalis
+ef1af2	FJ042385	Tetragona goettei
+ef1af2	FJ042388	Tetragona perangulata
+ef1af2	FJ042384	Tetragona sp. CR-2009
+ef1af2	FJ042387	Tetragona ziegleri
+ef1af2	DQ813151	Tetragonilla atripes
+ef1af2	DQ813154	Tetragonilla collina
+ef1af2	DQ813152	Tetragonilla fuscibasis
+ef1af2	DQ813153	Tetragonilla rufibasalis
+ef1af2	EU163180	Tetragonisca angustula
+ef1af2	FJ042380	Tetragonisca weyrauchi
+ef1af2	GU244960	Tetragonula carbonaria
+ef1af2	DQ813180	Tetragonula cf. iridipennis CR-2006
+ef1af2	DQ813164	Tetragonula cf. laeviceps CR-2006
+ef1af2	DQ813177	Tetragonula cf. pagdeni CR-2006
+ef1af2	DQ813165	Tetragonula clypearis
+ef1af2	DQ813175	Tetragonula fuscobalteata
+ef1af2	DQ813170	Tetragonula geissleri
+ef1af2	DQ813169	Tetragonula hirashimai
+ef1af2	DQ813163	Tetragonula hockingsi
+ef1af2	DQ813171	Tetragonula laeviceps
+ef1af2	DQ813172	Tetragonula melanocephala
+ef1af2	DQ813176	Tetragonula melina
+ef1af2	DQ813160	Tetragonula mellipes
+ef1af2	DQ813168	Tetragonula minor
+ef1af2	DQ813156	Tetragonula pagdeni
+ef1af2	DQ813166	Tetragonula sapiens
+ef1af2	DQ813173	Tetragonula sarawakensis
+ef1af2	DQ813167	Tetragonula sirindhornae
+ef1af2	DQ813179	Tetragonula sp. A CR-2006
+ef1af2	DQ813181	Tetragonula sp. C CR-2006
+ef1af2	DQ813178	Tetragonula zucchi
+ef1af2	GU244956	Tetralonioidella sp. JS-2010
+ef1af2	GU245037	Tetrapedia cf. diversipes JS-2010
+ef1af2	GU244979	Tetrapedia maura
+ef1af2	GU244991	Tetrapedia sp. JS-2010
+ef1af2	DQ813144	Tetrigona apicalis
+ef1af2	DQ813146	Tetrigona binghami
+ef1af2	DQ813145	Tetrigona melanoleuca
+ef1af2	GU245024	Thalestria spinosa
+ef1af2	EU203253	Thrinchostoma conjugens
+ef1af2	EU203251	Thrinchostoma kandti
+ef1af2	EU203254	Thrinchostoma lemuriae
+ef1af2	EU203252	Thrinchostoma torridum
+ef1af2	AF140326	Thrincohalictus prognathus
+ef1af2	AY585119	Thyreus delumbatus
+ef1af2	GU245032	Townsendiella sp. JS-2010
+ef1af2	EU851527	Trachusa byssina
+ef1af2	HQ995719	Trachusa larreae
+ef1af2	HQ995718	Trachusa pubescens
+ef1af2	AY585139	Trichocolletes sp. BND-2004
+ef1af2	DQ884587	Trichocolletes venustus
+ef1af2	HQ995695	Trichothurgus herbsti
+ef1af2	FJ042382	Trichotrigona extranea
+ef1af2	GU245023	Triepeolus robustus
+ef1af2	AY585116	Triepeolus rozeni
+ef1af2	EU049778	Trigona albipennis
+ef1af2	DQ813149	Trigona amalthea
+ef1af2	DQ813150	Trigona amazonensis
+ef1af2	EU049779	Trigona cf. fuscipennis CR-2007a
+ef1af2	EU049791	Trigona cf. fuscipennis CR-2007b
+ef1af2	EU049777	Trigona cf. recursa CR-2007
+ef1af2	EU049769	Trigona chanchamayoensis
+ef1af2	EU049771	Trigona cilipes
+ef1af2	EU049784	Trigona corvina
+ef1af2	EU049774	Trigona crassipes
+ef1af2	EU049776	Trigona dallatorreana
+ef1af2	EU049786	Trigona fulviventris
+ef1af2	EU184770	Trigona fuscipennis
+ef1af2	EU049770	Trigona guianae
+ef1af2	EU049792	Trigona hyalinata
+ef1af2	EU049788	Trigona hypogea
+ef1af2	EU049773	Trigona lacteipennis
+ef1af2	EU049785	Trigona nigerrima
+ef1af2	EU049775	Trigona pallens
+ef1af2	EU049789	Trigona recursa
+ef1af2	EU049780	Trigona silvestriana
+ef1af2	EU122155	Trigona sp. HS-2007
+ef1af2	EU163189	Trigona sp. MP109
+ef1af2	EU049790	Trigona spinipes
+ef1af2	EU049782	Trigona truculenta
+ef1af2	EU049787	Trigona williana
+ef1af2	FJ042378	Trigonisca bidentata
+ef1af2	FJ042377	Trigonisca buyssoni
+ef1af2	FJ042379	Trigonisca nataliae
+ef1af2	FJ042374	Trigonisca sp. A CR-2009
+ef1af2	FJ042375	Trigonisca sp. B CR-2009
+ef1af2	FJ042376	Trigonisca sp. C CR-2009
+ef1af2	DQ813147	Trigonisca townsendi
+ef1af2	GU245018	Triopasites penniger
+ef1af2	EU851626	Wainia eremoplana
+ef1af2	DQ884582	Willinkapis chalybea
+ef1af2	AY585140	Xanthesma furcifera
+ef1af2	DQ884640	Xanthocotelles sicheli
+ef1af2	DQ884660	Xenochilicola mamigna
+ef1af2	JN106131	Xenochlora nigrofemorata
+ef1af2	AF435413	Xeralictus bicuspidariae
+ef1af2	AF435414	Xeralictus timberlakei
+ef1af2	GU244955	Xeromelecta californica
+ef1af2	DQ872735	Xeromelissa wilmattae
+ef1af2	AY267147	Xylocopa amamensis
+ef1af2	GU245054	Xylocopa californica arizonensis
+ef1af2	GU245053	Xylocopa fimbriata
+ef1af2	GU245050	Xylocopa iris
+ef1af2	GU245049	Xylocopa muscaria
+ef1af2	GU245051	Xylocopa sp. JS-2010
+ef1af2	GU245048	Xylocopa tabaniformis
+ef1af2	EU122156	Xylocopa violacea
+ef1af2	AY208290	Xylocopa virginica
+ef1af2	AY585117	Zacosmia maculata
+ef1af2	DQ884583	Zikanapis clypeata
+fem	EU100937	Apis cerana
+fem	HQ915687	Apis cerana cerana
+fem	EU100939	Apis dorsata
+fem	NM001134828	Apis mellifera
+fem	EU288185	Bombus terrestris
+fem	EU139305	Melipona compressipes
+gk	EU184765	Apis cerana
+gk	EU184764	Apis dorsata
+gk	EU184763	Apis florea
+gk	XM392723	Apis mellifera
+gk	EU184758	Bombus ardens
+gk	EU184759	Bombus diversus
+gk	XM003393322	Bombus terrestris
+gk	EU184761	Cephalotrigona capitata
+gk	EU980063	Dolichotrigona chachapoya
+gk	EU980064	Hypotrigona ruspolii
+gk	EU980065	Lepidotrigona ventralis
+gk	EU980066	Liotrigona madecassa
+gk	EU980067	Lisotrigona furva
+gk	EU980068	Melipona grandis
+gk	EU184762	Meliponula bocandei
+gk	EU980069	Odontotrigona haematoptera
+gk	EU980070	Plebeia sp. A CR-2009
+gk	EU980071	Scaptotrigona tricolorata
+gk	EU980074	Tetragonula fuscobalteata
+gk	EU980072	Tetrigona binghami
+gk	EU184760	Trigona fuscipennis
+gk	EU980073	Trigonisca sp. A CR-2009
+nak	HQ995942	Afranthidium karooense
+nak	HQ995995	Afroheriades primus
+nak	GU245173	Afroheriades sp. CJP-2008
+nak	GU320102	Agapostemon tyleri
+nak	GU245105	Aglae caerulea
+nak	HQ995939	Aglaoapis tridentata
+nak	EF646429	Alocandrena porterae
+nak	GU245179	Ammobates punctatus
+nak	GU245178	Ammobates sp. JS-2010
+nak	GU245185	Ammobatoides luctuosus
+nak	GU320118	Anacrabro ocellatus
+nak	GU245056	Ancyla asiatica
+nak	GU245057	Ancyla holtzi anatolica
+nak	EF646430	Andrena albopunctata
+nak	EF646389	Andrena brooksi
+nak	EF646431	Andrena cineraria
+nak	GU245157	Anthidiellum notatum
+nak	HQ995943	Anthidium illustre
+nak	GU245158	Anthidium porterae
+nak	HQ995944	Anthodioctes mapirensis
+nak	GU245107	Anthophorula completa
+nak	GU245108	Anthophorula sp. 1 JS-2010
+nak	GU245109	Anthophorula sp. 2 JS-2010
+nak	EU184750	Apis cerana
+nak	EU184749	Apis dorsata
+nak	EU184748	Apis florea
+nak	GU245144	Arhysoceble sp. JS-2010
+nak	EF646432	Arhysosage ochracea
+nak	GU245171	Ashmeadiella aridula
+nak	HQ995945	Aspidosmia arnoldi
+nak	HQ995946	Aspidosmia volkmanni
+nak	HQ995996	Atoposmia mirifica
+nak	GU320105	Augochlorella pomoniella
+nak	GU320149	Augochloropsis metallica
+nak	HQ995947	Bathanthidium binghami
+nak	GU320099	Bembix spinolae
+nak	HQ995948	Benanthis madagascariensis
+nak	GU245189	Biastes truncatus
+nak	GU320153	Bicyrtes ventralis
+nak	EU184741	Bombus ardens
+nak	EU184742	Bombus diversus
+nak	EU184743	Bombus mendax
+nak	GU245193	Brachynomada margaretae
+nak	GU245192	Brachynomada sp. JS-2010
+nak	GU245209	Braunsapis madecassella
+nak	GU245140	Caenonomada sp. JS-2010
+nak	GU245194	Caenoprosopina holmbergi
+nak	GU245195	Caenoprosopis crabronina
+nak	EF646436	Calliopsis anthidia
+nak	EF646435	Calliopsis fracta
+nak	EF646434	Calliopsis pugionis
+nak	GU320142	Callohesma calliopsella
+nak	GU320133	Callomelitta antipodes
+nak	EF646433	Callonychium atacamense
+nak	EF646440	Camptopoeum frontale
+nak	EF646441	Camptopoeum negevense
+nak	EF646412	Capicola nanula
+nak	EF646413	Capicola nigerrima
+nak	EF646414	Capicola richtersveldensis
+nak	GU320129	Caupolicana vestita
+nak	GU320127	Caupolicana yarrowi
+nak	EU184745	Cephalotrigona capitata
+nak	GU245213	Ceratina calcarata
+nak	GU245218	Ceratina cyanea
+nak	GU245216	Ceratina sp. JS-2010
+nak	GU320130	Cerceris sp. SCC-2010
+nak	GU245170	Chelostoma californicum
+nak	HQ995997	Chelostoma florisomne
+nak	GU320115	Chilicola styliventris
+nak	GU320114	Chilicolletes delahozii
+nak	GU320113	Clitemnestra bipunctata
+nak	GU320121	Clypeadon sp. SCC-2010
+nak	GU245146	Coelioxoides sp. JS-2010
+nak	GU245149	Coelioxoides waltheriae
+nak	HQ995963	Coelioxys afra
+nak	GU245164	Coelioxys alternata
+nak	EF646387	Colletes inaequalis
+nak	GU245210	Compsomelissa keiseri
+nak	GU320109	Conanthalictus wilmattae
+nak	GU245088	Ctenioschelus goryi
+nak	GU320147	Ctenocolletes smaragdinus
+nak	EF646391	Ctenoplectra albolimbata
+nak	GU245072	Ctenoplectra bequaerti
+nak	GU245071	Ctenoplectrina sp. JS-2010
+nak	EF646418	Dasypoda argentata
+nak	EF646419	Dasypoda braccata
+nak	EF646423	Dasypoda frieseana
+nak	EF646416	Dasypoda hirtipes
+nak	EF646417	Dasypoda oraniensis
+nak	EF646422	Dasypoda pyriformis
+nak	EF646421	Dasypoda pyrotricha
+nak	EF646424	Dasypoda spinigera
+nak	EF646425	Dasypoda suripes
+nak	EF646420	Dasypoda visnaga
+nak	HQ995949	Dianthidium arizonicum
+nak	GU245155	Dianthidium subparvum
+nak	GU320123	Dieunomia nevadensis
+nak	HQ995940	Dioxys moesta
+nak	GU245159	Dioxys pomonae
+nak	GU320143	Diphaglossa gayi
+nak	GU245200	Doeringiella sp. JS-2010
+nak	HQ995950	Duckeanthidium thielei
+nak	GU320108	Dufourea mulleri
+nak	HQ995951	Eoanthidium turnericum
+nak	HQ995952	Epanthidium bicoloratum
+nak	GU245131	Epeoloides coecutiens
+nak	GU245129	Epeoloides pilosula
+nak	GU245197	Epeolus scutellaris
+nak	GU245201	Epeolus sp. JS-2010
+nak	GU245203	Epeolus variegatus
+nak	GU245082	Epiclopus gayi
+nak	GU245083	Ericrocis lata
+nak	GU245094	Eucera frater
+nak	GU245106	Eufriesea surinamensis
+nak	GU245104	Euglossa piliventris
+nak	GU245103	Eulaema meriana
+nak	GU320124	Euryglossina globuliceps
+nak	GU245102	Exaerete sp. JS-2010
+nak	GU245110	Exomalopsis sp. JS-2010
+nak	GU245212	Exoneura bicolor
+nak	HQ995926	Fidelia braunsiana
+nak	HQ995928	Fidelia friesei
+nak	HQ995923	Fidelia kobrowi
+nak	HQ995929	Fidelia pallidula
+nak	HQ995924	Fidelia paradoxa
+nak	HQ995927	Fidelia ulrikei
+nak	HQ995925	Fidelia villosa
+nak	HQ995930	Fideliopsis hessei
+nak	HQ995931	Fideliopsis major
+nak	HQ995932	Fideliopsis ornata
+nak	GU245099	Florilegus sp. JS-2010
+nak	GU320139	Goniocolletes fimbriatinus
+nak	HQ995998	Haetosmia brachyura
+nak	EF646388	Halictus rubicundus
+nak	GU245168	Heriades crucifer
+nak	EF646411	Hesperapis cockerelli
+nak	EF646410	Hesperapis larreae
+nak	EF646409	Hesperapis regularis
+nak	EF646407	Hesperapis rhodocerata
+nak	EF646408	Hesperapis trochanterata
+nak	GU245204	Hexepeolus rhodogyne
+nak	HQ995999	Hofferia schmiedeknechti
+nak	GU245183	Holcopasites arizonicus
+nak	GU245182	Holcopasites calliopsidis
+nak	GU245184	Holcopasites insoletus
+nak	GU245187	Holcopasites minimus
+nak	GU245181	Holcopasites ruthae
+nak	GU245186	Holcopasites stevensi
+nak	GU245086	Hopliphora velutina
+nak	HQ996000	Hoplitis adunca
+nak	GU245175	Hoplitis albifrons
+nak	GU245172	Hoplosmia scutellaris
+nak	GU320136	Hylaeus elegans
+nak	GU320117	Hylaeus proximus
+nak	HQ995953	Hypanthidioides marginata
+nak	HQ995954	Hypanthidium obscurius
+nak	GU245121	Hypotrigona gribodoi
+nak	HQ995955	Icteranthidium ferrugineum
+nak	GU245112	Isepeolus atripilis
+nak	GU245111	Isepeolus cortesi
+nak	GU245113	Isepeolus luctuosus
+nak	GU245114	Isepeolus wagenknechti
+nak	GU320128	Isodontia mexicana
+nak	GU320148	Lasioglossum hybodinum
+nak	GU245135	Leiopodus abnormis
+nak	GU245133	Leiopodus singularis
+nak	GU245134	Leiopodus sp. JS-2010
+nak	GU245136	Leiopodus trochantericus
+nak	GU320111	Leioproctus plumosus
+nak	GU245128	Lestrimelitta sp. JS-2010
+nak	HQ995934	Lithurgus chrysurus
+nak	EF646390	Lithurgus echinocacti
+nak	HQ995935	Lithurgus pullatus
+nak	HQ995936	Lithurgus rubricatus
+nak	HQ995937	Lithurgus scabrosus
+nak	HQ995938	Lithurgus tibialis
+nak	GU245211	Macrogalea ellioti
+nak	EF646403	Macropis europaea
+nak	EF646405	Macropis fulvipes
+nak	HQ995917	Macropis nuda
+nak	EF646452	Macrotera echinocacti
+nak	EF646451	Macrotera latior
+nak	GU245219	Manuelia gayatina
+nak	GU245090	Martinapis luteicornis
+nak	HQ995964	Megachile (Aethomegachile) sp. CJP-2011
+nak	HQ995967	Megachile (Austrochile) sp. CJP-2011
+nak	HQ995971	Megachile (Chelostomoda) sp. CJP-2011
+nak	HQ995973	Megachile (Chrysosarus) sp. CJP-2011
+nak	HQ995980	Megachile (Hackeriapis) sp. CJP-2011
+nak	HQ995981	Megachile (Largella) sp. CJP-2011
+nak	HQ995989	Megachile (Rhodomegachile) sp. CJP-2011
+nak	HQ995970	Megachile aethiops
+nak	HQ995974	Megachile albisecta
+nak	GU245163	Megachile angelarum
+nak	HQ995979	Megachile bombiformis
+nak	GU245165	Megachile ericetorum
+nak	HQ995986	Megachile fabricator
+nak	HQ995965	Megachile fimbriata
+nak	HQ995976	Megachile mandibularis
+nak	HQ995992	Megachile maritima
+nak	HQ995983	Megachile maxillosa
+nak	HQ995984	Megachile melanopyga
+nak	HQ995988	Megachile microsoma
+nak	HQ995985	Megachile nevadensis
+nak	HQ995966	Megachile parallela
+nak	HQ995969	Megachile parietina
+nak	HQ995977	Megachile patellimana
+nak	HQ995978	Megachile pilidens
+nak	HQ995990	Megachile pugnata
+nak	HQ995991	Megachile remeata
+nak	HQ995968	Megachile sculpturalis
+nak	HQ995987	Megachile sidalceae
+nak	HQ995972	Megachile spinotulata
+nak	HQ995982	Megachile texana
+nak	HQ995975	Megachile zapoteca
+nak	GU320119	Megandrena enceliae
+nak	EF646406	Meganomia binghami
+nak	GU245120	Melecta albifrons
+nak	GU245115	Melectoides bellus
+nak	GU245123	Melipona sp. JS-2010
+nak	EU184746	Meliponula bocandei
+nak	GU245122	Meliponula ferruginea
+nak	GU245093	Melissodes desponsa
+nak	GU245097	Melissoptila sp. JS-2010
+nak	GU245167	Melitta arrogans
+nak	EF646392	Melitta capensis
+nak	EF646395	Melitta dimidiata
+nak	EF646393	Melitta eickworti
+nak	EF646399	Melitta ezoana
+nak	EF646398	Melitta haemorrhoidalis
+nak	EF646394	Melitta leporina
+nak	EF646396	Melitta nigricans
+nak	EF646397	Melitta tricincta
+nak	EF646443	Melitturga albescens
+nak	HQ995920	Melitturga clavicornis
+nak	EF646446	Meliturgula haematospila
+nak	EF646445	Meliturgula scriptifrons
+nak	GU245087	Mesocheira bicolor
+nak	GU245084	Mesonychium asteria
+nak	GU245085	Mesoplia rufipes
+nak	GU320146	Mexalictus arizonensis
+nak	GU245161	Microthurge sp. JS-2010
+nak	GU245138	Nanorhathymus sp. JS-2010
+nak	EF646447	Neffapis longilingua
+nak	HQ995933	Neofidelia longirostris
+nak	GU245151	Neofidelia sp. JS-2010
+nak	GU245205	Neolarra orbiculata
+nak	GU245188	Neopasites cressoni
+nak	GU245206	Nomada maculata
+nak	GU245207	Nomada signata
+nak	GU320125	Nomioides facilis
+nak	HQ995956	Notanthidium steloides
+nak	HQ995993	Noteriades sp. CJP-2011
+nak	HQ996001	Ochreriades fasciatus
+nak	GU245196	Odyneropsis sp. JS-2010
+nak	GU245176	Oreopasites barbarae
+nak	GU245132	Osiris sp. JS-2010
+nak	GU245169	Osmia lignaria
+nak	HQ996002	Othinosmia globicola
+nak	HQ996003	Othinosmia securicornis
+nak	GU320145	Oxybelus sp. SCC-2010
+nak	HQ995957	Pachyanthidium benguelense
+nak	EF646439	Panurginus albopilosus
+nak	EF646464	Panurgus banksianus proximus
+nak	EF646459	Panurgus calcaratus
+nak	EF646453	Panurgus calceatus
+nak	EF646454	Panurgus canescens
+nak	EF646463	Panurgus cephalotes
+nak	EF646457	Panurgus convergens
+nak	EF646466	Panurgus dentatus
+nak	EF646460	Panurgus dentipes
+nak	EF646456	Panurgus farinosus
+nak	EF646461	Panurgus maroccanus
+nak	EF646455	Panurgus nigriscopus
+nak	EF646468	Panurgus niloticus
+nak	EF646462	Panurgus perezi
+nak	EF646467	Panurgus pici
+nak	EF646465	Panurgus pyropygus
+nak	EF646458	Panurgus rungsi
+nak	HQ995941	Paradioxys pannonica
+nak	GU245190	Paranomada velutina
+nak	GU245156	Paranthidium jugatorium
+nak	HQ995922	Pararhophites orobinus
+nak	GU245153	Pararhophites quadratus
+nak	GU245141	Paratetrapedia sp. JS-2010
+nak	GU245130	Parepeolus aterrimus
+nak	GU245180	Pasites maculatus
+nak	GU320152	Patellapis abessinica
+nak	GU320104	Penapis penai
+nak	GU245091	Peponapis pruinosa
+nak	EF646450	Perdita californica
+nak	EF646448	Perdita halictoides
+nak	EF646449	Perdita trisignata
+nak	GU320154	Philanthus gibbosus
+nak	GU245126	Plebeina hildebrandti
+nak	GU320103	Plenoculus sp. SCC-2010
+nak	EF646444	Plesiopanurgus zizus
+nak	GU320144	Podalonia sp. SCC-2010
+nak	HQ995918	Promelitta alboclypeata
+nak	EF646438	Protandrena mexicanorum
+nak	HQ996004	Protosmia humeralis
+nak	GU245174	Protosmia rubifloris
+nak	EF646428	Protoxaea gloriosa
+nak	GU320110	Pseudapis unidentata albocincta
+nak	HQ995958	Pseudoanthidium scapulare
+nak	HQ996005	Pseudoheriades moricei
+nak	EF646437	Pseudopanurgus fraterculus
+nak	HQ995994	Radoszkowskiana rufiventris
+nak	EF646400	Rediviva mcgregori
+nak	EF646402	Rediviva saetigera
+nak	EF646401	Redivivoides simulans
+nak	GU320122	Reedapis bathycyaneus
+nak	GU245137	Rhathymus sp. JS-2010
+nak	GU245139	Rhathymus unicolor
+nak	GU245202	Rhinepeolus rufiventris
+nak	HQ995959	Rhodanthidium septemdentatum
+nak	GU320132	Rophites algirus
+nak	GU320151	Ruizantheda mutabilis
+nak	EF646426	Samba griseonigra
+nak	EF646427	Samba spinosa
+nak	GU245127	Scaptotrigona hellwegeri
+nak	EU184747	Scaura latitarsis
+nak	GU320126	Sceliphron caementarium
+nak	GU320106	Scrapter erubescens
+nak	GU320131	Scrapter heterodoxus
+nak	GU320112	Scrapter niger
+nak	GU320134	Scrapter ruficornis
+nak	HQ995960	Serapista rufipes
+nak	GU320150	Sphecodes ranunculi
+nak	GU245177	Sphecodopsis capensis
+nak	GU245162	Stelis linsleyi
+nak	HQ995961	Stelis sp. 'paiute'
+nak	HQ996006	Stenoheriades asiaticus
+nak	GU320135	Stenotritus sp. SCC-2010
+nak	GU320101	Stigmus sp. SCC-2010
+nak	GU320120	Stizoides sp. SCC-2010
+nak	GU245096	Svastra obliqua
+nak	GU245092	Svastrides melanura
+nak	GU245100	Svastrina subapicalis
+nak	GU320107	Systropha curvicornis
+nak	GU320138	Tachysphex sp. SCC-2010
+nak	GU245142	Tapinotaspidini sp. JS-2010
+nak	GU245143	Tapinotaspoides sp. JS-2010
+nak	GU245124	Tetragonula carbonaria
+nak	GU245089	Tetralonia cinctula
+nak	GU245101	Tetraloniella glauca
+nak	GU245119	Tetralonioidella sp. JS-2010
+nak	GU245148	Tetrapedia cf. diversipes JS-2010
+nak	GU245145	Tetrapedia maura
+nak	GU245147	Tetrapedia sp. JS-2010
+nak	GU245199	Thalestria spinosa
+nak	GU245098	Thygater sp. JS-2010
+nak	GU245118	Thyreus delumbatus
+nak	EU184753	Thyreus takaonis
+nak	GU245208	Townsendiella sp. JS-2010
+nak	GU245154	Trachusa larreae
+nak	HQ995962	Trachusa pubescens
+nak	GU320140	Trichocolletes sp. SCC-2010
+nak	GU245160	Trichothurgus herbsti
+nak	GU245198	Triepeolus robustus
+nak	EU184744	Trigona fuscipennis
+nak	GU245191	Triopasites penniger
+nak	HQ996007	Wainia eremoplana
+nak	GU320100	Xanthesma furcifera
+nak	GU245095	Xenoglossa angustior
+nak	GU320116	Xeralictus bicuspidariae
+nak	GU245116	Xeromelecta californica
+nak	GU320141	Xeromelissa rozeni
+nak	GU320137	Xerostictia sp. SCC-2010
+nak	GU245228	Xylocopa californica arizonensis
+nak	GU245227	Xylocopa fimbriata
+nak	GU245223	Xylocopa iris
+nak	GU245222	Xylocopa muscaria
+nak	GU245225	Xylocopa pubescens
+nak	GU245224	Xylocopa sp. JS-2010
+nak	GU245221	Xylocopa tabaniformis
+nak	GU245226	Xylocopa violacea
+nak	GU245220	Xylocopa virginica
+nak	GU245117	Zacosmia maculata
+or2	FJ666105	Apis cerana
+or2	FJ666109	Apis dorsata
+or2	FJ666114	Apis florea
+or2	NM001134943	Apis mellifera
+or2	XM003402727	Bombus terrestris
+or2	FJ666116	Melipona quadrifasciata
+pepck	EF051028	Apis dorsata
+pepck	XM396295	Apis mellifera
+pepck	EF050860	Bombus affinis
+pepck	EF050903	Bombus alagesianus
+pepck	EF050813	Bombus alboanalis
+pepck	EF050871	Bombus alpinus
+pepck	EF050890	Bombus apollineus
+pepck	EF050986	Bombus appositus
+pepck	EF050823	Bombus ardens
+pepck	EF051001	Bombus argillaceus
+pepck	EF050937	Bombus armeniacus
+pepck	EF050978	Bombus ashtoni
+pepck	EF050896	Bombus asiaticus
+pepck	EF050943	Bombus atratus
+pepck	EF050964	Bombus atripes
+pepck	EF051014	Bombus auricomus
+pepck	EF050830	Bombus avanus
+pepck	EF051020	Bombus avinoviellus
+pepck	EF050886	Bombus baeri
+pepck	EF050870	Bombus balteatus
+pepck	EF050972	Bombus barbutellus
+pepck	EF050956	Bombus bellicosus
+pepck	EF051005	Bombus bicoloratus
+pepck	EF050838	Bombus bifarius
+pepck	EF050847	Bombus bimaculatus
+pepck	EF050825	Bombus biroi
+pepck	EF050979	Bombus bohemicus
+pepck	EF050987	Bombus borealis
+pepck	EF050889	Bombus brachycephalus
+pepck	EF050950	Bombus brasiliensis
+pepck	EF050915	Bombus breviceps
+pepck	EF050818	Bombus brodmannicus
+pepck	EF050957	Bombus californicus
+pepck	EF050853	Bombus caliginosus
+pepck	EF050974	Bombus campestris
+pepck	EF050852	Bombus centralis
+pepck	EF050982	Bombus chinensis
+pepck	EF050812	Bombus cingulatus
+pepck	EF050975	Bombus citrinus
+pepck	EF050885	Bombus coccineus
+pepck	EF051016	Bombus confusus
+pepck	EF050994	Bombus consobrinus
+pepck	EF051021	Bombus convexus
+pepck	EF050984	Bombus cornutus
+pepck	EF050882	Bombus crotchii
+pepck	EF050855	Bombus cryptarum
+pepck	EF050940	Bombus dahlbomii
+pepck	EF050922	Bombus deuteronymus
+pepck	EF050990	Bombus difficillimus
+pepck	EF050959	Bombus digressus
+pepck	EF050955	Bombus diligens
+pepck	EF050988	Bombus distinguendus
+pepck	EF051010	Bombus diversus
+pepck	EF050874	Bombus ecuadorius
+pepck	EF050844	Bombus ephippiatus
+pepck	EF050899	Bombus erzurumensis
+pepck	EF050942	Bombus excellens
+pepck	EF050962	Bombus exil
+pepck	EF050911	Bombus eximius
+pepck	EF050969	Bombus fernaldae
+pepck	EF050958	Bombus fervidus
+pepck	EF050910	Bombus festivus
+pepck	EF050933	Bombus filchnerae
+pepck	EF050824	Bombus flavescens
+pepck	EF050970	Bombus flavidus
+pepck	EF050850	Bombus flavifrons
+pepck	EF050992	Bombus fragrans
+pepck	EF050861	Bombus franklini
+pepck	EF050884	Bombus fraternus
+pepck	EF050811	Bombus frigidus
+pepck	EF050906	Bombus friseanus
+pepck	EF050883	Bombus funebris
+pepck	EF051012	Bombus funerarius
+pepck	EF051003	Bombus gerstaeckeri
+pepck	EF050916	Bombus grahami
+pepck	EF050879	Bombus griseocollis
+pepck	EF050829	Bombus haematurus
+pepck	EF051011	Bombus haemorrhoidalis
+pepck	EF050887	Bombus handlirschi
+pepck	EF051017	Bombus handlirschianus
+pepck	EF050930	Bombus hedini
+pepck	EF050999	Bombus hortorum
+pepck	EF050875	Bombus hortulanus
+pepck	EF050924	Bombus humilis
+pepck	EF050840	Bombus huntii
+pepck	EF050868	Bombus hyperboreus
+pepck	EF050827	Bombus hypnorum
+pepck	EF050864	Bombus hypocrita
+pepck	EF050866	Bombus ignitus
+pepck	EF050965	Bombus imitator
+pepck	EF050927	Bombus impetuosus
+pepck	EF050901	Bombus incertus
+pepck	FJ159106	Bombus inexspectatus
+pepck	EF050836	Bombus infirmus
+pepck	EF050831	Bombus infrequens
+pepck	EF050976	Bombus insularis
+pepck	EF050814	Bombus jonellus
+pepck	EF050913	Bombus kashmirensis
+pepck	EF050904	Bombus keriensis
+pepck	EF050995	Bombus koreanus
+pepck	EF051006	Bombus kulingensis
+pepck	EF050905	Bombus ladakhensis
+pepck	EF050936	Bombus laesus
+pepck	EF050902	Bombus lapidarius
+pepck	EF050845	Bombus lapponicus
+pepck	EF050834	Bombus lemniscatus
+pepck	EF050835	Bombus lepidus
+pepck	EF051009	Bombus longipes
+pepck	EF050862	Bombus lucorum
+pepck	EF050881	Bombus macgregori
+pepck	EF050973	Bombus maxillosus
+pepck	EF050951	Bombus medius
+pepck	EF050876	Bombus melaleucus
+pepck	EF050849	Bombus melanopygus
+pepck	EF050991	Bombus melanurus
+pepck	EF051019	Bombus mendax
+pepck	EF050938	Bombus mesomelas
+pepck	EF050952	Bombus mexicanus
+pepck	EF050908	Bombus miniatus
+pepck	EF050816	Bombus mixtus
+pepck	EF050917	Bombus mlokosievitzii
+pepck	EF050856	Bombus moderatus
+pepck	EF050820	Bombus modestus
+pepck	EF050848	Bombus monticola
+pepck	EF050941	Bombus morio
+pepck	EF050880	Bombus morrisoni
+pepck	EF050934	Bombus mucidus
+pepck	EF050925	Bombus muscorum
+pepck	EF050869	Bombus neoboreus
+pepck	EF051015	Bombus nevadensis
+pepck	EF050893	Bombus niveatus
+pepck	EF050912	Bombus nobilis
+pepck	EF050971	Bombus norvegicus
+pepck	EF050898	Bombus oberti
+pepck	EF050858	Bombus occidentalis
+pepck	EF050954	Bombus opifex
+pepck	EF050832	Bombus parthenius
+pepck	EF050932	Bombus pascuorum
+pepck	EF050857	Bombus patagiatus
+pepck	EF050948	Bombus pennsylvanicus
+pepck	EF050828	Bombus perplexus
+pepck	EF050935	Bombus persicus
+pepck	EF050993	Bombus personatus
+pepck	EF050833	Bombus picipes
+pepck	EF050872	Bombus polaris
+pepck	EF050939	Bombus pomorum
+pepck	EF051000	Bombus portchinsky
+pepck	EF050928	Bombus potanini
+pepck	EF050819	Bombus pratorum
+pepck	EF050837	Bombus pressus
+pepck	EF050923	Bombus pseudobaicalensis
+pepck	EF050945	Bombus pullatus
+pepck	EF050822	Bombus pyrenaeus
+pepck	EF050966	Bombus quadricolor
+pepck	EF050998	Bombus religiosus
+pepck	EF050929	Bombus remotus
+pepck	EF050877	Bombus robustus
+pepck	EF050888	Bombus rubicundus
+pepck	EF050920	Bombus ruderarius
+pepck	EF051002	Bombus ruderatus
+pepck	EF050892	Bombus rufocinctus
+pepck	EF050907	Bombus rufofasciatus
+pepck	EF050983	Bombus rupestris
+pepck	EF050815	Bombus sandersoni
+pepck	EF050931	Bombus schrencki
+pepck	EF050997	Bombus securus
+pepck	EF050891	Bombus semenoviellus
+pepck	EF051018	Bombus shaposhnikovi
+pepck	EF050897	Bombus sibiricus
+pepck	EF050900	Bombus sichelii
+pepck	EF050909	Bombus simillimus
+pepck	EF050817	Bombus sitkensis
+pepck	EF050968	Bombus skorikovi
+pepck	EF050947	Bombus sonorus
+pepck	EF051013	Bombus soroeensis
+pepck	EF050867	Bombus sporadicus
+pepck	EF050953	Bombus steindachneri
+pepck	EF050989	Bombus subterraneus
+pepck	EF050981	Bombus suckleyi
+pepck	EF050895	Bombus sulfureus
+pepck	EF051004	Bombus supremus
+pepck	EF050996	Bombus sushkini
+pepck	EF050918	Bombus sylvarum
+pepck	EF050967	Bombus sylvestris
+pepck	EF050846	Bombus sylvicola
+pepck	EF050839	Bombus ternarius
+pepck	XM003394476	Bombus terrestris
+pepck	EF050859	Bombus terricola
+pepck	EF050985	Bombus tibetanus
+pepck	EF050944	Bombus transversalis
+pepck	EF050963	Bombus tricornis
+pepck	FJ175289	Bombus trifasciatus
+pepck	FJ175292	Bombus trifasciatus trifasciatus
+pepck	EF050960	Bombus trinominatus
+pepck	EF050873	Bombus tucumanus
+pepck	EF051008	Bombus ussurensis
+pepck	EF050854	Bombus vagans
+pepck	EF050851	Bombus vandykei
+pepck	EF050977	Bombus variabilis
+pepck	EF050921	Bombus velox
+pepck	EF050980	Bombus vestalis
+pepck	EF050919	Bombus veteranus
+pepck	EF050878	Bombus vogti
+pepck	EF050894	Bombus vorticosus
+pepck	EF050841	Bombus vosnesenskii
+pepck	EF051022	Bombus waltoni
+pepck	EF050961	Bombus weisi
+pepck	EF050843	Bombus wilmattae
+pepck	EF050914	Bombus wurflenii
+pepck	EF050926	Bombus zonatus
+pepck	AY005303	Brevineura rufitarsis
+pepck	EF051023	Geniotrigona thoracica
+pepck	EF051024	Heterotrigona itama
+pepck	EF051026	Hypotrigona gribodoi
+pepck	EF051027	Plebeia frontalis
+pepck	EF051025	Trigona amazonensis
+pepck	AY005323	Xylocopa acutipennis
+pepck	EU180132	Xylocopa aeratus
+pepck	EU180130	Xylocopa albifrons
+pepck	EU445993	Xylocopa albinotum
+pepck	EU445991	Xylocopa amamensis
+pepck	AY005324	Xylocopa appendiculata circumvolans
+pepck	AY005315	Xylocopa aruana
+pepck	AY005306	Xylocopa auripennis auripennis
+pepck	AY005308	Xylocopa bombylans
+pepck	EU446002	Xylocopa caerulea
+pepck	EU180124	Xylocopa cf. confusa RL-2007
+pepck	EU446005	Xylocopa collaris
+pepck	EU446001	Xylocopa confusa
+pepck	EU446004	Xylocopa dejeanii
+pepck	EU180122	Xylocopa disconata
+pepck	AY005310	Xylocopa erythrina
+pepck	EU445992	Xylocopa flavifrons
+pepck	AY005320	Xylocopa flavorufa
+pepck	AY005329	Xylocopa frontalis
+pepck	AY005327	Xylocopa gualanensis
+pepck	EU180127	Xylocopa inconstans
+pepck	AY005313	Xylocopa iris
+pepck	AY005322	Xylocopa latipes
+pepck	AY005316	Xylocopa lieftincki
+pepck	EU180131	Xylocopa lugubris
+pepck	AY005304	Xylocopa micans
+pepck	AY005325	Xylocopa micheneri micheneri
+pepck	AY005319	Xylocopa nigrita
+pepck	EU180121	Xylocopa nigroclypeata
+pepck	EU180125	Xylocopa nobilis tricolor
+pepck	EU445998	Xylocopa ogasawarensis
+pepck	AY005321	Xylocopa olivieri
+pepck	EU180120	Xylocopa parvula
+pepck	EU180129	Xylocopa provida
+pepck	AY005317	Xylocopa pubescens
+pepck	AY005318	Xylocopa scioensis
+pepck	AY005311	Xylocopa sicheli
+pepck	EU180128	Xylocopa smithii
+pepck	EU180126	Xylocopa sp. India
+pepck	EU445999	Xylocopa sp. KWZ10
+pepck	EU445994	Xylocopa sp. KWZ5
+pepck	AY005314	Xylocopa sulcatipes
+pepck	AY005309	Xylocopa tabaniformis tabaniformis
+pepck	AY005305	Xylocopa tranquebarica
+pepck	EU445995	Xylocopa tranquebarorum
+pepck	AY005328	Xylocopa truxali
+pepck	AY005326	Xylocopa varipuncta
+pepck	AY005307	Xylocopa violacea
+pepck	AY005312	Xylocopa virginica virginica
+pepck	EU180123	Xylocopa waterhousei
+polII	GU245457	Afroheriades sp. CJP-2008
+polII	AY945089	Agapostemon tyleri
+polII	EF599232	Alocandrena porterae
+polII	GU245463	Ammobates punctatus
+polII	GU245462	Ammobates sp. JS-2010
+polII	GU245468	Ammobatoides luctuosus
+polII	AY945091	Anacrabro ocellatus
+polII	GU245351	Ancyla asiatica
+polII	GU245352	Ancyla holtzi anatolica
+polII	EF599233	Andrena albopunctata
+polII	AY945092	Andrena brooksi
+polII	EF599234	Andrena cineraria
+polII	AY945177	Andrena nasonii
+polII	GU245442	Anthidiellum notatum
+polII	AY945093	Anthidium oblongatum
+polII	GU245443	Anthidium porterae
+polII	GU245398	Anthophorula completa
+polII	GU245399	Anthophorula sp. 1 JS-2010
+polII	GU245400	Anthophorula sp. 2 JS-2010
+polII	EU162879	Apis andreniformis
+polII	EU184733	Apis cerana
+polII	EU184732	Apis dorsata
+polII	EU184731	Apis florea
+polII	EU162863	Apis koschevnikovi
+polII	DQ069332	Apis mellifera
+polII	GU245430	Arhysoceble sp. JS-2010
+polII	EF646384	Arhysosage ochracea
+polII	GU245455	Ashmeadiella aridula
+polII	GU320158	Augochlorella pomoniella
+polII	GU320161	Augochloropsis metallica
+polII	AY945095	Bembix americana
+polII	AY945175	Bembix dentilabris
+polII	GU245472	Biastes truncatus
+polII	AY945094	Bicyrtes ventralis
+polII	EU184724	Bombus ardens
+polII	EU184725	Bombus diversus
+polII	EU184726	Bombus mendax
+polII	EU162880	Bombus transversalis
+polII	EU162875	Bombus vagans
+polII	GU245475	Brachynomada margaretae
+polII	GU245474	Brachynomada sp. JS-2010
+polII	GU245490	Braunsapis madecassella
+polII	GU245426	Caenonomada sp. JS-2010
+polII	GU245476	Caenoprosopina holmbergi
+polII	GU245477	Caenoprosopis crabronina
+polII	AY945096	Calliopsis anthidia
+polII	AY945097	Calliopsis fracta
+polII	AY945098	Calliopsis pugionis
+polII	AY945178	Calliopsis subalpina
+polII	AY945117	Callohesma calliopsella
+polII	AY945105	Callomelitta antipodes
+polII	EF599236	Callonychium atacamense
+polII	EF599240	Camptopoeum frontale
+polII	EF599241	Camptopoeum negevense
+polII	EF599276	Capicola hantamensis
+polII	EF599274	Capicola nanula
+polII	EF599275	Capicola nigerrima
+polII	AY945109	Caupolicana vestita
+polII	AY945110	Caupolicana yarrowi
+polII	EU184728	Cephalotrigona capitata
+polII	EU162855	Cephalotrigona sp. MP106
+polII	EU162916	Cephalotrigona sp. MP89
+polII	AY945099	Ceratina calcarata
+polII	GU245498	Ceratina cyanea
+polII	GU245494	Ceratina sp. JS-2010
+polII	GU245454	Chelostoma californicum
+polII	AY945101	Chelostoma fuliginosum
+polII	AY945103	Chilicola styliventris
+polII	AY945134	Chilicolletes delahozii
+polII	AY945102	Chilimelissa rozeni
+polII	EF599238	Clavipanurgus desertus
+polII	AY945147	Clitemnestra bipunctata
+polII	AY945104	Clypeadon haigi
+polII	GU245432	Coelioxoides sp. JS-2010
+polII	GU245435	Coelioxoides waltheriae
+polII	AY945179	Coelioxys afra
+polII	GU245449	Coelioxys alternata
+polII	AY945180	Colletes dimidiatus
+polII	AY945107	Colletes inaequalis
+polII	AY945108	Colletes skinneri
+polII	GU245491	Compsomelissa keiseri
+polII	DQ069330	Conanthalictus conanthi
+polII	GU320157	Conanthalictus wilmattae
+polII	GU245381	Ctenioschelus goryi
+polII	GU320159	Ctenocolletes smaragdinus
+polII	AY945111	Ctenoplectra albolimbata
+polII	GU245366	Ctenoplectra bequaerti
+polII	GU245365	Ctenoplectrina sp. JS-2010
+polII	EU980075	Dactylurina staudingeri
+polII	AY945112	Dasypoda argentata
+polII	EF599280	Dasypoda braccata
+polII	EF599283	Dasypoda frieseana
+polII	AY945113	Dasypoda hirtipes
+polII	EF599279	Dasypoda oraniensis
+polII	EF599282	Dasypoda pyriformis
+polII	EF599281	Dasypoda pyrotricha
+polII	EF599284	Dasypoda spinigera
+polII	AY945114	Dasypoda visnaga
+polII	GU245440	Dianthidium subparvum
+polII	AY945182	Dieunomia heteropoda
+polII	AY945183	Dieunomia nevadensis
+polII	GU245444	Dioxys pomonae
+polII	AY945115	Diphaglossa gayi
+polII	GU245481	Doeringiella sp. JS-2010
+polII	AY945116	Dufourea mulleri
+polII	GU245418	Epeoloides coecutiens
+polII	GU245416	Epeoloides pilosula
+polII	GU245479	Epeolus scutellaris
+polII	GU245482	Epeolus sp. JS-2010
+polII	GU245484	Epeolus variegatus
+polII	GU245375	Epiclopus gayi
+polII	GU936602	Eremaphanta iranica
+polII	GU245376	Ericrocis lata
+polII	GU245385	Eucera frater
+polII	AY945100	Eucerceris tricolor
+polII	AY945185	Euryglossa ephippiata
+polII	AY945118	Euryglossina globuliceps
+polII	GU245401	Exomalopsis sp. JS-2010
+polII	GU245493	Exoneura bicolor
+polII	AY945119	Fideliopsis major
+polII	GU245390	Florilegus sp. JS-2010
+polII	EU162856	Friesella schrottkyi
+polII	EU162857	Frieseomelitta silvestrii
+polII	EU162865	Geotrigona kraussi
+polII	AY945130	Goniocolletes fimbriatinus
+polII	AY945133	Goniocolletes perfasciatus
+polII	AY945120	Halictus rubicundus
+polII	GU245452	Heriades crucifer
+polII	DQ069336	Heriades crucifera
+polII	EF599273	Hesperapis cockerelli
+polII	AY945121	Hesperapis larreae
+polII	AY945122	Hesperapis regularis
+polII	AY945186	Hesperapis rhodocerata
+polII	AY945123	Hesperapis sp. Hesp940
+polII	EF599272	Hesperapis trochanterata
+polII	GU245485	Hexepeolus rhodogyne
+polII	GU245466	Holcopasites arizonicus
+polII	GU245465	Holcopasites calliopsidis
+polII	GU245467	Holcopasites insoletus
+polII	GU245470	Holcopasites minimus
+polII	AY945124	Holcopasites ruthae
+polII	GU245469	Holcopasites stevensi
+polII	GU245379	Hopliphora velutina
+polII	GU245459	Hoplitis albifrons
+polII	GU245456	Hoplosmia scutellaris
+polII	AY945126	Hylaeus amiculus
+polII	AY945127	Hylaeus elegans
+polII	AY945128	Hylaeus proximus
+polII	AY945188	Hyleoides concinna
+polII	AY945189	Hypotrigona gribodoi
+polII	EU980076	Hypotrigona ruspolii
+polII	GU245403	Isepeolus atripilis
+polII	GU245402	Isepeolus cortesi
+polII	GU245404	Isepeolus luctuosus
+polII	GU245405	Isepeolus wagenknechti
+polII	AY945129	Isodontia mexicana
+polII	GU320160	Lasioglossum hybodinum
+polII	GU245421	Leiopodus abnormis
+polII	AY945137	Leiopodus singularis
+polII	GU245420	Leiopodus sp. JS-2010
+polII	GU245422	Leiopodus trochantericus
+polII	AY945131	Leioproctus irroratus
+polII	AY945132	Leioproctus plumosus
+polII	AY945135	Leioproctus sp. BND-2004
+polII	AY945190	Leioproctus sp. Lesp707
+polII	EU980077	Lepidotrigona ventralis
+polII	GU245415	Lestrimelitta sp. JS-2010
+polII	EU162864	Lestrimelitta sp. MP115
+polII	EU980078	Liotrigona madecassa
+polII	DQ069326	Lipotriches patellifera
+polII	EU980079	Lisotrigona furva
+polII	DQ069335	Lithurgus apicalis
+polII	AY945136	Lithurgus echinocacti
+polII	GU245492	Macrogalea ellioti
+polII	DQ069327	Macronomia aureozonata
+polII	AY945191	Macronomia sanguinolenta
+polII	AY945138	Macropis europaea
+polII	EF599271	Macropis fulvipes
+polII	AY945139	Macropis nuda
+polII	AY945196	Macrotera echinocacti
+polII	AY945197	Macrotera latior
+polII	GU245499	Manuelia gayatina
+polII	DQ069333	Martinapis luteicornis
+polII	GU245448	Megachile angelarum
+polII	GU245450	Megachile ericetorum
+polII	AY945143	Megachile pugnata
+polII	AY945144	Meganomia binghami
+polII	GU245409	Melecta albifrons
+polII	GU245406	Melectoides bellus
+polII	EU162890	Melipona aff. costaricaensis MP33
+polII	EU162912	Melipona asilvai
+polII	EU162882	Melipona beecheii
+polII	EU162913	Melipona bicolor bicolor
+polII	EU162898	Melipona captiosa
+polII	EU162893	Melipona compressipes compressipes
+polII	EU162899	Melipona compressipes interrupta
+polII	EU162876	Melipona costaricaensis
+polII	EU162889	Melipona crinita
+polII	EU162883	Melipona favosa
+polII	EU162874	Melipona fuliginosa
+polII	EU162892	Melipona fuscopilosa
+polII	EU162886	Melipona grandis
+polII	EU162921	Melipona illota
+polII	EU162901	Melipona illustris
+polII	EU162900	Melipona lateralis
+polII	EU162911	Melipona mandacaia
+polII	EU162908	Melipona marginata
+polII	EU162866	Melipona melanopleura
+polII	EU162891	Melipona melanoventer
+polII	EU162895	Melipona micheneri
+polII	EU162896	Melipona ogilviei
+polII	EU162848	Melipona panamica
+polII	EU162905	Melipona quadrifasciata anthidioides
+polII	EU162910	Melipona quinquefasciata
+polII	EU162888	Melipona rufiventris
+polII	EU162904	Melipona rufiventris flavolineata
+polII	EU162906	Melipona rufiventris rufiventris
+polII	EU162907	Melipona scutellaris
+polII	EU162894	Melipona seminigra atrofulva
+polII	EU162915	Melipona solani
+polII	GU245410	Melipona sp. JS-2010
+polII	EU162871	Melipona sp. MP127
+polII	EU162903	Melipona sp. MP70
+polII	EU162914	Melipona sp. MP85
+polII	EU162917	Melipona sp. MP90
+polII	EU162918	Melipona sp. MP91
+polII	EU162920	Melipona sp. MP93
+polII	EU162922	Melipona sp. MP96
+polII	EU162924	Melipona sp. MP98
+polII	EU162909	Melipona triplaridis
+polII	EU184729	Meliponula bocandei
+polII	AY945192	Meliponula erythra
+polII	GU245412	Meliponula ferruginea
+polII	GU245384	Melissodes desponsa
+polII	GU245388	Melissoptila sp. JS-2010
+polII	GU245451	Melitta arrogans
+polII	AY945140	Melitta capensis
+polII	EF599266	Melitta dimidiata
+polII	AY945141	Melitta eickworti
+polII	EF599270	Melitta ezoana
+polII	EF599269	Melitta haemorrhoidalis
+polII	AY945142	Melitta leporina
+polII	EF599267	Melitta nigricans
+polII	EF599268	Melitta tricincta
+polII	EF599242	Melitturga albescens
+polII	EF646386	Melitturga caudata
+polII	AY945145	Melitturga clavicornis
+polII	AY945194	Meliturgula haematospila
+polII	AY945193	Meliturgula minima
+polII	EF599244	Meliturgula scriptifrons
+polII	EU162868	Meliwillea bivea
+polII	GU245380	Mesocheira bicolor
+polII	GU245377	Mesonychium asteria
+polII	GU245378	Mesoplia rufipes
+polII	GU320155	Mexalictus arizonensis
+polII	GU245446	Microthurge sp. JS-2010
+polII	EU162853	Nannotrigona sp. MP104
+polII	GU245424	Nanorhathymus sp. JS-2010
+polII	EF599246	Neffapis longilingua
+polII	GU245437	Neofidelia sp. JS-2010
+polII	GU245486	Neolarra orbiculata
+polII	GU245471	Neopasites cressoni
+polII	EU162867	Nogueirapis mirandula
+polII	GU245487	Nomada maculata
+polII	GU245488	Nomada signata
+polII	DQ069328	Nomia tetrazonata
+polII	GU320156	Nomioides facilis
+polII	EU980081	Odontotrigona haematoptera
+polII	GU245478	Odyneropsis sp. JS-2010
+polII	GU245460	Oreopasites barbarae
+polII	GU245419	Osiris sp. JS-2010
+polII	GU245453	Osmia lignaria
+polII	AY945148	Oxybelus abdominalis
+polII	EF599239	Panurginus albopilosus
+polII	EF599261	Panurgus banksianus proximus
+polII	AY945152	Panurgus calcaratus
+polII	EF599251	Panurgus calceatus
+polII	EF599252	Panurgus canescens
+polII	EF599260	Panurgus cephalotes
+polII	EF599255	Panurgus convergens
+polII	EF599263	Panurgus dentatus
+polII	EF599257	Panurgus dentipes
+polII	EF599254	Panurgus farinosus
+polII	EF599258	Panurgus maroccanus
+polII	EF599253	Panurgus nigriscopus
+polII	EF599265	Panurgus niloticus
+polII	EF599259	Panurgus perezi
+polII	EF599264	Panurgus pici
+polII	EF599262	Panurgus pyropygus
+polII	EF599256	Panurgus rungsi
+polII	AY945154	Paranomada velutina
+polII	GU245441	Paranthidium jugatorium
+polII	GU245438	Pararhophites quadratus
+polII	GU245427	Paratetrapedia sp. JS-2010
+polII	GU245417	Parepeolus aterrimus
+polII	GU245464	Pasites maculatus
+polII	AY945206	Patellapis (Zonalictus) sp. BND-2006
+polII	GU320164	Patellapis abessinica
+polII	AY945153	Penapis penai
+polII	GU245382	Peponapis pruinosa
+polII	AY945195	Perdita californica
+polII	EF599247	Perdita halictoides
+polII	EF599248	Perdita trisignata
+polII	AY945149	Philanthus gibbosus
+polII	EU162850	Plebeia franki
+polII	EU980082	Plebeia sp. A CR-2009
+polII	GU245413	Plebeina hildebrandti
+polII	AY945150	Plenoculus nr. parvus BND-2010
+polII	EF599243	Plesiopanurgus zizus
+polII	GU245436	Promelitta alboclypeata
+polII	AY945198	Protandrena mexicanorum
+polII	AY945187	Protandrena nanulus
+polII	DQ069325	Protandrena verbesinae
+polII	GU245458	Protosmia rubifloris
+polII	AY945157	Protoxaea gloriosa
+polII	DQ069329	Pseudapis obesula
+polII	AY945156	Pseudapis unidentata
+polII	AY945207	Pseudopanurgus fraterculus
+polII	AY945159	Rediviva mcgregori
+polII	AY945201	Rediviva saetigera
+polII	AY945160	Redivivoides simulans
+polII	GU245423	Rhathymus sp. JS-2010
+polII	GU245425	Rhathymus unicolor
+polII	GU245483	Rhinepeolus rufiventris
+polII	AY945158	Rophites algirus
+polII	GU320163	Ruizantheda mutabilis
+polII	GU936603	Samba atra
+polII	GU936604	Samba fasciata
+polII	AY945125	Samba griseonigra
+polII	EF599285	Samba ogilviei
+polII	EF599286	Samba spinosa
+polII	GU245414	Scaptotrigona hellwegeri
+polII	EU162854	Scaptotrigona polysticta
+polII	EU162851	Scaptotrigona sp. MP102
+polII	EU162852	Scaptotrigona sp. MP103
+polII	EU184730	Scaura latitarsis
+polII	AY945166	Sceliphron caementarium
+polII	AY945202	Scrapter algoensis
+polII	AY945161	Scrapter erubescens
+polII	AY945162	Scrapter heterodoxus
+polII	AY945163	Scrapter niger
+polII	AY945164	Scrapter ruficornis
+polII	AY945204	Sphecodes pecosensis
+polII	GU320162	Sphecodes ranunculi
+polII	AY945203	Sphecodes sp. Spsp1055
+polII	GU245461	Sphecodopsis capensis
+polII	AY945155	Sphex lucae
+polII	GU245447	Stelis linsleyi
+polII	AY945167	Stenotritus sp. BND-2004
+polII	AY945165	Stigmus fulvipes
+polII	GU245387	Svastra obliqua
+polII	GU245383	Svastrides melanura
+polII	GU245391	Svastrina subapicalis
+polII	AY945168	Systropha curvicornis
+polII	DQ069331	Systropha glabriventris
+polII	AY945172	Tachysphex yolo
+polII	GU245428	Tapinotaspidini sp. JS-2010
+polII	GU245429	Tapinotaspoides sp. JS-2010
+polII	EU162849	Tetragonisca angustula
+polII	GU245411	Tetragonula carbonaria
+polII	EU980086	Tetragonula fuscobalteata
+polII	AY945205	Tetralonia cinctula
+polII	GU245392	Tetraloniella glauca
+polII	GU245408	Tetralonioidella sp. JS-2010
+polII	GU245434	Tetrapedia cf. diversipes JS-2010
+polII	GU245431	Tetrapedia maura
+polII	GU245433	Tetrapedia sp. JS-2010
+polII	EU980083	Tetrigona binghami
+polII	GU245480	Thalestria spinosa
+polII	GU245389	Thygater sp. JS-2010
+polII	AY945169	Thyreus delumbatus
+polII	EU184736	Thyreus takaonis
+polII	GU245489	Townsendiella sp. JS-2010
+polII	GU245439	Trachusa larreae
+polII	AY945171	Trichocolletes sp. BND-2004
+polII	GU245445	Trichothurgus herbsti
+polII	AY945170	Triepeolus robustus
+polII	EU980085	Trigona amazonensis
+polII	EU184727	Trigona fuscipennis
+polII	EU162858	Trigona sp. MP109
+polII	EU980084	Trigonisca sp. A CR-2009
+polII	GU245473	Triopasites penniger
+polII	AY945173	Xanthesma furcifera
+polII	GU245386	Xenoglossa angustior
+polII	AY945174	Xeralictus bicuspidariae
+polII	GU245407	Xeromelecta californica
+polII	GU245508	Xylocopa californica arizonensis
+polII	GU245507	Xylocopa fimbriata
+polII	GU245503	Xylocopa iris
+polII	GU245502	Xylocopa muscaria
+polII	GU245505	Xylocopa pubescens
+polII	GU245504	Xylocopa sp. JS-2010
+polII	GU245501	Xylocopa tabaniformis
+polII	GU245506	Xylocopa violacea
+polII	GU245500	Xylocopa virginica
+polII	DQ069334	Zacosmia maculata
+rho	HQ995770	Afranthidium karooense
+rho	EU851638	Afroheriades primus
+rho	EU851639	Afroheriades sp. CJP-2008
+rho	AY227939	Agapostemon leunculus
+rho	AY227940	Agapostemon tyleri
+rho	GU245271	Aglae caerulea
+rho	EU851630	Aglaoapis tridentata
+rho	DQ113659	Alocandrena porterae
+rho	HM211841	Ammobates punctatus
+rho	GU245318	Ammobates sp. JS-2010
+rho	HM211843	Ammobatoides luctuosus
+rho	AY995802	Ammophila heydeni
+rho	DQ884564	Amphylaeus obscuriceps
+rho	AY995803	Ampulex sp. CB-2005
+rho	DQ116700	Anacrabro ocellatus
+rho	GU245234	Ancyla asiatica
+rho	GU245235	Ancyla holtzi anatolica
+rho	EF599202	Andrena albopunctata
+rho	EF416861	Andrena brooksi
+rho	EF599203	Andrena cineraria
+rho	AY227915	Andrena nasonii
+rho	AF344618	Andrena sp. Ansp643
+rho	DQ884529	Andrenopsis sp. EABA-2006
+rho	AF344617	Anthidiellum notatum
+rho	HQ995771	Anthidium illustre
+rho	AF344586	Anthidium oblongatum
+rho	AF344619	Anthidium porterae
+rho	EU851631	Anthidium punctatum
+rho	HQ995772	Anthodioctes mapirensis
+rho	GU245273	Anthophorula sp. 1 JS-2010
+rho	GU245274	Anthophorula sp. 2 JS-2010
+rho	FJ042390	Aparatrigona impunctata
+rho	EU184839	Apis cerana
+rho	AF091733	Apis dorsata
+rho	EU184838	Apis florea
+rho	AB091495	Apis laboriosa
+rho	U26026	Apis mellifera
+rho	AF091728	Apis nigrocincta
+rho	DQ813182	Apotrigona infuscata
+rho	GU245299	Arhysoceble sp. JS-2010
+rho	EU851642	Ashmeadiella aff. gillettei CJP-2008
+rho	EU851641	Ashmeadiella aridula
+rho	EU851643	Ashmeadiella holtii
+rho	EU851640	Ashmeadiella timberlakei
+rho	EU851644	Ashmeadiella xenomastax
+rho	HQ995773	Aspidosmia arnoldi
+rho	HQ995774	Aspidosmia volkmanni
+rho	EU851648	Atoposmia aff. daleae CJP-2008
+rho	EU851650	Atoposmia copelandica
+rho	EU851645	Atoposmia elongata
+rho	EU851646	Atoposmia hebitis
+rho	EU851647	Atoposmia mirifica
+rho	EU851649	Atoposmia timberlakei
+rho	AY455893	Augochlora pura
+rho	AY227935	Augochlorella pomoniella
+rho	AY227934	Augochloropsis metallica
+rho	DQ813183	Austroplebeia symei
+rho	DQ813185	Axestotrigona ferruginea
+rho	DQ884522	Baeocolletes minimus
+rho	HQ995775	Bathanthidium binghami
+rho	DQ884500	Belopria nitidior
+rho	HQ995776	Benanthis madagascariensis
+rho	HM211844	Biastes truncatus
+rho	DQ116701	Bicyrtes ventralis
+rho	AY739451	Bombus affinis
+rho	DQ788312	Bombus alagesianus
+rho	EF032380	Bombus alboanalis
+rho	AY739452	Bombus alpinus
+rho	DQ788313	Bombus apollineus
+rho	DQ788314	Bombus appositus
+rho	AF493031	Bombus ardens
+rho	AB379839	Bombus ardens ardens
+rho	AY739453	Bombus argillaceus
+rho	DQ788315	Bombus armeniacus
+rho	AF492991	Bombus ashtoni
+rho	EF032387	Bombus asiaticus
+rho	AY268376	Bombus atratus
+rho	DQ788316	Bombus atripes
+rho	AY739454	Bombus auricomus
+rho	EF032384	Bombus avanus
+rho	AF091719	Bombus avinoviellus
+rho	DQ788317	Bombus baeri
+rho	AY739455	Bombus balteatus
+rho	DQ788318	Bombus barbutellus
+rho	AF493030	Bombus beaticola
+rho	AY268377	Bombus bellicosus
+rho	AF493038	Bombus bicoloratus
+rho	AF493010	Bombus bifarius
+rho	AY739456	Bombus bimaculatus
+rho	AY739457	Bombus biroi
+rho	AF492992	Bombus bohemicus
+rho	AF493043	Bombus borealis
+rho	DQ788319	Bombus brachycephalus
+rho	AY268378	Bombus brasiliensis
+rho	DQ788320	Bombus breviceps
+rho	AY739458	Bombus brodmannicus
+rho	AY268379	Bombus californicus
+rho	AF493035	Bombus caliginosus
+rho	AF492994	Bombus campestris
+rho	AF493048	Bombus centralis
+rho	DQ788321	Bombus chinensis
+rho	AF493015	Bombus cingulatus
+rho	AY267153	Bombus citrinus
+rho	DQ788323	Bombus coccineus
+rho	DQ788324	Bombus confusus
+rho	AY267150	Bombus consobrinus
+rho	DQ788325	Bombus convexus
+rho	EF032395	Bombus cornutus
+rho	AF493040	Bombus crotchii
+rho	AY739461	Bombus cryptarum
+rho	AF492998	Bombus dahlbomii
+rho	AF493025	Bombus defector
+rho	AY267154	Bombus deuteronymus
+rho	DQ788327	Bombus difficillimus
+rho	AY268381	Bombus digressus
+rho	AY268382	Bombus diligens
+rho	DQ788328	Bombus distinguendus
+rho	AF493028	Bombus diversus
+rho	DQ788329	Bombus ecuadorius
+rho	AY739462	Bombus ephippiatus
+rho	AY739463	Bombus erzurumensis
+rho	AY268383	Bombus excellens
+rho	DQ788330	Bombus exil
+rho	AY739464	Bombus eximius
+rho	AF492993	Bombus fernaldae
+rho	AF492997	Bombus fervidus
+rho	AY739465	Bombus festivus
+rho	DQ788331	Bombus filchnerae
+rho	AF493017	Bombus flavescens
+rho	DQ788332	Bombus flavidus
+rho	AF493016	Bombus flavifrons
+rho	AF493006	Bombus formosellus
+rho	DQ788333	Bombus fragrans
+rho	EF032385	Bombus franklini
+rho	AF493041	Bombus fraternus
+rho	AY739466	Bombus frigidus
+rho	AY739467	Bombus friseanus
+rho	DQ788334	Bombus funebris
+rho	EF032396	Bombus funerarius
+rho	DQ788335	Bombus gerstaeckeri
+rho	EF032389	Bombus grahami
+rho	AF493039	Bombus griseocollis
+rho	AF493050	Bombus haemorrhoidalis
+rho	DQ788336	Bombus handlirschi
+rho	DQ788337	Bombus handlirschianus
+rho	DQ788338	Bombus hedini
+rho	AF493029	Bombus honshuensis
+rho	AF492987	Bombus hortorum
+rho	AY739468	Bombus hortulanus
+rho	AY267151	Bombus humilis
+rho	AF493045	Bombus huntii
+rho	AY739470	Bombus hyperboreus
+rho	AF493013	Bombus hypnorum
+rho	AF493023	Bombus hypocrita
+rho	AB379835	Bombus hypocrita hypocrita
+rho	AB379834	Bombus hypocrita sapporoensis
+rho	AF493032	Bombus ignitus
+rho	DQ788339	Bombus imitator
+rho	DQ788340	Bombus impetuosus
+rho	DQ788341	Bombus incertus
+rho	FJ159109	Bombus inexspectatus
+rho	AY739471	Bombus infirmus
+rho	AY739472	Bombus infrequens
+rho	AF493042	Bombus insularis
+rho	AY739473	Bombus jonellus
+rho	DQ788342	Bombus kashmirensis
+rho	AY739474	Bombus keriensis
+rho	AF493036	Bombus koreanus
+rho	DQ788343	Bombus kulingensis
+rho	AY739475	Bombus ladakhensis
+rho	DQ788344	Bombus laesus
+rho	AF493005	Bombus lapidarius
+rho	AY739476	Bombus lapponicus
+rho	AY739477	Bombus lemniscatus
+rho	AY739478	Bombus lepidus
+rho	DQ788346	Bombus longipes
+rho	AF493021	Bombus lucorum
+rho	DQ788347	Bombus macgregori
+rho	AY739480	Bombus maxillosus
+rho	AY268385	Bombus medius
+rho	DQ788311	Bombus melaleucus
+rho	AF493011	Bombus melanopygus
+rho	AF492990	Bombus melanurus
+rho	AF493024	Bombus mendax
+rho	AF493003	Bombus mesomelas
+rho	AY268386	Bombus mexicanus
+rho	DQ788348	Bombus miniatus
+rho	AF493014	Bombus mixtus
+rho	DQ788349	Bombus mlokosievitzii
+rho	AY739481	Bombus moderatus
+rho	AY267157	Bombus modestus
+rho	AY739483	Bombus monticola
+rho	AY268387	Bombus morio
+rho	AY267152	Bombus morrisoni
+rho	AF493002	Bombus mucidus
+rho	DQ788351	Bombus muscorum
+rho	AY739484	Bombus neoboreus
+rho	AF493026	Bombus nevadensis
+rho	DQ788353	Bombus niveatus
+rho	AY739485	Bombus nobilis
+rho	DQ788354	Bombus norvegicus
+rho	DQ788355	Bombus oberti
+rho	AY739486	Bombus occidentalis
+rho	DQ788356	Bombus opifex
+rho	AF493018	Bombus parthenius
+rho	AF493001	Bombus pascuorum
+rho	AF493020	Bombus patagiatus
+rho	AF492996	Bombus pennsylvanicus
+rho	AF493012	Bombus perplexus
+rho	DQ788358	Bombus persicus
+rho	DQ788359	Bombus personatus
+rho	AY739487	Bombus picipes
+rho	AF493037	Bombus polaris
+rho	DQ788360	Bombus pomorum
+rho	DQ788361	Bombus portchinsky
+rho	DQ788362	Bombus potanini
+rho	AF493033	Bombus pratorum
+rho	AY267155	Bombus pseudobaicalensis
+rho	AY268389	Bombus pullatus
+rho	AY739488	Bombus pyrenaeus
+rho	DQ788363	Bombus quadricolor
+rho	DQ788364	Bombus religiosus
+rho	DQ788365	Bombus remotus
+rho	DQ788366	Bombus robustus
+rho	DQ788367	Bombus rubicundus
+rho	AF492999	Bombus ruderarius
+rho	AF493044	Bombus ruderatus
+rho	AF493034	Bombus rufocinctus
+rho	AY739489	Bombus rufofasciatus
+rho	AF492995	Bombus rupestris
+rho	EF032381	Bombus sandersoni
+rho	AF493000	Bombus schrencki
+rho	DQ788368	Bombus securus
+rho	DQ788369	Bombus semenoviellus
+rho	DQ788370	Bombus shaposhnikovi
+rho	EF032388	Bombus sibiricus
+rho	DQ788371	Bombus sichelii
+rho	DQ788372	Bombus simillimus
+rho	AY739490	Bombus sitkensis
+rho	DQ788373	Bombus skorikovi
+rho	EF032394	Bombus sonorus
+rho	AF493008	Bombus soroeensis
+rho	AY267156	Bombus sporadicus
+rho	AY268391	Bombus steindachneri
+rho	AF493027	Bombus subterraneus
+rho	DQ788374	Bombus suckleyi
+rho	AY739492	Bombus sulfureus
+rho	DQ788375	Bombus supremus
+rho	AF492988	Bombus sushkini
+rho	DQ788376	Bombus sylvarum
+rho	DQ788377	Bombus sylvestris
+rho	AY739493	Bombus sylvicola
+rho	AF493046	Bombus ternarius
+rho	AF091722	Bombus terrestris
+rho	AY485301	Bombus terrestris sassaricus
+rho	AF493019	Bombus terricola
+rho	DQ788378	Bombus tibetanus
+rho	AF492989	Bombus tichenkoi
+rho	AY268392	Bombus transversalis
+rho	AF493004	Bombus tricornis
+rho	AF492985	Bombus trifasciatus
+rho	DQ788379	Bombus trinominatus
+rho	EF032386	Bombus tucumanus
+rho	AF492986	Bombus ussurensis
+rho	AY267158	Bombus vagans
+rho	AF493049	Bombus vandykei
+rho	AY268397	Bombus variabilis
+rho	DQ788381	Bombus velox
+rho	AY739495	Bombus vestalis
+rho	DQ788382	Bombus veteranus
+rho	DQ788383	Bombus vogti
+rho	AY267149	Bombus volucelloides
+rho	DQ788384	Bombus vorticosus
+rho	AF493047	Bombus vosnesenskii
+rho	DQ788385	Bombus waltoni
+rho	AY268393	Bombus weisi
+rho	AY739496	Bombus wilmattae
+rho	AF493007	Bombus wurflenii
+rho	DQ788386	Bombus zonatus
+rho	DQ884506	Brachyglossula communis
+rho	GU245324	Brachynomada margaretae
+rho	HM211845	Brachynomada sp. JS-2010
+rho	GU245231	Braunsapis madecassella
+rho	DQ884482	Cadeguala albopilosa
+rho	DQ884485	Cadeguala occidentalis
+rho	DQ884486	Cadegualina andina
+rho	AY227941	Caenohalictus sp. BND-2
+rho	AY227942	Caenohalictus sp. BND-3
+rho	GU245295	Caenonomada sp. JS-2010
+rho	GU245325	Caenoprosopina holmbergi
+rho	GU245326	Caenoprosopis crabronina
+rho	DQ113656	Calliopsis anthidia
+rho	AF344587	Calliopsis fracta
+rho	AF344588	Calliopsis pugionis
+rho	DQ115550	Callohesma calliopsella
+rho	DQ115563	Callomelitta antipodes
+rho	EF599205	Camptopoeum frontale
+rho	EF599206	Camptopoeum negevense
+rho	EF594378	Capicola hantamensis
+rho	EF594376	Capicola nanula
+rho	EF594377	Capicola nigerrima
+rho	DQ884484	Caupolicana bicolor
+rho	DQ884483	Caupolicana quadrifasciata
+rho	DQ115543	Caupolicana vestita
+rho	DQ115544	Caupolicana yarrowi
+rho	FJ042391	Celetrigona aff. longicornis CR-2009
+rho	EU203280	Cellariella brooksi
+rho	DQ884496	Cephalocolletes isabelae
+rho	DQ884508	Cephalocolletes laticeps
+rho	FJ042392	Cephalotrigona aff. capitata CR-2009
+rho	FJ042394	Cephalotrigona capitata
+rho	FJ042393	Cephalotrigona sp. B CR-2009
+rho	DQ813188	Cephalotrigona sp. CR-2006
+rho	AF344620	Ceratina calcarata
+rho	HM211848	Ceratina cyanea
+rho	GU245340	Ceratina sp. JS-2010
+rho	EU367272	Chalybion californicum
+rho	EU851653	Chelostoma aureocinctum
+rho	EU863141	Chelostoma bytinskii
+rho	EU851654	Chelostoma californicum
+rho	EU851655	Chelostoma campanularum
+rho	EU863142	Chelostoma cockerelli
+rho	EU863132	Chelostoma diodon
+rho	EU863143	Chelostoma distinctum
+rho	EU863133	Chelostoma edentulum
+rho	EU863134	Chelostoma emarginatum
+rho	EU851652	Chelostoma florisomne
+rho	EU863144	Chelostoma foveolatum
+rho	AF344589	Chelostoma fuliginosum
+rho	EU863135	Chelostoma grande
+rho	EU863145	Chelostoma hellenicum
+rho	EU863146	Chelostoma incisulum
+rho	EU851651	Chelostoma lamellum
+rho	EU863147	Chelostoma laticaudum
+rho	EU863148	Chelostoma marginatum incisuloides
+rho	EU863149	Chelostoma minutum
+rho	EU863136	Chelostoma mocsaryi
+rho	EU863137	Chelostoma nasutum
+rho	EU863150	Chelostoma phaceliae
+rho	EU851657	Chelostoma philadelphi
+rho	EU851656	Chelostoma rapunculi
+rho	EU863138	Chelostoma sp. 2 CJP-2008
+rho	EU863139	Chelostoma sp. 3 CJP-2008
+rho	EU863151	Chelostoma styriacum
+rho	EU863140	Chelostoma transversum
+rho	EU863152	Chelostoma ventrale
+rho	DQ884559	Chilicola herbsti
+rho	DQ884558	Chilicola rostrata
+rho	DQ884557	Chilicola vicugna
+rho	DQ115553	Chilicolletes delahozii
+rho	DQ884552	Chilimelissa australis
+rho	DQ884554	Chilimelissa irwini
+rho	DQ884553	Chilimelissa nortina
+rho	DQ115549	Chilimelissa rozeni
+rho	DQ884555	Chilimelissa sp. 1 EABA-2006
+rho	AY995804	Chlorion funereum
+rho	DQ116699	Clitemnestra bipunctata
+rho	DQ116693	Clypeadon haigi
+rho	EU367273	Clypeadon taurulus
+rho	GU245301	Coelioxoides sp. JS-2010
+rho	GU245303	Coelioxoides waltheriae
+rho	EU851634	Coelioxys afra
+rho	AF344591	Coelioxys alternata
+rho	DQ884530	Colletellus velutinellus
+rho	DQ884545	Colletes bicolor
+rho	DQ884542	Colletes compactus
+rho	DQ884548	Colletes floralis
+rho	DQ884550	Colletes furfuraceus
+rho	DQ115542	Colletes inaequalis
+rho	DQ884546	Colletes seminitidus
+rho	DQ884543	Colletes simulans
+rho	AY227912	Colletes skinneri
+rho	DQ884547	Colletes sp. EABA-2006
+rho	GU132315	Colletes stepheni
+rho	DQ884544	Colletes thoracicus
+rho	GU245335	Compsomelissa keiseri
+rho	EF416856	Conanthalictus conanthi
+rho	AY227916	Conanthalictus wilmattae
+rho	AY227936	Corynura patagonica
+rho	AY995811	Crabro scutellatus
+rho	GU245260	Ctenioschelus goryi
+rho	DQ884478	Ctenocolletes nigricans
+rho	DQ884479	Ctenocolletes rufescens
+rho	DQ884480	Ctenocolletes smaragdinus
+rho	DQ116677	Ctenoplectra albolimbata
+rho	GU245247	Ctenoplectra bequaerti
+rho	GU245246	Ctenoplectrina sp. JS-2010
+rho	EF416857	Curvinomia ridleyi
+rho	DQ813189	Dactylurina staudingeri
+rho	DQ116680	Dasypoda argentata
+rho	EF594382	Dasypoda braccata
+rho	EF594380	Dasypoda dusmeti
+rho	EF594385	Dasypoda frieseana
+rho	DQ116681	Dasypoda hirtipes
+rho	EF594381	Dasypoda oraniensis
+rho	EF594384	Dasypoda pyriformis
+rho	EF594383	Dasypoda pyrotricha
+rho	EF594386	Dasypoda spinigera
+rho	EF594387	Dasypoda suripes
+rho	DQ116682	Dasypoda visnaga
+rho	HQ995777	Dianthidium arizonicum
+rho	GU245308	Dianthidium subparvum
+rho	AF344625	Dieunomia heteropoda
+rho	AY227931	Dieunomia nevadensis
+rho	AY227932	Dieunomia triangulifera
+rho	AY227943	Dinagapostemon sp. BND-1
+rho	AY227944	Dinagapostemon sp. BND-2
+rho	HQ995768	Dioxys moesta
+rho	GU245309	Dioxys pomonae
+rho	DQ115545	Diphaglossa gayi
+rho	GU245329	Doeringiella sp. JS-2010
+rho	DQ813190	Dolichotrigona browni
+rho	FJ042395	Dolichotrigona chachapoya
+rho	HQ995778	Duckeanthidium thielei
+rho	FJ042396	Duckeola ghilianii
+rho	AY227917	Dufourea malacothricis
+rho	AY227918	Dufourea mulleri
+rho	AY227919	Dufourea novaeangliae
+rho	EF416864	Dufourea spinifera
+rho	EF416863	Dufourea spirula
+rho	DQ884504	Edwyniana sp. EABA-2006
+rho	HQ995779	Eoanthidium turnericum
+rho	HQ995780	Epanthidium bicoloratum
+rho	HM211838	Epeoloides coecutiens
+rho	GU245287	Epeoloides pilosula
+rho	AF344596	Epeolus scutellaris
+rho	GU245330	Epeolus sp. JS-2010
+rho	HM211846	Epeolus variegatus
+rho	GU245254	Epiclopus gayi
+rho	GU945206	Eremaphanta iranica
+rho	GU245255	Ericrocis lata
+rho	GU245232	Eucera frater
+rho	DQ116696	Eucerceris tricolor
+rho	GU245272	Eufriesea surinamensis
+rho	GU245270	Euglossa piliventris
+rho	GU245269	Eulaema meriana
+rho	DQ884505	Eulonchopria punctatissima
+rho	DQ884495	Eulonchopria simplicicrus
+rho	EU203287	Eupetersia seyrigi
+rho	DQ884516	Euryglossidia sp. 1 EABA-2006
+rho	DQ884517	Euryglossidia sp. 2 EABA-2006
+rho	DQ884518	Euryglossidia sp. 3 EABA-2006
+rho	DQ884523	Euryglossidia sp. 4 EABA-2006
+rho	DQ884524	Euryglossidia sp. 5 EABA-2006
+rho	DQ115551	Euryglossina globuliceps
+rho	GU245268	Exaerete sp. JS-2010
+rho	AF344622	Exomalopsis completa
+rho	AF344623	Exomalopsis rufiventris
+rho	HM211835	Exomalopsis sp. JS-2010
+rho	GU245337	Exoneura bicolor
+rho	HQ995753	Fidelia braunsiana
+rho	HQ995755	Fidelia friesei
+rho	HQ995750	Fidelia kobrowi
+rho	HQ995756	Fidelia pallidula
+rho	HQ995751	Fidelia paradoxa
+rho	HQ995754	Fidelia ulrikei
+rho	HQ995752	Fidelia villosa
+rho	HQ995757	Fideliopsis hessei
+rho	EU851628	Fideliopsis major
+rho	HQ995758	Fideliopsis ornata
+rho	GU245265	Florilegus sp. JS-2010
+rho	FJ042401	Friesella schrottkyi
+rho	FJ042404	Frieseomelitta silvestrii
+rho	FJ042402	Frieseomelitta trichocerata
+rho	FJ042403	Frieseomelitta varia
+rho	DQ813191	Geniotrigona incisa
+rho	DQ788388	Geniotrigona thoracica
+rho	DQ884551	Geodiscelis longiceps
+rho	FJ042406	Geotrigona fulvatra
+rho	DQ813194	Geotrigona fulvohirta
+rho	FJ042407	Geotrigona mombuca
+rho	FJ042405	Geotrigona subgrisea
+rho	DQ884528	Glossurocolletes bilobatus
+rho	AY227923	Goeletapis peruensis
+rho	DQ115554	Goniocolletes fimbriatinus
+rho	DQ115557	Goniocolletes perfasciatus
+rho	AY227945	Habralictus sp. BND-2001
+rho	HQ995822	Haetosmia brachyura
+rho	EU851658	Haetosmia circumventa
+rho	DQ884510	Halictanthrena malpighiacearum
+rho	AY455894	Halictus kessleri
+rho	AY455895	Halictus ligatus
+rho	AY227956	Halictus quadricinctus
+rho	DQ116674	Halictus rubicundus
+rho	AY455896	Halictus scabiosae
+rho	AY227957	Halictus tripartitus
+rho	AY227958	Halictus vestitus
+rho	DQ884539	Hemicotelles ruizii
+rho	EU851661	Heriades crucifer
+rho	EU851660	Heriades punctulifer
+rho	EU851659	Heriades truncorum
+rho	EF594375	Hesperapis cockerelli
+rho	AF344597	Hesperapis larreae
+rho	DQ116692	Hesperapis regularis
+rho	EF594373	Hesperapis rhodocerata
+rho	DQ116683	Hesperapis sp. Hesp940
+rho	EF594374	Hesperapis trochanterata
+rho	AY995807	Heterogyna nocticola
+rho	AY995806	Heterogyna protea
+rho	DQ813197	Heterotrigona bakeri
+rho	DQ813195	Heterotrigona erythrogaster
+rho	DQ788389	Heterotrigona itama
+rho	DQ884520	Hexantheda missionica
+rho	GU245332	Hexepeolus rhodogyne
+rho	EU851662	Hofferia schmiedeknechti
+rho	GU245319	Holcopasites arizonicus
+rho	AF344600	Holcopasites calliopsidis
+rho	GU245320	Holcopasites insoletus
+rho	GU245322	Holcopasites minimus
+rho	AF344602	Holcopasites ruthae
+rho	GU245321	Holcopasites stevensi
+rho	AY227964	Homalictus megastigmus
+rho	AY227965	Homalictus punctatum
+rho	DQ813198	Homotrigona fimbriata
+rho	GU245258	Hopliphora velutina
+rho	EU851678	Hoplitis adunca
+rho	EU851673	Hoplitis aff. onychophora CJP-2008
+rho	EU851683	Hoplitis albifrons
+rho	EU851667	Hoplitis annulata crenulata
+rho	EU851680	Hoplitis antalyae
+rho	EU851675	Hoplitis biscutellae
+rho	EU851668	Hoplitis bisulca
+rho	EU851690	Hoplitis brachypogon
+rho	EU851669	Hoplitis hemisphaerica
+rho	EU851674	Hoplitis hypocrita
+rho	EU851672	Hoplitis illustris
+rho	EU851688	Hoplitis incanescens
+rho	EU851681	Hoplitis lebanotica
+rho	EU851663	Hoplitis leucomelana
+rho	EU851664	Hoplitis mitis
+rho	EU851677	Hoplitis mojavensis
+rho	EU851686	Hoplitis moricei
+rho	EU851685	Hoplitis nasuta
+rho	EU851682	Hoplitis paralias
+rho	EU851665	Hoplitis pilosifrons
+rho	EU851689	Hoplitis platalea
+rho	EU851676	Hoplitis robusta
+rho	EU851670	Hoplitis sp. CJP-2008
+rho	EU851679	Hoplitis tigrina
+rho	EU851666	Hoplitis tridentata
+rho	EU851684	Hoplitis tuberculata
+rho	EU851687	Hoplitis villiersi
+rho	EU851671	Hoplitis villosa
+rho	EU851691	Hoplitis zuni
+rho	DQ884497	Hoplocolletes ventralis
+rho	EF416858	Hoplonomia amboiensis
+rho	EU851694	Hoplosmia pinquis
+rho	EU851693	Hoplosmia scutellaris
+rho	EU851692	Hoplosmia spinulosa
+rho	DQ884562	Hylaeus alcyoneus
+rho	DQ115546	Hylaeus amiculus
+rho	DQ212175	Hylaeus anthracinus
+rho	DQ212176	Hylaeus connectens
+rho	DQ212177	Hylaeus difficilis
+rho	DQ884563	Hylaeus disjunctus
+rho	DQ115547	Hylaeus elegans
+rho	DQ212174	Hylaeus globula
+rho	DQ212178	Hylaeus hula
+rho	DQ212179	Hylaeus inquilina
+rho	DQ212180	Hylaeus kauaiensis
+rho	DQ212181	Hylaeus kokeensis
+rho	DQ212182	Hylaeus kona
+rho	DQ212172	Hylaeus leptocephalus
+rho	DQ212183	Hylaeus longiceps
+rho	AY227913	Hylaeus modestus
+rho	DQ212184	Hylaeus pele
+rho	DQ115548	Hylaeus proximus
+rho	DQ212185	Hylaeus pubescens
+rho	DQ212173	Hylaeus punctatus
+rho	DQ884561	Hylaeus simplus
+rho	DQ212186	Hylaeus solaris
+rho	DQ884560	Hyleoides concinna
+rho	HQ995781	Hypanthidioides marginata
+rho	HQ995782	Hypanthidium obscurius
+rho	GU245280	Hypotrigona gribodoi
+rho	DQ813200	Hypotrigona ruspolii
+rho	HQ995783	Icteranthidium ferrugineum
+rho	GU245276	Isepeolus atripilis
+rho	GU245275	Isepeolus cortesi
+rho	GU245277	Isepeolus luctuosus
+rho	GU245278	Isepeolus wagenknechti
+rho	DQ116697	Isodontia mexicana
+rho	DQ884507	Kylopasiphae pruinosa
+rho	DQ884503	Kylopasiphae sp. EABA-2006
+rho	AF448872	Lasioglossum albipes
+rho	AF448907	Lasioglossum alphenum
+rho	AF448874	Lasioglossum apristum
+rho	AF448919	Lasioglossum asteris
+rho	AF448867	Lasioglossum athabascense
+rho	AF448875	Lasioglossum boreale
+rho	AF448876	Lasioglossum brevicorne
+rho	AF448877	Lasioglossum calceatum
+rho	AF448878	Lasioglossum cinctipes
+rho	AF448879	Lasioglossum comagenense
+rho	AF448908	Lasioglossum cressonii
+rho	AF448880	Lasioglossum duplex
+rho	AF448903	Lasioglossum figueresi
+rho	AY227966	Lasioglossum florale
+rho	AF448881	Lasioglossum fulvicorne
+rho	AF448868	Lasioglossum fuscipenne
+rho	AF448898	Lasioglossum gattaca
+rho	AF448909	Lasioglossum gundlachii
+rho	AF448910	Lasioglossum hyalinum
+rho	AY227963	Lasioglossum hybodinum
+rho	AF448911	Lasioglossum imitatum
+rho	AF448883	Lasioglossum inconditum
+rho	AF448882	Lasioglossum interruptum
+rho	AY227967	Lasioglossum lanarium
+rho	AF448884	Lasioglossum laticeps
+rho	AF448886	Lasioglossum limbellum
+rho	AF448893	Lasioglossum lineare
+rho	AY227962	Lasioglossum lithuscum
+rho	AF448887	Lasioglossum lucidulum
+rho	AF448904	Lasioglossum lustrans
+rho	AF448890	Lasioglossum malachurum
+rho	AF448889	Lasioglossum marginatum
+rho	AF448888	Lasioglossum mediterraneum
+rho	AF448891	Lasioglossum morio
+rho	EU203307	Lasioglossum nicolli
+rho	AF448892	Lasioglossum nigripes
+rho	AF448905	Lasioglossum noctivagum
+rho	AF448906	Lasioglossum oenotherae
+rho	AF448912	Lasioglossum parvum
+rho	AF448885	Lasioglossum pauxillum
+rho	AF448869	Lasioglossum pavonotum
+rho	AF448894	Lasioglossum pectorale
+rho	AF448913	Lasioglossum pilosum
+rho	AF448895	Lasioglossum politum
+rho	AF448896	Lasioglossum puncticolle
+rho	AF448897	Lasioglossum quebecense
+rho	AF448914	Lasioglossum rohweri
+rho	AY227968	Lasioglossum scitulum
+rho	AF448870	Lasioglossum sisymbrii
+rho	AF448899	Lasioglossum subtropicum
+rho	AF448915	Lasioglossum tegulare
+rho	AF448871	Lasioglossum titusi
+rho	AF448900	Lasioglossum truncatum
+rho	AF448916	Lasioglossum umbripenne
+rho	AF448917	Lasioglossum vierecki
+rho	AF448901	Lasioglossum villosulum
+rho	AF448918	Lasioglossum zephyrum
+rho	AY227969	Lasioglossum zonulum
+rho	GU245290	Leiopodus abnormis
+rho	AF344624	Leiopodus singularis
+rho	GU245289	Leiopodus sp. JS-2010
+rho	GU245291	Leiopodus trochantericus
+rho	DQ884534	Leioproctus conospermi
+rho	DQ115555	Leioproctus irroratus
+rho	DQ884535	Leioproctus lanceolatus
+rho	DQ884536	Leioproctus megachalcoides
+rho	DQ884537	Leioproctus platycephalus
+rho	DQ115556	Leioproctus plumosus
+rho	DQ884538	Leioproctus sp. EABA-2006
+rho	DQ813202	Lepidotrigona terminata
+rho	AF493051	Lepidotrigona ventralis
+rho	FJ042409	Lestrimelitta aff. limao CR-2009
+rho	FJ042410	Lestrimelitta limao
+rho	FJ042408	Lestrimelitta maracaia
+rho	GU245286	Lestrimelitta sp. JS-2010
+rho	FJ042412	Leurotrigona muelleri
+rho	FJ042411	Leurotrigona pusilla
+rho	DQ813205	Liotrigona madecassa
+rho	DQ813204	Liotrigona mahafalya
+rho	AY227930	Lipotriches australica
+rho	DQ813206	Lisotrigona furva
+rho	EU851629	Lithurgus chrysurus
+rho	HQ995761	Lithurgus echinocacti
+rho	HQ995762	Lithurgus pullatus
+rho	HQ995763	Lithurgus rubricatus
+rho	HQ995764	Lithurgus scabrosus
+rho	HQ995765	Lithurgus tibialis
+rho	DQ884527	Lonchopria robertsi
+rho	DQ884525	Lonchopria similis
+rho	DQ884526	Lonchopria sp. EABA-2006
+rho	DQ813207	Lophotrigona canifrons
+rho	GU245336	Macrogalea ellioti
+rho	DQ116685	Macropis europaea
+rho	EF594372	Macropis fulvipes
+rho	DQ116686	Macropis nuda
+rho	EF599216	Macrotera echinocacti
+rho	EF599215	Macrotera latior
+rho	GU245342	Manuelia gayatina
+rho	GU245230	Martinapis luteicornis
+rho	HQ995793	Megachile (Aethomegachile) sp. CJP-2011
+rho	HQ995796	Megachile (Austrochile) sp. CJP-2011
+rho	HQ995799	Megachile (Chelostomoda) sp. CJP-2011
+rho	HQ995802	Megachile (Chrysosarus) sp. CJP-2011
+rho	HQ995807	Megachile (Hackeriapis) sp. CJP-2011
+rho	HQ995808	Megachile (Largella) sp. CJP-2011
+rho	HQ995817	Megachile (Rhodomegachile) sp. CJP-2011
+rho	HQ995798	Megachile aethiops
+rho	EU851635	Megachile albisecta
+rho	HQ995800	Megachile angelarum
+rho	HQ995806	Megachile bombiformis
+rho	HQ995815	Megachile ericetorum
+rho	HQ995813	Megachile fabricator
+rho	HQ995794	Megachile fimbriata
+rho	HQ995804	Megachile mandibularis
+rho	HQ995820	Megachile maritima
+rho	HQ995810	Megachile maxillosa
+rho	HQ995811	Megachile melanopyga
+rho	HQ995816	Megachile microsoma
+rho	HQ995812	Megachile nevadensis
+rho	HQ995795	Megachile parallela
+rho	EU851636	Megachile parietina
+rho	HQ995805	Megachile patellimana
+rho	EU851637	Megachile pilidens
+rho	HQ995818	Megachile pugnata
+rho	HQ995819	Megachile remeata
+rho	HQ995797	Megachile sculpturalis
+rho	HQ995814	Megachile sidalceae
+rho	HQ995801	Megachile spinotulata
+rho	HQ995809	Megachile texana
+rho	HQ995803	Megachile zapoteca
+rho	JN106067	Megalopta aegis
+rho	JN106082	Megalopta aff. fornix ECUA E1
+rho	JN106083	Megalopta aff. fornix ECUA G1
+rho	JN106068	Megalopta atra
+rho	JN106069	Megalopta byroni
+rho	JN106070	Megalopta centralis
+rho	JN106081	Megalopta cf. fornix PERU C6
+rho	JN106086	Megalopta cf. genalis ECUA A1
+rho	JN106087	Megalopta cf. genalis ECUA D2
+rho	JN106088	Megalopta cf. genalis FRGU A3
+rho	JN106089	Megalopta cf. genalis FRGU E9
+rho	JN106080	Megalopta fornix
+rho	AY227937	Megalopta genalis
+rho	JN106092	Megalopta sodalis
+rho	JN106090	Megalopta sp. morph-j
+rho	JN106091	Megalopta sp. morph-p
+rho	JN106095	Megaloptidia nocturna
+rho	JN106096	Megaloptidia saulensis
+rho	DQ113657	Megandrena enceliae
+rho	DQ116689	Meganomia binghami
+rho	JN106097	Megommation insigne
+rho	HM211837	Melecta albifrons
+rho	HM211836	Melectoides bellus
+rho	DQ813210	Meliplebeia ogouensis
+rho	FJ042421	Melipona aff. brachychaeta CR-2009
+rho	FJ042413	Melipona aff. mimetica CR-2009
+rho	FJ042417	Melipona aff. rufiventris CR-2009
+rho	FJ042428	Melipona beecheii
+rho	FJ042398	Melipona bicolor
+rho	FJ042400	Melipona bradleyi
+rho	FJ042422	Melipona crinita
+rho	FJ042414	Melipona eburnea
+rho	FJ042425	Melipona fasciata
+rho	FJ042426	Melipona fasciculata
+rho	DQ813208	Melipona grandis
+rho	FJ042423	Melipona illota
+rho	FJ042399	Melipona marginata
+rho	FJ042419	Melipona scutellaris
+rho	FJ042420	Melipona seminigra merrillae
+rho	FJ042424	Melipona sp. B CR-2009
+rho	AF344607	Melipona sp. Mpsp522
+rho	FJ042416	Melipona titania
+rho	FJ042397	Melipona tumupasae
+rho	FJ042429	Melipona variegatipes
+rho	AY267161	Meliponula bocandei
+rho	GU245283	Meliponula ferruginea
+rho	AF344603	Melissodes desponsa
+rho	AF091731	Melissodes rustica
+rho	AF344606	Melissodes sp. Mesp229
+rho	GU245263	Melissoptila sp. JS-2010
+rho	GU245314	Melitta arrogans
+rho	DQ116687	Melitta capensis
+rho	EF594367	Melitta dimidiata
+rho	AF344604	Melitta eickworti
+rho	EF594370	Melitta ezoana
+rho	EF594369	Melitta haemorrhoidalis
+rho	DQ116688	Melitta leporina
+rho	EF594368	Melitta nigricans
+rho	EF599207	Melitturga albescens
+rho	DQ116703	Melitturga clavicornis
+rho	EF599210	Meliturgula haematospila
+rho	EF599209	Meliturgula scriptifrons
+rho	DQ884565	Meroglossa itamuca
+rho	GU245259	Mesocheira bicolor
+rho	GU245256	Mesonychium asteria
+rho	GU245257	Mesoplia rufipes
+rho	AY227959	Mexalictus arizonensis
+rho	HQ995766	Microthurge sp. JS-2010
+rho	DQ884540	Mourecotelles mixta
+rho	FJ042430	Mourella caerulea
+rho	EF032903	Mydrosoma aterrimum
+rho	DQ813211	Nannotrigona melanocera
+rho	FJ042432	Nannotrigona perilampoides
+rho	FJ042431	Nannotrigona schultzei
+rho	FJ042433	Nannotrigona testaceicornis
+rho	GU245293	Nanorhathymus sp. JS-2010
+rho	EF599211	Neffapis longilingua
+rho	AY227938	Neocorynura discolor
+rho	HQ995759	Neofidelia longirostris
+rho	HQ995760	Neofidelia profuga
+rho	GU245305	Neofidelia sp. JS-2010
+rho	GU245333	Neolarra orbiculata
+rho	DQ884531	Neopasiphae mirabilis
+rho	GU245323	Neopasites cressoni
+rho	DQ884509	Niltonia virgilii
+rho	FJ042434	Nogueirapis butteli
+rho	FJ042435	Nogueirapis mirandula
+rho	DQ884477	Nolanomelissa toroi
+rho	AF344608	Nomada imbricata
+rho	AF344609	Nomada maculata
+rho	AF344610	Nomada obliterata
+rho	HM211847	Nomada signata
+rho	DQ884512	Nomiocolletes jenseni
+rho	AY227929	Nomioides facilis
+rho	EU203281	Nomioides tumidus
+rho	HQ995784	Notanthidium steloides
+rho	EU851695	Noteriades sp. CJP-2008
+rho	EU851696	Ochreriades fasciatus
+rho	DQ884532	Odontocolletes asper
+rho	DQ884533	Odontocolletes pachydontus
+rho	DQ813212	Odontotrigona haematoptera
+rho	GU245327	Odyneropsis sp. JS-2010
+rho	AF344626	Oreopasites barbarae
+rho	DQ884476	Orphana wagenknechti
+rho	HM211839	Osiris sp. JS-2010
+rho	EU851705	Osmia anceps
+rho	EU851700	Osmia andrenoides
+rho	EU851710	Osmia apicata
+rho	EU851702	Osmia aurulenta
+rho	EU851712	Osmia bicolor
+rho	EU851709	Osmia brevicornis
+rho	EU851703	Osmia coloradensis
+rho	EU851714	Osmia cornuta
+rho	EU851706	Osmia difficilis
+rho	EU851716	Osmia ferruginea
+rho	EU851717	Osmia gallarum
+rho	EU851701	Osmia glauca
+rho	EU851697	Osmia integra
+rho	EU851707	Osmia juxta
+rho	EU851720	Osmia latisulcata
+rho	EU851715	Osmia lignaria
+rho	EU851711	Osmia nemoris
+rho	EU851704	Osmia niveata
+rho	EU851718	Osmia rhodoensis
+rho	AY572828	Osmia rufa
+rho	EU851698	Osmia rufohirta
+rho	EU851699	Osmia sybarita
+rho	EU851719	Osmia tergestensis
+rho	EU851713	Osmia tingitana
+rho	EU851708	Osmia xanthomelana
+rho	EU851722	Othinosmia aff. securicornis CJP-2008
+rho	EU851721	Othinosmia globicola
+rho	DQ116694	Oxybelus abdominalis
+rho	FJ042439	Oxytrigona mediorufa
+rho	FJ042438	Oxytrigona mellicolor
+rho	FJ042437	Oxytrigona mulfordi
+rho	FJ042436	Oxytrigona obscura
+rho	FJ042440	Oxytrigona tataira
+rho	HQ995785	Pachyanthidium benguelense
+rho	DQ884566	Palaeorhiza sp. 3 EABA-2006
+rho	DQ884567	Palaeorhiza sp. 4 EABA-2006
+rho	EF599227	Panurgus banksianus proximus
+rho	AF344612	Panurgus calcaratus
+rho	EF599217	Panurgus calceatus
+rho	EF599218	Panurgus canescens
+rho	EF599226	Panurgus cephalotes
+rho	EF599221	Panurgus convergens
+rho	EF599229	Panurgus dentatus
+rho	EF599223	Panurgus dentipes
+rho	EF599220	Panurgus farinosus
+rho	EF599224	Panurgus maroccanus
+rho	EF599219	Panurgus nigriscopus
+rho	EF599231	Panurgus niloticus
+rho	EF599225	Panurgus perezi
+rho	EF599230	Panurgus pici
+rho	EF599228	Panurgus pyropygus
+rho	EF599222	Panurgus rungsi
+rho	DQ884491	Paracolletes crassipes
+rho	DQ884492	Paracolletes frederici
+rho	DQ884493	Paracolletes robustus
+rho	HQ995769	Paradioxys pannonica
+rho	AF344627	Paranomada velutina
+rho	HQ995786	Paranthidium jugatorium
+rho	FJ042457	Parapartamona fumata
+rho	FJ042458	Parapartamona tungurahuana
+rho	HQ995749	Pararhophites orobinus
+rho	EU851627	Pararhophites quadratus
+rho	GU245296	Paratetrapedia sp. JS-2010
+rho	EU203286	Parathrincostoma seyrigi
+rho	FJ042449	Paratrigona guigliae
+rho	FJ042450	Paratrigona lineata
+rho	FJ042447	Paratrigona lineatifrons
+rho	DQ813214	Paratrigona onorei
+rho	FJ042448	Paratrigona pacifica
+rho	GU245288	Parepeolus aterrimus
+rho	DQ813213	Partamona auripennis
+rho	FJ042445	Partamona epiphytophila
+rho	FJ042446	Partamona musarum
+rho	FJ042444	Partamona orizabaensis
+rho	FJ042441	Partamona testacea
+rho	FJ042443	Partamona vicina
+rho	HM211842	Pasites maculatus
+rho	AY227952	Patellapis (Chaetalictus) sp. BND-2001
+rho	AY227953	Patellapis (Lomatalictus) sp. BND-2001
+rho	AY227954	Patellapis (Pachyhalictus) sp. BND-2001
+rho	EU203300	Patellapis (Zonalictus) sp. BND-2007
+rho	EU203295	Patellapis abessinica
+rho	EU203297	Patellapis albofasciata
+rho	EU203296	Patellapis andreniformis
+rho	EU203306	Patellapis braunsella
+rho	EU203303	Patellapis castanea
+rho	EU203293	Patellapis cf. minutior BND-2007
+rho	EU203302	Patellapis coccinea
+rho	EU203304	Patellapis inelegans
+rho	EU203301	Patellapis joffrei
+rho	EU203305	Patellapis lyalli
+rho	EU203291	Patellapis malachurina
+rho	EU203289	Patellapis minima
+rho	EU203292	Patellapis montagui
+rho	EU203294	Patellapis n. sp. 10
+rho	EU203288	Patellapis n. sp. 114
+rho	EU203290	Patellapis n. sp. 66
+rho	EU203298	Patellapis vittata
+rho	EU203299	Patellapis zacephala
+rho	AY227921	Penapis penai
+rho	AY227922	Penapis toroi
+rho	GU245261	Peponapis pruinosa
+rho	EF599214	Perdita californica
+rho	EF599212	Perdita halictoides
+rho	EF599213	Perdita trisignata
+rho	DQ884499	Perditomorpha brunerii
+rho	DQ884513	Perditomorpha leucostoma
+rho	DQ884502	Perditomorpha rufiventris
+rho	DQ884521	Perditomorpha sp. EABA-2006
+rho	DQ884519	Perditomorpha stilborhina
+rho	DQ884515	Phenacolletes mimus
+rho	DQ116704	Philanthus gibbosus
+rho	AY995812	Philanthus triangulum
+rho	DQ813215	Platytrigona hobbyi
+rho	FJ042455	Plebeia droryana
+rho	DQ813216	Plebeia frontalis
+rho	FJ042452	Plebeia minima
+rho	FJ042454	Plebeia moureana
+rho	FJ042456	Plebeia sp. A CR-2009
+rho	FJ042451	Plebeia sp. B CR-2009
+rho	FJ042453	Plebeia sp. C CR-2009
+rho	DQ813217	Plebeiella lendliana
+rho	GU245284	Plebeina hildebrandti
+rho	DQ116705	Plenoculus nr. parvus BND-2010
+rho	EF599208	Plesiopanurgus zizus
+rho	AY995805	Prionyx kirbii
+rho	GU245304	Promelitta alboclypeata
+rho	EF599204	Protandrena mexicanorum
+rho	AY227920	Protodufourea sp. BND-2003
+rho	EU851726	Protosmia humeralis
+rho	EU851723	Protosmia longiceps
+rho	EU851725	Protosmia minutula
+rho	EU851724	Protosmia rubifloris
+rho	DQ113658	Protoxaea gloriosa
+rho	AY227946	Pseudagapostemon brasiliensis
+rho	AY227947	Pseudagapostemon pissisi
+rho	AY227933	Pseudapis unidentata
+rho	HQ995787	Pseudoanthidium scapulare
+rho	EU851727	Pseudoheriades moricei
+rho	DQ113660	Pseudopanurgus fraterculus
+rho	DQ884481	Ptiloglossa sp. EABA-2006
+rho	DQ884488	Ptiloglossa tarsata
+rho	DQ884487	Ptiloglossidia fallax
+rho	FJ042460	Ptilotrigona lurida
+rho	FJ042459	Ptilotrigona pereneae
+rho	HQ995821	Radoszkowskiana rufiventris
+rho	DQ116690	Rediviva mcgregori
+rho	EF594371	Rediviva saetigera
+rho	DQ116691	Redivivoides simulans
+rho	GU245292	Rhathymus sp. JS-2010
+rho	GU245294	Rhathymus unicolor
+rho	GU245331	Rhinepeolus rufiventris
+rho	JN106098	Rhinetula denticrus
+rho	HQ995788	Rhodanthidium septemdentatum
+rho	DQ116675	Rophites algirus
+rho	AY227949	Ruizantheda mutabilis
+rho	AY227950	Ruizantheda proxima
+rho	GU945207	Samba atra
+rho	GU945208	Samba fasciata
+rho	DQ116684	Samba griseonigra
+rho	EF594388	Samba ogilviei
+rho	EF594389	Samba spinosa
+rho	FJ042467	Scaptotrigona bipunctata
+rho	FJ042468	Scaptotrigona depilis
+rho	GU245285	Scaptotrigona hellwegeri
+rho	FJ042466	Scaptotrigona mexicana
+rho	FJ042465	Scaptotrigona pectoralis
+rho	DQ813220	Scaptotrigona polysticta
+rho	FJ042461	Scaptotrigona sp. A CR-2009
+rho	FJ042463	Scaptotrigona sp. B CR-2009
+rho	FJ042462	Scaptotrigona sp. C CR-2009
+rho	FJ042464	Scaptotrigona tricolorata
+rho	FJ042471	Scaura latitarsis
+rho	FJ042469	Scaura longula
+rho	FJ042470	Scaura tenuis
+rho	DQ116695	Sceliphron caementarium
+rho	AY995801	Sceliphron funestum
+rho	FJ042472	Schwarziana quadripunctata
+rho	FJ042474	Schwarzula coccidophila
+rho	FJ042473	Schwarzula timida
+rho	EF032904	Scrapter algoensis
+rho	DQ115558	Scrapter erubescens
+rho	DQ115559	Scrapter heterodoxus
+rho	DQ115560	Scrapter niger
+rho	DQ115561	Scrapter ruficornis
+rho	HQ995789	Serapista rufipes
+rho	AY227960	Sphecodes minor
+rho	AY227961	Sphecodes ranunculi
+rho	GU245317	Sphecodopsis capensis
+rho	EF416860	Sphecodosoma beameri
+rho	AY227924	Sphecodosoma pratti
+rho	DQ116698	Sphex lucae
+rho	DQ884501	Spinolapis caerulescens
+rho	DQ884511	Spinolapis sp. EABA-2006
+rho	GU245312	Stelis linsleyi
+rho	EU851632	Stelis punctulatissima
+rho	HQ995790	Stelis sp. 'paiute'
+rho	EU851728	Stenoheriades asiaticus
+rho	EU851729	Stenosmia aff. aravensis CJP-2008
+rho	EU851730	Stenosmia minima
+rho	DQ115564	Stenotritus sp. BND-2004
+rho	DQ116706	Stigmus fulvipes
+rho	DQ813221	Sundatrigona moorei
+rho	AF344631	Svastra machaerantherae
+rho	AF344632	Svastra obliqua
+rho	GU245262	Svastrides melanura
+rho	GU245266	Svastrina subapicalis
+rho	AY227925	Systropha curvicornis
+rho	EF416859	Systropha glabriventris
+rho	AY227926	Systropha planidens
+rho	DQ116707	Tachysphex yolo
+rho	AY995813	Tachytes panzeri
+rho	GU245297	Tapinotaspidini sp. JS-2010
+rho	GU245298	Tapinotaspoides sp. JS-2010
+rho	DQ884498	Tetraglossula anthracina
+rho	FJ042490	Tetragona clavipes
+rho	FJ042487	Tetragona dissecta
+rho	AF091726	Tetragona dorsalis
+rho	FJ042486	Tetragona goettei
+rho	FJ042489	Tetragona perangulata
+rho	FJ042485	Tetragona sp. CR-2009
+rho	FJ042488	Tetragona ziegleri
+rho	DQ813229	Tetragonilla atripes
+rho	DQ813232	Tetragonilla collina
+rho	DQ813230	Tetragonilla fuscibasis
+rho	DQ813231	Tetragonilla rufibasalis
+rho	FJ042482	Tetragonisca angustula
+rho	FJ042481	Tetragonisca weyrauchi
+rho	GU245282	Tetragonula carbonaria
+rho	DQ813259	Tetragonula cf. iridipennis CR-2006
+rho	DQ813242	Tetragonula cf. laeviceps CR-2006
+rho	DQ813255	Tetragonula cf. pagdeni CR-2006
+rho	DQ813237	Tetragonula clypearis
+rho	DQ813252	Tetragonula fuscobalteata
+rho	DQ813236	Tetragonula geissleri
+rho	DQ813247	Tetragonula hirashimai
+rho	DQ813241	Tetragonula hockingsi
+rho	DQ813249	Tetragonula laeviceps
+rho	DQ813250	Tetragonula melanocephala
+rho	DQ813254	Tetragonula melina
+rho	DQ813238	Tetragonula mellipes
+rho	DQ813246	Tetragonula minor
+rho	DQ813234	Tetragonula pagdeni
+rho	DQ813239	Tetragonula sapiens
+rho	DQ813251	Tetragonula sarawakensis
+rho	DQ813245	Tetragonula sirindhornae
+rho	DQ813257	Tetragonula sp. A CR-2006
+rho	DQ813258	Tetragonula sp. B CR-2006
+rho	DQ813260	Tetragonula sp. C CR-2006
+rho	DQ813256	Tetragonula zucchi
+rho	GU245229	Tetralonia cinctula
+rho	GU245267	Tetraloniella glauca
+rho	AF344636	Tetraloniella sp. Ttsp646
+rho	GU245279	Tetralonioidella sp. JS-2010
+rho	GU245300	Tetrapedia maura
+rho	GU245302	Tetrapedia sp. JS-2010
+rho	DQ813222	Tetrigona apicalis
+rho	DQ813224	Tetrigona binghami
+rho	DQ813223	Tetrigona melanoleuca
+rho	GU245328	Thalestria spinosa
+rho	EU203284	Thrinchostoma conjugens
+rho	EU203282	Thrinchostoma kandti
+rho	EU203285	Thrinchostoma lemuriae
+rho	AY227951	Thrinchostoma sp. BND-2003
+rho	EU203283	Thrinchostoma torridum
+rho	AY227955	Thrincohalictus prognathus
+rho	GU245264	Thygater sp. JS-2010
+rho	DQ116679	Thyreus delumbatus
+rho	GU245334	Townsendiella sp. JS-2010
+rho	EU851633	Trachusa byssina
+rho	HQ995791	Trachusa larreae
+rho	HQ995792	Trachusa pubescens
+rho	DQ115562	Trichocolletes sp. BND-2004
+rho	DQ884494	Trichocolletes venustus
+rho	HQ995767	Trichothurgus herbsti
+rho	FJ042483	Trichotrigona extranea
+rho	AF344634	Triepeolus rozeni
+rho	AF344635	Triepeolus verbesinae
+rho	EU049800	Trigona albipennis
+rho	DQ813227	Trigona amalthea
+rho	DQ788390	Trigona amazonensis
+rho	EU049801	Trigona cf. fuscipennis CR-2007a
+rho	EU049812	Trigona cf. fuscipennis CR-2007b
+rho	EU049799	Trigona cf. recursa CR-2007
+rho	EU049793	Trigona chanchamayoensis
+rho	EU049794	Trigona cilipes
+rho	EU049805	Trigona corvina
+rho	EU049796	Trigona crassipes
+rho	EU049798	Trigona dallatorreana
+rho	EU049807	Trigona fulviventris
+rho	EU184835	Trigona fuscipennis
+rho	DQ813226	Trigona guianae
+rho	EU049813	Trigona hyalinata
+rho	AF091724	Trigona hypogea
+rho	EU049795	Trigona lacteipennis
+rho	EU049806	Trigona nigerrima
+rho	EU049797	Trigona pallens
+rho	EU049810	Trigona recursa
+rho	EU049802	Trigona silvestriana
+rho	EU049811	Trigona spinipes
+rho	EU049803	Trigona truculenta
+rho	EU049808	Trigona williana
+rho	FJ042479	Trigonisca bidentata
+rho	FJ042478	Trigonisca buyssoni
+rho	FJ042480	Trigonisca nataliae
+rho	FJ042475	Trigonisca sp. A CR-2009
+rho	FJ042476	Trigonisca sp. B CR-2009
+rho	FJ042477	Trigonisca sp. C CR-2009
+rho	DQ813225	Trigonisca townsendi
+rho	AF344633	Triopasites penniger
+rho	EU851731	Wainia eremoplana
+rho	DQ884489	Willinkapis chalybea
+rho	DQ115552	Xanthesma furcifera
+rho	DQ884541	Xanthocotelles sicheli
+rho	DQ884556	Xenochilicola mamigna
+rho	JN106099	Xenochlora ianthina
+rho	JN106100	Xenochlora nigrofemorata
+rho	GU245233	Xenoglossa angustior
+rho	AY227927	Xeralictus bicuspidariae
+rho	AY227928	Xeralictus timberlakei
+rho	AF344613	Xeromelecta californica
+rho	AY267163	Xylocopa amamensis
+rho	GU245350	Xylocopa californica arizonensis
+rho	GU245349	Xylocopa fimbriata
+rho	GU245345	Xylocopa iris
+rho	GU245344	Xylocopa muscaria
+rho	GU245347	Xylocopa pubescens
+rho	GU245346	Xylocopa sp. JS-2010
+rho	AF344614	Xylocopa tabaniformis
+rho	GU245348	Xylocopa violacea
+rho	AF091730	Xylocopa virginica
+rho	AF344637	Zacosmia maculata
+rho	DQ884490	Zikanapis clypeata
+ultra	NM001011634	 Apis mellifera
+ultra	XM003397943	Bombus terrestris
+ultra	AY840093	Melipona scutellaris
+ultra	DQ190542	Scaptotrigona depilis
+vas	NM001040255	 Apis mellifera
+vas	FJ161963	 Frieseomelitta varia
+vas	FJ161962	 Melipona quadrifasciata
+vas	EF601038	 Melipona scutellaris
+vas	EF601037	 Scaptotrigona postica
+wg	GU245629	Afroheriades sp. CJP-2008
+wg	AY222576	Agapostemon leunculus
+wg	AY222577	Agapostemon tyleri
+wg	GU245558	Aglae caerulea
+wg	GU320165	Alocandrena porterae
+wg	GU245635	Ammobates punctatus
+wg	GU245634	Ammobates sp. JS-2010
+wg	GU245641	Ammobatoides luctuosus
+wg	EU367330	Ammophila sp. 1 EMP-2008
+wg	DQ884857	Amphylaeus obscuriceps
+wg	GU245509	Ancyla asiatica
+wg	GU245510	Ancyla holtzi anatolica
+wg	AY222550	Andrena nasonii
+wg	AY222551	Andrena sp. SGB-2003
+wg	DQ884772	Andrenopsis sp. EABA-2006
+wg	GU245611	Anthidiellum notatum
+wg	GU245612	Anthidium porterae
+wg	GU245560	Anthophorula completa
+wg	GU245561	Anthophorula sp. 1 JS-2010
+wg	GU245562	Anthophorula sp. 2 JS-2010
+wg	EU184716	Apis cerana
+wg	EU184715	Apis dorsata
+wg	EU184714	Apis florea
+wg	AY703618	Apis mellifera
+wg	GU245597	Arhysoceble sp. JS-2010
+wg	GU245627	Ashmeadiella aridula
+wg	AY455897	Augochlora pura
+wg	AY222572	Augochlorella pomoniella
+wg	AY222571	Augochloropsis metallica
+wg	DQ884765	Baeocolletes minimus
+wg	DQ884757	Baeocolletes sp. EABA-2006
+wg	DQ884739	Belopria nitidior
+wg	EU367331	Bembix amoena
+wg	GU320175	Bembix spinolae
+wg	GU245645	Biastes truncatus
+wg	GU320188	Bicyrtes ventralis
+wg	EU184707	Bombus ardens
+wg	EU184708	Bombus diversus
+wg	EU184709	Bombus mendax
+wg	DQ884748	Brachyglossula communis
+wg	GU245649	Brachynomada margaretae
+wg	GU245648	Brachynomada sp. JS-2010
+wg	GU245665	Braunsapis madecassella
+wg	DQ884716	Cadeguala albopilosa
+wg	DQ884719	Cadeguala occidentalis
+wg	DQ884720	Cadegualina andina
+wg	AY222578	Caenohalictus sp. BND-2
+wg	AY222579	Caenohalictus sp. BND-3
+wg	GU245593	Caenonomada sp. JS-2010
+wg	GU245650	Caenoprosopina holmbergi
+wg	GU245651	Caenoprosopis crabronina
+wg	GU320184	Calliopsis anthidia
+wg	GU320180	Calliopsis pugionis
+wg	DQ884809	Callohesma calliopsella
+wg	EF032907	Callomelitta antipodes
+wg	DQ884718	Caupolicana bicolor
+wg	DQ884717	Caupolicana quadrifasciata
+wg	DQ884726	Caupolicana vestita
+wg	DQ884727	Caupolicana yarrowi
+wg	EU203218	Cellariella brooksi
+wg	DQ884735	Cephalocolletes isabelae
+wg	DQ884750	Cephalocolletes laticeps
+wg	EU184711	Cephalotrigona capitata
+wg	GU245669	Ceratina calcarata
+wg	GU245674	Ceratina cyanea
+wg	GU245671	Ceratina sp. JS-2010
+wg	GU320185	Cerceris sp. SCC-2010
+wg	EF013689	Chalybion californicum
+wg	GU245626	Chelostoma californicum
+wg	DQ884831	Chilicola herbsti
+wg	DQ884830	Chilicola inermis
+wg	DQ884829	Chilicola rostrata
+wg	DQ884832	Chilicola styliventris
+wg	DQ884828	Chilicola vicugna
+wg	DQ884746	Chilicolletes delahozii
+wg	DQ884825	Chilimelissa australis
+wg	DQ884823	Chilimelissa chusmiza
+wg	DQ884821	Chilimelissa irwini
+wg	DQ884820	Chilimelissa nortina
+wg	DQ884819	Chilimelissa rosie
+wg	DQ884826	Chilimelissa rozeni
+wg	DQ884824	Chilimelissa sp. 1 EABA-2006
+wg	GU320179	Clitemnestra bipunctata
+wg	GU245599	Coelioxoides sp. JS-2010
+wg	GU245602	Coelioxoides waltheriae
+wg	GU245619	Coelioxys alternata
+wg	DQ884773	Colletellus velutinellus
+wg	DQ884798	Colletes bicolor
+wg	DQ884794	Colletes compactus
+wg	DQ884793	Colletes distinctus
+wg	DQ884801	Colletes floralis
+wg	DQ884803	Colletes furfuraceus
+wg	DQ884804	Colletes inaequalis
+wg	DQ884795	Colletes pascoensis
+wg	DQ884799	Colletes seminitidus
+wg	DQ884796	Colletes simulans
+wg	DQ884805	Colletes skinneri
+wg	DQ884800	Colletes sp. EABA-2006
+wg	DQ884797	Colletes thoracicus
+wg	GU245666	Compsomelissa keiseri
+wg	EF411185	Conanthalictus conanthi
+wg	AY222553	Conanthalictus wilmattae
+wg	AY222573	Corynura patagonica
+wg	GU245541	Ctenioschelus goryi
+wg	DQ884711	Ctenocolletes nigricans
+wg	DQ884712	Ctenocolletes rufescens
+wg	DQ884713	Ctenocolletes smaragdinus
+wg	GU245526	Ctenoplectra albolimbata
+wg	GU245525	Ctenoplectra bequaerti
+wg	GU245524	Ctenoplectrina sp. JS-2010
+wg	EF411182	Curvinomia ridleyi
+wg	GU320177	Dasypoda altercator
+wg	GU245603	Dasypoda argentata
+wg	GU320181	Dasypoda visnaga
+wg	GU245609	Dianthidium subparvum
+wg	AY222568	Dieunomia nevadensis
+wg	AY222569	Dieunomia triangulifera
+wg	AY222580	Dinagapostemon sp. BND-1
+wg	AY222581	Dinagapostemon sp. BND-2
+wg	GU245613	Dioxys pomonae
+wg	DQ884728	Diphaglossa gayi
+wg	GU245656	Doeringiella sp. JS-2010
+wg	EF411190	Dufourea holocyana
+wg	AY222554	Dufourea malacothricis
+wg	AY222555	Dufourea mulleri
+wg	AY222556	Dufourea novaeangliae
+wg	EF411189	Dufourea spinifera
+wg	EF411188	Dufourea spirula
+wg	DQ884745	Edwyniana sp. EABA-2006
+wg	GU245584	Epeoloides coecutiens
+wg	GU245582	Epeoloides pilosula
+wg	GU245653	Epeolus scutellaris
+wg	GU245657	Epeolus sp. JS-2010
+wg	GU245659	Epeolus variegatus
+wg	GU245535	Epiclopus gayi
+wg	GU245536	Ericrocis lata
+wg	GU245547	Eucera frater
+wg	GU245559	Eufriesea surinamensis
+wg	GU245557	Euglossa piliventris
+wg	DQ884808	Euhesma crabronica
+wg	DQ884806	Euhesma platyrhina
+wg	DQ884807	Euhesma sp. EABA-2006
+wg	GU245556	Eulaema meriana
+wg	DQ884747	Eulonchopria punctatissima
+wg	DQ884734	Eulonchopria simplicicrus
+wg	EU203228	Eupetersia seyrigi
+wg	DQ884759	Euryglossidia sp. 1 EABA-2006
+wg	DQ884760	Euryglossidia sp. 2 EABA-2006
+wg	DQ884761	Euryglossidia sp. 3 EABA-2006
+wg	DQ884766	Euryglossidia sp. 4 EABA-2006
+wg	DQ884767	Euryglossidia sp. 5 EABA-2006
+wg	DQ884810	Euryglossina globuliceps
+wg	GU245555	Exaerete sp. JS-2010
+wg	DQ884774	Excolletes sp. EABA-2006
+wg	GU245563	Exomalopsis sp. JS-2010
+wg	GU245668	Exoneura bicolor
+wg	GU245606	Fideliopsis major
+wg	GU245552	Florilegus sp. JS-2010
+wg	DQ884817	Geodiscelis longiceps
+wg	DQ884771	Glossurocolletes bilobatus
+wg	AY222560	Goeletapis peruensis
+wg	DQ884786	Goniocolletes fimbriatinus
+wg	DQ884787	Goniocolletes perfasciatus
+wg	AY222582	Habralictus sp. BND-2001
+wg	DQ884752	Halictanthrena malpighiacearum
+wg	AY455898	Halictus kessleri
+wg	AY455899	Halictus ligatus
+wg	AY222592	Halictus quadricinctus
+wg	AY455900	Halictus scabiosae
+wg	AY222593	Halictus tripartitus
+wg	AY222594	Halictus vestitus
+wg	DQ884790	Hemicotelles ruizii
+wg	GU245624	Heriades crucifer
+wg	AY222552	Hesperapis larreae
+wg	GU320169	Hesperapis richtersveldensis
+wg	DQ884763	Hexantheda missionica
+wg	GU245660	Hexepeolus rhodogyne
+wg	GU245639	Holcopasites arizonicus
+wg	GU245638	Holcopasites calliopsidis
+wg	GU245640	Holcopasites insoletus
+wg	GU245643	Holcopasites minimus
+wg	GU245637	Holcopasites ruthae
+wg	GU245642	Holcopasites stevensi
+wg	AY222600	Homalictus megastigmus
+wg	AY222601	Homalictus punctatum
+wg	GU245539	Hopliphora velutina
+wg	GU245631	Hoplitis albifrons
+wg	DQ884736	Hoplocolletes ventralis
+wg	EF411183	Hoplonomia amboiensis
+wg	GU245628	Hoplosmia scutellaris
+wg	DQ884843	Hylaeus affinis
+wg	DQ884841	Hylaeus albonitens
+wg	DQ884837	Hylaeus alcyoneus
+wg	DQ884838	Hylaeus amiculus
+wg	DQ212125	Hylaeus anthracinus
+wg	DQ884851	Hylaeus aralis
+wg	DQ884872	Hylaeus bidentatus
+wg	DQ884869	Hylaeus bituberculatus
+wg	DQ884874	Hylaeus burnsi
+wg	DQ212126	Hylaeus connectens
+wg	DQ884856	Hylaeus constrictiformis
+wg	DQ884849	Hylaeus cyanurus
+wg	DQ212127	Hylaeus difficilis
+wg	DQ884848	Hylaeus disjunctus
+wg	DQ884839	Hylaeus elegans
+wg	DQ884853	Hylaeus eugeniellus
+wg	DQ884859	Hylaeus exleyae
+wg	DQ884860	Hylaeus extensus
+wg	DQ212124	Hylaeus globula
+wg	DQ212128	Hylaeus hula
+wg	DQ884846	Hylaeus hurdi
+wg	DQ884840	Hylaeus inquilina
+wg	DQ212130	Hylaeus kauaiensis
+wg	DQ212131	Hylaeus kokeensis
+wg	DQ212132	Hylaeus kona
+wg	DQ884842	Hylaeus leptocephalus
+wg	DQ884871	Hylaeus leptospermi
+wg	DQ212133	Hylaeus longiceps
+wg	DQ884855	Hylaeus microphenax
+wg	AY222548	Hylaeus modestus
+wg	DQ884852	Hylaeus nubilosus
+wg	DQ884847	Hylaeus ofarrelli
+wg	DQ212134	Hylaeus pele
+wg	DQ884836	Hylaeus preposterosus
+wg	DQ884854	Hylaeus primulipictus
+wg	EF032906	Hylaeus proximus
+wg	DQ212135	Hylaeus pubescens
+wg	DQ884845	Hylaeus punctatus
+wg	DQ884873	Hylaeus quadratus
+wg	DQ884850	Hylaeus ruficeps
+wg	DQ884858	Hylaeus sculptus
+wg	DQ884833	Hylaeus simplus
+wg	DQ212136	Hylaeus solaris
+wg	DQ884835	Hylaeus sp. EABA-2006
+wg	DQ884870	Hylaeus trilobatus
+wg	DQ884834	Hylaeus vittatifrons
+wg	DQ884844	Hylaeus wootoni
+wg	DQ884861	Hyleoides concinna
+wg	GU245574	Hypotrigona gribodoi
+wg	GU245565	Isepeolus atripilis
+wg	GU245564	Isepeolus cortesi
+wg	GU245566	Isepeolus luctuosus
+wg	GU245567	Isepeolus wagenknechti
+wg	GU320172	Isodontia mexicana
+wg	DQ884749	Kylopasiphae pruinosa
+wg	DQ884744	Kylopasiphae sp. EABA-2006
+wg	DQ884775	Lamprocolletes chalybeatus
+wg	AY222604	Lasioglossum athabascense
+wg	AY222608	Lasioglossum calceatum
+wg	AY455901	Lasioglossum figueresi
+wg	AY222602	Lasioglossum florale
+wg	AY222599	Lasioglossum hybodinum
+wg	AY222603	Lasioglossum lanarium
+wg	AY222598	Lasioglossum lithuscum
+wg	AY222609	Lasioglossum lustrans
+wg	AY455903	Lasioglossum malachurum
+wg	AY455902	Lasioglossum marginatum
+wg	EU203248	Lasioglossum nicolli
+wg	AY455905	Lasioglossum oenotherae
+wg	AY455904	Lasioglossum politum
+wg	AY222605	Lasioglossum scitulum
+wg	AY222607	Lasioglossum zephyrum
+wg	AY222606	Lasioglossum zonulum
+wg	GU245588	Leiopodus abnormis
+wg	GU245586	Leiopodus singularis
+wg	GU245587	Leiopodus sp. JS-2010
+wg	GU245589	Leiopodus trochantericus
+wg	DQ884780	Leioproctus conospermi
+wg	DQ884788	Leioproctus irroratus
+wg	DQ884781	Leioproctus lanceolatus
+wg	DQ884782	Leioproctus megachalcoides
+wg	DQ884779	Leioproctus pappus
+wg	DQ884783	Leioproctus platycephalus
+wg	DQ884789	Leioproctus plumosus
+wg	DQ884785	Leioproctus sp. EABA-2006
+wg	GU245581	Lestrimelitta sp. JS-2010
+wg	AY222567	Lipotriches australica
+wg	GU245615	Lithurgus echinocacti
+wg	DQ884770	Lonchopria robertsi
+wg	DQ884768	Lonchopria similis
+wg	DQ884769	Lonchopria sp. EABA-2006
+wg	GU245667	Macrogalea ellioti
+wg	GU245621	Macropis nuda
+wg	GU245675	Manuelia gayatina
+wg	GU245543	Martinapis luteicornis
+wg	GU245618	Megachile angelarum
+wg	GU245620	Megachile ericetorum
+wg	JN106132	Megalopta aeneicollis
+wg	JN106149	Megalopta aff. fornix ECUA E1
+wg	JN106150	Megalopta aff. fornix ECUA G1
+wg	JN106135	Megalopta atra
+wg	JN106136	Megalopta byroni
+wg	JN106139	Megalopta centralis
+wg	JN106133	Megalopta cf. aeneicollis BOLI A4
+wg	JN106134	Megalopta cf. aeneicollis BOLI A5
+wg	JN106148	Megalopta cf. fornix PERU C6
+wg	JN106153	Megalopta cf. genalis ECUA A1
+wg	JN106154	Megalopta cf. genalis ECUA D2
+wg	JN106155	Megalopta cf. genalis FRGU A3
+wg	JN106156	Megalopta cf. genalis FRGU E9
+wg	JN106151	Megalopta genalis
+wg	JN106159	Megalopta sodalis
+wg	JN106157	Megalopta sp. morph-j
+wg	JN106158	Megalopta sp. morph-p
+wg	JN106160	Megaloptidia nocturna
+wg	JN106161	Megaloptidia saulensis
+wg	GU320176	Megandrena enceliae
+wg	GU245623	Meganomia binghami
+wg	JN106162	Megommation insigne
+wg	GU245573	Melecta albifrons
+wg	GU245568	Melectoides bellus
+wg	GU245576	Melipona sp. JS-2010
+wg	EU184712	Meliponula bocandei
+wg	GU245578	Meliponula ferruginea
+wg	GU245546	Melissodes desponsa
+wg	GU245550	Melissoptila sp. JS-2010
+wg	GU245622	Melitta arrogans
+wg	GU320174	Melitta eickworti
+wg	DQ884864	Meroglossa itamuca
+wg	DQ884862	Meroglossa striaticeps
+wg	GU245540	Mesocheira bicolor
+wg	GU245537	Mesonychium asteria
+wg	GU245538	Mesoplia rufipes
+wg	AY222595	Mexalictus arizonensis
+wg	EU367333	Microbembex argyropleura
+wg	GU245616	Microthurge sp. JS-2010
+wg	DQ884791	Mourecotelles mixta
+wg	EF032905	Mydrosoma aterrimum
+wg	GU245591	Nanorhathymus sp. JS-2010
+wg	AY222575	Neocorynura discolor
+wg	GU245605	Neofidelia sp. JS-2010
+wg	GU245661	Neolarra orbiculata
+wg	DQ884776	Neopasiphae mirabilis
+wg	GU245644	Neopasites cressoni
+wg	DQ884751	Niltonia virgilii
+wg	DQ884710	Nolanomelissa toroi
+wg	GU245662	Nomada maculata
+wg	GU245663	Nomada signata
+wg	DQ884754	Nomiocolletes jenseni
+wg	AY222566	Nomioides facilis
+wg	EU203219	Nomioides tumidus
+wg	DQ884777	Odontocolletes asper
+wg	DQ884778	Odontocolletes pachydontus
+wg	GU245652	Odyneropsis sp. JS-2010
+wg	GU245632	Oreopasites barbarae
+wg	DQ884709	Orphana wagenknechti
+wg	GU245585	Osiris sp. JS-2010
+wg	GU245625	Osmia lignaria
+wg	DQ884865	Palaeorhiza sp. 1 EABA-2006
+wg	DQ884866	Palaeorhiza sp. 2 EABA-2006
+wg	DQ884867	Palaeorhiza sp. 3 EABA-2006
+wg	DQ884868	Palaeorhiza sp. 4 EABA-2006
+wg	GU320166	Panurgus calcaratus
+wg	DQ884729	Paracolletes crassipes
+wg	DQ884730	Paracolletes frederici
+wg	DQ884731	Paracolletes robustus
+wg	GU245646	Paranomada velutina
+wg	GU245610	Paranthidium jugatorium
+wg	GU245607	Pararhophites quadratus
+wg	GU245594	Paratetrapedia sp. JS-2010
+wg	EU203224	Parathrincostoma seyrigi
+wg	GU245583	Parepeolus aterrimus
+wg	GU245636	Pasites maculatus
+wg	AY222588	Patellapis (Chaetalictus) sp. BND-2001
+wg	AY222589	Patellapis (Lomatalictus) sp. BND-2001
+wg	AY222590	Patellapis (Pachyhalictus) sp. BND-2001
+wg	EU203241	Patellapis (Zonalictus) sp. BND-2007
+wg	EU203236	Patellapis abessinica
+wg	EU203238	Patellapis albofasciata
+wg	EU203237	Patellapis andreniformis
+wg	EU203247	Patellapis braunsella
+wg	EU203244	Patellapis castanea
+wg	EU203234	Patellapis cf. minutior BND-2007
+wg	EU203243	Patellapis coccinea
+wg	EU203245	Patellapis inelegans
+wg	EU203242	Patellapis joffrei
+wg	EU203246	Patellapis lyalli
+wg	EU203232	Patellapis malachurina
+wg	EU203230	Patellapis minima
+wg	EU203233	Patellapis montagui
+wg	EU203235	Patellapis n. sp. 10
+wg	EU203229	Patellapis n. sp. 114
+wg	EU203231	Patellapis n. sp. 66
+wg	EU203239	Patellapis vittata
+wg	EU203240	Patellapis zacephala
+wg	AY222558	Penapis penai
+wg	AY222559	Penapis toroi
+wg	GU245544	Peponapis pruinosa
+wg	DQ884738	Perditomorpha brunerii
+wg	DQ884755	Perditomorpha leucostoma
+wg	DQ884742	Perditomorpha rufiventris
+wg	DQ884764	Perditomorpha sp. EABA-2006
+wg	DQ884762	Perditomorpha stilborhina
+wg	DQ884758	Phenacolletes mimus
+wg	GU320173	Philanthus gibbosus
+wg	GU245579	Plebeina hildebrandti
+wg	GU320168	Plenoculus sp. SCC-2010
+wg	GU320186	Podalonia sp. SCC-2010
+wg	GU245604	Promelitta alboclypeata
+wg	AY222557	Protodufourea sp. BND-2003
+wg	DQ884784	Protomorpha alloeopus
+wg	GU245630	Protosmia rubifloris
+wg	GU320183	Protoxaea gloriosa
+wg	AY222583	Pseudagapostemon brasiliensis
+wg	AY222584	Pseudagapostemon pissisi
+wg	AY222570	Pseudapis unidentata
+wg	DQ884715	Ptiloglossa sp. EABA-2006
+wg	DQ884723	Ptiloglossa tarsata
+wg	DQ884721	Ptiloglossa thoracica
+wg	DQ884722	Ptiloglossidia fallax
+wg	GU320189	Rediviva macgregori
+wg	DQ884741	Reedapis bathycyaneus
+wg	GU245590	Rhathymus sp. JS-2010
+wg	GU245592	Rhathymus unicolor
+wg	GU245658	Rhinepeolus rufiventris
+wg	AY222585	Rhinetula denticrus
+wg	EF411184	Rophites algirus
+wg	AY222586	Ruizantheda mutabilis
+wg	AY222587	Ruizantheda proxima
+wg	GU320170	Samba griseonigra
+wg	GU245580	Scaptotrigona hellwegeri
+wg	EU184713	Scaura latitarsis
+wg	GU320171	Sceliphron caementarium
+wg	DQ884812	Scrapter algoensis
+wg	DQ884813	Scrapter erubescens
+wg	DQ884814	Scrapter heterodoxus
+wg	DQ884815	Scrapter niger
+wg	DQ884816	Scrapter ruficornis
+wg	EU203225	Sphecodes autumnalis
+wg	EU203226	Sphecodes clematidis
+wg	EU203227	Sphecodes confertus
+wg	AY222596	Sphecodes minor
+wg	AY222597	Sphecodes ranunculi
+wg	GU245633	Sphecodopsis capensis
+wg	EF411187	Sphecodosoma beameri
+wg	AY222561	Sphecodosoma pratti
+wg	DQ884740	Spinolapis caerulescens
+wg	DQ884753	Spinolapis sp. EABA-2006
+wg	GU245617	Stelis linsleyi
+wg	DQ884714	Stenotritus sp. BND-2004
+wg	GU320182	Stigmus sp. SCC-2010
+wg	GU320178	Stizoides sp. SCC-2010
+wg	GU245549	Svastra obliqua
+wg	GU245545	Svastrides melanura
+wg	GU245553	Svastrina subapicalis
+wg	AY222562	Systropha curvicornis
+wg	EF411186	Systropha glabriventris
+wg	AY222563	Systropha planidens
+wg	GU320167	Tachysphex sp. SCC-2010
+wg	GU245595	Tapinotaspidini sp. JS-2010
+wg	GU245596	Tapinotaspoides sp. JS-2010
+wg	DQ884737	Tetraglossula anthracina
+wg	GU245577	Tetragonula carbonaria
+wg	GU245542	Tetralonia cinctula
+wg	GU245554	Tetraloniella glauca
+wg	GU245572	Tetralonioidella sp. JS-2010
+wg	GU245601	Tetrapedia cf. diversipes JS-2010
+wg	GU245598	Tetrapedia maura
+wg	GU245600	Tetrapedia sp. JS-2010
+wg	GU245655	Thalestria spinosa
+wg	EU203222	Thrinchostoma conjugens
+wg	EU203220	Thrinchostoma kandti
+wg	EU203223	Thrinchostoma lemuriae
+wg	EU203221	Thrinchostoma torridum
+wg	AY222591	Thrincohalictus prognathus
+wg	GU245551	Thygater sp. JS-2010
+wg	GU245571	Thyreus delumbatus
+wg	EU184719	Thyreus takaonis
+wg	GU245664	Townsendiella sp. JS-2010
+wg	GU245608	Trachusa larreae
+wg	DQ884733	Trichocolletes sp. BND-2004
+wg	DQ884732	Trichocolletes venustus
+wg	GU245614	Trichothurgus herbsti
+wg	GU245654	Triepeolus robustus
+wg	EU184710	Trigona fuscipennis
+wg	GU245647	Triopasites penniger
+wg	DQ884724	Willinkapis chalybea
+wg	DQ884811	Xanthesma furcifera
+wg	DQ884792	Xanthocotelles sicheli
+wg	DQ884827	Xenochilicola mamigna
+wg	JN106163	Xenochlora nigrofemorata
+wg	GU245548	Xenoglossa angustior
+wg	AY222564	Xeralictus bicuspidariae
+wg	AY222565	Xeralictus timberlakei
+wg	GU245569	Xeromelecta californica
+wg	DQ884822	Xeromelissa wilmattae
+wg	GU320187	Xerostictia sp. SCC-2010
+wg	GU245684	Xylocopa californica arizonensis
+wg	GU245683	Xylocopa fimbriata
+wg	GU245679	Xylocopa iris
+wg	GU245678	Xylocopa muscaria
+wg	GU245681	Xylocopa pubescens
+wg	GU245680	Xylocopa sp. JS-2010
+wg	GU245677	Xylocopa tabaniformis
+wg	GU245682	Xylocopa violacea
+wg	GU245676	Xylocopa virginica
+wg	GU245570	Zacosmia maculata
+wg	DQ884725	Zikanapis clypeata
+white	EU184853	Apis cerana
+white	EU184852	Apis dorsata
+white	EU184851	Apis florea
+white	EU184846	Bombus ardens
+white	EU184847	Bombus diversus
+white	EU184849	Cephalotrigona capitata
+white	EU184855	Epiclopus gayi
+white	EU184850	Meliponula bocandei
+white	EU184856	Thyreus takaonis
+white	EU184848	Trigona fuscipennis

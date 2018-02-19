@@ -24,3 +24,9 @@ VNI1996=function(x){550.9*(x)-579.1}
 VNI1996_2=function(x){560.8*(x)-908.2}
 
 VNI1996(2)
+
+#Guedot et al.(2009)
+
+##Six Osmia species - Homing distance against dry weight (mg)
+
+Guedot2009=function(x){54.526*(x)-866.63}

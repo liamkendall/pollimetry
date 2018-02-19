@@ -1,7 +1,7 @@
 ###Bee analyses
 
-PredAllo=read.csv("PredAlloPoll10218.csv",header=T)
-
+PredAllo=read.csv("PredAlloPoll17218.csv",header=T)
+str(PredAllo)
 ##Individual data frames
 PredAllo.split=split(PredAllo,PredAllo$Taxa)
 BEE=PredAllo.split[[1]]
@@ -34,15 +34,15 @@ plot(Bee.ITm5)
 is.na(BEE$Genus)
 
 summary(Bee.ITm1)
-#Adjusted R-squared:  0.8488 
+#Adjusted R-squared:  0.8804 
 summary(Bee.ITm2)
-#Adjusted R-squared:  0.9268 
+#Adjusted R-squared:  0.945
 summary(Bee.ITm3)
-#Adjusted R-squared:  0.9314 
+#Adjusted R-squared:  0.9493
 summary(Bee.ITm4)
 #Adjusted R-squared:  0.9351 
 summary(Bee.ITm5)
-#Adjusted R-squared:  0.9421 
+#Adjusted R-squared:  0.9526
 
 anova(Bee.ITm1,Bee.ITm2,Bee.ITm3,Bee.ITm5)
 
@@ -52,34 +52,25 @@ anova(Bee.ITm1,Bee.ITm2,Bee.ITm3,Bee.ITm5)
 #Model 2: log(Spec.wgt) ~ log(IT) + Country
 #Model 3: log(Spec.wgt) ~ log(IT) + Country + Subfamily
 #Model 4: log(Spec.wgt) ~ log(IT) + Country + Genus
-  #Res.Df    RSS Df Sum of Sq        F    Pr(>F)    
-#1   1074 392.17                                    
-#2   1071 189.30  3   202.872 485.1239 < 2.2e-16 ***
-#3   1059 175.48 12    13.824   8.2643 4.911e-15 ***
-#4   1036 144.41 23    31.064   9.6891 < 2.2e-16 ***
-
+#Res.Df    RSS Df Sum of Sq       F    Pr(>F)    
+#1   1640 499.85                                   
+#2   1635 229.16  5   270.692 492.193 < 2.2e-16 ***
+#3   1622 209.63 13    19.532  13.659 < 2.2e-16 ***
+#4   1585 174.34 37    35.289   8.671 < 2.2e-16 ***
+  
 AIC(Bee.ITm1,Bee.ITm2,Bee.ITm3,Bee.ITm4,Bee.ITm5)
 
-#df       AIC
-#Bee.ITm1  3 1973.5501
-#Bee.ITm2  6 1195.8314
-#Bee.ITm3 18 1138.2381
-#Bee.ITm5 41  974.6007
+#df      AIC
+#Bee.ITm1  3 2712.874
+#Bee.ITm2  8 1442.300
+#Bee.ITm3 21 1322.022
+#Bee.ITm4 41 1229.075
+#Bee.ITm5 58 1093.350
 
 
 #Different sample size due to missing tribes
 #Bee.ITm4 28 1002.8947
 
-summary(Bee.ITm1)
-#Adjusted R-squared:  0.8485 
-summary(Bee.ITm2)
-#Adjusted R-squared:  0.9267 
-summary(Bee.ITm3)
-#Adjusted R-squared:  0.9312 
-summary(Bee.ITm4)
-#Adjusted R-squared:  0.9351
-summary(Bee.ITm5)
-#Adjusted R-squared:  0.9422
 
 ###Body length
 Bee.BLm1=lm(log(Spec.wgt)~log(BL),BEE)
@@ -177,13 +168,13 @@ Bee.ITSm5=lm(log(Spec.wgt)~log(IT)+Country+Genus+Sex,BEE)
 plot(Bee.ITSm5)
 
 summary(Bee.ITSm1)
-#Adjusted R-squared:  0.8507 
+#Adjusted R-squared:  0.8811
 summary(Bee.ITSm2)
-#Adjusted R-squared:  0.927 
+#Adjusted R-squared:  0.9452
 summary(Bee.ITSm3)
-#Adjusted R-squared:  0.9317 
+#Adjusted R-squared:  0.9496
 summary(Bee.ITSm4)
-#Adjusted R-squared:  0.9353 
+#Adjusted R-squared:  0.9528
 summary(Bee.ITSm5)
-#Adjusted R-squared:  0.9425 
+#Adjusted R-squared:  0.9572
 

@@ -4,3 +4,4 @@
 .Ruserdata
 *.pdf
 *.xls
+/raw_data

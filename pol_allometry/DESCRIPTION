@@ -1,0 +1,10 @@
+Package: polallometry
+Type: Package
+Title: Tools to estimate pollinators body size and foraging distance
+Version: 0.1
+Date: 2018-02-20
+Author: Liam ... & Ignasi Bartomeus <nacho.bartomeus@gmail.com>
+Maintainer: Who to complain to <yourfault@somewhere.net>
+Description: More about what it does (maybe more than one line)
+License: GPL (>= 2)
+RoxygenNote: 6.0.1

@@ -1,0 +1,19 @@
+citHeader("To cite pol_allometry in publications use:")
+
+citEntry(entry = "Article",
+  title        = "Blah",
+  author       = personList(as.person("Liam..."), ... ,
+                   as.person("Ignasi Bartomeus")),
+  journal      = "",
+  year         = "2018",
+  volume       = "",
+  number       = "",
+  pages        = "",
+  url          = "",
+
+  textVersion  =
+  paste("blah",
+        "2018",
+        "...",
+        "")
+)

@@ -1,26 +1,28 @@
 #workflow
 
 ###Issues
-Need latitude for Spanish samples (Assume no pres.time)
+#Need latitude for Spanish samples (Assume no pres.time)
 
 #libraries
 require(MuMIn)
 require(lme4)
+library(nlme)
 require(broom)
 require(glmnet)
-options(stringsAsFactors = FALSE)
+library(ape)
+#options(stringsAsFactors = FALSE)
 #read data (1 file)----
 
-allo=read.csv(file="~/Dropbox/PhD/R/PollinateR/data/PredAlloPoll20218.csv")
+allo <- read.csv(file="data/PredAlloPoll20218.csv")
 str(allo)
 
-allo[,24:25]=log(allo[,24:25])
+allo[,24:25] <- log(allo[,24:25])
 
 #without Germany and Cane 1987
-allo=allo[1:1247,]
+allo <- allo[1:1247,]
 
 #dummy variable for spain latitude
-allo[269:344,c("Latitude")]=rnorm(mean=37.396355,sd=0.2,n=76)
+allo[269:344,c("Latitude")] <- rnorm(mean=37.396355,sd=0.2,n=76)
 ?rnorm
 #split to bees and hoverflies
 allo_split=split(allo,allo$Taxa)
@@ -36,9 +38,7 @@ bee=bee[-454,]
 bee_2=split(bee,bee$Region)
 bee_2$Australasia$Latitude=bee_2$Australasia$Latitude*-1
 bee=rbind.data.frame(bee_2$Australasia,bee_2$Europe)
-
-
-
+#Maybe not? Check.
 
 boxplot(bee$Latitude~bee$Region)
 
@@ -46,7 +46,7 @@ boxplot(bee$Latitude~bee$Region)
 
 #subset to species with >5 specimens
 
-subset(bee,)
+#subset(bee,)
 
 #Make a full model IT-length ----
 
@@ -61,18 +61,13 @@ Spec.wgt~IT+Latitude+Sex+Col.method+Family+Region+Pres.time
 #
 options(na.action = "na.omit") 
 
-bee.full=lmer(Spec.wgt~IT+Latitude+Sex+Col.method+Family+Region+Pres.time
-              +IT:Latitude+IT:Sex+IT:Region+
-                IT:Col.method+IT:Pres.time+
-                IT:Family+
+bee.full=lmer(Spec.wgt ~ IT + Latitude + Sex + Col.method + Family + Region + Pres.time #fix
+              + IT:Latitude + IT:Sex + IT:Region + #interactions
+                IT:Col.method + IT:Pres.time +
+                IT:Family +
               (1|Species),REML=FALSE,data=bee)
 
 summary(bee.full)
-
-bee.full.res=lm(Spec.wgt~IT+Latitude+Sex+Col.method+Family+Region+Pres.time
-                  +IT:Latitude+IT:Sex+IT:Region+
-                    IT:Col.method+IT:Pres.time+
-                    IT:Family,data=bee_mean2)
 
 #2) Weight ~ IT * covariates [at species level with mean per sp]. Where cov are : Laitude, sex, body length + collection method + family + region
 bee_mean=bee[!duplicated(bee[,c('Species')]),]
@@ -86,6 +81,15 @@ bee_mean$BL.sd=as.numeric(unlist(aggregate(bee$BL~bee$Species,FUN="mean")[2]))
 
 bee_mean$Latitude=as.numeric(unlist(aggregate(bee$Latitude~bee$Species,FUN="mean")[2]))
 
+#Sex... ignore and pool or have a mean for female and a mean for male.
+#Same for method. I would ignore pres time.
+#Check all species have only one region.
+#Maybe drop covariates not relevant in the first analysis?
+bee.full.res=lm(Spec.wgt~IT+Latitude+Sex+Col.method+Family+Region+Pres.time
+                +IT:Latitude+IT:Sex+IT:Region+
+                  IT:Col.method+IT:Pres.time+
+                  IT:Family,data=bee_mean)
+
 #Option 1: dredge ()----
 ##I think AICc is good, because simple/parsimonous = better
 
@@ -95,7 +99,7 @@ unlist(lapply(bee_mean, function(x) any(is.na(x))))
 options(na.action = "na.fail") 
 
 
-bee_dr=dredge(bee.full,beta="sd",rank="AICc")
+bee_dr=dredge(bee.full,beta="sd",rank="AICc") #think about "sd" and "AICc". AIC show same pattern.
 bee_dr
 
 bee_dr_res=dredge(bee.full.res,beta="sd",rank="AICc")
@@ -126,12 +130,14 @@ summary(Bee_tree.rand)
 Bee_vcv=corPagel (0.5,Bee_tree.rand,fixed=FALSE)
 
 Bee_GLS_IT1<- gls(Spec.wgt~IT, data=bee_mean, method="ML")
-summary(gls_BeeIT1)
+summary(Bee_GLS_IT1)
 
 Bee_PGLS_IT1 = gls(Spec.wgt~IT, data=bee_mean, correlation=Bee_vcv, method="ML")
 summary(Bee_PGLS_IT1)
 
-AIC(Bee_GLS_IT1,Bee_PGLS_IT1)
+#check also lamda of the trait itself.
+
+AIC(Bee_GLS_IT1,Bee_PGLS_IT1) #Really low phylo signal... good.
 
 plot(Spec.wgt~IT,bee_mean)
 abline(Bee_GLS_IT1)

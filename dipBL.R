@@ -1,72 +1,72 @@
 #' @name dipBL
 #' 
-#' @title Converts body length to Diptera dry body weight (mg)
+#' @title Converts fly body length to body weight (mg).
 #' 
 #' @description Calculates dry body weight (mg) from existing allometries (See 'Details') using body length values (mm).  
 #' 
 #' @param BL A vector of Diptera body length (BL) measurments (mm).
 #'
-#' @param Group a vector of fly group (Suborder/Family).
-#'  Only implemented 7 groups: "Diptera",suborders:"Brachycera", "Nematocera",
-#'  the infraorder: "Cyclorrapha", and brachyceran families: "Asilidae","Bombyliidae".
+#' @param Eq a vector of a predictive allometry for flies. Options implemented are (ordered by year released): R77D = Rogers 1977,
+#' S93DB, Sabo02DB, Sabo02DA, Sabo02DBB, S93DC, BN06D, G97D, GR84D, JS00DA, R77D, S80DCF, S80DCR, S80DMF, S93DA, W13D, JS00DN, S93DN, Sabo02DN
+#'
 #' 
-#' @return A dataframe with fly body size (mg) is returned for each species from relevant equations.
+#' @return A dataframe with fly body size (mg) is returned for each species from selected equation.
 #' 
 #' @examples
-#' ITbodysize(c(10,5,2), Family = c("Diptera", "Cyclorrapha", "Bombyliidae"))
+#' dipBL(BL=c(10,5,2), Eq = "S93BD")
 #' @references Kendall, Bartomeus... Rader (20XX) Pollinator size and its consequences: Predictive allometry for pollinating insects 
 #' #ADD ALL REFERENCES
 #' 
 #' ###
 #' 
 #' @export
-dipBL <- function(BL, Equation){
-  if(!length(BL) == length(Equation)){
-    stop("IT and Group should be the same length")
-  }
-  check_Equation <- Group %in% c('Diptera', 'Brachycera', 
-                                'Nematocera', 'Cyclorrapha','Asilidae','Bombyliidae')
-  if(any(check_GROUP == FALSE)){
-    stop("Group should be one of: 'Diptera', 'Brachycera', 
-                                'Nematocera', 'Cyclorrapha','Asilidae','Bombyliidae'")
-  }
-  
-  out=
-    data.frame(matrix(NA, nrow = 1:length(BL), ncol = 20))
-  colnames()
-  
-  data.frame(length of BL,column 1 (number 1:X BL), column 2 GROUP,COLUMN 3:21 each equation )
-###IF DIPTERA, return functions BN06D, G97D, GR84D, JS00DA,R77D, 
-  #S80DCF,S80DCR,S80DMF,S93DA, W13D
-  
-  ###IF GROUP = Brachycera, return BN06D, G97D, GR84D, JS00DA,R77D, 
-  #S80DCF,S80DCR,S80DMF,S93DA, W13D
-  
- + X, X, X
-  
-#Same length per group - just == NA for non-applicable grouping 
-  
-  ###IF GROUP = Nematocera return BN06D, G97D, GR84D, JS00DA,R77D, 
-  #S80DCF,S80DCR,S80DMF,S93DA, W13D
-  
-  X, X, X
-  
-  ###IF GROUP = Cyclorrapha return BN06D, G97D, GR84D, JS00DA,R77D, 
-  #S80DCF,S80DCR,S80DMF,S93DA, W13D
-  
-  X, X, X
-  
-  ###IF GROUP = Asilidae return BN06D, G97D, GR84D, JS00DA,R77D, 
-  #S80DCF,S80DCR,S80DMF,S93DA, W13D X, X, X
-  
-  ###IF GROUP = Bombyliidae return BN06D, G97D, GR84D, JS00DA,R77D, 
-  #S80DCF,S80DCR,S80DMF,S93DA, W13D X, X, X
-  
-  equations[==c("ALL"),4]  
-
-  out <- exp(log(Family_intercepts2$intercepts_Family)
-                  + as.numeric(allo_coefs[allo_coefs$term==c("IT"),][2])*log(IT))  
-  out
-  }
-dipBL()
+dipBL <- function(BL, Eq = "S93DB"){
+  if(!Eq %in% c("S93DB","Sabo02DB", "Sabo02DA", "Sabo02DBB", "R77D",
+                            "S93DC", "BN06D", "G97D", "GR84D", "JS00DA",
+                "S80DCF", "S80DCR", "S80DMF", "S93DA", "W13D", "JS00DN", 
+                "S93DN", "Sabo02DN")){
+    stop("Equation should be one of 'R77D',
+ 'S93DB', 'Sabo02DB', 'Sabo02DA', 'Sabo02DBB', 
+ 'S93DC', 'BN06D', 'G97D', 'GR84D', 'JS00DA', 
+'S80DCF', 'S80DCR', 'S80DMF', 'S93DA', 'W13D', 'JS00DN', 
+ 'S93DN', 'Sabo02DN'")
+ } else {
+      S93DB <- exp(-3.374+2.158*log(BL))
+      Sabo02DB <- 0.006*(BL)^3.05
+      Sabo02DA <- 0.38*(BL)^1.5
+      Sabo02DBB <- 0.007*(BL)^3.337
+      S93DC <- exp(-3.619+2.632*log(BL))
+      BN06D <- -0.041+0.010*(BL)}
+      G97D <- exp(-3.4294+2.5943*log(BL))
+      GR84D <- exp(-3.653+log(BL)*2.546)
+      JS00DA <- exp(-2.462+1.881*log(BL))
+      R77D <- exp(-3.293+2.366*log(BL))
+      S80DCF <- exp(log(0.074)+1.64*log(BL))
+      S80DCR <- exp(log(0.068)+1.59*log(BL))
+      S80DMF <- exp(log(0.022)+2.42*log(BL))
+      S93DA <- exp(-3.184+2.23*log(BL))
+      W13D <- exp(-3.29+2.65*log(BL))
+      JS00DN <- exp(-2.462+1.881*log(BL))
+      S93DN <- exp(-3.675+2.212*log(BL))
+      Sabo02DN <- 0.1*(BL)^1.57
+      if (Eq ==  "S93DB") out <- S93DB
+      if (Eq == "Sabo02DB") out <- Sabo02DB
+      if (Eq == "Sabo02DA") out <- Sabo02DA
+      if (Eq == "Sabo02DBB") out <- Sabo02DBB
+      if (Eq == "S93DC") out <- S93DC
+      if (Eq == "BN06D") out <- BN06D
+      if (Eq == "G97D") out <- G97D
+      if (Eq == "GR84D") out <- GR84D
+      if (Eq == "JS00DA") out <- JS00DA
+      if (Eq == "R77D") out <- R77D
+      if (Eq == "S80DCF") out <- S80DCF
+      if (Eq == "S80DCR") out <- S80DCR
+      if (Eq == "S80DMF") out <- S80DMF
+      if (Eq == "S93DA") out <- S93DA
+      if (Eq == "W13D") out <- W13D
+      if (Eq == "JS00DN") out <- JS00DN
+      if (Eq == "S93DN") out <- S93DN
+      if (Eq == "Sabo02DN") out <- Sabo02DN
+      out
+    }
 

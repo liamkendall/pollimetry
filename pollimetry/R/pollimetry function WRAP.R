@@ -1,4 +1,4 @@
-#' @name opal
+#' @name pollimetry
 #' 
 #' @title Converts body length to pollinator body size in.
 #' 
@@ -20,7 +20,7 @@
 #' @references Kendall, Bartomeus... Rader (20XX) Pollinator size and its consequences: Predictive allometry for pollinating insects 
 #' 
 #' @export
-ITbodysize <- function(IT, Family){
+pollimetry <- function(IT, Family){
   if(!length(IT) == length(Family)){
     stop("IT and Family should be the same length")
   }

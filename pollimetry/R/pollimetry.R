@@ -1,6 +1,6 @@
-#' pol_allometry
+#' pollimetry
 #'
-#' @name pol_allometry
+#' @name pollimetry
 #' @docType package
-#' @description doeas a lot pf things.
+#' @description does a lot of things.
 NULL

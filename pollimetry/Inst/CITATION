@@ -1,4 +1,4 @@
-citHeader("To cite pol_allometry in publications use:")
+citHeader("To cite pollimetry in publications use:")
 
 citEntry(entry = "Article",
   title        = "Blah",

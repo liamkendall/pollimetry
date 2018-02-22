@@ -19,9 +19,9 @@ GreenleafComm(1)
 
 #Head width and foraging size in stingless bees
 
-VNI1996=function(x){550.9*(x)-579.1}
+VNI1996=function(x){-579.1+550.9*(x)}
 
-VNI1996_2=function(x){560.8*(x)-908.2}
+VNI1996_2=function(x){-908.2+560.8*(x)}
 
 VNI1996(2)
 
@@ -29,4 +29,7 @@ VNI1996(2)
 
 ##Six Osmia species - Homing distance against dry weight (mg)
 
-Guedot2009=function(x){54.526*(x)-866.63}
+Guedot2009=function(x){-866.63+54.526*(x)}
+Guedot2009(50)
+
+data.frame[i:length(bee$BL),1:20]

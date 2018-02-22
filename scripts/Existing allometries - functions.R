@@ -1,14 +1,77 @@
 ##Functions
+Wrap-all #function, 
+#1. select Taxa (Check)
+#2. select data type (BL, BLxW, HW, un-transformed) (Check)
+#3. Long/Lat provided (Check), calculate distance between eq and samples
+#4. Optional: check if values within range of equation sample
 
+##Check all mm
 
+##IT equations
 Cane = function(x){exp(0.6453 + 2.4691*log(x))}
 curve(Cane)
+
+##########
+DIPTERA
+##########
+##Head width eqiuations
+H97DB
+H97DN
+
+##Body length equations
+#Diptera,Nematocera,Brachycera,Cyclorrapha,Non-Nematocera,Asilidae,Bombyliidae
+##Diptera
+#ALL
+R77D
+S80DMF    
+S80DCF
+S80DCR
+GR84D
+S93DA
+G97D
+JS00DA
+BN06D
+W13D
+
+#Nematocera
+S93DN
+JS00DN
+Sabo02DN
+#Brachycera
+S93DB
+Sabo02DB
+
+#Cyclorrapha
+S93DC
+
+#Non-Nematocera
+JS00DO
+
+#Asilidae
+Sabo02DA
+
+#Bombyliidae
+Sabo02DBB
+
+
+##Body length x width equations
+#ALL
+S93DALW
+W13DLW
+
+#Nematocera
+S93DNLW
+#Brachycera
+S93DBLW
+#Cycclorapha
+S93DCLW
 
 ------------------------------------------------------
 ##Rogers et al 1977
   
-#dip
-  
+#dip D
+
+R77D
 R77D = function(x){exp(-3.293 + 2.366*log(x))}
 curve(R77D)
   
@@ -36,7 +99,10 @@ curve(R77A,add=T)
 #CR = Costa Rica rainforest
 
 #dip
-    
+S80DMF    
+S80DCF
+S80DCR
+
 S80DMF = function(x){exp(log(0.022) + 2.42*log(x))}
 curve(S80DMF)
   
@@ -86,7 +152,7 @@ curve(S80LCR)
 #lnWt = ln a + b*ln(x)
   
 ##dip
-  
+GR84D
 GR84D = function(x){exp(-3.653 + log(x)*2.546)}
 curve(GR84D,add=T)  
 
@@ -106,6 +172,15 @@ curve(GR84F)
 #Length & Length*Width models
 
 #Dip - all
+S93DA
+S93DN
+S93DB
+S93DC
+
+S93DALW
+S93DNLW
+S93DBLW
+S93DCLW
 
   #Length
 S93DA = function(x){exp(-3.184 + 2.23*log(x))}
@@ -318,7 +393,9 @@ curve(G97L,add=T)
 #JOHNSON & STRONG 2000
   
 #DIPTERA
-  
+JS00DA
+JS00DN
+JS00DO
 #DIP - ALL
   
 JS00DA = function(x){exp(-2.462 + 1.881*log(x))}
@@ -363,7 +440,9 @@ curve(JS00L, add=T)
 ##Hodar 1997
 
 ##Head Width
-  
+H97DB
+H97DN
+
 #DIPTERA
   
 #Brachycera
@@ -417,7 +496,10 @@ curve(Sage82,add=F)
 ##Sabo et al. (2002)
 
 #DIPTERA
-  
+Sabo02DB
+Sabo02DN
+Sabo02DA
+Sabo02DB
 #Brachycera
 Sabo02DB=function(x){0.006*(x)^3.05}
 curve(Sabo02DB,xlim=c(0,100))
@@ -432,7 +514,7 @@ Sabo02DA=function(x){0.38*(x)^1.5}
 
 #Bombyliidae
 
-Sabo02DB=function(x){0.007*(x)^3.337}
+Sabo02DBB=function(x){0.007*(x)^3.337}
 
 #Hymenoptera
 
@@ -452,8 +534,10 @@ curve(Sabo02HV,add=T)
 ##Brady & Noske 2006
 
 ### SOMETHING WRONG WITH all/WINGED HYM ONE - may be error in publishing
+  
 
 #Diptera
+  BN06D
 #linear model
 BN06D=function(x){-0.041+0.010*(x)}
 curve(BN06D)
@@ -479,7 +563,8 @@ curve(BN06L,add=T)
 ##Wardhaugh 2013
 
 ##Diptera
-
+  W13D
+W13DLW
 W13D= function(x){exp(-3.29+2.65*log(x))}
 curve(W13D,xlim=c(0,100),add=F)
 

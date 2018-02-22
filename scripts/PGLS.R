@@ -7,9 +7,17 @@ library(arm)
 library(ape)
 require(phylobase)
 
+??read.tre
 ptm = proc.time()
-bee.phy=read.Newick(file="~/Dropbox/PhD/R/PollinateR/Bee phylogeny Hedtke et al. 2013/12862_2013_2375_MOESM3_ESM.txt",simplify=TRUE)
+bee.phy=read.tre(file="trees.nexus")
 proc.time() - ptm
+
+require("phytools")
+t <- file.choose()
+tree<- read.tree (t)
+class(tree)<-"multiPhylo"
+plot(tree)
+
 
 
 bee.phy=read.tree(file="12862_2013_2375_MOESM1_ESM.txt")
@@ -17,13 +25,6 @@ bee.phy=read.tree(file="12862_2013_2375_MOESM1_ESM.txt")
 bee.phy$'2'
 str(PredAllo.split)
 
-
-plot(bee.phy[c(1)])
-
-plot(bee.phy)
-
-str(bee.phy)
-s
 ##Method 1
 h
 

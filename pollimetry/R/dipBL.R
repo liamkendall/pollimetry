@@ -77,4 +77,3 @@ dipBL <- function(BL, Eq = "S93DB"){
       out
 }
 }
-plot(dipBL(BL=BL,Eq="All"))

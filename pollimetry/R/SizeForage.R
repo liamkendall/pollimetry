@@ -1,6 +1,6 @@
 #' @name SizeForage
 #' 
-#' @title Converts body weight (and proxies) to measures of foraging distance for bees.
+#' @title Converts body weight to measures of foraging distance for bees.
 #' 
 #' @description Calculates foraging distance from Greenleaf et al. (2007) (using intertegular distance values (IT)),
 #'  van Nieuwstadt and Iraheta (1996) using head width values for Meliponini (stingless bees) and 

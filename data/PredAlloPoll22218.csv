@@ -161,14 +161,14 @@ HOVERFLY,IRE20170254,Europe,Ireland,DUBLIN,South DublinUCD 1,53.31,-6.23,0,16/6/
 HOVERFLY,IRE20170260,Europe,Ireland,DUBLIN,South DublinGNI 2,53.29,-6.42,0,27/6/17,Plantago lanceolata,NA,Syrphoidea,Syrphidae,Syrphinae,Syrphini,Eupeodes,NA,corollae,Female,0.0408,0.037233333,0.003566667,2.1,8,16.8
 HOVERFLY,IRE20170487,Europe,Ireland,DUBLIN,South DublinGNI 3,53.29,-6.42,0,27/6/17,Phacelia tanacetifolia,NA,Syrphoidea,Syrphidae,Syrphinae,Syrphini,Eupeodes,NA,luniger,Female,0.0469,0.037233333,0.009666667,2.9,10,29
 HOVERFLY,IRE20170580,Europe,Ireland,DUBLIN,South DublinTCD 2,53.31,-6.26,0,16/7/17,Hypochaeris radicata,NA,Syrphoidea,Syrphidae,Eristalinae,Rhingini,Ferdinandea,NA,cuprea,Female,0.0525,0.037233333,0.015266667,3.5,10.1,35.35
-HOVERFLY,SpainBF415,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Syrphoidea,Syrphidae,Eristalinae,Merodontini,Platynochaetus,NA,setosus,Female,NA,NA,0.0581,4.55,13.74,62.517
-HOVERFLY,SpainBF417,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Syrphoidea,Syrphidae,Syrphinae,Syrphini,Episyrphus,NA,baleatus,Female,NA,NA,0.0133,2.8,13.85,38.78
-HOVERFLY,SpainBF422,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Syrphoidea,Syrphidae,Eristalinae,Volucellini,Volucella,NA,elegans,Female,NA,NA,0.0432,5.99,18.83,112.7917
-HOVERFLY,SpainBF425,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Syrphoidea,Syrphidae,Eristalinae,Eristalini,Eristalinus,NA,taeniops,Female,NA,NA,0.0348,3.53,13.58,47.9374
-HOVERFLY,SpainBF428,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Syrphoidea,Syrphidae,Syrphinae,Syrphini,Sphaerophoria,NA,scripta,Male,NA,NA,0.0047,1.58,10.35,16.353
-HOVERFLY,SpainBF433,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Syrphoidea,Syrphidae,Eristalinae,Eristalini,Myathropa,NA,florea,Male,NA,NA,0.0017,3.46,12.68,43.8728
-HOVERFLY,SpainBF463,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Syrphoidea,Syrphidae,Eristalinae,Milesiini,Syritta,NA,pipiens,Male,NA,NA,0.0055,1.85,9.94,18.389
-HOVERFLY,SpainBF465,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Syrphoidea,Syrphidae,Eristalinae,Eristalini,Eristalinus,NA,megacephalus,Male,NA,NA,0.0071,2.99,10.05,30.0495
+HOVERFLY,SpainBF415,Europe,Spain,SPAIN,NA,NA,NA,0,NA,NA,NA,Syrphoidea,Syrphidae,Eristalinae,Merodontini,Platynochaetus,NA,setosus,Female,NA,NA,0.0581,4.55,13.74,62.517
+HOVERFLY,SpainBF417,Europe,Spain,SPAIN,NA,NA,NA,0,NA,NA,NA,Syrphoidea,Syrphidae,Syrphinae,Syrphini,Episyrphus,NA,baleatus,Female,NA,NA,0.0133,2.8,13.85,38.78
+HOVERFLY,SpainBF422,Europe,Spain,SPAIN,NA,NA,NA,0,NA,NA,NA,Syrphoidea,Syrphidae,Eristalinae,Volucellini,Volucella,NA,elegans,Female,NA,NA,0.0432,5.99,18.83,112.7917
+HOVERFLY,SpainBF425,Europe,Spain,SPAIN,NA,NA,NA,0,NA,NA,NA,Syrphoidea,Syrphidae,Eristalinae,Eristalini,Eristalinus,NA,taeniops,Female,NA,NA,0.0348,3.53,13.58,47.9374
+HOVERFLY,SpainBF428,Europe,Spain,SPAIN,NA,NA,NA,0,NA,NA,NA,Syrphoidea,Syrphidae,Syrphinae,Syrphini,Sphaerophoria,NA,scripta,Male,NA,NA,0.0047,1.58,10.35,16.353
+HOVERFLY,SpainBF433,Europe,Spain,SPAIN,NA,NA,NA,0,NA,NA,NA,Syrphoidea,Syrphidae,Eristalinae,Eristalini,Myathropa,NA,florea,Male,NA,NA,0.0017,3.46,12.68,43.8728
+HOVERFLY,SpainBF463,Europe,Spain,SPAIN,NA,NA,NA,0,NA,NA,NA,Syrphoidea,Syrphidae,Eristalinae,Milesiini,Syritta,NA,pipiens,Male,NA,NA,0.0055,1.85,9.94,18.389
+HOVERFLY,SpainBF465,Europe,Spain,SPAIN,NA,NA,NA,0,NA,NA,NA,Syrphoidea,Syrphidae,Eristalinae,Eristalini,Eristalinus,NA,megacephalus,Male,NA,NA,0.0071,2.99,10.05,30.0495
 BEE,BRIS_001,Europe,Britain,BRISTOL,Royal Fort Gardens,51.46,-2.6,0,4/8/17,NA,Hand,Apoidea,Apidae,Apinae,Bombini,Bombus,Melanobombus,lapidarius,Female,0.0871,0.059,0.0281,5.06,17.127,86.66262
 BEE,BRIS_002,Europe,Britain,BRISTOL,Royal Fort Gardens,51.46,-2.6,0,4/8/17,NA,Hand,Apoidea,Apidae,Apinae,Bombini,Bombus,Melanobombus,lapidarius,Male,0.1148,0.059,0.0558,6.842,22.501,153.951842
 BEE,BRIS_003,Europe,Britain,BRISTOL,Royal Fort Gardens,51.46,-2.6,0,4/8/17,NA,Hand,Apoidea,Apidae,Apinae,Bombini,Bombus,Bombus,terrestris,Female,0.1545,0.06,0.0945,7.378,22.832,168.454496
@@ -215,134 +215,134 @@ BEE,BRIS_048,Europe,Britain,BRISTOL,Stoke Bishop Halls,51.48,-2.62,0,15/8/17,NA,
 BEE,BRIS_049,Europe,Britain,BRISTOL,Stoke Bishop Halls,51.48,-2.62,0,15/8/17,NA,Hand,Apoidea,Apidae,Apinae,Bombini,Bombus,Thoracobombus,pascuorum,Female,0.1132,0.059,0.0542,6.025,19.184,115.5836
 BEE,BRIS_050,Europe,Britain,BRISTOL,Stoke Bishop Halls,51.48,-2.62,0,15/8/17,NA,Hand,Apoidea,Apidae,Apinae,Bombini,Bombus,Thoracobombus,pascuorum,Female,0.1036,0.06,0.0436,5.533,17.664,97.734912
 BEE,BRIS_051,Europe,Britain,BRISTOL,Stoke Bishop Halls,51.48,-2.62,0,15/8/17,NA,Hand,Apoidea,Apidae,Apinae,Bombini,Bombus,Melanobombus,lapidarius,Male,0.1016,0.058,0.0436,5.987,20.691,123.877017
-BEE,IRE20170181,Europe,Ireland,DUBLIN,South DublinUCD 4,53.31,-6.23,0,3/8/17,Hypochaeris radicata,NA,Apoidea,Andrenidae,Andreninae,Andrenini,Andrena,,bicolor,Female,0.0607,0.046966667,0.013733333,2.4,10.5,25.2
-BEE,IRE20170269,Europe,Ireland,DUBLIN,South DublinUCD 4,53.31,-6.23,0,25/7/17,Hypochaeris radicata,NA,Apoidea,Andrenidae,Andreninae,Andrenini,Andrena,,bicolor,Female,0.0487,0.037233333,0.011466667,2.1,8.7,18.27
-BEE,IRE20170282,Europe,Ireland,DUBLIN,South DublinUCD 1,53.31,-6.23,0,25/7/17,Hypochaeris radicata,NA,Apoidea,Andrenidae,Andreninae,Andrenini,Andrena,,bicolor,Female,0.0461,0.037233333,0.008866667,2.2,9,19.8
-BEE,IRE20170601,Europe,Ireland,DUBLIN,South DublinUCD 2,53.31,-6.23,0,20/7/17,Hypochaeris radicata,NA,Apoidea,Andrenidae,Andreninae,Andrenini,Andrena,,subopaca,Male,0.0389,0.037233333,0.001666667,1.4,5.1,7.14
-BEE,IRE20170002,Europe,Ireland,DUBLIN,South DublinRTE 1,53.31,-6.22,0,12/7/17,Phacelia tanacetifolia,NA,Apoidea,Apidae,Apinae,Bombini,Bombus,Bombus,lucorum agg,Female,0.1356,0.046966667,0.088633333,5.4,15,81
-BEE,IRE20170006,Europe,Ireland,DUBLIN,South DublinUCD 2,53.31,-6.23,0,12/7/17,Hypochaeris radicata,NA,Apoidea,Apidae,Apinae,Bombini,Bombus,Bombus,lucorum agg,Male,0.1053,0.046966667,0.058333333,4.2,12.9,54.18
-BEE,IRE20170010,Europe,Ireland,DUBLIN,South DublinRTE 3,53.31,-6.22,0,12/7/17,Phacelia tanacetifolia,NA,Apoidea,Apidae,Apinae,Bombini,Bombus,Bombus,lucorum agg,Female,0.1215,0.046966667,0.074533333,5.5,14.7,80.85
-BEE,IRE20170058,Europe,Ireland,DUBLIN,South DublinUCD 4,53.31,-6.23,0,3/8/17,Phacelia tanacetifolia,NA,Apoidea,Apidae,Apinae,Bombini,Bombus,Bombus,lucorum agg,Female,0.0745,0.046966667,0.027533333,3.8,10.4,39.52
-BEE,IRE20170093,Europe,Ireland,DUBLIN,South DublinRTE 1,53.31,-6.22,0,1/7/17,Phacelia tanacetifolia,NA,Apoidea,Apidae,Apinae,Bombini,Bombus,Melanobombus,lapidarius,Female,0.0785,0.046966667,0.031533333,4,11,44
-BEE,IRE20170109,Europe,Ireland,DUBLIN,South DublinUCD 1,53.31,-6.23,0,3/8/17,Cirsium vulgare,NA,Apoidea,Apidae,Apinae,Bombini,Bombus,Thoracobombus,pascuorum,Male,0.0757,0.046966667,0.028733333,3.9,9.8,38.22
-BEE,IRE20170127,Europe,Ireland,DUBLIN,South DublinUCD 3,53.31,-6.23,0,24/7/17,Cirsium vulgare,NA,Apoidea,Apidae,Apinae,Bombini,Bombus,Melanobombus,lapidarius,Male,0.0768,0.037233333,0.039566667,4.1,11.5,47.15
-BEE,IRE20170135,Europe,Ireland,DUBLIN,South DublinUCD 1,53.31,-6.23,0,24/7/17,Cirsium vulgare,NA,Apoidea,Apidae,Apinae,Bombini,Bombus,Bombus,terrestris,Male,0.12,0.037233333,0.082766667,5.5,15.9,87.45
-BEE,IRE20170145,Europe,Ireland,DUBLIN,South DublinGNI 4,53.29,-6.42,0,21/7/17,Epilobium hirsutum,NA,Apoidea,Apidae,Apinae,Bombini,Bombus,Thoracobombus,pascuorum,Female,0.0902,0.046966667,0.043233333,4.5,12,54
-BEE,IRE20170148,Europe,Ireland,DUBLIN,South DublinGNI 1,53.29,-6.42,0,21/7/17,Cirsium vulgare,NA,Apoidea,Apidae,Apinae,Bombini,Bombus,Bombus,lucorum agg,Male,0.1209,0.046966667,0.073933333,5.5,12,66
-BEE,IRE20170149,Europe,Ireland,DUBLIN,South DublinTCD 4,53.31,-6.26,0,18/7/17,Plantago lanceolata,NA,Apoidea,Apidae,Apinae,Bombini,Bombus,Thoracobombus,pascuorum,Female,0.0774,0.046966667,0.030433333,3.9,9.2,35.88
-BEE,IRE20170153,Europe,Ireland,DUBLIN,South DublinUCD 4,53.31,-6.23,0,3/8/17,Hypochaeris radicata,NA,Apoidea,Apidae,Apinae,Bombini,Bombus,Melanobombus,lapidarius,Male,0.0975,0.046966667,0.050533333,4.8,11.3,54.24
-BEE,IRE20170156,Europe,Ireland,DUBLIN,South DublinRTE 4,53.32,-6.22,0,8/7/17,Phacelia tanacetifolia,NA,Apoidea,Apidae,Apinae,Bombini,Bombus,Thoracobombus,pascuorum,Female,0.1007,0.046966667,0.053733333,4.5,11.6,52.2
-BEE,IRE20170170,Europe,Ireland,DUBLIN,South DublinUCD 1,53.31,-6.23,0,7/7/17,Cirsium vulgare,NA,Apoidea,Apidae,Apinae,Bombini,Bombus,Bombus,terrestris,Male,0.1365,0.046966667,0.089533333,6,14,84
-BEE,IRE20170177,Europe,Ireland,DUBLIN,South DublinGNI 2,53.29,-6.42,0,27/6/17,Phacelia tanacetifolia,NA,Apoidea,Apidae,Apinae,Bombini,Bombus,Pyrobombus,pratorum,Male,0.0657,0.046966667,0.018733333,3.1,8.4,26.04
-BEE,IRE20170216,Europe,Ireland,DUBLIN,South DublinRTE 4,53.32,-6.22,0,1/8/17,Cirsium vulgare,NA,Apoidea,Apidae,Apinae,Bombini,Bombus,Thoracobombus,pascuorum,Male,0.0914,0.046966667,0.044433333,5,12,60
-BEE,IRE20170247,Europe,Ireland,DUBLIN,South DublinUCD 4,53.31,-6.23,0,21/6/17,Plantago lanceolata,NA,Apoidea,Apidae,Apinae,Bombini,Bombus,Pyrobombus,pratorum,Female,0.0618,0.037233333,0.024566667,3.5,9.5,33.25
-BEE,IRE20170287,Europe,Ireland,DUBLIN,South DublinUCD 2,53.31,-6.23,0,25/7/17,Epilobium hirsutum,NA,Apoidea,Apidae,Apinae,Bombini,Bombus,Pyrobombus,pratorum,Female,0.066,0.037233333,0.028766667,4,9,36
-BEE,IRE20170308,Europe,Ireland,DUBLIN,South DublinUCD 4,53.31,-6.23,0,5/9/17,Hypochaeris radicata,NA,Apoidea,Apidae,Apinae,Bombini,Bombus,Thoracobombus,pascuorum,Male,0.0688,0.046966667,0.021833333,4.2,10.1,42.42
-BEE,IRE20170348,Europe,Ireland,DUBLIN,South DublinRTE 1,53.31,-6.22,0,21/6/17,Phacelia tanacetifolia,NA,Apoidea,Apidae,Apinae,Bombini,Bombus,Pyrobombus,pratorum,Female,0.0613,0.037233333,0.024066667,3.5,9.4,32.9
-BEE,IRE20170355,Europe,Ireland,DUBLIN,South DublinRTE 1,53.31,-6.22,0,12/7/17,Hypochaeris radicata,NA,Apoidea,Apidae,Apinae,Bombini,Bombus,Melanobombus,lapidarius,Male,0.0831,0.037233333,0.045866667,4.5,11.8,53.1
-BEE,IRE20170407,Europe,Ireland,DUBLIN,South DublinGNI 3,53.29,-6.42,0,20/6/17,Phacelia tanacetifolia,NA,Apoidea,Apidae,Apinae,Bombini,Bombus,Pyrobombus,pratorum,Male,0.0777,0.037233333,0.040466667,4.2,10.7,44.94
-BEE,IRE20170446,Europe,Ireland,DUBLIN,South DublinUCD 2,53.31,-6.23,0,7/7/17,Phacelia tanacetifolia,NA,Apoidea,Apidae,Apinae,Bombini,Bombus,Bombus,terrestris,Female,0.1034,0.037233333,0.066166667,4.6,13.4,61.64
-BEE,IRE20170464,Europe,Ireland,DUBLIN,South DublinUCD 4,53.31,-6.23,0,5/7/17,Phacelia tanacetifolia,NA,Apoidea,Apidae,Apinae,Bombini,Bombus,Bombus,terrestris,Female,0.1071,0.037233333,0.069866667,5.1,13.8,70.38
-BEE,IRE20170481,Europe,Ireland,DUBLIN,South DublinUCD 1,53.31,-6.23,0,5/7/17,Phacelia tanacetifolia,NA,Apoidea,Apidae,Apinae,Bombini,Bombus,Bombus,terrestris,Female,0.1055,0.037233333,0.068266667,5,13.8,69
-BEE,IRE20170572,Europe,Ireland,DUBLIN,South DublinRTE 2,53.31,-6.22,0,17/7/17,Epilobium hirsutum,NA,Apoidea,Apidae,Apinae,Bombini,Bombus,Pyrobombus,pratorum,Male,0.0755,0.037233333,0.038266667,4.4,11.3,49.72
-BEE,IRE20170611,Europe,Ireland,DUBLIN,South DublinUCD 4,53.31,-6.23,0,17/7/17,Phacelia tanacetifolia,NA,Apoidea,Apidae,Apinae,Bombini,Bombus,Bombus,lucorum agg,Male,0.1054,0.037233333,0.068166667,5.5,15.1,83.05
-BEE,IRE20170636,Europe,Ireland,DUBLIN,South DublinUCD 4,53.31,-6.23,0,25/7/17,Phacelia tanacetifolia,NA,Apoidea,Apidae,Apinae,Bombini,Bombus,Bombus,terrestris,Male,0.1054,0.037233333,0.068166667,5.8,14.2,82.36
-BEE,IRE20170655,Europe,Ireland,DUBLIN,South DublinTCD 1,53.31,-6.26,0,22/7/17,Cirsium vulgare,NA,Apoidea,Apidae,Apinae,Bombini,Bombus,Megabombus,hortorum,Male,0.0948,0.046966667,0.047833333,5,13,65
-BEE,IRE20170268,Europe,Ireland,DUBLIN,South DublinUCD 4,53.31,-6.23,0,25/7/17,Hypochaeris radicata,NA,Apoidea,Halictidae,Halictinae,Halictini,Halictus,,rubicundus,Female,0.0514,0.037233333,0.014166667,2.4,10.3,24.72
-BEE,IRE20170169,Europe,Ireland,DUBLIN,South DublinTCD 1,53.31,-6.26,0,12/7/17,Phacelia tanacetifolia,NA,Apoidea,Colletidae,Hylaeinae,Halictina,Hylaeus,,communis,Female,0.0571,0.046966667,0.010133333,1.5,5,7.5
-BEE,IRE20170380,Europe,Ireland,DUBLIN,South DublinUCD 1,53.31,-6.23,0,7/7/17,Phacelia tanacetifolia,NA,Apoidea,Colletidae,Hylaeinae,Halictina,Hylaeus,,communis,Female,0.0403,0.037233333,0.003066667,1.7,4.8,8.16
-BEE,IRE20170381,Europe,Ireland,DUBLIN,South DublinUCD 1,53.31,-6.23,0,7/7/17,Phacelia tanacetifolia,NA,Apoidea,Colletidae,Hylaeinae,Halictina,Hylaeus,,pectoralis,Female,0.0399,0.037233333,0.002666667,1.3,4.6,5.98
-BEE,IRE20170512,Europe,Ireland,DUBLIN,South DublinGNI 3,53.29,-6.42,0,27/6/17,Hypochaeris radicata,NA,Apoidea,Colletidae,Hylaeinae,Halictina,Hylaeus,,communis,Male,0.04,0.037233333,0.002766667,1.5,5.1,7.65
-BEE,IRE20170619,Europe,Ireland,DUBLIN,South DublinUCD 4,53.31,-6.23,0,17/7/17,Phacelia tanacetifolia,NA,Apoidea,Colletidae,Hylaeinae,Halictina,Hylaeus,,communis,Female,0.0425,0.037233333,0.005266667,1.6,5.4,8.64
-BEE,IRE20170141,Europe,Ireland,DUBLIN,South DublinGNI 4,53.29,-6.42,0,24/7/17,Hypochaeris radicata,NA,Apoidea,Halictidae,Halictinae,Halictini,Lasioglossum,,cypromicans,Female,0.0501,0.046966667,0.003133333,1.1,5.2,5.72
-BEE,IRE20170143,Europe,Ireland,DUBLIN,South DublinUCD 1,53.31,-6.23,0,24/7/17,Hypochaeris radicata,NA,Apoidea,Halictidae,Halictinae,Halictini,Lasioglossum,,villosulum,Female,0.042,0.037233333,0.004766667,1.7,6.5,11.05
-BEE,IRE20170146,Europe,Ireland,DUBLIN,South DublinGNI 3,53.29,-6.42,0,24/7/17,Hypochaeris radicata,NA,Apoidea,Halictidae,Halictinae,Halictini,Lasioglossum,,calceatum,Male,0.0442,0.037233333,0.006966667,2,7.1,14.2
-BEE,IRE20170168,Europe,Ireland,DUBLIN,South DublinTCD 1,53.31,-6.26,0,12/7/17,Phacelia tanacetifolia,NA,Apoidea,Halictidae,Halictinae,Halictini,Lasioglossum,,calceatum,Female,0.0549,0.037233333,0.017666667,2,7.4,14.8
-BEE,IRE20170220,Europe,Ireland,DUBLIN,South DublinTCD 1,53.31,-6.26,0,18/7/17,Hypochaeris radicata,NA,Apoidea,Halictidae,Halictinae,Halictini,Lasioglossum,,calceatum,Male,0.0429,0.037233333,0.005666667,1.8,7,12.6
-BEE,IRE20170236,Europe,Ireland,DUBLIN,South DublinUCD 2,53.31,-6.23,0,24/7/17,Hypochaeris radicata,NA,Apoidea,Halictidae,Halictinae,Halictini,Lasioglossum,,leucopus,Female,0.0411,0.037233333,0.003866667,1.1,5.5,6.05
-BEE,IRE20170262,Europe,Ireland,DUBLIN,South DublinTCD 1,53.31,-6.26,0,20/6/17,Hypochaeris radicata,NA,Apoidea,Halictidae,Halictinae,Halictini,Lasioglossum,,calceatum,Female,0.0467,0.037233333,0.009466667,2.2,8.5,18.7
-BEE,IRE20170276,Europe,Ireland,DUBLIN,South DublinUCD 2,53.31,-6.23,0,25/7/17,Phacelia tanacetifolia,NA,Apoidea,Halictidae,Halictinae,Halictini,Lasioglossum,,cypromicans,Female,0.0384,0.037233333,0.001166667,1.3,4.8,6.24
-BEE,IRE20170291,Europe,Ireland,DUBLIN,South DublinTCD 1,53.31,-6.26,0,22/7/17,Hypochaeris radicata,NA,Apoidea,Halictidae,Halictinae,Halictini,Lasioglossum,,calceatum,Male,0.0421,0.037233333,0.004866667,1.9,7.1,13.49
-BEE,IRE20170478,Europe,Ireland,DUBLIN,South DublinUCD 4,53.31,-6.23,0,5/7/17,Phacelia tanacetifolia,NA,Apoidea,Halictidae,Halictinae,Halictini,Lasioglossum,,calceatum,Female,0.0426,0.037233333,0.005366667,1.9,7.5,14.25
-BEE,IRE20170559,Europe,Ireland,DUBLIN,South DublinUCD 2,53.31,-6.23,0,5/9/17,Hypochaeris radicata,NA,Apoidea,Halictidae,Halictinae,Halictini,Lasioglossum,,leucopus,Male,0.0394,0.037233333,0.002166667,1.2,4.5,5.4
-BEE,IRE20170560,Europe,Ireland,DUBLIN,South DublinUCD 2,53.31,-6.23,0,5/9/17,Hypochaeris radicata,NA,Apoidea,Halictidae,Halictinae,Halictini,Lasioglossum,,leucopus,Male,0.039,0.037233333,0.001766667,1.2,4.5,5.4
-BEE,IRE20170663,Europe,Ireland,DUBLIN,South DublinUCD 1,53.31,-6.23,0,25/7/17,Phacelia tanacetifolia,NA,Apoidea,Halictidae,Halictinae,Halictini,Lasioglossum,,leucopus,Female,0.0388,0.037233333,0.001566667,1.3,5.2,6.76
-BEE,SpainBF100,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Halictidae,Rophitinae,Rophitini,Systropha,NA,planidens,Male,NA,NA,0.0189,2.34,10.87,25.4358
-BEE,SpainBF101,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Halictidae,Halictinae,Halictini,Halictus,NA,scabiosae,Female,NA,NA,0.0223,2.47,13.33,32.9251
-BEE,SpainBF102,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Halictidae,Halictinae,Halictini,Halictus,NA,scabiosae,Female,NA,NA,0.0214,2.22,12.03,26.7066
-BEE,SpainBF103,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Halictidae,Halictinae,Halictini,Sphecodes,NA,sp,Female,NA,NA,0.0063,1.57,8.28,12.9996
-BEE,SpainBF103,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Melittidae,Dasypodainae,Dasypodaini,Dasypoda,NA,cingulata,Female,NA,NA,0.0063,1.57,8.28,12.9996
-BEE,SpainBF110,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Melittidae,Dasypodainae,Dasypodaini,Dasypoda,NA,cingulata,Male,NA,NA,0.0132,2.66,12.35,32.851
-BEE,SpainBF120,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Melittidae,Dasypodainae,Dasypodaini,Dasypoda,NA,cingulata,Male,NA,NA,0.0268,3.05,14.83,45.2315
-BEE,SpainBF122,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Melittidae,Dasypodainae,Dasypodaini,Dasypoda,NA,crassicornis,Female,NA,NA,0.0237,2.52,13.08,32.9616
-BEE,SpainBF127,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Melittidae,Dasypodainae,Dasypodaini,Dasypoda,NA,cingulata,Female,NA,NA,0.0101,2.77,11.02,30.5254
-BEE,SpainBF136,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Melittidae,Dasypodainae,Dasypodaini,Dasypoda,NA,crassicornis,Female,NA,NA,0.0118,2.39,9.86,23.5654
-BEE,SpainBF15,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Halictidae,Halictinae,Halictini,Lasioglossum,NA,imminutus,Female,NA,NA,0.0082,1.69,7.03,11.8807
-BEE,SpainBF151,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Melittidae,Dasypodainae,Dasypodaini,Dasypoda,NA,cingulata,Male,NA,NA,0.031,3.32,12.36,41.0352
-BEE,SpainBF156,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Colletidae,Colletinae,Colletini,Colletes,NA,acutus,Female,NA,NA,0.0081,1.93,8.85,17.0805
-BEE,SpainBF160,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Colletidae,Colletinae,Colletini,Colletes,NA,nigricans,Male,NA,NA,0.0075,1.85,9.23,17.0755
-BEE,SpainBF161,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Colletidae,Colletinae,Colletini,Colletes,NA,acutus,Male,NA,NA,0.0104,2.23,9.46,21.0958
-BEE,SpainBF162,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Megachilidae,Megachilinae,Osmiini,Hoplitis,NA,adunca,Female,NA,NA,0.0105,2.23,7.79,17.3717
-BEE,SpainBF171,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Colletidae,Colletinae,Colletini,Colletes,NA,acutus,Female,NA,NA,0.0221,3.21,11.81,37.9101
-BEE,SpainBF180,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Apidae,Xylocopinae,Ceratinini,Ceratina,NA,cucurbitina,Male,NA,NA,0.0058,0.85,3.92,3.332
-BEE,SpainBF184,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Apidae,Xylocopinae,Ceratinini,Ceratina,NA,cucurbitina,Female,NA,NA,0.0064,1.12,5.04,5.6448
-BEE,SpainBF19,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Andrenidae,Andreninae,Andrenini,Andrena,NA,nigroaenaea,Male,NA,NA,0.0039,1.3,7.6,9.88
-BEE,SpainBF193,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Apidae,Xylocopinae,Xylocopinini,Xylocopa,NA,valga,Female,NA,NA,0.1948,8.02,21,168.42
-BEE,SpainBF195,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Apidae,Xylocopinae,Xylocopinini,Xylocopa,NA,cantabrita,Male,NA,NA,0.0956,5.91,16.05,94.8555
-BEE,SpainBF197,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Apidae,Xylocopinae,Xylocopinini,Xylocopa,NA,cantabrita,Female,NA,NA,0.1002,5.71,17.03,97.2413
-BEE,SpainBF2,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Apidae,Apinae,Anthophorini,Anthophora,NA,dispar,Male,NA,NA,0.0503,3.76,13.04,49.0304
-BEE,SpainBF201,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Apidae,Apinae,Bombini,Bombus,NA,terrestris,Female,NA,NA,0.0646,5.04,17.26,86.9904
-BEE,SpainBF216,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Apidae,Apinae,Bombini,Bombus,NA,terrestris,Female,NA,NA,0.0646,5.25,16.7,87.675
-BEE,SpainBF223,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Apidae,Apinae,Apini,Apis,NA,mellifera,Female,NA,NA,0.0263,3.08,11.17,34.4036
-BEE,SpainBF224,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Apidae,Apinae,Apini,Apis,NA,mellifera,Female,NA,NA,0.0252,3.15,11.98,37.737
-BEE,SpainBF228,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Andrenidae,Panurginae,Panurgini,Panurgus,NA,banksianus,Male,NA,NA,0.0149,2.16,13.01,28.1016
-BEE,SpainBF23,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Andrenidae,Andreninae,Andrenini,Andrena,NA,ovatula,Female,NA,NA,0.0078,1.51,7.28,10.9928
-BEE,SpainBF241,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Andrenidae,Panurginae,Panurgini,Flavipanurgus,NA,venustus,Male,NA,NA,0.096,1.85,9.66,17.871
-BEE,SpainBF242,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Andrenidae,Panurginae,Panurgini,Flavipanurgus,NA,venustus,Female,NA,NA,0.0093,1.81,7.37,13.3397
-BEE,SpainBF258,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Andrenidae,Panurginae,Panurgini,Panurgus,NA,dargius,Male,NA,NA,0.0092,1.98,9.27,18.3546
-BEE,SpainBF261,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Andrenidae,Panurginae,Panurgini,Panurgus,NA,cephalotes,Male,NA,NA,0.0097,1.81,8.82,15.9642
-BEE,SpainBF266,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Andrenidae,Panurginae,Panurgini,Panurgus,NA,dargius,Male,NA,NA,0.0062,1.51,7.54,11.3854
-BEE,SpainBF273,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Andrenidae,Andreninae,Andrenini,Andrena,NA,rhyssonota,Female,NA,NA,0.0111,1.93,9.28,17.9104
-BEE,SpainBF275,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Andrenidae,Andreninae,Andrenini,Andrena,NA,nigroaenaea,Female,NA,NA,0.0172,2.56,12.66,32.4096
-BEE,SpainBF278,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Andrenidae,Andreninae,Andrenini,Andrena,NA,flavipes,Male,NA,NA,0.0108,1.94,9.71,18.8374
-BEE,SpainBF279,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Andrenidae,Andreninae,Andrenini,Andrena,NA,thoracica,Female,NA,NA,0.0436,3.21,15.8,50.718
-BEE,SpainBF28,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Andrenidae,Andreninae,Andrenini,Andrena,NA,ferrugineicrus,Female,NA,NA,0.0071,1.52,8.35,12.692
-BEE,SpainBF282,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Andrenidae,Andreninae,Andrenini,Andrena,NA,florea,Female,NA,NA,0.0085,2.75,13.43,36.9325
-BEE,SpainBF293,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Andrenidae,Andreninae,Andrenini,Andrena,NA,hispania,Male,NA,NA,0.0099,2.33,12.98,30.2434
-BEE,SpainBF317,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Andrenidae,Andreninae,Andrenini,Andrena,NA,hispania,Female,NA,NA,0.0457,2.95,15.73,46.4035
-BEE,SpainBF32,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Halictidae,Halictinae,Halictini,Lasioglossum,NA,leucozonium,Male,NA,NA,0.0059,1.36,6.82,9.2752
-BEE,SpainBF320,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Andrenidae,Panurginae,Panurgini,Panurgus,NA,dargius,Female,NA,NA,0.0095,2.06,9.98,20.5588
-BEE,SpainBF334,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Apidae,Nomadinae,Nomadini,Nomada,NA,merceti,Male,NA,NA,0.0086,0.94,4.68,4.3992
-BEE,SpainBF338,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Apidae,Nomadinae,Nomadini,Nomada,NA,merceti,Female,NA,NA,0.0069,0.91,4.81,4.3771
-BEE,SpainBF34,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Halictidae,Halictinae,Halictini,Lasioglossum,NA,leucozonium,Male,NA,NA,0.0055,1.27,6.91,8.7757
-BEE,SpainBF346,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Apidae,Nomadinae,Nomadini,Nomada,NA,melathoracica,Female,NA,NA,0.0273,2.76,12.61,34.8036
-BEE,SpainBF352,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Apidae,Nomadinae,Nomadini,Nomada,NA,agrestis,Female,NA,NA,0.0255,2.68,11.57,31.0076
-BEE,SpainBF353,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Apidae,Nomadinae,Nomadini,Nomada,NA,agrestis,Male,NA,NA,0.0146,2.76,12.26,33.8376
-BEE,SpainBF354,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Apidae,Nomadinae,Nomadini,Nomada,NA,fucata,Female,NA,NA,0.013,2.08,9.71,20.1968
-BEE,SpainBF46,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Halictidae,Halictinae,Halictini,Lasioglossum,NA,albocinctum,Female,NA,NA,0.0178,2.28,9.97,22.7316
-BEE,SpainBF548,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Apidae,Apinae,Eucerini,Eucera,NA,elongatula,Male,NA,NA,0.021,2.9,11.11,32.219
-BEE,SpainBF555,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Apidae,Apinae,Eucerini,Eucera,NA,rufa,Male,NA,NA,0.032,3.46,14.66,50.7236
-BEE,SpainBF559,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Apidae,Apinae,Eucerini,Eucera,NA,elongatula,NA,NA,NA,0.0353,2.86,10.87,31.0882
-BEE,SpainBF572,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Apidae,Apinae,Eucerini,Eucera,NA,chrysopyga,Female,NA,NA,0.0275,3.38,12.22,41.3036
-BEE,SpainBF585,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Apidae,Apinae,Eucerini,Eucera,NA,chrysopyga,Female,NA,NA,0.0301,3.71,12.03,44.6313
-BEE,SpainBF586,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Apidae,Apinae,Anthophorini,Anthophora,NA,hispanica,Male,NA,NA,0.0267,3.88,13.03,50.5564
-BEE,SpainBF593,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Apidae,Apinae,Anthophorini,Anthophora,NA,aestivalis,Male,NA,NA,0.0555,4.59,16.37,75.1383
-BEE,SpainBF601,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Apidae,Apinae,Anthophorini,Anthophora,NA,hispanica,Female,NA,NA,0.1123,6.54,21,137.34
-BEE,SpainBF602,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Apidae,Apinae,Anthophorini,Anthophora,NA,hispanica,Male,NA,NA,0.1133,6.53,22,143.66
-BEE,SpainBF606,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Apidae,Apinae,Anthophorini,Anthophora,NA,atroalba,Female,NA,NA,0.0421,3.67,13.54,49.6918
-BEE,SpainBF614,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Apidae,Xylocopinae,Xylocopinini,Xylocopa,NA,cantabrita,NA,NA,NA,0.0118,2.39,8.65,20.6735
-BEE,SpainBF621,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Apidae,Apinae,Anthophorini,Amegilla,NA,quadrifasciata,Female,NA,NA,0.0647,4.11,13.82,56.8002
-BEE,SpainBF624,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Apidae,Apinae,Anthophorini,Amegilla,NA,quadrifasciata,Female,NA,NA,0.0242,3.18,12.65,40.227
-BEE,SpainBF625,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Megachilidae,Megachilinae,Anthidini,Xylocopa,NA,sticticum,Male,NA,NA,0.0438,3.66,14.26,52.1916
-BEE,SpainBF626,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Megachilidae,Megachilinae,Anthidini,Pseudoanthidium,NA,melanorum,Female,NA,NA,0.0289,3.45,12.18,42.021
-BEE,SpainBF63,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Andrenidae,Panurginae,Panurgini,Panurgus,NA,calcaratus,Female,NA,NA,0.0125,1.26,5.33,6.7158
-BEE,SpainBF634,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Megachilidae,Megachilinae,Osmiini,Osmia,NA,bicornis,Male,NA,NA,0.0063,2.94,10.28,30.2232
-BEE,SpainBF638,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Megachilidae,Megachilinae,Osmiini,Osmia,NA,submicans,Male,NA,NA,0.0306,3.33,11.55,38.4615
-BEE,SpainBF643,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Megachilidae,Megachilinae,Osmiini,Hoplitis,NA,adunca,Male,NA,NA,0.0166,3.1,9.26,28.706
-BEE,SpainBF66,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Halictidae,Halictinae,Halictini,Lasioglossum,NA,imminutus,Female,NA,NA,0.0151,1.43,8.82,12.6126
-BEE,SpainBF690,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Megachilidae,Megachilinae,Osmiini,Heriades,NA,crenulatus,Female,NA,NA,0.0063,1.76,6.93,12.1968
-BEE,SpainBF91,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Halictidae,Rophitinae,Rophitini,Systropha,NA,planidens,Male,NA,NA,0.0195,2.37,11.23,26.6151
-BEE,SpainBF98,Europe,Spain,SPAIN,NA,NA,NA,NA,NA,NA,NA,Apoidea,Halictidae,Rophitinae,Rophitini,Systropha,NA,planidens,Male,NA,NA,0.0083,2.44,9.8,23.912
+BEE,IRE20170181,Europe,Ireland,DUBLIN,South DublinUCD 4,53.31,-6.23,0,3/8/17,Hypochaeris radicata,Hand,Apoidea,Andrenidae,Andreninae,Andrenini,Andrena,,andbicolor,Female,0.0607,0.046966667,0.013733333,2.4,10.5,25.2
+BEE,IRE20170269,Europe,Ireland,DUBLIN,South DublinUCD 4,53.31,-6.23,0,25/7/17,Hypochaeris radicata,Hand,Apoidea,Andrenidae,Andreninae,Andrenini,Andrena,,andbicolor,Female,0.0487,0.037233333,0.011466667,2.1,8.7,18.27
+BEE,IRE20170282,Europe,Ireland,DUBLIN,South DublinUCD 1,53.31,-6.23,0,25/7/17,Hypochaeris radicata,Hand,Apoidea,Andrenidae,Andreninae,Andrenini,Andrena,,andbicolor,Female,0.0461,0.037233333,0.008866667,2.2,9,19.8
+BEE,IRE20170601,Europe,Ireland,DUBLIN,South DublinUCD 2,53.31,-6.23,0,20/7/17,Hypochaeris radicata,Hand,Apoidea,Andrenidae,Andreninae,Andrenini,Andrena,,subopaca,Male,0.0389,0.037233333,0.001666667,1.4,5.1,7.14
+BEE,IRE20170002,Europe,Ireland,DUBLIN,South DublinRTE 1,53.31,-6.22,0,12/7/17,Phacelia tanacetifolia,Hand,Apoidea,Apidae,Apinae,Bombini,Bombus,Bombus,lucorum,Female,0.1356,0.046966667,0.088633333,5.4,15,81
+BEE,IRE20170006,Europe,Ireland,DUBLIN,South DublinUCD 2,53.31,-6.23,0,12/7/17,Hypochaeris radicata,Hand,Apoidea,Apidae,Apinae,Bombini,Bombus,Bombus,lucorum,Male,0.1053,0.046966667,0.058333333,4.2,12.9,54.18
+BEE,IRE20170010,Europe,Ireland,DUBLIN,South DublinRTE 3,53.31,-6.22,0,12/7/17,Phacelia tanacetifolia,Hand,Apoidea,Apidae,Apinae,Bombini,Bombus,Bombus,lucorum,Female,0.1215,0.046966667,0.074533333,5.5,14.7,80.85
+BEE,IRE20170058,Europe,Ireland,DUBLIN,South DublinUCD 4,53.31,-6.23,0,3/8/17,Phacelia tanacetifolia,Hand,Apoidea,Apidae,Apinae,Bombini,Bombus,Bombus,lucorum,Female,0.0745,0.046966667,0.027533333,3.8,10.4,39.52
+BEE,IRE20170093,Europe,Ireland,DUBLIN,South DublinRTE 1,53.31,-6.22,0,1/7/17,Phacelia tanacetifolia,Hand,Apoidea,Apidae,Apinae,Bombini,Bombus,Melanobombus,lapidarius,Female,0.0785,0.046966667,0.031533333,4,11,44
+BEE,IRE20170109,Europe,Ireland,DUBLIN,South DublinUCD 1,53.31,-6.23,0,3/8/17,Cirsium vulgare,Hand,Apoidea,Apidae,Apinae,Bombini,Bombus,Thoracobombus,pascuorum,Male,0.0757,0.046966667,0.028733333,3.9,9.8,38.22
+BEE,IRE20170127,Europe,Ireland,DUBLIN,South DublinUCD 3,53.31,-6.23,0,24/7/17,Cirsium vulgare,Hand,Apoidea,Apidae,Apinae,Bombini,Bombus,Melanobombus,lapidarius,Male,0.0768,0.037233333,0.039566667,4.1,11.5,47.15
+BEE,IRE20170135,Europe,Ireland,DUBLIN,South DublinUCD 1,53.31,-6.23,0,24/7/17,Cirsium vulgare,Hand,Apoidea,Apidae,Apinae,Bombini,Bombus,Bombus,terrestris,Male,0.12,0.037233333,0.082766667,5.5,15.9,87.45
+BEE,IRE20170145,Europe,Ireland,DUBLIN,South DublinGNI 4,53.29,-6.42,0,21/7/17,Epilobium hirsutum,Hand,Apoidea,Apidae,Apinae,Bombini,Bombus,Thoracobombus,pascuorum,Female,0.0902,0.046966667,0.043233333,4.5,12,54
+BEE,IRE20170148,Europe,Ireland,DUBLIN,South DublinGNI 1,53.29,-6.42,0,21/7/17,Cirsium vulgare,Hand,Apoidea,Apidae,Apinae,Bombini,Bombus,Bombus,lucorum,Male,0.1209,0.046966667,0.073933333,5.5,12,66
+BEE,IRE20170149,Europe,Ireland,DUBLIN,South DublinTCD 4,53.31,-6.26,0,18/7/17,Plantago lanceolata,Hand,Apoidea,Apidae,Apinae,Bombini,Bombus,Thoracobombus,pascuorum,Female,0.0774,0.046966667,0.030433333,3.9,9.2,35.88
+BEE,IRE20170153,Europe,Ireland,DUBLIN,South DublinUCD 4,53.31,-6.23,0,3/8/17,Hypochaeris radicata,Hand,Apoidea,Apidae,Apinae,Bombini,Bombus,Melanobombus,lapidarius,Male,0.0975,0.046966667,0.050533333,4.8,11.3,54.24
+BEE,IRE20170156,Europe,Ireland,DUBLIN,South DublinRTE 4,53.32,-6.22,0,8/7/17,Phacelia tanacetifolia,Hand,Apoidea,Apidae,Apinae,Bombini,Bombus,Thoracobombus,pascuorum,Female,0.1007,0.046966667,0.053733333,4.5,11.6,52.2
+BEE,IRE20170170,Europe,Ireland,DUBLIN,South DublinUCD 1,53.31,-6.23,0,7/7/17,Cirsium vulgare,Hand,Apoidea,Apidae,Apinae,Bombini,Bombus,Bombus,terrestris,Male,0.1365,0.046966667,0.089533333,6,14,84
+BEE,IRE20170177,Europe,Ireland,DUBLIN,South DublinGNI 2,53.29,-6.42,0,27/6/17,Phacelia tanacetifolia,Hand,Apoidea,Apidae,Apinae,Bombini,Bombus,Pyrobombus,pratorum,Male,0.0657,0.046966667,0.018733333,3.1,8.4,26.04
+BEE,IRE20170216,Europe,Ireland,DUBLIN,South DublinRTE 4,53.32,-6.22,0,1/8/17,Cirsium vulgare,Hand,Apoidea,Apidae,Apinae,Bombini,Bombus,Thoracobombus,pascuorum,Male,0.0914,0.046966667,0.044433333,5,12,60
+BEE,IRE20170247,Europe,Ireland,DUBLIN,South DublinUCD 4,53.31,-6.23,0,21/6/17,Plantago lanceolata,Hand,Apoidea,Apidae,Apinae,Bombini,Bombus,Pyrobombus,pratorum,Female,0.0618,0.037233333,0.024566667,3.5,9.5,33.25
+BEE,IRE20170287,Europe,Ireland,DUBLIN,South DublinUCD 2,53.31,-6.23,0,25/7/17,Epilobium hirsutum,Hand,Apoidea,Apidae,Apinae,Bombini,Bombus,Pyrobombus,pratorum,Female,0.066,0.037233333,0.028766667,4,9,36
+BEE,IRE20170308,Europe,Ireland,DUBLIN,South DublinUCD 4,53.31,-6.23,0,5/9/17,Hypochaeris radicata,Hand,Apoidea,Apidae,Apinae,Bombini,Bombus,Thoracobombus,pascuorum,Male,0.0688,0.046966667,0.021833333,4.2,10.1,42.42
+BEE,IRE20170348,Europe,Ireland,DUBLIN,South DublinRTE 1,53.31,-6.22,0,21/6/17,Phacelia tanacetifolia,Hand,Apoidea,Apidae,Apinae,Bombini,Bombus,Pyrobombus,pratorum,Female,0.0613,0.037233333,0.024066667,3.5,9.4,32.9
+BEE,IRE20170355,Europe,Ireland,DUBLIN,South DublinRTE 1,53.31,-6.22,0,12/7/17,Hypochaeris radicata,Hand,Apoidea,Apidae,Apinae,Bombini,Bombus,Melanobombus,lapidarius,Male,0.0831,0.037233333,0.045866667,4.5,11.8,53.1
+BEE,IRE20170407,Europe,Ireland,DUBLIN,South DublinGNI 3,53.29,-6.42,0,20/6/17,Phacelia tanacetifolia,Hand,Apoidea,Apidae,Apinae,Bombini,Bombus,Pyrobombus,pratorum,Male,0.0777,0.037233333,0.040466667,4.2,10.7,44.94
+BEE,IRE20170446,Europe,Ireland,DUBLIN,South DublinUCD 2,53.31,-6.23,0,7/7/17,Phacelia tanacetifolia,Hand,Apoidea,Apidae,Apinae,Bombini,Bombus,Bombus,terrestris,Female,0.1034,0.037233333,0.066166667,4.6,13.4,61.64
+BEE,IRE20170464,Europe,Ireland,DUBLIN,South DublinUCD 4,53.31,-6.23,0,5/7/17,Phacelia tanacetifolia,Hand,Apoidea,Apidae,Apinae,Bombini,Bombus,Bombus,terrestris,Female,0.1071,0.037233333,0.069866667,5.1,13.8,70.38
+BEE,IRE20170481,Europe,Ireland,DUBLIN,South DublinUCD 1,53.31,-6.23,0,5/7/17,Phacelia tanacetifolia,Hand,Apoidea,Apidae,Apinae,Bombini,Bombus,Bombus,terrestris,Female,0.1055,0.037233333,0.068266667,5,13.8,69
+BEE,IRE20170572,Europe,Ireland,DUBLIN,South DublinRTE 2,53.31,-6.22,0,17/7/17,Epilobium hirsutum,Hand,Apoidea,Apidae,Apinae,Bombini,Bombus,Pyrobombus,pratorum,Male,0.0755,0.037233333,0.038266667,4.4,11.3,49.72
+BEE,IRE20170611,Europe,Ireland,DUBLIN,South DublinUCD 4,53.31,-6.23,0,17/7/17,Phacelia tanacetifolia,Hand,Apoidea,Apidae,Apinae,Bombini,Bombus,Bombus,lucorum,Male,0.1054,0.037233333,0.068166667,5.5,15.1,83.05
+BEE,IRE20170636,Europe,Ireland,DUBLIN,South DublinUCD 4,53.31,-6.23,0,25/7/17,Phacelia tanacetifolia,Hand,Apoidea,Apidae,Apinae,Bombini,Bombus,Bombus,terrestris,Male,0.1054,0.037233333,0.068166667,5.8,14.2,82.36
+BEE,IRE20170655,Europe,Ireland,DUBLIN,South DublinTCD 1,53.31,-6.26,0,22/7/17,Cirsium vulgare,Hand,Apoidea,Apidae,Apinae,Bombini,Bombus,Megabombus,hortorum,Male,0.0948,0.046966667,0.047833333,5,13,65
+BEE,IRE20170268,Europe,Ireland,DUBLIN,South DublinUCD 4,53.31,-6.23,0,25/7/17,Hypochaeris radicata,Hand,Apoidea,Halictidae,Halictinae,Halictini,Halictus,,rubicundus,Female,0.0514,0.037233333,0.014166667,2.4,10.3,24.72
+BEE,IRE20170169,Europe,Ireland,DUBLIN,South DublinTCD 1,53.31,-6.26,0,12/7/17,Phacelia tanacetifolia,Hand,Apoidea,Colletidae,Hylaeinae,Halictina,Hylaeus,,communis,Female,0.0571,0.046966667,0.010133333,1.5,5,7.5
+BEE,IRE20170380,Europe,Ireland,DUBLIN,South DublinUCD 1,53.31,-6.23,0,7/7/17,Phacelia tanacetifolia,Hand,Apoidea,Colletidae,Hylaeinae,Halictina,Hylaeus,,communis,Female,0.0403,0.037233333,0.003066667,1.7,4.8,8.16
+BEE,IRE20170381,Europe,Ireland,DUBLIN,South DublinUCD 1,53.31,-6.23,0,7/7/17,Phacelia tanacetifolia,Hand,Apoidea,Colletidae,Hylaeinae,Halictina,Hylaeus,,pectoralis,Female,0.0399,0.037233333,0.002666667,1.3,4.6,5.98
+BEE,IRE20170512,Europe,Ireland,DUBLIN,South DublinGNI 3,53.29,-6.42,0,27/6/17,Hypochaeris radicata,Hand,Apoidea,Colletidae,Hylaeinae,Halictina,Hylaeus,,communis,Male,0.04,0.037233333,0.002766667,1.5,5.1,7.65
+BEE,IRE20170619,Europe,Ireland,DUBLIN,South DublinUCD 4,53.31,-6.23,0,17/7/17,Phacelia tanacetifolia,Hand,Apoidea,Colletidae,Hylaeinae,Halictina,Hylaeus,,communis,Female,0.0425,0.037233333,0.005266667,1.6,5.4,8.64
+BEE,IRE20170141,Europe,Ireland,DUBLIN,South DublinGNI 4,53.29,-6.42,0,24/7/17,Hypochaeris radicata,Hand,Apoidea,Halictidae,Halictinae,Halictini,Lasioglossum,,cypromicans,Female,0.0501,0.046966667,0.003133333,1.1,5.2,5.72
+BEE,IRE20170143,Europe,Ireland,DUBLIN,South DublinUCD 1,53.31,-6.23,0,24/7/17,Hypochaeris radicata,Hand,Apoidea,Halictidae,Halictinae,Halictini,Lasioglossum,,villosulum,Female,0.042,0.037233333,0.004766667,1.7,6.5,11.05
+BEE,IRE20170146,Europe,Ireland,DUBLIN,South DublinGNI 3,53.29,-6.42,0,24/7/17,Hypochaeris radicata,Hand,Apoidea,Halictidae,Halictinae,Halictini,Lasioglossum,,calceatum,Male,0.0442,0.037233333,0.006966667,2,7.1,14.2
+BEE,IRE20170168,Europe,Ireland,DUBLIN,South DublinTCD 1,53.31,-6.26,0,12/7/17,Phacelia tanacetifolia,Hand,Apoidea,Halictidae,Halictinae,Halictini,Lasioglossum,,calceatum,Female,0.0549,0.037233333,0.017666667,2,7.4,14.8
+BEE,IRE20170220,Europe,Ireland,DUBLIN,South DublinTCD 1,53.31,-6.26,0,18/7/17,Hypochaeris radicata,Hand,Apoidea,Halictidae,Halictinae,Halictini,Lasioglossum,,calceatum,Male,0.0429,0.037233333,0.005666667,1.8,7,12.6
+BEE,IRE20170236,Europe,Ireland,DUBLIN,South DublinUCD 2,53.31,-6.23,0,24/7/17,Hypochaeris radicata,Hand,Apoidea,Halictidae,Halictinae,Halictini,Lasioglossum,,leucopus,Female,0.0411,0.037233333,0.003866667,1.1,5.5,6.05
+BEE,IRE20170262,Europe,Ireland,DUBLIN,South DublinTCD 1,53.31,-6.26,0,20/6/17,Hypochaeris radicata,Hand,Apoidea,Halictidae,Halictinae,Halictini,Lasioglossum,,calceatum,Female,0.0467,0.037233333,0.009466667,2.2,8.5,18.7
+BEE,IRE20170276,Europe,Ireland,DUBLIN,South DublinUCD 2,53.31,-6.23,0,25/7/17,Phacelia tanacetifolia,Hand,Apoidea,Halictidae,Halictinae,Halictini,Lasioglossum,,cypromicans,Female,0.0384,0.037233333,0.001166667,1.3,4.8,6.24
+BEE,IRE20170291,Europe,Ireland,DUBLIN,South DublinTCD 1,53.31,-6.26,0,22/7/17,Hypochaeris radicata,Hand,Apoidea,Halictidae,Halictinae,Halictini,Lasioglossum,,calceatum,Male,0.0421,0.037233333,0.004866667,1.9,7.1,13.49
+BEE,IRE20170478,Europe,Ireland,DUBLIN,South DublinUCD 4,53.31,-6.23,0,5/7/17,Phacelia tanacetifolia,Hand,Apoidea,Halictidae,Halictinae,Halictini,Lasioglossum,,calceatum,Female,0.0426,0.037233333,0.005366667,1.9,7.5,14.25
+BEE,IRE20170559,Europe,Ireland,DUBLIN,South DublinUCD 2,53.31,-6.23,0,5/9/17,Hypochaeris radicata,Hand,Apoidea,Halictidae,Halictinae,Halictini,Lasioglossum,,leucopus,Male,0.0394,0.037233333,0.002166667,1.2,4.5,5.4
+BEE,IRE20170560,Europe,Ireland,DUBLIN,South DublinUCD 2,53.31,-6.23,0,5/9/17,Hypochaeris radicata,Hand,Apoidea,Halictidae,Halictinae,Halictini,Lasioglossum,,leucopus,Male,0.039,0.037233333,0.001766667,1.2,4.5,5.4
+BEE,IRE20170663,Europe,Ireland,DUBLIN,South DublinUCD 1,53.31,-6.23,0,25/7/17,Phacelia tanacetifolia,Hand,Apoidea,Halictidae,Halictinae,Halictini,Lasioglossum,,leucopus,Female,0.0388,0.037233333,0.001566667,1.3,5.2,6.76
+BEE,SpainBF100,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Halictidae,Rophitinae,Rophitini,Systropha,NA,planidens,Male,NA,NA,0.0189,2.34,10.87,25.4358
+BEE,SpainBF101,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Halictidae,Halictinae,Halictini,Halictus,NA,scabiosae,Female,NA,NA,0.0223,2.47,13.33,32.9251
+BEE,SpainBF102,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Halictidae,Halictinae,Halictini,Halictus,NA,scabiosae,Female,NA,NA,0.0214,2.22,12.03,26.7066
+BEE,SpainBF103,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Halictidae,Halictinae,Halictini,Sphecodes,NA,sp,Female,NA,NA,0.0063,1.57,8.28,12.9996
+BEE,SpainBF103,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Melittidae,Dasypodainae,Dasypodaini,Dasypoda,NA,cingulata,Female,NA,NA,0.0063,1.57,8.28,12.9996
+BEE,SpainBF110,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Melittidae,Dasypodainae,Dasypodaini,Dasypoda,NA,cingulata,Male,NA,NA,0.0132,2.66,12.35,32.851
+BEE,SpainBF120,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Melittidae,Dasypodainae,Dasypodaini,Dasypoda,NA,cingulata,Male,NA,NA,0.0268,3.05,14.83,45.2315
+BEE,SpainBF122,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Melittidae,Dasypodainae,Dasypodaini,Dasypoda,NA,crassicornis,Female,NA,NA,0.0237,2.52,13.08,32.9616
+BEE,SpainBF127,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Melittidae,Dasypodainae,Dasypodaini,Dasypoda,NA,cingulata,Female,NA,NA,0.0101,2.77,11.02,30.5254
+BEE,SpainBF136,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Melittidae,Dasypodainae,Dasypodaini,Dasypoda,NA,crassicornis,Female,NA,NA,0.0118,2.39,9.86,23.5654
+BEE,SpainBF15,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Halictidae,Halictinae,Halictini,Lasioglossum,NA,imminutus,Female,NA,NA,0.0082,1.69,7.03,11.8807
+BEE,SpainBF151,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Melittidae,Dasypodainae,Dasypodaini,Dasypoda,NA,cingulata,Male,NA,NA,0.031,3.32,12.36,41.0352
+BEE,SpainBF156,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Colletidae,Colletinae,Colletini,Colletes,NA,acutus,Female,NA,NA,0.0081,1.93,8.85,17.0805
+BEE,SpainBF160,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Colletidae,Colletinae,Colletini,Colletes,NA,nigricans,Male,NA,NA,0.0075,1.85,9.23,17.0755
+BEE,SpainBF161,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Colletidae,Colletinae,Colletini,Colletes,NA,acutus,Male,NA,NA,0.0104,2.23,9.46,21.0958
+BEE,SpainBF162,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Megachilidae,Megachilinae,Osmiini,Hoplitis,NA,adunca,Female,NA,NA,0.0105,2.23,7.79,17.3717
+BEE,SpainBF171,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Colletidae,Colletinae,Colletini,Colletes,NA,acutus,Female,NA,NA,0.0221,3.21,11.81,37.9101
+BEE,SpainBF180,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Apidae,Xylocopinae,Ceratinini,Ceratina,NA,cucurbitina,Male,NA,NA,0.0058,0.85,3.92,3.332
+BEE,SpainBF184,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Apidae,Xylocopinae,Ceratinini,Ceratina,NA,cucurbitina,Female,NA,NA,0.0064,1.12,5.04,5.6448
+BEE,SpainBF19,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Andrenidae,Andreninae,Andrenini,Andrena,NA,nigroaenaea,Male,NA,NA,0.0039,1.3,7.6,9.88
+BEE,SpainBF193,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Apidae,Xylocopinae,Xylocopinini,Xylocopa,NA,valga,Female,NA,NA,0.1948,8.02,21,168.42
+BEE,SpainBF195,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Apidae,Xylocopinae,Xylocopinini,Xylocopa,NA,cantabrita,Male,NA,NA,0.0956,5.91,16.05,94.8555
+BEE,SpainBF197,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Apidae,Xylocopinae,Xylocopinini,Xylocopa,NA,cantabrita,Female,NA,NA,0.1002,5.71,17.03,97.2413
+BEE,SpainBF2,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Apidae,Apinae,Anthophorini,Anthophora,NA,dispar,Male,NA,NA,0.0503,3.76,13.04,49.0304
+BEE,SpainBF201,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Apidae,Apinae,Bombini,Bombus,NA,terrestris,Female,NA,NA,0.0646,5.04,17.26,86.9904
+BEE,SpainBF216,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Apidae,Apinae,Bombini,Bombus,NA,terrestris,Female,NA,NA,0.0646,5.25,16.7,87.675
+BEE,SpainBF223,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Apidae,Apinae,Apini,Apis,NA,mellifera,Female,NA,NA,0.0263,3.08,11.17,34.4036
+BEE,SpainBF224,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Apidae,Apinae,Apini,Apis,NA,mellifera,Female,NA,NA,0.0252,3.15,11.98,37.737
+BEE,SpainBF228,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Andrenidae,Panurginae,Panurgini,Panurgus,NA,banksianus,Male,NA,NA,0.0149,2.16,13.01,28.1016
+BEE,SpainBF23,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Andrenidae,Andreninae,Andrenini,Andrena,NA,ovatula,Female,NA,NA,0.0078,1.51,7.28,10.9928
+BEE,SpainBF241,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Andrenidae,Panurginae,Panurgini,Flavipanurgus,NA,venustus,Male,NA,NA,0.096,1.85,9.66,17.871
+BEE,SpainBF242,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Andrenidae,Panurginae,Panurgini,Flavipanurgus,NA,venustus,Female,NA,NA,0.0093,1.81,7.37,13.3397
+BEE,SpainBF258,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Andrenidae,Panurginae,Panurgini,Panurgus,NA,dargius,Male,NA,NA,0.0092,1.98,9.27,18.3546
+BEE,SpainBF261,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Andrenidae,Panurginae,Panurgini,Panurgus,NA,cephalotes,Male,NA,NA,0.0097,1.81,8.82,15.9642
+BEE,SpainBF266,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Andrenidae,Panurginae,Panurgini,Panurgus,NA,dargius,Male,NA,NA,0.0062,1.51,7.54,11.3854
+BEE,SpainBF273,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Andrenidae,Andreninae,Andrenini,Andrena,NA,rhyssonota,Female,NA,NA,0.0111,1.93,9.28,17.9104
+BEE,SpainBF275,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Andrenidae,Andreninae,Andrenini,Andrena,NA,nigroaenaea,Female,NA,NA,0.0172,2.56,12.66,32.4096
+BEE,SpainBF278,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Andrenidae,Andreninae,Andrenini,Andrena,NA,flavipes,Male,NA,NA,0.0108,1.94,9.71,18.8374
+BEE,SpainBF279,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Andrenidae,Andreninae,Andrenini,Andrena,NA,thoracica,Female,NA,NA,0.0436,3.21,15.8,50.718
+BEE,SpainBF28,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Andrenidae,Andreninae,Andrenini,Andrena,NA,ferrugineicrus,Female,NA,NA,0.0071,1.52,8.35,12.692
+BEE,SpainBF282,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Andrenidae,Andreninae,Andrenini,Andrena,NA,florea,Female,NA,NA,0.0085,2.75,13.43,36.9325
+BEE,SpainBF293,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Andrenidae,Andreninae,Andrenini,Andrena,NA,hispania,Male,NA,NA,0.0099,2.33,12.98,30.2434
+BEE,SpainBF317,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Andrenidae,Andreninae,Andrenini,Andrena,NA,hispania,Female,NA,NA,0.0457,2.95,15.73,46.4035
+BEE,SpainBF32,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Halictidae,Halictinae,Halictini,Lasioglossum,NA,leucozonium,Male,NA,NA,0.0059,1.36,6.82,9.2752
+BEE,SpainBF320,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Andrenidae,Panurginae,Panurgini,Panurgus,NA,dargius,Female,NA,NA,0.0095,2.06,9.98,20.5588
+BEE,SpainBF334,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Apidae,Nomadinae,Nomadini,Nomada,NA,merceti,Male,NA,NA,0.0086,0.94,4.68,4.3992
+BEE,SpainBF338,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Apidae,Nomadinae,Nomadini,Nomada,NA,merceti,Female,NA,NA,0.0069,0.91,4.81,4.3771
+BEE,SpainBF34,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Halictidae,Halictinae,Halictini,Lasioglossum,NA,leucozonium,Male,NA,NA,0.0055,1.27,6.91,8.7757
+BEE,SpainBF346,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Apidae,Nomadinae,Nomadini,Nomada,NA,melathoracica,Female,NA,NA,0.0273,2.76,12.61,34.8036
+BEE,SpainBF352,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Apidae,Nomadinae,Nomadini,Nomada,NA,agrestis,Female,NA,NA,0.0255,2.68,11.57,31.0076
+BEE,SpainBF353,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Apidae,Nomadinae,Nomadini,Nomada,NA,agrestis,Male,NA,NA,0.0146,2.76,12.26,33.8376
+BEE,SpainBF354,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Apidae,Nomadinae,Nomadini,Nomada,NA,fucata,Female,NA,NA,0.013,2.08,9.71,20.1968
+BEE,SpainBF46,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Halictidae,Halictinae,Halictini,Lasioglossum,NA,albocinctum,Female,NA,NA,0.0178,2.28,9.97,22.7316
+BEE,SpainBF548,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Apidae,Apinae,Eucerini,Eucera,NA,elongatula,Male,NA,NA,0.021,2.9,11.11,32.219
+BEE,SpainBF555,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Apidae,Apinae,Eucerini,Eucera,NA,rufa,Male,NA,NA,0.032,3.46,14.66,50.7236
+BEE,SpainBF559,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Apidae,Apinae,Eucerini,Eucera,NA,elongatula,NA,NA,NA,0.0353,2.86,10.87,31.0882
+BEE,SpainBF572,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Apidae,Apinae,Eucerini,Eucera,NA,chrysopyga,Female,NA,NA,0.0275,3.38,12.22,41.3036
+BEE,SpainBF585,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Apidae,Apinae,Eucerini,Eucera,NA,chrysopyga,Female,NA,NA,0.0301,3.71,12.03,44.6313
+BEE,SpainBF586,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Apidae,Apinae,Anthophorini,Anthophora,NA,hispanica,Male,NA,NA,0.0267,3.88,13.03,50.5564
+BEE,SpainBF593,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Apidae,Apinae,Anthophorini,Anthophora,NA,aestivalis,Male,NA,NA,0.0555,4.59,16.37,75.1383
+BEE,SpainBF601,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Apidae,Apinae,Anthophorini,Anthophora,NA,hispanica,Female,NA,NA,0.1123,6.54,21,137.34
+BEE,SpainBF602,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Apidae,Apinae,Anthophorini,Anthophora,NA,hispanica,Male,NA,NA,0.1133,6.53,22,143.66
+BEE,SpainBF606,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Apidae,Apinae,Anthophorini,Anthophora,NA,atroalba,Female,NA,NA,0.0421,3.67,13.54,49.6918
+BEE,SpainBF614,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Apidae,Xylocopinae,Xylocopinini,Xylocopa,NA,cantabrita,NA,NA,NA,0.0118,2.39,8.65,20.6735
+BEE,SpainBF621,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Apidae,Apinae,Anthophorini,Amegilla,NA,quadrifasciata,Female,NA,NA,0.0647,4.11,13.82,56.8002
+BEE,SpainBF624,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Apidae,Apinae,Anthophorini,Amegilla,NA,quadrifasciata,Female,NA,NA,0.0242,3.18,12.65,40.227
+BEE,SpainBF625,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Megachilidae,Megachilinae,Anthidini,Xylocopa,NA,sticticum,Male,NA,NA,0.0438,3.66,14.26,52.1916
+BEE,SpainBF626,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Megachilidae,Megachilinae,Anthidini,Pseudoanthidium,NA,melanorum,Female,NA,NA,0.0289,3.45,12.18,42.021
+BEE,SpainBF63,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Andrenidae,Panurginae,Panurgini,Panurgus,NA,calcaratus,Female,NA,NA,0.0125,1.26,5.33,6.7158
+BEE,SpainBF634,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Megachilidae,Megachilinae,Osmiini,Osmia,NA,bicornis,Male,NA,NA,0.0063,2.94,10.28,30.2232
+BEE,SpainBF638,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Megachilidae,Megachilinae,Osmiini,Osmia,NA,submicans,Male,NA,NA,0.0306,3.33,11.55,38.4615
+BEE,SpainBF643,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Megachilidae,Megachilinae,Osmiini,Hoplitis,NA,adunca,Male,NA,NA,0.0166,3.1,9.26,28.706
+BEE,SpainBF66,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Halictidae,Halictinae,Halictini,Lasioglossum,NA,imminutus,Female,NA,NA,0.0151,1.43,8.82,12.6126
+BEE,SpainBF690,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Megachilidae,Megachilinae,Osmiini,Heriades,NA,crenulatus,Female,NA,NA,0.0063,1.76,6.93,12.1968
+BEE,SpainBF91,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Halictidae,Rophitinae,Rophitini,Systropha,NA,planidens,Male,NA,NA,0.0195,2.37,11.23,26.6151
+BEE,SpainBF98,Europe,Spain,SPAIN,NA,NA,NA,0,1/1/17,NA,Hand,Apoidea,Halictidae,Rophitinae,Rophitini,Systropha,NA,planidens,Male,NA,NA,0.0083,2.44,9.8,23.912
 BEE,ALLO-AUS-01,Australasia,Australia,COFFS,COFFSRoadside weeds,-30,153.15,0,11/5/17,Bidens pilosa,Hand,Apoidea,Apidae,Xylocopinae,Allodapini,Exoneura,Exoneura,bicolor,Female,0.0683,0.067166,0.001134,1.975,8.869,17.516275
 BEE,ALLO-AUS-02,Australasia,Australia,COFFS,COFFSGrays Road,-29.94,153.13,0,11/5/17,Vaccinium,Hand,Apoidea,Apidae,Apinae,Meliponini,Tetragonula,Tetragonula,carbonaria,Female,0.0694,0.067166,0.002234,1.688,5.733,9.677304
 BEE,ALLO-AUS-03,Australasia,Australia,COFFS,COFFSGrays Road,-29.94,153.13,0,11/5/17,Bidens pilosa,Hand,Apoidea,Halictidae,Halictinae,Halictini,Lasioglossum,Chilalictus,lanarium,Female,0.0766,0.067166,0.009434,3.068,12.608,38.681344
@@ -369,9 +369,9 @@ BEE,ALLO-AUS-37,Australasia,Australia,COFFS,COFFSRoadside weeds,-30,153.15,0,11/
 BEE,ALLO-AUS-39,Australasia,Australia,COFFS,COFFSRoadside - S4,-30.02,153.12,0,11/5/17,Pultanea,Hand,Apoidea,Colletidae,Hylaeinae,Halictina,Hylaeus,Xenohylaeus,kelvini,Female,0.0757,0.067166,0.008534,3.134,11.802,36.987468
 BEE,ALLO-AUS-42,Australasia,Australia,COFFS,COFFSFeatherstones,-30,153.1,0,16/5/17,NA,Vane,Apoidea,Halictidae,Nomiinae,Nomiini,Lipotriches,Austronomia,flavoviridis,Female,0.0701,0.067166,0.002934,2.674,10.936,29.242864
 BEE,ALLO-AUS-43,Australasia,Australia,COFFS,COFFSFeatherstones,-30,153.1,0,16/5/17,NA,Vane,Apoidea,Apidae,Apinae,Anthophorini,Amegilla,Zonamegilla,asserta,Female,0.1007,0.067166,0.033534,5.526,17.4,96.1524
-BEE,ALLO-AUS-44,Australasia,Australia,COFFS,COFFSFeatherstones,-30,153.1,0,16/5/17,NA,Vane,Apoidea,Apidae,Apinae,Anthophorini,Amegilla,Zonamegilla,cingulata,Female,0.096,0.038672,0.057328,6.467,19.762,127.800854
+BEE,ALLO-AUS-44,Australasia,Australia,COFFS,COFFSFeatherstones,-30,153.1,0,16/5/17,NA,Vane,Apoidea,Apidae,Apinae,Anthophorini,Amegilla,Zonamegilla,amecing,Female,0.096,0.038672,0.057328,6.467,19.762,127.800854
 BEE,ALLO-AUS-45,Australasia,Australia,COFFS,COFFSBean Plant,-29.94,153.13,0,25/5/17,Passiflora,Hand,Apoidea,Halictidae,Halictinae,Halictini,Homalictus,Homalictus,urbanus,Female,0.0016,0,0.0016,1.726,6.853,11.828278
-BEE,ALLO-AUS-46,Australasia,Australia,COFFS,COFFSMelaleuca - Caravan Pak,-29.98,153.23,0,22/5/17,Melaleuca,Vane,Apoidea,Apidae,Apinae,Anthophorini,Amegilla,Zonamegilla,cingulata,Female,0.156,0.096176,0.059824,6.583,21.7975,143.4929425
+BEE,ALLO-AUS-46,Australasia,Australia,COFFS,COFFSMelaleuca - Caravan Pak,-29.98,153.23,0,22/5/17,Melaleuca,Vane,Apoidea,Apidae,Apinae,Anthophorini,Amegilla,Zonamegilla,amecing,Female,0.156,0.096176,0.059824,6.583,21.7975,143.4929425
 BEE,ALLO-AUS-48,Australasia,Australia,COFFS,COFFSBean Vine - Hardip,-30.01,153.11,0,23/5/17,Passiflora,Hand,Apoidea,Apidae,Xylocopinae,Xylocopini,Xylocopa,Lestis,bombylans,Female,0.2159,0.096176,0.119724,8.019,26.285,210.779415
 BEE,ALLO-AUS-49,Australasia,Australia,COFFS,COFFSS1S,-30.01,153.15,0,16/5/17,Pultanea,Hand,Apoidea,Apidae,Xylocopinae,Allodapini,Braunsapis,Braunsapis,brasp3,Female,0.0697,0.067166,0.002534,2.251,10.381,23.367631
 BEE,ALLO-AUS-50,Australasia,Australia,COFFS,COFFSS1S,-30.01,153.15,0,16/5/17,Pultanea,Hand,Apoidea,Halictidae,Nomiinae,Nomiini,Nomia,Nomia,nomsp1,Female,0.0895,0.067166,0.022334,4.339,16.845,73.090455
@@ -421,7 +421,7 @@ BEE,ALLO-AUS-122,Australasia,Australia,COFFS,COFFSHardip,-30.01,153.11,0,24/5/17
 BEE,ALLO-AUS-124,Australasia,Australia,COFFS,COFFSHardip,-30.01,153.11,0,24/5/17,Vine,Hand,Apoidea,Halictidae,Nomiinae,Nomiini,Lipotriches,Austronomia,australica,Male,0.0586,0.038672,0.019928,4.403,16.776,73.864728
 BEE,ALLO-AUS-125,Australasia,Australia,COFFS,COFFSHardip,-30.01,153.11,0,25/5/17,Vine,Hand,Apoidea,Halictidae,Halictinae,Halictini,Lasioglossum,Chilalictus,lanarium,Female,0.0446,0.038672,0.005928,2.918,11.334,33.072612
 BEE,ALLO-AUS-126,Australasia,Australia,COFFS,COFFSHardip,-30.01,153.11,0,24/5/17,Vine,Hand,Apoidea,Halictidae,Halictinae,Halictini,Lasioglossum,Chilalictus,lanarium,Female,0.0438,0.038672,0.005128,2.727,11.199,30.539673
-BEE,ALLO-AUS-127,Australasia,Australia,COFFS,COFFSKangaroo,-30.03,153.18,0,30/5/17,NA,Vane,Apoidea,Apidae,Apinae,Anthophorini,Amegilla,Zonamegilla,cingulata,Female,0.161,0.096176,0.064824,6.523,20.469,133.519287
+BEE,ALLO-AUS-127,Australasia,Australia,COFFS,COFFSKangaroo,-30.03,153.18,0,30/5/17,NA,Vane,Apoidea,Apidae,Apinae,Anthophorini,Amegilla,Zonamegilla,amecing,Female,0.161,0.096176,0.064824,6.523,20.469,133.519287
 BEE,ALLO-AUS-128,Australasia,Australia,COFFS,COFFSHardip,-30.01,153.11,0,24/5/17,Vine,Hand,Apoidea,Colletidae,Colletinae,Paracolletini,Leioproctus,Exleycolletes,flavomaculatus,Male,0.0449,0.038672,0.006228,2.867,11.844,33.956748
 BEE,ALLO-AUS-129,Australasia,Australia,COFFS,COFFSHardip,-30.01,153.11,0,25/5/17,Vine,Hand,Apoidea,Colletidae,Hylaeinae,Halictina,Hylaeus,Euprosopoides,rotundiceps,Female,0.0476,0.038672,0.008928,3.214,11.845,38.06983
 BEE,ALLO-AUS-130,Australasia,Australia,COFFS,COFFSHardip,-30.01,153.11,0,24/5/17,Vine,Hand,Apoidea,Halictidae,Nomiinae,Nomiini,Lipotriches,Austronomia,australica,Male,0.0597,0.038672,0.021028,4.463,16.3,72.7469
@@ -450,16 +450,16 @@ BEE,ALLO-AUS-161,Australasia,Australia,COFFS,COFFSCamellia,-30,153.15,0,9/5/17,C
 BEE,ALLO-AUS-162,Australasia,Australia,COFFS,COFFSCamellia,-30,153.15,0,9/5/17,Camellia,Hand,Apoidea,Apidae,Apinae,Meliponini,Tetragonula,Tetragonula,carbonaria,Female,0.0691,0.067166,0.001934,1.97,6.237,12.28689
 BEE,ALLO-AUS-164,Australasia,Australia,COFFS,COFFSroadside weeds,-30,153.15,0,9/5/17,Bidens pilosa,Hand,Apoidea,Apidae,Xylocopinae,Allodapini,Exoneura,Exoneura,bicolor,Female,0.0701,0.067166,0.002934,2.344,11.307,26.503608
 BEE,ALLO-AUS-165,Australasia,Australia,COFFS,COFFSRoadside weeds,-30,153.15,0,5/5/17,Bidens pilosa,Hand,Apoidea,Apidae,Xylocopinae,Allodapini,Exoneura,Exoneura,bicolor,Female,0.0717,0.067166,0.004534,2.198,10.695,23.50761
-BEE,ALLO-AUS-167,Australasia,Australia,COFFS,COFFSPonds,-30.01,153.1,0,8/5/17,NA,Vane,Apoidea,Apidae,Apinae,Anthophorini,Amegilla,Zonamegilla,cingulata,Female,0.1126,0.067166,0.045434,5.988,19.675,117.8139
+BEE,ALLO-AUS-167,Australasia,Australia,COFFS,COFFSPonds,-30.01,153.1,0,8/5/17,NA,Vane,Apoidea,Apidae,Apinae,Anthophorini,Amegilla,Zonamegilla,amecing,Female,0.1126,0.067166,0.045434,5.988,19.675,117.8139
 BEE,ALLO-AUS-168,Australasia,Australia,COFFS,COFFSGrays Road,-29.94,153.13,0,5/5/17,NA,Vane,Apoidea,Apidae,Apinae,Anthophorini,Amegilla,Zonamegilla,asserta,Female,0.1247,0.067166,0.057534,5.426,20.089,109.002914
-BEE,ALLO-AUS-169,Australasia,Australia,COFFS,COFFSGrays Road,-29.94,153.13,0,4/5/17,NA,Vane,Apoidea,Apidae,Apinae,Anthophorini,Amegilla,Zonamegilla,cingulata,Female,0.1323,0.067166,0.065134,6.263,22.45,140.60435
+BEE,ALLO-AUS-169,Australasia,Australia,COFFS,COFFSGrays Road,-29.94,153.13,0,4/5/17,NA,Vane,Apoidea,Apidae,Apinae,Anthophorini,Amegilla,Zonamegilla,amecing,Female,0.1323,0.067166,0.065134,6.263,22.45,140.60435
 BEE,ALLO-AUS-170,Australasia,Australia,COFFS,COFFSCamellia,-30,153.15,0,9/5/17,Camellia,Hand,Apoidea,Apidae,Apinae,Meliponini,Austroplebeia,Austroplebeia,australis,Female,0.0696,0.067166,0.002434,2.533,6.72,17.02176
-BEE,ALLO-AUS-171,Australasia,Australia,COFFS,COFFSGrays Road,-29.94,153.13,0,8/5/17,NA,Vane,Apoidea,Apidae,Apinae,Anthophorini,Amegilla,Zonamegilla,cingulata,Male,0.0913,0.067166,0.024134,4.902,14.479,70.976058
-BEE,ALLO-AUS-172,Australasia,Australia,COFFS,COFFSGrays Road,-29.94,153.13,0,4/5/17,NA,Vane,Apoidea,Apidae,Apinae,Anthophorini,Amegilla,Zonamegilla,cingulata,Female,0.1192,0.067166,0.052034,6.207,20.537,127.473159
+BEE,ALLO-AUS-171,Australasia,Australia,COFFS,COFFSGrays Road,-29.94,153.13,0,8/5/17,NA,Vane,Apoidea,Apidae,Apinae,Anthophorini,Amegilla,Zonamegilla,amecing,Male,0.0913,0.067166,0.024134,4.902,14.479,70.976058
+BEE,ALLO-AUS-172,Australasia,Australia,COFFS,COFFSGrays Road,-29.94,153.13,0,4/5/17,NA,Vane,Apoidea,Apidae,Apinae,Anthophorini,Amegilla,Zonamegilla,amecing,Female,0.1192,0.067166,0.052034,6.207,20.537,127.473159
 BEE,ALLO-AUS-173,Australasia,Australia,COFFS,COFFSFeatherstones,-30,153.1,0,8/5/17,NA,Vane,Apoidea,Apidae,Apinae,Anthophorini,Amegilla,Zonamegilla,asserta,Female,0.1077,0.067166,0.040534,5.446,19.171,104.405266
 BEE,ALLO-AUS-174,Australasia,Australia,COFFS,COFFSCamellia,-30,153.15,0,9/5/17,Camellia,Hand,Apoidea,Apidae,Apinae,Meliponini,Austroplebeia,Austroplebeia,australis,Female,0.0695,0.067166,0.002334,2.396,7.193,17.234428
-BEE,ALLO-AUS-175,Australasia,Australia,COFFS,COFFSGrays Road,-29.94,153.13,0,8/5/17,NA,Vane,Apoidea,Apidae,Apinae,Anthophorini,Amegilla,Zonamegilla,cingulata,Male,0.096,0.067166,0.028834,5.278,16.006,84.479668
-BEE,ALLO-AUS-176,Australasia,Australia,COFFS,COFFSGrays Road,-29.94,153.13,0,8/5/17,NA,Vane,Apoidea,Apidae,Apinae,Anthophorini,Amegilla,Zonamegilla,cingulata,Female,0.1046,0.067166,0.037434,5.823,20.39,118.73097
+BEE,ALLO-AUS-175,Australasia,Australia,COFFS,COFFSGrays Road,-29.94,153.13,0,8/5/17,NA,Vane,Apoidea,Apidae,Apinae,Anthophorini,Amegilla,Zonamegilla,amecing,Male,0.096,0.067166,0.028834,5.278,16.006,84.479668
+BEE,ALLO-AUS-176,Australasia,Australia,COFFS,COFFSGrays Road,-29.94,153.13,0,8/5/17,NA,Vane,Apoidea,Apidae,Apinae,Anthophorini,Amegilla,Zonamegilla,amecing,Female,0.1046,0.067166,0.037434,5.823,20.39,118.73097
 BEE,ALLO-AUS-177,Australasia,Australia,COFFS,COFFSCamellia,-30,153.15,0,9/5/17,Camellia,Hand,Apoidea,Apidae,Apinae,Meliponini,Tetragonula,Tetragonula,carbonaria,Female,0.0698,0.067166,0.002634,1.776,5.956,10.577856
 BEE,ALLO-AUS-179,Australasia,Australia,COFFS,COFFSGrays Road,-29.94,153.13,0,8/4/17,NA,Hand,Apoidea,Apidae,Apinae,Anthophorini,Amegilla,Asaropoda,bombiformis,Female,0.1635,0.067166,0.096334,7.1751,26.1596,187.697746
 BEE,ALLO-AUS-180,Australasia,Australia,COFFS,COFFSGrays Road,-29.94,153.13,0,8/4/17,Vaccinium,Hand,Apoidea,Apidae,Xylocopinae,Xylocopini,Xylocopa,Koptortosoma,lieftincki,Female,0.3805,0.067166,0.313334,11.8094,35.4796,418.9927882
@@ -484,10 +484,10 @@ BEE,ALLO-AUS-206,Australasia,Australia,ARMID,ARMIDALEUNE,-30.49,151.64,0,16/4/17
 BEE,ALLO-AUS-207,Australasia,Australia,ARMID,ARMIDALEUNE,-30.49,151.64,0,16/4/17,Rosemary,Hand,Apoidea,Apidae,Xylocopinae,Allodapini,Exoneura,Exoneura,hamulata,Female,0.0727,0.067166,0.005534,2.751,12.076,33.221076
 BEE,ALLO-AUS-208,Australasia,Australia,ARMID,ARMIDALEUNE,-30.49,151.64,0,16/4/17,Rosemary,Hand,Apoidea,Apidae,Xylocopinae,Allodapini,Exoneura,Exoneura,hamulata,Female,0.0725,0.067166,0.005334,2.417,10.342,24.996614
 BEE,ALLO-AUS-209,Australasia,Australia,ARMID,ARMIDALEUNE,-30.49,151.64,0,16/4/17,Rosemary,Hand,Apoidea,Apidae,Xylocopinae,Allodapini,Exoneura,Exoneura,hamulata,Female,0.0731,0.067166,0.005934,2.627,12.025,31.589675
-BEE,ALLO-AUS-211,Australasia,Australia,CSIRO,CSIRO_BRIS_COTTON,,,90,NA,20826,Pan_trap,Apoidea,Halictidae,Halictinae,Halictini,Homalictus,Homalictus,homsp1,Female,0.0688,0.067166,0.001634,2.063,9.598,19.800674
-BEE,ALLO-AUS-213,Australasia,Australia,CSIRO,CSIRO_BRIS_COTTON,,,90,NA,20717,Pan_trap,Apoidea,Colletidae,Hylaeinae,Halictina,Hylaeus,Euprosopis,elegans,Male,0.0684,0.067166,0.001234,2.496,10.898,27.201408
-BEE,ALLO-AUS-214,Australasia,Australia,CSIRO,CSIRO_BRIS_COTTON,,,90,NA,20675,Pan_trap,Apoidea,Halictidae,Halictinae,Halictini,Homalictus,Homalictus,homsp1,Female,0.0683,0.067166,0.001134,2.211,10.81,23.90091
-BEE,ALLO-AUS-215,Australasia,Australia,CSIRO,CSIRO_BRIS_COTTON,,,90,NA,20703,Pan_trap,Apoidea,Halictidae,Nomiinae,Nomiini,Lipotriches,Austronomia,lipsp1,Female,0.0713,0.067166,0.004134,3.047,12.577,38.322119
+BEE,ALLO-AUS-211,Australasia,Australia,CSIRO,CSIRO_BRIS_COTTON,-27.12,151.08,90,NA,20826,Pan_trap,Apoidea,Halictidae,Halictinae,Halictini,Homalictus,Homalictus,homsp1,Female,0.0688,0.067166,0.001634,2.063,9.598,19.800674
+BEE,ALLO-AUS-213,Australasia,Australia,CSIRO,CSIRO_BRIS_COTTON,-27.06,151.04,90,NA,20717,Pan_trap,Apoidea,Colletidae,Hylaeinae,Halictina,Hylaeus,Euprosopis,elegans,Male,0.0684,0.067166,0.001234,2.496,10.898,27.201408
+BEE,ALLO-AUS-214,Australasia,Australia,CSIRO,CSIRO_BRIS_COTTON,-27.26,151.22,90,NA,20675,Pan_trap,Apoidea,Halictidae,Halictinae,Halictini,Homalictus,Homalictus,homsp1,Female,0.0683,0.067166,0.001134,2.211,10.81,23.90091
+BEE,ALLO-AUS-215,Australasia,Australia,CSIRO,CSIRO_BRIS_COTTON,-27.06,151.04,90,NA,20703,Pan_trap,Apoidea,Halictidae,Nomiinae,Nomiini,Lipotriches,Austronomia,lipsp1,Female,0.0713,0.067166,0.004134,3.047,12.577,38.322119
 BEE,ALLO-AUS-221,Australasia,Australia,COFFS,Woolgoolga,-30.11,153.2,0,3/3/17,NA,Hand,Apoidea,Megachilidae,Megachilinae,Megachilini,Megachile,Eutricharaea,tenuicincta,Female,0.0561,0.038672,0.017428,4.615,14.104,65.08996
 BEE,ALLO-AUS-222,Australasia,Australia,COFFS,Woolgoolga,-30.11,153.2,0,3/3/17,NA,Hand,Apoidea,Halictidae,Halictinae,Halictini,Homalictus,Homalictus,urbanus,Female,0.0406,0.038672,0.001928,1.828,6.569,12.008132
 BEE,ALLO-AUS-223,Australasia,Australia,COFFS,Woolgoolga,-30.11,153.2,0,3/3/17,NA,Hand,Apoidea,Apidae,Apinae,Meliponini,Tetragonula,Tetragonula,carbonaria,Female,0.0411,0.038672,0.002428,1.948,6.215,12.10682
@@ -502,7 +502,7 @@ BEE,ALLO-AUS-232,Australasia,Australia,BUNDA,Bundaberg,-24.84,152.46,0,19/2/17,N
 BEE,ALLO-AUS-233,Australasia,Australia,BUNDA,Bundaberg,-24.84,152.46,0,19/2/17,NA,Hand,Apoidea,Apidae,Apinae,Anthophorini,Amegilla,Zonamegilla,asserta,Male,0.0638,0.038672,0.025128,5.452,16.562,90.296024
 BEE,ALLO-AUS-234,Australasia,Australia,BUNDA,Bundaberg,-24.84,152.46,0,19/2/17,NA,Hand,Apoidea,Colletidae,Euryglossinae,Euryglossinae,Callohesma,Callohesma,calsp1,Male,0.0435,0.038672,0.004828,2.582,10.062,25.980084
 BEE,ALLO-AUS-235,Australasia,Australia,BUNDA,Bundaberg,-24.84,152.46,0,19/2/17,NA,Hand,Apoidea,Apidae,Apinae,Melectini,Thyreus,Thyreus,nitidulus,Female,0.0656,0.038672,0.026928,4.596,13.906,63.911976
-BEE,ALLO-AUS-236,Australasia,Australia,COFFS,Woolgoolga,-30.11,153.2,0,3/3/17,NA,Hand,Apoidea,Apidae,Apinae,Anthophorini,Amegilla,Zonamegilla,cingulata,Male,0.1264,0.096176,0.030224,6.545,17.468,114.32806
+BEE,ALLO-AUS-236,Australasia,Australia,COFFS,Woolgoolga,-30.11,153.2,0,3/3/17,NA,Hand,Apoidea,Apidae,Apinae,Anthophorini,Amegilla,Zonamegilla,amecing,Male,0.1264,0.096176,0.030224,6.545,17.468,114.32806
 BEE,ALLO-AUS-237,Australasia,Australia,COFFS,Woolgoolga,-30.11,153.2,0,3/3/17,NA,Hand,Apoidea,Megachilidae,Megachilinae,Megachilini,Megachile,Unplaced,megsp2,Female,0.0715,0.038672,0.032828,5.342,18.6635,99.700417
 BEE,ALLO-AUS-238,Australasia,Australia,BUNDA,Bundaberg,-24.84,152.46,0,19/2/17,NA,Hand,Apoidea,Megachilidae,Megachilinae,Megachilini,Megachile,Eutricharaea,tenuicincta,Female,0.056,0.038672,0.017328,4.576,13.765,62.98864
 BEE,ALLO-AUS-241,Australasia,Australia,WA,J.Lumbers WA 9.5k N Victoria Rock,-31.2,120.94,93,15/1/17,NA,Malaise,Apoidea,Megachilidae,Megachilinae,Megachilini,Megachile,Unplaced,aurifrons,Female,0.1021,0.067166,0.034934,5.5094,19.021,104.7942974
@@ -567,13 +567,13 @@ BEE,ALLO-AUS-302,Australasia,Australia,KATHE,Kings producersREF129,-14.52,132.45
 BEE,ALLO-AUS-303,Australasia,Australia,KATHE,ManbullooREF107,-14.62,132.45,0,1/6/17,Mango,Hand,Apoidea,Halictidae,Halictinae,Halictini,Homalictus,Homalictus,urbanus,Female,0.0408,0.038672,0.002128,1.661,7.48,12.42428
 BEE,ALLO-AUS-304,Australasia,Australia,KATHE,ManbullooREF099,-14.62,132.45,0,22/6/17,Mango,Hand,Apoidea,Megachilidae,Megachilinae,Megachilini,Megachile,Unplaced,turneri,Male,0.0435,0.038672,0.004828,2.584,9.262,23.933008
 BEE,ALLO-AUS-305,Australasia,Australia,KATHE,ManbullooREF044,-14.62,132.45,0,19/6/17,Mango,Hand,Apoidea,Megachilidae,Megachilinae,Megachilini,Megachile,Unplaced,micrerythrura,Male,0.0722,0.067166,0.005034,3.155,9.871,31.143005
-BEE,ALLO-AUS-306,Australasia,Australia,KATHE,ManbullooREF092,-14.62,132.45,0,21/6/17,Mango,Hand,Apoidea,Apidae,Apinae,Apini,Apis,Apis,mellifera,Female,0.0594,0.038672,0.020728,4.445,16.692,74.19594
+BEE,ALLO-AUS-306,Australasia,Australia,KATHE,ManbullooREF092,-14.62,132.45,0,21/6/17,Mango,Hand,Apoidea,Apidae,Apinae,Apini,Apis,Apis,melliferaA,Female,0.0594,0.038672,0.020728,4.445,16.692,74.19594
 BEE,ALLO-AUS-307,Australasia,Australia,KATHE,Kings producersREF136,-14.52,132.45,0,3/6/17,Mango,Hand,Apoidea,Megachilidae,Megachilinae,Megachilini,Megachile,Eutricharaea,tenuicincta,Female,0.08,0.067166,0.012834,3.91,13.429,52.50739
 BEE,ALLO-AUS-308,Australasia,Australia,KATHE,Kings producersREF142,-14.52,132.45,0,12/6/17,Mango,Hand,Apoidea,Apidae,Apinae,Anthophorini,Amegilla,Notomegilla,aeruginosa,Female,0.0697,0.038672,0.031028,5.26,19.974,105.06324
 BEE,ALLO-AUS-325,Australasia,Australia,MAREE,MoroREF002,-16.9,145.43,0,9/8/17,Mango,Hand,Apoidea,Apidae,Apinae,Apini,Apis,Apis,cerana,Female,0.0497,0.038672,0.011028,3.643,13.586,49.493798
 BEE,ALLO-AUS-326,Australasia,Australia,MAREE,MoroREF001,-16.9,145.43,0,9/8/17,Mango,Hand,Apoidea,Apidae,Apinae,Apini,Apis,Apis,cerana,Female,0.0512,0.038672,0.012528,3.607,14.127,50.956089
-BEE,ALLO-AUS-327,Australasia,Australia,MAREE,CetinecREF043,-16.99,145.46,0,14/8/17,Mango,Hand,Apoidea,Apidae,Apinae,Apini,Apis,Apis,mellifera,Female,0.0601,0.038672,0.021428,4.619,16.655,76.929445
-BEE,ALLO-AUS-328,Australasia,Australia,MAREE,MarcelloREF056,-17.02,145.34,0,14/8/17,Mango,Hand,Apoidea,Apidae,Apinae,Apini,Apis,Apis,mellifera,Female,0.0602,0.038672,0.021528,4.335,16.003,69.373005
+BEE,ALLO-AUS-327,Australasia,Australia,MAREE,CetinecREF043,-16.99,145.46,0,14/8/17,Mango,Hand,Apoidea,Apidae,Apinae,Apini,Apis,Apis,melliferaA,Female,0.0601,0.038672,0.021428,4.619,16.655,76.929445
+BEE,ALLO-AUS-328,Australasia,Australia,MAREE,MarcelloREF056,-17.02,145.34,0,14/8/17,Mango,Hand,Apoidea,Apidae,Apinae,Apini,Apis,Apis,melliferaA,Female,0.0602,0.038672,0.021528,4.335,16.003,69.373005
 BEE,ALLO-AUS-329,Australasia,Australia,MAREE,MarcelloREF055,-17.02,145.34,0,14/8/17,Mango,Hand,Apoidea,Apidae,Xylocopinae,Allodapini,Braunsapis,Braunsapis,brasp1,Female,0.0393,0.038672,0.000628,1.798,8.006,14.394788
 BEE,ALLO-AUS-330,Australasia,Australia,MAREE,MoroREF009,-16.9,145.43,0,9/8/17,Mango,Hand,Apoidea,Halictidae,Halictinae,Halictini,Lasioglossum,Chilalictus,lassp5,Female,0.0434,0.038672,0.004728,2.684,10.842,29.099928
 BEE,ALLO-AUS-331,Australasia,Australia,MAREE,FeelyREF052,-16.99,145.37,0,14/8/17,Mango,Hand,Apoidea,Apidae,Apinae,Meliponini,Tetragonula,Tetragonula,carbonaria,Female,0.0415,0.038672,0.002828,2.041,6.488,13.242008
@@ -606,11 +606,11 @@ BEE,ALLO-AUS-362,Australasia,Australia,STANT,StanthorpeAPPLE116_2017,-28.54,151.
 BEE,ALLO-AUS-363,Australasia,Australia,STANT,StanthorpeAPPLE115_2017,-28.52,151.9,0,10/10/17,Apple,Hand,Apoidea,Halictidae,Halictinae,Halictini,Lasioglossum,Chilalictus,lanarium,Female,0.0472,0.038672,0.008528,2.981,11.826,35.253306
 BEE,ALLO-AUS-364,Australasia,Australia,STANT,StanthorpeAPPLE060_2017,-28.51,151.86,0,4/10/17,Apple,Hand,Apoidea,Halictidae,Halictinae,Halictini,Lasioglossum,Chilalictus,lanarium,Female,0.0475,0.038672,0.008828,2.922,12.401,36.235722
 BEE,ALLO-AUS-365,Australasia,Australia,STANT,StanthorpeAPPLE064_2017,-28.54,151.96,0,6/10/17,Apple,Hand,Apoidea,Halictidae,Halictinae,Halictini,Lasioglossum,Chilalictus,lanarium,Male,0.0731,0.067166,0.005934,2.595,13.511,35.061045
-BEE,ALLO-AUS-366,Australasia,Australia,STANT,StanthorpeAPPLE078_2017,-28.53,151.91,0,5/10/17,Apple,Hand,Apoidea,Apidae,Apinae,Apini,Apis,Apis,mellifera,Female,0.0565,0.038672,0.017828,4.241,15.537,65.892417
-BEE,ALLO-AUS-367,Australasia,Australia,STANT,StanthorpeAPPLE020_2017,-28.51,151.88,0,26/9/17,Apple,Hand,Apoidea,Apidae,Apinae,Apini,Apis,Apis,mellifera,Female,0.063,0.038672,0.024328,4.837,16.964,82.054868
+BEE,ALLO-AUS-366,Australasia,Australia,STANT,StanthorpeAPPLE078_2017,-28.53,151.91,0,5/10/17,Apple,Hand,Apoidea,Apidae,Apinae,Apini,Apis,Apis,melliferaA,Female,0.0565,0.038672,0.017828,4.241,15.537,65.892417
+BEE,ALLO-AUS-367,Australasia,Australia,STANT,StanthorpeAPPLE020_2017,-28.51,151.88,0,26/9/17,Apple,Hand,Apoidea,Apidae,Apinae,Apini,Apis,Apis,melliferaA,Female,0.063,0.038672,0.024328,4.837,16.964,82.054868
 BEE,ALLO-AUS-368,Australasia,Australia,STANT,StanthorpeAPPLE114_2017,-28.54,151.96,0,10/10/17,Apple,Hand,Apoidea,Apidae,Xylocopinae,Xylocopini,Xylocopa,Lestis,bombylans,Female,0.1857,0.067166,0.118534,7.838,25.83,202.45554
 BEE,ALLO-AUS-369,Australasia,Australia,STANT,StanthorpeAPPLE019_2017,-28.51,151.88,0,26/9/17,Apple,Hand,Apoidea,Megachilidae,Megachilinae,Megachilini,Megachile,Unplaced,megsp4,Female,0.0627,0.038672,0.024028,4.319,16.02,69.19038
-BEE,ALLO-AUS-370,Australasia,Australia,MAREE,MareebaMoro,-16.9,145.43,0,10/8/17,Mango,Hand,Apoidea,Apidae,Apinae,Apini,Apis,Apis,mellifera,Female,0.0565,0.038672,0.017828,4.288,14.906,63.916928
+BEE,ALLO-AUS-370,Australasia,Australia,MAREE,MareebaMoro,-16.9,145.43,0,10/8/17,Mango,Hand,Apoidea,Apidae,Apinae,Apini,Apis,Apis,melliferaA,Female,0.0565,0.038672,0.017828,4.288,14.906,63.916928
 BEE,ALLO-AUS-371,Australasia,Australia,MAREE,MareebaMoro,-16.9,145.43,0,10/8/17,Mango,Hand,Apoidea,Apidae,Apinae,Apini,Apis,Apis,cerana,Female,0.0504,0.038672,0.011728,3.676,14.254,52.397704
 BEE,ALLO-AUS-372,Australasia,Australia,MAREE,MareebaMoro,-16.9,145.43,0,10/8/17,Mango,Hand,Apoidea,Apidae,Apinae,Apini,Apis,Apis,cerana,Female,0.0495,0.038672,0.010828,3.553,13.8,49.0314
 BEE,ALLO-AUS-373,Australasia,Australia,MAREE,MareebaMoro,-16.9,145.43,0,10/8/17,Mango,Hand,Apoidea,Apidae,Apinae,Apini,Apis,Apis,cerana,Female,0.0808,0.067166,0.013634,3.473,14.304,49.677792
@@ -622,7 +622,6 @@ BEE,ALLO-AUS-378,Australasia,Australia,KATHE,KatherineWM045_2017,-14.56,132.48,0
 BEE,ALLO-AUS-379,Australasia,Australia,KATHE,KatherineWM047_2017,-14.56,132.48,0,31/7/17,Watermelon,Hand,Apoidea,Apidae,Apinae,Meliponini,Tetragonula,Tetragonula,mellipes,Female,0.0412,0.038672,0.002528,1.783,6.519,11.623377
 BEE,ALLO-AUS-396,Australasia,Australia,KATHE,KatherineWM057_2017,-14.56,132.48,0,31/7/17,Watermelon,Hand,Apoidea,Apidae,Apinae,Meliponini,Tetragonula,Tetragonula,mellipes,Female,0.0396,0.038672,0.000928,1.873,5.712,10.698576
 BEE,ALLO-AUS-397,Australasia,Australia,KATHE,KatherineWM052_2017,-14.56,132.48,0,31/7/17,Watermelon,Hand,Apoidea,Apidae,Apinae,Meliponini,Tetragonula,Tetragonula,mellipes,Female,0.0398,0.038672,0.001128,1.793,6.145,11.017985
-BEE,ALLO-AUS-401,Australasia,Australia,KATHE,KatherineWM082_2017,-14.56,132.48,0,3/8/17,Watermelon,Hand,Apoidea,Colletidae,Euryglossinae,NA,NA,NA,eursp1,Male,0.003,0.002668,0.000332,1.083,5.878,6.365874
 BEE,ALLO-AUS-402,Australasia,Australia,KATHE,KatherineWM066_2017,-14.54,132.13,0,1/8/17,Watermelon,Hand,Apoidea,Halictidae,Halictinae,Halictini,Homalictus,Homalictus,urbanus,Female,0.0036,0.002668,0.000932,1.583,7.279,11.522657
 BEE,ALLO-AUS-403,Australasia,Australia,KATHE,KatherineWM081_2017,-14.56,132.48,0,3/8/17,Watermelon,Hand,Apoidea,Halictidae,Halictinae,Halictini,Homalictus,Homalictus,urbanus,Female,0.0035,0.002668,0.000832,1.435,6.218,8.92283
 BEE,ALLO-AUS-404,Australasia,Australia,KATHE,KatherineWM021_2017,-14.53,132.46,0,28/7/17,Watermelon,Hand,Apoidea,Halictidae,Halictinae,Halictini,Homalictus,Homalictus,urbanus,Male,0.0032,0.002668,0.000532,1.252,5.795,7.25534
@@ -1791,24 +1790,24 @@ BEE,ALLO-GER-898,Europe,Germany,Opferbaum4,Opferbaum4,10.086428,49.909314,NA,17/
 BEE,ALLO-GER-899,Europe,Germany,Rieden1,Rieden1,10.040881,49.937356,NA,17/5/17,NA,Pan_trap,Apoidea,Halictidae,Halictinae,Halictini,Halictus,NA,NA,Female,0.0457,0.036904,0.008796,2.462,13.533,33.318246
 BEE,ALLO-GER-900,Europe,Germany,Prosselsheim3,Prosselsheim3,10.1095,49.861344,NA,17/5/17,NA,Pan_trap,Apoidea,Halictidae,Halictinae,Halictini,Halictus,NA,NA,Female,0.0386,0.036904,0.001696,1.511,8.739,13.204629
 BEE,Cane_1987_1,NorthAmerica,USA,NA,NA,NA,NA,NA,1/1/87,NA,Museum,Apoidea,Halictidae,Halictinae,Halictini,Lasioglossum,Dialictus,versatus,Female,NA,NA,0.002727,1.3232,NA,NA
-BEE,Cane_1987_2,NorthAmerica,USA,NA,NA,NA,NA,NA,2/1/87,NA,Museum,Apoidea,Andrenidae,Panurginae,Perditini,Perdita,NA,coreopsidis,Female,NA,NA,0.004548,1.4785,NA,NA
-BEE,Cane_1987_3,NorthAmerica,USA,NA,NA,NA,NA,NA,3/1/87,NA,Museum,Apoidea,Colletidae,Colletinae,Halictina?,Hylaeus,NA,rugulosus,Female,NA,NA,0.005284,1.6889,NA,NA
-BEE,Cane_1987_4,NorthAmerica,USA,NA,NA,NA,NA,NA,4/1/87,NA,Museum,Apoidea,Andrenidae,Panurginae,Calliopsini,Calliopsis,NA,andreniformis,Female,NA,NA,0.005821,1.5332,NA,NA
-BEE,Cane_1987_5,NorthAmerica,USA,NA,NA,NA,NA,NA,5/1/87,NA,Museum,Apoidea,Halictidae,Rophitinae,Rophitini,Dufourea,NA,marginata,Female,NA,NA,0.005821,1.5332,NA,NA
-BEE,Cane_1987_6,NorthAmerica,USA,NA,NA,NA,NA,NA,6/1/87,NA,Museum,Apoidea,Apidae,Apinae,Exomalopsini,Exomalopsis,NA,solani,Female,NA,NA,0.008554,1.7707,NA,NA
-BEE,Cane_1987_7,NorthAmerica,USA,NA,NA,NA,NA,NA,7/1/87,NA,Museum,Apoidea,Halictidae,Halictinae,Augochlorini,Augochlora,NA,pura,Female,NA,NA,0.011462,1.8709,NA,NA
-BEE,Cane_1987_8,NorthAmerica,USA,NA,NA,NA,NA,NA,8/1/87,NA,Museum,Apoidea,Melittidae,Dasypodainae,Hesperapini,Hesperapis,NA,carinata,Female,NA,NA,0.014588,2.7399,NA,NA
-BEE,Cane_1987_9,NorthAmerica,USA,NA,NA,NA,NA,NA,9/1/87,NA,Museum,Apoidea,Apidae,Nomadinae,Epeolini,Triepeolus,NA,verbesinae,Female,NA,NA,0.016566,2.3826,NA,NA
-BEE,Cane_1987_10,NorthAmerica,USA,NA,NA,NA,NA,NA,10/1/87,NA,Museum,Apoidea,Megachilidae,Megachilinae,Anthidiini,Anthidiellum,NA,notatum,Female,NA,NA,0.017091,2.116,NA,NA
-BEE,Cane_1987_11,NorthAmerica,USA,NA,NA,NA,NA,NA,11/1/87,NA,Museum,Apoidea,Apidae,Apinae,Emphorini,Diadasia,NA,olivaceae,Female,NA,NA,0.018564,2.4189,NA,NA
-BEE,Cane_1987_12,NorthAmerica,USA,NA,NA,NA,NA,NA,12/1/87,NA,Museum,Apoidea,Andrenidae,Andreninae,Andrenini,Andrena,NA,accepta,Female,NA,NA,0.026202,2.8021,NA,NA
-BEE,Cane_1987_13,NorthAmerica,USA,NA,NA,NA,NA,NA,13/1/87,NA,Museum,Apoidea,Apidae,Apinae,Emphorini,Diadasia,NA,rinconis,Female,NA,NA,0.028385,2.9207,NA,NA
-BEE,Cane_1987_14,NorthAmerica,USA,NA,NA,NA,NA,NA,14/1/87,NA,Museum,Apoidea,Halictidae,Nomiinae,Nomiini,Nomia,NA,melanderi,Female,NA,NA,0.035861,2.497,NA,NA
-BEE,Cane_1987_15,NorthAmerica,USA,NA,NA,NA,NA,NA,15/1/87,NA,Museum,Apoidea,Apidae,Apinae,Eucerini,Melissodea,NA,agilis,Female,NA,NA,0.031122,3.2497,NA,NA
-BEE,Cane_1987_16,NorthAmerica,USA,NA,NA,NA,NA,NA,16/1/87,NA,Museum,Apoidea,Apidae,Apinae,Anthophorini,Anthophora,NA,urbana,Female,NA,NA,0.039834,3.3124,NA,NA
-BEE,Cane_1987_17,NorthAmerica,USA,NA,NA,NA,NA,NA,17/1/87,NA,Museum,Apoidea,Colletidae,Colletinae,Colletini,Colletes,NA,inaequalis,Female,NA,NA,0.040561,3.307,NA,NA
-BEE,Cane_1987_18,NorthAmerica,USA,NA,NA,NA,NA,NA,18/1/87,NA,Museum,Apoidea,Megachilidae,Megachilinae,Megachilini,Megachile,NA,texana,Female,NA,NA,0.041847,3.6873,NA,NA
-BEE,Cane_1987_19,NorthAmerica,USA,NA,NA,NA,NA,NA,19/1/87,NA,Museum,Apoidea,Apidae,Apinae,Centridini,Centris,NA,atripes,Female,NA,NA,0.052207,4.0608,NA,NA
-BEE,Cane_1987_20,NorthAmerica,USA,NA,NA,NA,NA,NA,20/1/87,NA,Museum,Apoidea,Andrenidae,Oxaeinae,NA,Protoxaea,NA,gloriosa,Female,NA,NA,0.097606,4.9412,NA,NA
-BEE,Cane_1987_21,NorthAmerica,USA,NA,NA,NA,NA,NA,21/1/87,NA,Museum,Apoidea,Apidae,Xylocopinae,Xylocopinini,Xylocopa,NA,micans,Female,NA,NA,0.151718,5.9118,NA,NA
-BEE,Cane_1987_22,NorthAmerica,USA,NA,NA,NA,NA,NA,22/1/87,NA,Museum,Apoidea,Apidae,Xylocopinae,Xylocopinini,Xylocopa,NA,virginica,Female,NA,NA,0.188354,5.6496,NA,NA
+BEE,Cane_1987_2,NorthAmerica,USA,NA,NA,NA,NA,NA,2/1/87,NA,Museum,Apoidea,Andrenidae,Panurginae,Perditini,Perdita,,coreopsidis,Female,NA,NA,0.004548,1.4785,NA,NA
+BEE,Cane_1987_3,NorthAmerica,USA,NA,NA,NA,NA,NA,3/1/87,NA,Museum,Apoidea,Colletidae,Colletinae,Halictina,Hylaeus,,rugulosus,Female,NA,NA,0.005284,1.6889,NA,NA
+BEE,Cane_1987_4,NorthAmerica,USA,NA,NA,NA,NA,NA,4/1/87,NA,Museum,Apoidea,Andrenidae,Panurginae,Calliopsini,Calliopsis,,andreniformis,Female,NA,NA,0.005821,1.5332,NA,NA
+BEE,Cane_1987_5,NorthAmerica,USA,NA,NA,NA,NA,NA,5/1/87,NA,Museum,Apoidea,Halictidae,Rophitinae,Rophitini,Dufourea,,marginata,Female,NA,NA,0.005821,1.5332,NA,NA
+BEE,Cane_1987_6,NorthAmerica,USA,NA,NA,NA,NA,NA,6/1/87,NA,Museum,Apoidea,Apidae,Apinae,Exomalopsini,Exomalopsis,,solani,Female,NA,NA,0.008554,1.7707,NA,NA
+BEE,Cane_1987_7,NorthAmerica,USA,NA,NA,NA,NA,NA,7/1/87,NA,Museum,Apoidea,Halictidae,Halictinae,Augochlorini,Augochlora,,pura,Female,NA,NA,0.011462,1.8709,NA,NA
+BEE,Cane_1987_8,NorthAmerica,USA,NA,NA,NA,NA,NA,8/1/87,NA,Museum,Apoidea,Melittidae,Dasypodainae,Hesperapini,Hesperapis,,carinata,Female,NA,NA,0.014588,2.7399,NA,NA
+BEE,Cane_1987_9,NorthAmerica,USA,NA,NA,NA,NA,NA,9/1/87,NA,Museum,Apoidea,Apidae,Nomadinae,Epeolini,Triepeolus,,verbesinae,Female,NA,NA,0.016566,2.3826,NA,NA
+BEE,Cane_1987_10,NorthAmerica,USA,NA,NA,NA,NA,NA,10/1/87,NA,Museum,Apoidea,Megachilidae,Megachilinae,Anthidiini,Anthidiellum,,notatum,Female,NA,NA,0.017091,2.116,NA,NA
+BEE,Cane_1987_11,NorthAmerica,USA,NA,NA,NA,NA,NA,11/1/87,NA,Museum,Apoidea,Apidae,Apinae,Emphorini,Diadasia,,olivaceae,Female,NA,NA,0.018564,2.4189,NA,NA
+BEE,Cane_1987_12,NorthAmerica,USA,NA,NA,NA,NA,NA,12/1/87,NA,Museum,Apoidea,Andrenidae,Andreninae,Andrenini,Andrena,,accepta,Female,NA,NA,0.026202,2.8021,NA,NA
+BEE,Cane_1987_13,NorthAmerica,USA,NA,NA,NA,NA,NA,13/1/87,NA,Museum,Apoidea,Apidae,Apinae,Emphorini,Diadasia,,rinconis,Female,NA,NA,0.028385,2.9207,NA,NA
+BEE,Cane_1987_14,NorthAmerica,USA,NA,NA,NA,NA,NA,14/1/87,NA,Museum,Apoidea,Halictidae,Nomiinae,Nomiini,Nomia,,melanderi,Female,NA,NA,0.035861,2.497,NA,NA
+BEE,Cane_1987_15,NorthAmerica,USA,NA,NA,NA,NA,NA,15/1/87,NA,Museum,Apoidea,Apidae,Apinae,Eucerini,Melissodea,,agilis,Female,NA,NA,0.031122,3.2497,NA,NA
+BEE,Cane_1987_16,NorthAmerica,USA,NA,NA,NA,NA,NA,16/1/87,NA,Museum,Apoidea,Apidae,Apinae,Anthophorini,Anthophora,,urbana,Female,NA,NA,0.039834,3.3124,NA,NA
+BEE,Cane_1987_17,NorthAmerica,USA,NA,NA,NA,NA,NA,17/1/87,NA,Museum,Apoidea,Colletidae,Colletinae,Colletini,Colletes,,inaequalis,Female,NA,NA,0.040561,3.307,NA,NA
+BEE,Cane_1987_18,NorthAmerica,USA,NA,NA,NA,NA,NA,18/1/87,NA,Museum,Apoidea,Megachilidae,Megachilinae,Megachilini,Megachile,,texana,Female,NA,NA,0.041847,3.6873,NA,NA
+BEE,Cane_1987_19,NorthAmerica,USA,NA,NA,NA,NA,NA,19/1/87,NA,Museum,Apoidea,Apidae,Apinae,Centridini,Centris,,atripes,Female,NA,NA,0.052207,4.0608,NA,NA
+BEE,Cane_1987_20,NorthAmerica,USA,NA,NA,NA,NA,NA,20/1/87,NA,Museum,Apoidea,Andrenidae,Oxaeinae,NA,Protoxaea,,gloriosa,Female,NA,NA,0.097606,4.9412,NA,NA
+BEE,Cane_1987_21,NorthAmerica,USA,NA,NA,NA,NA,NA,21/1/87,NA,Museum,Apoidea,Apidae,Xylocopinae,Xylocopini,Xylocopa,,micans,Female,NA,NA,0.151718,5.9118,NA,NA
+BEE,Cane_1987_22,NorthAmerica,USA,NA,NA,NA,NA,NA,22/1/87,NA,Museum,Apoidea,Apidae,Xylocopinae,Xylocopini,Xylocopa,,virginica,Female,NA,NA,0.188354,5.6496,NA,NA

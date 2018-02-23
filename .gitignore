@@ -5,3 +5,5 @@
 *.pdf
 *.xls
 /raw_data
+trees.nexus
+trees.tre

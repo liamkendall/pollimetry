@@ -20,8 +20,6 @@
 #' @references 
 #' @export
 
-library(broom) #ADD to DEPENDENCIES
-
 beebody <- function(IT, Country = NULL, Family = NULL, Latitude = NULL, Sex = NULL, data = bee_train){
   if(data = bee_train){
     load(bee_train)
@@ -29,7 +27,7 @@ beebody <- function(IT, Country = NULL, Family = NULL, Latitude = NULL, Sex = NU
     load(bee_all)
   } #Think more about this, and how much flexibility we give.
   if(any(!Country %in% c("Australia", #need to allow NULL
-                  "Spain", 
+                  "Spain",
                   "Britain",
                   "Ireland", 
                   "Germany",

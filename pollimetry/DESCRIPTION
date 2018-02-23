@@ -1,14 +1,20 @@
-Package: polimetry
+Package: pollimetry
 Type: Package
-Title: Tools to estimate pollinators body size and foraging distance
+Title: Tools to estimate pollinator body size and foraging distance
 Version: 0.1
 Date: 2018-02-20
-Author: Liam ... & Ignasi Bartomeus <nacho.bartomeus@gmail.com>
-Maintainer: Who to complain to <yourfault@somewhere.net>
-Description: More about what it does (maybe more than one line)
+Author: c(Authors@R: person("Liam", "Kendall", email = "liam.k.kendall@gmail.com",role=c("aut","cre"),
+                     person("Ignasi","Bartomeus", email = "nacho.bartomeus@gmail.com",role="aut"))
+
+Description: Tools to estimate pollinator body size and foraging distance. This package combines novel (described i Knendall et al. XXXXX) as well pre-existing predictive allometries for pollinator body size and foraging distance.
+Pre-existing equations are implemented for a variety of Diptera, Lepidoptera and Hymenoptera taxa.
+
 Depends:
   R (>= 3.0.0)
 Imports:
- 
+ MuMIn,
+ broom
+Suggests:
+caret
 License: GPL (>= 2)
 RoxygenNote: 6.0.1

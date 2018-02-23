@@ -7,26 +7,34 @@ library(arm)
 library(ape)
 require(phylobase)
 
-??read.tre
-ptm = proc.time()
-bee.phy=read.tre(file="trees.nexus")
-proc.time() - ptm
-
-require("phytools")
-t <- file.choose()
-tree<- read.tree (t)
-class(tree)<-"multiPhylo"
-plot(tree)
+##Need to decide how far to go with this for IT/WGT and foraging distance
 
 
+bee.phy=read.tree(file="raw_data/Bee_phylogeny_Hedtke_etal2013/12862_2013_2375_MOESM3_ESM.txt",keep.multi = TRUE)
+##Use tree 1 (376 genera) #Genera-level phylogney
+bee.phy_1=bee.phy[[1]]
+bee.phy_1=as.phylo(bee.phy_1)
 
-bee.phy=read.tree(file="12862_2013_2375_MOESM1_ESM.txt")
+multiphylo(bee.phy)
 
-bee.phy$'2'
-str(PredAllo.split)
+
+##In Sydenham et al 2018
+#We manually placed the remaining 317 species at the nodes of their respective genera,
+#so their positions in the phylogeny were resolved to the genus level, without branch 
+#length information at the intra-genus level.
+
+
+require("phangorn")
+tree7<- read.tree("raw_data/Bee_phylogeny_Hedtke_etal2013/12862_2013_2375_MOESM1_ESM.phy")
+
+str(tree7)
+plot(tree7[[24]])
+write.tree(mccA, file="mccA")
+
+mccA<- read.nexus ("mccA.nexus")
+plot(mccA)
 
 ##Method 1
-h
 
 bee.phy
 

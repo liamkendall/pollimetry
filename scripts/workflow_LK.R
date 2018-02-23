@@ -95,7 +95,7 @@ par(mfrow=c(1,1))
 table(bee_mean$Country)
 
 ##log weight and IT
-bee_mean[,c("Spec.wgt","IT")] <- log(bee_mean[,c("Spec.wgt","IT")])
+#bee_mean[,c("Spec.wgt","IT")] <- log(bee_mean[,c("Spec.wgt","IT")])
 
 plot(bee_mean$IT~bee_mean$Spec.wgt,col=bee_mean$Country)
 
@@ -183,7 +183,7 @@ bee_coef=lapply(bee_dr_mods[1:3],function (x) tidy(x))
 summary(bee_dr_mods[1]$`112`) #Rsq 0.9293 not bad
 summary(bee_dr_mods[2]$`1136`)
 summary(bee_dr_mods[3]$`128`)
-
+  
 table(bee$Family)
 ##File that will be updated - not sure about naming convention out of dredge
 bee_model=tidy(bee_dr_mods[1]$`112`)
@@ -203,7 +203,11 @@ Country + Family + IT + Latitude + Sex
 dummy=sample(seq_len(nrow(bee_mean)), size = floor(0.8 * nrow(bee_mean)))
 bee_test <- bee_mean[-dummy, ]
 bee_train <- bee_mean[dummy, ]
-bee_mean$Dataset=
+
+#I would save test train and all.
+save(bee_train,file =  "pollimetry/data/bee_train.rda")
+...
+
 
 bee_test_mod=lm(formula = Spec.wgt ~ Country + Family + IT + Latitude + Sex + 
     Country:IT, data = bee_train)
@@ -316,3 +320,21 @@ cbind2(coef.exact, coef.apprx)
 cvfit = cv.glmnet( train_sparse,bee_train$Spec.wgt, type.measure = "mse", nfolds = 20)
 cvfit
 
+
+#To DO:
+
+#- data_prep file: loads original from github data and creates 3 rda's train test and all in the package.
+#- analysis script for selecting best model...
+#- help files for data (.rda's and .R)
+#- make a wrapper to other existing equations (1 R file)
+
+
+#main analysis: 
+  #confunding factors
+  #explain best model at mean level?
+  #justify sample size to acccurate mean?
+  #discuss PGLS and phylo signal?
+
+#- replicate all for hoverflies and foraging distances
+
+#- Extra weigth flies Monday.

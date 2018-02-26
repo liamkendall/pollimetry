@@ -1,172 +1,230 @@
-#workflow
 
-###Issues / Things to do
-#Need latitude for Spanish samples (Assume no pres.time) - Set to Seville latitude
 
-#Assess the inluence confounding variables (remove col.method) in part == Pres.time
+#################
+##MAIN ANALYSES##
+#################
 
-##Work flow
+#To DO:
 
-##Use species mean for simplicity
+###I THINK we need a way to determine if climate or sampling bias important
+## - assessing if climate is gradient fits hypothesis
+## whats the hypothesis?
 
-#####Models
+#DONE - Need to change for HOV -data_prep file: loads original from github data and creates 3 rda's train test and all in the package.
+#- analysis script for selecting best model...
+#DONE dredge with and without preservative time
+#DONE Select top five models
+#NEED TO TABULATE
 
-#Remove collection method
+#STARTED- help files for data (.rda's and .R) - DONE 6 files (3 bee, 3 hoverfly)) - RE-DO Data prep to match
 
-#dredge with and without and compare coefficients
+#DONE- make a wrapper to other existing equations (1 R file)
 
-#Training set - Check species
+#DONE- Check species in more than one region/country
 
-#fit model (with and without pres.time)
+#main analysis: 
+################
+##WORKFLOW ONE##
+################
 
-#With country / region
+#confounding factors 
+#explain best model at mean level?
 
-#extract co-efficients (with and without pres.time)
+################
+##WORKFLOW TWO##
+################
 
-####working function
+#justify sample size to acccurate mean?
 
-#-one column w/ pres, one column wout pres.
+##################
+##WORKFLOW THREE##
+##################
 
-#Run test set through functions old and new
-  
-#add country - region
+#discuss PGLS and phylo signal?
+
+##NEXT
+#- replicate all for hoverflies and foraging distances
+
+#- Extra weigth flies Monday.
+
+##DONE## Need latitude for Spanish samples (Assume no pres.time) - Set to Seville latitude
+
+##DONE## Assess the inluence confounding variables (removed collection method) 
+        #Lets keep preservative time in a model BOOM
+
+##DONE #Use species mean for simplicity
+        #Mean data frame returned species means for each species
+        #in each climate zone and sex and region
+
+##REMOVED 4 specimens from australia sample
+        #unique climate zone for bees, only preserved hoverfly) 
 
 #libraries
 require(MuMIn)
 require(broom)
 require(caret)
 
-#########Bee workflow
+####QUICK DIAGNOSTICS FOR BEES AND HOVERFLIES
 
-##Diagnostic plots
-plot(Spec.wgt~IT,bee)
+##BEES
+plot(log(Spec.wgt)~log(IT),bee_mean,col=Climate)
+par(pty="s")
 par(mfrow=c(2,2))
-plot(lm(Spec.wgt~IT,bee))
+plot(lm(Spec.wgt~IT,bee_mean))
+plot(lm(log(Spec.wgt)~log(IT),bee_mean))
 
-plot(lm(log(Spec.wgt)~log(IT),bee))
+##HOVERFLIES
+par(mfrow=c(1,1))
+plot(hov_mean$Spec.wgt,hov_mean$IT,col=hov_mean$Region)
+plot(log(Spec.wgt)~log(IT),data=hov_mean[-40,],col=Region)
 
-#Kinda makes sense to use species means
-#because australasia has a massive signal by sample size/species
+#Check outlier
+hov_mean[ which(log(hov_mean$Spec.wgt)  < -6.25), ]
 
+par(mfrow=c(2,2))
+plot(lm(Spec.wgt~IT,hov_mean[-40,]))
+plot(lm(log(Spec.wgt)~log(IT),hov_mean[-40,]))
 
-#SKIPPED
-##Latitude (*-1 for australasia) 
-#bee_2=split(bee,bee$Region)
-#bee_2$Australasia$Latitude=bee_2$Australasia$Latitude*-1
-#bee=rbind.data.frame(bee_2$Australasia,bee_2$Europe)
-#Maybe not? Check.
+##########
+###BEES###
+##########
 
-#boxplot(bee$Latitude~bee$Region)
-
-#One check how many specimens needed to stabilize mean and variance----
-
+#####Models
+#dredge with and without preservative time and compare coefficients / AIC / BIC
 #############
 
-#Make a full model IT-length ----
+##Added interaction between climate and latitude
 
-#WITH COUNTRY
+###
+#1# Full model - with preservative time
+###
 
-#1. #Full model - w/ pres.time
 options(na.action = "na.omit") 
 
-bee.full=lm(log(Spec.wgt) ~ log(IT) + Latitude + Sex + Family + Country + Pres.time #fix
-              + log(IT):Latitude + log(IT):Sex + log(IT):Country + #interactions
+bee.full=lm(log(Spec.wgt) ~ 0+Climate+log(IT) + Latitude + Sex +
+              Family + Pres.time #fix
+              + log(IT):Latitude + log(IT):Sex + log(IT):Climate + #interactions
               log(IT):Pres.time +
-              log(IT):Family,data=bee_mean)
+              log(IT):Family+
+              Climate:Latitude
+              ,data=bee_mean)
 
-#2. #Full model  w/out pres.time
-bee.full.np=lm(log(Spec.wgt) ~ log(IT) + Latitude + Sex + Family + Country #fix
-            + log(IT):Latitude + log(IT):Sex + log(IT):Country + #interactions
-              log(IT):Family,data=bee_mean)
+###
+#2# Full model  without preservative time
+###
 
-summary(bee.full.np)
+bee.reduced=lm(log(Spec.wgt) ~ 0 + Climate + 
+                 +log(IT) +Latitude +Sex + Family +  #fix
+                 log(IT):Latitude + log(IT):Sex + log(IT):Climate + #interactions
+                 log(IT):Family+
+                 Climate:Latitude,data=bee_mean)
 
-#Sex... ignore and pool or have a mean for female and a mean for male - DONE.
+summary(bee.reduced)
 
-#Same for method - DONE - REMOVED 22-2. I would ignore pres time.
-
-#Check all species have only one region.- DONE
-table(bee_mean$Species,bee_mean$Country)
-
-#Duplicates - species names in dataframe - FIXED
-#mellifera, cingulata, bicolor
-
-##lucorum and lucorum agg == lucorum ##data file 22-2
-
-#Maybe drop covariates not relevant in the first analysis?
-#took out pres. time
-
-#Option 1: dredge ()----
-##I think AICc is good, because simple/parsimonous = better
+##########
+##dredge##
+##########
 
 options(na.action = "na.fail")
 
-#Full model - w pres.time
+###
+#1# Full model - w pres.time
+###
 
-bee_dr=dredge(bee.full,beta="none",rank="AIC",trace=100) #think about "sd" and "AICc". AIC show same pattern.
-head(bee_dr)
-bee_dr[1:10]
-
-#Preservative time is in second best model at 0.0004 (+) per day
-
-#Full model - w/out pres.time
-bee_dr.np=dredge(bee.full.np,beta="none",rank="AIC",trace=100)
-head(bee_dr.np)
-
-##WIth AICc  - Same again
-bee_dr_Cc=dredge(bee.full,beta="none",rank="AICc",trace=100) #think about "sd" and "AICc". AIC show same pattern.
+bee_dr=dredge(bee.full,beta="none",rank="AIC",
+              trace=100) #think about "sd" and "AICc". AIC show same pattern.
 head(bee_dr)
 
-##Top models are the same... 
+##AIC 58.1
 
-#Tabulate dredge Top 5 w. pres.time (as same without)
+#Preservative time is in best model at 0.0004 (+) per day
+
+#Reduced model without preservative time
+
+bee_dr_reduced=dredge(bee.reduced,beta="none",rank="AIC",trace=100)
+head(bee_dr_reduced)
+
+##AIC 76.3
+
+76.3-58.1
+
+##AIC distance of 18.2 (58.1 with pres.time, 76.3 without)##
+
+##May this would be useful as a function
+#    = with or without preservation time - as it is very commom
 
 ###Extract coefficients
+
+##WITH PRESERVATIVE TIME##
+
 bee_dr_mods=get.models(bee_dr[1:5],subset=TRUE)
-
-
-#Retrieve the estimates (package broom)----
-
 bee_coef=lapply(bee_dr_mods[1:5],function (x) tidy(x))
 
-#For top five models
-summary(bee_dr_mods[1]$`112`) #Rsq 0.9293 not bad
-summary(bee_dr_mods[2]$`1136`) #Rsq 0.9291
-summary(bee_dr_mods[3]$`128`) #Rsq 0.9291
-summary(bee_dr_mods[4]$`368`) #0.9291 
-summary(bee_dr_mods[5]$`240`) #0.9302 
+bee_pres=bee_mean$Pres.time*-0.005564608
+##WITHOUT PRESERVATIVE TIME##
 
-##File that will be updated - not sure about naming convention out of dredge
-bee_model=tidy(bee_dr_mods[1]$`112`)
-rownames(bee_model)=bee_model[,1]
-bee_model
-bee_dr_mods[1]$`112`
+bee_reduced_mods=get.models(bee_dr_reduced[1:5],subset=TRUE)
+bee_reduced_coef=lapply(bee_reduced_mods[1:5],function (x) tidy(x))
 
-bee_mod_int=lm(formula = log(Spec.wgt) ~ 0+Country + Family + log(IT) + Latitude + Sex + 
-     Country:log(IT), data = bee_mean)
-bee_mod=tidy(summary(bee_mod_int))
+bee_models=c(bee_coef,bee_reduced_coef)
+names(bee_models)=c("P1","P2","P3","P4","P5", "R1","R2","R3","R4","R5")
 
-#To DO:
+##File that will be updated
 
-#- DONE - Need to change for HOV -data_prep file: loads original from github data and creates 3 rda's train test and all in the package.
-#- analysis script for selecting best model...
-    #DONE dredge with and without preservative time
-    #DONE Select top five models
-    #NEED TO TABULATE
-    #Would model averaging be good here?
 
-#- help files for data (.rda's and .R) - DONE 6 files (3 bee, 3 hoverfly)) - RE-DO Data prep to match
+#WITH PRESERVATIVE TIME
+bee_models$P1
 
-#- make a wrapper to other existing equations (1 R file)
+#WITHOUT PRESERVATIVE TIME
+bee_models$R1
 
-#- Check species in more than one region/country
+################
+###HOVERFLIES###
+################
 
-#main analysis: 
-  #confounding factors 
-  #explain best model at mean level?
-  #justify sample size to acccurate mean?
-  #discuss PGLS and phylo signal?
+##Added interaction between climate and latitude
 
-#- replicate all for hoverflies and foraging distances
+###
+#1# Full model - with preservative time
+###
 
-#- Extra weigth flies Monday.
+options(na.action = "na.omit") 
+
+hov.full=lm(log(Spec.wgt) ~ log(IT) + Climate + Latitude + Sex + Subfamily+ #fix
+              log(IT):Latitude + log(IT):Sex + log(IT):Climate + #interactions
+              log(IT):Subfamily+
+              Climate:Latitude
+            ,data=hov_mean)
+
+table(bee_mean$Climate, bee_mean$Region)
+
+##########
+##dredge##
+##########
+
+options(na.action = "na.fail")
+
+hov_dr=dredge(hov.full,beta="none",rank="AIC",
+              trace=100) #think about "sd" and "AICc". AIC show same pattern.
+
+##AIC 85.5
+
+
+##May this would be useful as a function
+#    = with or without preservation time - as it is very commom
+
+###Extract coefficients
+
+hov_dr_mods=get.models(hov_dr[1:5],subset=TRUE)
+hov_coefs=lapply(hov_dr_mods[1:5],function (x) tidy(x))
+
+
+names(hov_coefs)=c(rep(1:5,1))
+
+##File that will be updated
+hov_coefs$`1`
+
+ggplot(data=bee_mean,aes(IT,Spec.wgt))+
+  geom_point(aes(col=bee_mean$Climate),pch=2)+theme_bw()
+
+       

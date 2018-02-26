@@ -66,6 +66,8 @@ S93DBLW
 #Cycclorapha
 S93DCLW
 
+
+dipBL(BL,Eq="Sabo02DN")
 ------------------------------------------------------
 ##Rogers et al 1977
   
@@ -84,6 +86,8 @@ curve(R77H,add=T)
   
 R77L = function(x){exp(-4.037 + 2.903*log(x))}
 curve(R77L,add=T)
+
+R77L(c(1,2,3))
   
 #extra - Ants
   

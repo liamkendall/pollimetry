@@ -13,7 +13,8 @@ Depends:
   R (>= 3.0.0)
 Imports:
  MuMIn,
- broom
+ broom,
+ kgc
 Suggests:
 caret
 License: GPL (>= 2)

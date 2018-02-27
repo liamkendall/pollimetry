@@ -67,7 +67,15 @@ require(caret)
 ####QUICK DIAGNOSTICS FOR BEES AND HOVERFLIES
 
 ##BEES
-plot(log(Spec.wgt)~log(IT),bee_mean,col=Climate)
+head(bee_mean)
+unique(bee_mean$Species) #>150
+plot(log(Spec.wgt)~log(IT),bee_mean,col=Climate, pch = as.numeric(Region))
+#black = aus
+#red = aus
+#green = aus
+#blue = eur triangles /aus
+#ligth blue = spain
+
 par(pty="s")
 par(mfrow=c(2,2))
 plot(lm(Spec.wgt~IT,bee_mean))
@@ -101,8 +109,11 @@ plot(lm(log(Spec.wgt)~log(IT),hov_mean[-40,]))
 
 options(na.action = "na.omit") 
 
-bee.full=lm(log(Spec.wgt) ~ 0+Climate+log(IT) + Latitude + Sex +
-              Family + Pres.time #fix
+str(bee_mean)
+plot(bee_mean$Climate, bee_mean$Latitude)
+
+bee.full=lm(log(Spec.wgt) ~ 0 + Climate + log(IT) + Latitude + Sex +
+              Family + Pres.time #fix factors
               + log(IT):Latitude + log(IT):Sex + log(IT):Climate + #interactions
               log(IT):Pres.time +
               log(IT):Family+
@@ -114,11 +125,18 @@ bee.full=lm(log(Spec.wgt) ~ 0+Climate+log(IT) + Latitude + Sex +
 ###
 
 bee.reduced=lm(log(Spec.wgt) ~ 0 + Climate + 
-                 +log(IT) +Latitude +Sex + Family +  #fix
+                 +log(IT) +Latitude +Sex + Family +  #fix factors
                  log(IT):Latitude + log(IT):Sex + log(IT):Climate + #interactions
                  log(IT):Family+
                  Climate:Latitude,data=bee_mean)
 
+bee.reduced=lm(log(Spec.wgt) ~ 0 + Family + 
+                 +log(IT) +Latitude +Sex + Climate  +  #fix factors
+                 log(IT):Latitude + log(IT):Sex + log(IT):Climate + #interactions
+                 log(IT):Family+
+                 Climate:Latitude,data=bee_mean)
+
+# warning. Stats is comparing to 0, not among factors.
 summary(bee.reduced)
 
 ###
@@ -155,6 +173,26 @@ options(na.action = "na.fail")
 bee_dr=dredge(bee.full,beta="none",rank="AIC",
               trace=100) #think about "sd" and "AICc". AIC show same pattern.
 head(bee_dr)
+
+
+# What I would do:
+#1) test preservation time in AUS and decide to keep it or not. weigth ~ pres time (species) or species by species with the NON averaged dataset.
+#1.1) If pres time is imp... you correct it based in Weigth ~ a + b*prestime,
+#1.2) Then you do the means.
+#2) I would test latitude within species for secies which you have good coverage.
+#3) Test why Spain / aus bees are wrong :(
+#4) Make means and test  #sup mat when the mean stabilizes or sensitivity analysis)
+#bee.reduced=lm(log(Spec.wgt) ~ 0 + log(IT) + Climate/Region + 
+ # +Sex + Family +  #fix factors
+ # log(IT):Sex + log(IT):Climate + #interactions
+ # log(IT):Family
+ # ,data=bee_mean)
+#5) Select best model and use that one for the function.
+# you can show PGLS as sup mat here (without family then).
+#6) IN THE PACKAGE: Parametrize the function with train data and test with test data. #as extra with bootstrap.
+#7) test all other functions with test data and compare... 
+# and for Hoverflies, and for foraging distances.
+
 
 ##AIC 58.1
 

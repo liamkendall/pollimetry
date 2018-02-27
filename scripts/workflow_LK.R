@@ -121,6 +121,27 @@ bee.reduced=lm(log(Spec.wgt) ~ 0 + Climate +
 
 summary(bee.reduced)
 
+###
+#3# ##WITHOUT Latitude
+###
+bee.reduced.2=lm(log(Spec.wgt) ~ 0 + Climate + 
+                 log(IT) +Sex + Family +  #fix
+                 log(IT):Sex + log(IT):Climate + #interactions
+                 log(IT):Family,data=bee_mean)
+
+#4# ##WITHOUT Climate
+###
+bee.reduced.3=lm(log(Spec.wgt) ~ 0 + Family+
+                   +log(IT) + Sex +  #fix
+                   log(IT):Sex + #interactions
+                   log(IT):Family,data=bee_mean)
+
+#5# ##WITHOUT Family
+###
+bee.reduced.4=lm(log(Spec.wgt) ~ 0 + Climate + 
+                   +log(IT) +Sex +  #fix
+                   log(IT):Sex + log(IT):Climate #interactions
+                   ,data=bee_mean)
 ##########
 ##dredge##
 ##########
@@ -142,13 +163,12 @@ head(bee_dr)
 #Reduced model without preservative time
 
 bee_dr_reduced=dredge(bee.reduced,beta="none",rank="AIC",trace=100)
-head(bee_dr_reduced)
 
-##AIC 76.3
+bee_dr_reduced.2=dredge(bee.reduced.2,beta="none",rank="AIC",trace=100)
 
-76.3-58.1
+bee_dr_reduced.3=dredge(bee.reduced.3,beta="none",rank="AIC",trace=100)
 
-##AIC distance of 18.2 (58.1 with pres.time, 76.3 without)##
+bee_dr_reduced.4=dredge(bee.reduced.4,beta="none",rank="AIC",trace=100)
 
 ##May this would be useful as a function
 #    = with or without preservation time - as it is very commom
@@ -159,24 +179,61 @@ head(bee_dr_reduced)
 
 bee_dr_mods=get.models(bee_dr[1:5],subset=TRUE)
 bee_coef=lapply(bee_dr_mods[1:5],function (x) tidy(x))
+bee_dr_mods[1]
 
-bee_pres=bee_mean$Pres.time*-0.005564608
 ##WITHOUT PRESERVATIVE TIME##
 
 bee_reduced_mods=get.models(bee_dr_reduced[1:5],subset=TRUE)
 bee_reduced_coef=lapply(bee_reduced_mods[1:5],function (x) tidy(x))
+predict(bee_dr_reduced[1])
 
-bee_models=c(bee_coef,bee_reduced_coef)
-names(bee_models)=c("P1","P2","P3","P4","P5", "R1","R2","R3","R4","R5")
+FCL=lm(formula = log(Spec.wgt) ~ 0 + Climate + log(IT) + Latitude + 
+                               Sex + Family + log(IT):Latitude + log(IT):Sex + log(IT):Climate + 
+                               log(IT):Family + Climate:Latitude, data = bee_mean)
+
+bee_reduced_mods.2=get.models(bee_dr_reduced.2[1:5],subset=TRUE)
+bee_reduced_coef.2=lapply(bee_reduced_mods.2[1:5],function (x) tidy(x))
+bee_dr_reduced.2[1]
+
+FC=lm(formula = log(Spec.wgt) ~ 0 + Climate + log(IT) + Sex + Family + 
+     log(IT):Sex + log(IT):Climate + log(IT):Family, data = bee_mean)
+
+bee_reduced_mods.3=get.models(bee_dr_reduced.3[1:5],subset=TRUE)
+bee_reduced_coef.3=lapply(bee_reduced_mods.3[1:5],function (x) tidy(x))
+bee_reduced_mods.3[1]
+
+Flm=lm(formula = log(Spec.wgt) ~ 0 + Family + log(IT), data = bee_mean)
+
+bee_reduced_mods.4=get.models(bee_dr_reduced.4[1:5],subset=TRUE)
+bee_reduced_coef.4=lapply(bee_reduced_mods.4[1:5],function (x) tidy(x))
+bee_reduced_mods.4[1]
+
+Clm=lm(formula = log(Spec.wgt) ~ 0 + Climate + log(IT) + Sex + Climate:log(IT), 
+   data = bee_mean)
+
+bee_mean$FCLP_predict=exp(predict(FCLP,newdata=bee_mean))
+bee_mean$FCL_predict=exp(predict(FCL,newdata=bee_mean))
+bee_mean$Flm_predict=exp(predict(Flm,newdata=bee_mean))
+bee_mean$Clm_predict=exp(predict(Clm,newdata=bee_mean))
+
+bee_models=c(bee_coef,bee_reduced_coef,bee_reduced_coef.2,bee_reduced_coef.3,bee_reduced_coef.4)
+names(bee_models)=c("PFCL1","PFCL2","FCLP3","FCLP4","FCLP5", "FCL1","FCL2","FCL3","FCL4","FCL5","FC1","FC2","FC3","FC4","FC5",
+                    "Flm.1","Flm.2","Flm.3","Flm.4","Flm.5","Clm.1","Clm.2","Clm.3","Clm.4","Clm.5")
 
 ##File that will be updated
 
+Genus.lm=lm(formula = log(Spec.wgt) ~ Genus, 
+       data = bee_mean)
+summary(Genus.lm)
 
+Tribe.lm=lm(formula = log(Spec.wgt) ~ Tribe, 
+            data = bee_mean)
+summary(Tribe.lm)
 #WITH PRESERVATIVE TIME
-bee_models$P1
+bee_models$PFCL1
 
 #WITHOUT PRESERVATIVE TIME
-bee_models$R1
+bee_models$Flm.1
 
 ################
 ###HOVERFLIES###

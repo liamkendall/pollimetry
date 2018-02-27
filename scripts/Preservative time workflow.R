@@ -14,5 +14,8 @@ bee_aus=as.data.frame(bee_aus %>%
 pres.lme=lmer(log(Spec.wgt)~Pres.time+(1|Species),bee_aus)
 summary(pres.lme)
 
+<<<<<<< HEAD
 ##NOT SURE HOW TO TRANSFORM THIS BACK / APPLY CORRECTION
 
+=======
+>>>>>>> f4e63bdf41e605a5d88e4a1f3b6f0821f6863509

@@ -176,8 +176,8 @@ head(bee_dr)
 
 
 # What I would do:
-#1) test preservation time in AUS and decide to keep it or not. weigth ~ pres time (species) or species by species with the NON averaged dataset.
-#1.1) If pres time is imp... you correct it based in Weigth ~ a + b*prestime,
+#1) test preservation time in AUS and decide to keep it or not. weight ~ pres time (species) or species by species with the NON averaged dataset.
+#1.1) If pres time is imp... you correct it based in Weight ~ a + b*prestime,
 #1.2) Then you do the means.
 #2) I would test latitude within species for secies which you have good coverage.
 #3) Test why Spain / aus bees are wrong :(

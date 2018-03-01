@@ -104,7 +104,7 @@ plot(lm(log(Spec.wgt)~log(IT),hov_mean[-40,]))
 ##Added interaction between climate and latitude
 
 ###
-#1# Full model - with preservative time
+#1# Full model
 ###
 
 options(na.action = "na.omit") 
@@ -112,54 +112,12 @@ options(na.action = "na.omit")
 str(bee_mean)
 plot(bee_mean$Climate, bee_mean$Latitude)
 
-bee.full=lm(log(Spec.wgt) ~ 0 + Climate + log(IT) + Latitude + Sex +
-              Family + Pres.time #fix factors
-              + log(IT):Latitude + log(IT):Sex + log(IT):Climate + #interactions
-              log(IT):Pres.time +
-              log(IT):Family+
-              Climate:Latitude
-              ,data=bee_mean)
+bee.full_lme=lmer(log(Spec.wgt) ~  log(IT) + Latitude + Sex + Family + #fix factors
+              log(IT):Latitude + log(IT):Sex + #interactions
+              log(IT):Family +
+                (1|Measurer),
+            data=bee_mean)
 
-###
-#2# Full model  without preservative time
-###
-
-bee.reduced=lm(log(Spec.wgt) ~ 0 + Climate + 
-                 +log(IT) +Latitude +Sex + Family +  #fix factors
-                 log(IT):Latitude + log(IT):Sex + log(IT):Climate + #interactions
-                 log(IT):Family+
-                 Climate:Latitude,data=bee_mean)
-
-bee.reduced=lm(log(Spec.wgt) ~ 0 + Family + 
-                 +log(IT) +Latitude +Sex + Climate  +  #fix factors
-                 log(IT):Latitude + log(IT):Sex + log(IT):Climate + #interactions
-                 log(IT):Family+
-                 Climate:Latitude,data=bee_mean)
-
-# warning. Stats is comparing to 0, not among factors.
-summary(bee.reduced)
-
-###
-#3# ##WITHOUT Latitude
-###
-bee.reduced.2=lm(log(Spec.wgt) ~ 0 + Climate + 
-                 log(IT) +Sex + Family +  #fix
-                 log(IT):Sex + log(IT):Climate + #interactions
-                 log(IT):Family,data=bee_mean)
-
-#4# ##WITHOUT Climate
-###
-bee.reduced.3=lm(log(Spec.wgt) ~ 0 + Family+
-                   +log(IT) + Sex +  #fix
-                   log(IT):Sex + #interactions
-                   log(IT):Family,data=bee_mean)
-
-#5# ##WITHOUT Family
-###
-bee.reduced.4=lm(log(Spec.wgt) ~ 0 + Climate + 
-                   +log(IT) +Sex +  #fix
-                   log(IT):Sex + log(IT):Climate #interactions
-                   ,data=bee_mean)
 ##########
 ##dredge##
 ##########
@@ -167,20 +125,32 @@ bee.reduced.4=lm(log(Spec.wgt) ~ 0 + Climate +
 options(na.action = "na.fail")
 
 ###
-#1# Full model - w pres.time
+#1# Full model
 ###
 
-bee_dr=dredge(bee.full,beta="none",rank="AIC",
+bee_dr_lme=dredge(bee.full_lme,beta="none",rank="AIC",
               trace=100) #think about "sd" and "AICc". AIC show same pattern.
-head(bee_dr)
+head(bee_dr_lme)
+bee_dr_lme[1]
+
+plot(lmer(log(Spec.wgt) ~ log(IT) + Latitude + Sex + Family + 
+             log(IT):Latitude + log(IT):Sex + log(IT):Family + (1 | Measurer), 
+           data = bee_mean))
+
+###Extract coefficients
+
+bee_dr_mods=get.models(bee_dr_lme[1:5],subset=TRUE)
+bee_coef=lapply(bee_dr_mods[1:5],function (x) tidy(x))
+
+bee_dr_mods[1]
 
 
 # What I would do:
 #1) test preservation time in AUS and decide to keep it or not. weight ~ pres time (species) or species by species with the NON averaged dataset.
-#1.1) If pres time is imp... you correct it based in Weight ~ a + b*prestime,
-#1.2) Then you do the means.
-#2) I would test latitude within species for secies which you have good coverage.
-#3) Test why Spain / aus bees are wrong :(
+#1.1) If pres time is imp... you correct it based in Weight ~ a + b*prestime, _ STARTED
+#1.2) Then you do the means. - YES
+#2) I would test latitude within species for species which you have good coverage. - NEW DATAFRAME
+#3) Test why Spain / aus bees are wrong :( 
 #4) Make means and test  #sup mat when the mean stabilizes or sensitivity analysis)
 #bee.reduced=lm(log(Spec.wgt) ~ 0 + log(IT) + Climate/Region + 
  # +Sex + Family +  #fix factors
@@ -194,84 +164,19 @@ head(bee_dr)
 # and for Hoverflies, and for foraging distances.
 
 
-##AIC 58.1
-
-#Preservative time is in best model at 0.0004 (+) per day
-
-#Reduced model without preservative time
-
-bee_dr_reduced=dredge(bee.reduced,beta="none",rank="AIC",trace=100)
-
-bee_dr_reduced.2=dredge(bee.reduced.2,beta="none",rank="AIC",trace=100)
-
-bee_dr_reduced.3=dredge(bee.reduced.3,beta="none",rank="AIC",trace=100)
-
-bee_dr_reduced.4=dredge(bee.reduced.4,beta="none",rank="AIC",trace=100)
 
 ##May this would be useful as a function
 #    = with or without preservation time - as it is very commom
 
-###Extract coefficients
 
-##WITH PRESERVATIVE TIME##
+bee_model=lmer(log(Spec.wgt) ~ Family + Latitude + log(IT) + Sex + (1 | Measurer) +      
+                 Family:log(IT) + Latitude:log(IT),data=bee_mean)
 
-bee_dr_mods=get.models(bee_dr[1:5],subset=TRUE)
-bee_coef=lapply(bee_dr_mods[1:5],function (x) tidy(x))
-bee_dr_mods[1]
 
-##WITHOUT PRESERVATIVE TIME##
-
-bee_reduced_mods=get.models(bee_dr_reduced[1:5],subset=TRUE)
-bee_reduced_coef=lapply(bee_reduced_mods[1:5],function (x) tidy(x))
-predict(bee_dr_reduced[1])
-
-FCL=lm(formula = log(Spec.wgt) ~ 0 + Climate + log(IT) + Latitude + 
-                               Sex + Family + log(IT):Latitude + log(IT):Sex + log(IT):Climate + 
-                               log(IT):Family + Climate:Latitude, data = bee_mean)
-
-bee_reduced_mods.2=get.models(bee_dr_reduced.2[1:5],subset=TRUE)
-bee_reduced_coef.2=lapply(bee_reduced_mods.2[1:5],function (x) tidy(x))
-bee_dr_reduced.2[1]
-
-FC=lm(formula = log(Spec.wgt) ~ 0 + Climate + log(IT) + Sex + Family + 
-     log(IT):Sex + log(IT):Climate + log(IT):Family, data = bee_mean)
-
-bee_reduced_mods.3=get.models(bee_dr_reduced.3[1:5],subset=TRUE)
-bee_reduced_coef.3=lapply(bee_reduced_mods.3[1:5],function (x) tidy(x))
-bee_reduced_mods.3[1]
-
-Flm=lm(formula = log(Spec.wgt) ~ 0 + Family + log(IT), data = bee_mean)
-
-bee_reduced_mods.4=get.models(bee_dr_reduced.4[1:5],subset=TRUE)
-bee_reduced_coef.4=lapply(bee_reduced_mods.4[1:5],function (x) tidy(x))
-bee_reduced_mods.4[1]
-
-Clm=lm(formula = log(Spec.wgt) ~ 0 + Climate + log(IT) + Sex + Climate:log(IT), 
-   data = bee_mean)
-
-bee_mean$FCLP_predict=exp(predict(FCLP,newdata=bee_mean))
-bee_mean$FCL_predict=exp(predict(FCL,newdata=bee_mean))
-bee_mean$Flm_predict=exp(predict(Flm,newdata=bee_mean))
-bee_mean$Clm_predict=exp(predict(Clm,newdata=bee_mean))
-
-bee_models=c(bee_coef,bee_reduced_coef,bee_reduced_coef.2,bee_reduced_coef.3,bee_reduced_coef.4)
-names(bee_models)=c("PFCL1","PFCL2","FCLP3","FCLP4","FCLP5", "FCL1","FCL2","FCL3","FCL4","FCL5","FC1","FC2","FC3","FC4","FC5",
-                    "Flm.1","Flm.2","Flm.3","Flm.4","Flm.5","Clm.1","Clm.2","Clm.3","Clm.4","Clm.5")
 
 ##File that will be updated
 
-Genus.lm=lm(formula = log(Spec.wgt) ~ Genus, 
-       data = bee_mean)
-summary(Genus.lm)
-
-Tribe.lm=lm(formula = log(Spec.wgt) ~ Tribe, 
-            data = bee_mean)
-summary(Tribe.lm)
-#WITH PRESERVATIVE TIME
-bee_models$PFCL1
-
-#WITHOUT PRESERVATIVE TIME
-bee_models$Flm.1
+summary(bee_model)
 
 ################
 ###HOVERFLIES###
@@ -317,9 +222,16 @@ hov_coefs=lapply(hov_dr_mods[1:5],function (x) tidy(x))
 names(hov_coefs)=c(rep(1:5,1))
 
 ##File that will be updated
+
 hov_coefs$`1`
+str(bee_mean)
+ggplot(data=bee_mean,aes((IT),(Spec.wgt)))+
+  geom_smooth(aes(col=bee_mean$Country),method="nls",formula=y ~ a * x^b,se=FALSE)+theme_bw()+
+  geom_smooth(data=bee_mean,aes(x=(bee_mean$IT),y=(bee_mean$Cane),method="nls",formula=y ~ a * x^b))
 
-ggplot(data=bee_mean,aes(IT,Spec.wgt))+
-  geom_point(aes(col=bee_mean$Climate),pch=2)+theme_bw()
+ggplot(data=bee_mean,aes(log(IT),log(Spec.wgt)))+
+  geom_smooth(aes(col=bee_mean$Family),method="lm",se=FALSE)+theme_bw()
 
+ggplot(data=bee_mean,aes(log(Latitude),log(Spec.wgt)))+
+  geom_smooth(aes(col=Subfamily),method="lm",se=FALSE)+theme_bw()
        

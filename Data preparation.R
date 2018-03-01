@@ -6,7 +6,7 @@ require(kgc)
 #read data (1 file)----
 poll_all <- read.csv(file="data/PredAlloPoll23218.csv")
 str(poll_all)
-options(stringsAsFactors = FALSE)
+options(stringsAsFactors = TRUE)
 
 ##REMOVED MONSTROSA AND COHORT  (BSk climate zone - 3,
 # 1 only preserved hoverfly)
@@ -69,15 +69,12 @@ hov_all=poll_all_split[[2]]
 #Bees
 options(na.action = "na.omit")
 
-bee_mean=aggregate(Latitude~Family+Tribe+Region+Climate+Cl_simp+Subfamily+Genus+Species+Sex,bee_all,mean)
-bee_mean$Pres.time=as.numeric(unlist(aggregate(Pres.time~Climate+Species+Sex,bee_all,mean)[4]))
-bee_mean$Spec.wgt=as.numeric(unlist(aggregate(Spec.wgt~Climate+Species+Sex,bee_all,mean)[4]))
-bee_mean$Wgt.SD=as.numeric(unlist(aggregate(Spec.wgt~Climate+Species+Sex,bee_all,sd)[4]))
-bee_mean$IT=as.numeric(unlist(aggregate(IT~Climate+Species+Sex,bee_all,mean)[4]))
-bee_mean$IT.SD=as.numeric(unlist(aggregate(IT~Climate+Species+Sex,bee_all,sd)[4]))
-bee_mean$BL=as.numeric(unlist(aggregate(BL~Climate+Species+Sex,bee_all,mean)[4]))
-bee_mean$BL.SD=as.numeric(unlist(aggregate(BL~Climate+Species+Sex,bee_all,sd)[4]))
-bee_mean$BL.SD=as.numeric(unlist(aggregate(BL~Climate+Species+Sex,bee_all,sd)[4]))
+bee_mean=aggregate(Latitude~Family+Tribe+Country+Measurer+Subfamily+Genus+Species+Sex,bee_all,mean)
+bee_mean$Pres.time=as.numeric(unlist(aggregate(Pres.time~Country+Species+Sex,bee_all,mean)[4]))
+bee_mean$Spec.wgt=as.numeric(unlist(aggregate(Spec.wgt~Country+Species+Sex,bee_all,mean)[4]))
+bee_mean$Wgt.SD=as.numeric(unlist(aggregate(Spec.wgt~Country+Species+Sex,bee_all,sd)[4]))
+bee_mean$IT=as.numeric(unlist(aggregate(IT~Country+Species+Sex,bee_all,mean)[4]))
+bee_mean$IT.SD=as.numeric(unlist(aggregate(IT~Country+Species+Sex,bee_all,sd)[4]))
 bee_mean$Cane=Cane(bee_mean$IT)/1000
 ##Hoverflies
 options(na.action = "na.omit")

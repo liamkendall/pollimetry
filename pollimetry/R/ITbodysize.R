@@ -43,5 +43,5 @@ ITbodysize <- function(IT, Family){
                 + as.numeric(allo_coefs[allo_coefs$term==c("IT"),][2])*log(IT))  
   bodysize
 }
-ITbodysize(IT = exp(bee[1:3,c("IT")]), Family = bee[1:3,c("Family")])
+#ITbodysize(IT = exp(bee[1:3,c("IT")]), Family = bee[1:3,c("Family")])
 

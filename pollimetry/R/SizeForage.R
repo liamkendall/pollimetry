@@ -55,3 +55,4 @@ SizeForage <- function(BW, Type = "GreenleafAll"){
     out
   }
 }
+plot(SizeForage(bee_all$IT,Type="GreenleafAll")[[1]]~bee_all$Spec.wgt)

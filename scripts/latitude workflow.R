@@ -1,21 +1,19 @@
 ##Latitude workflow
 
-#
-
 #Filter so only species with more than one latitude
-bee_lat=as.data.frame(bee_all %>%
+bee_lat=as.data.frame(bee_all2 %>%
                         group_by(Genus) %>% 
-                        filter(n_distinct(round(Latitude,1))>2))
+                        filter(n_distinct(round(Latitude))>3))
 
 bee_lat$Latitude=round(bee_lat$Latitude,2)
 
 par(mfrow=c(1,2))
 
-boxplot(bee_lat$Spec.wgt~bee_lat$Country)
+plot(bee_lat$Spec.wgt~round(bee_lat$Latitude))
 
 boxplot(bee_lat$IT~bee_lat$Country)
-lat_mod=lm(Spec.wgt~Genus+Latitude,bee_lat)
-
+lat_mod=lmer(log(Spec.wgt)~Genus+Latitude+(1|Country),bee_lat)
+summary(lat_mod)
 lat_mod.out=tidy(lat_mod)
 lat_mod.out
 
@@ -52,7 +50,7 @@ bee_ukig
 
 boxplot(bee_ukig$Spec.wgt~as.factor(bee_ukig$Country))
 
-plot(bee_ukig$Spec.wgt~bee_ukig$Latitude)
+boxplot(bee_ukig$Spec.wgt~round(bee_ukig$Latitude))
 
 NthHem_mod=lmer(log(Spec.wgt)~Latitude+(1|Species),bee_ukig)
 
@@ -65,9 +63,8 @@ plot(log(Spec.wgt)~Latitude,bee_country$Australia)
 abline(predict(Latitude~NthHem_mod,newdata=bee_ukig))
 
 
-ggplot(data=bee_mean,aes(log(Latitude),log(Spec.wgt)))+geom_point(col=as.numeric(as.factor(bee_mean$Country)))
-
-  geom_smooth(aes(col=bee_ukig$Family),method="lm",se=FALSE)
+ggplot(data=bee_all2,aes(log(Latitude),log(Spec.wgt)))+geom_point()+
+  geom_smooth(aes(col=bee_all2$Tribe),method="lm",se=FALSE)
 
 ggplot(data=bee_ukig,aes(log(IT),log(Spec.wgt)))+geom_point()+
   geom_smooth(aes(col=bee_ukig$Family),method="lm",se=FALSE)+theme_bw()

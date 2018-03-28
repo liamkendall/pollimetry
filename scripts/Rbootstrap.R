@@ -80,4 +80,20 @@ boot_plot=ggplot(bee_mean,aes(x = Spec.wgt, y = IT))+
                             method = 'nls', formula = y ~ a * x^b,se=TRUE)
  boot_plot
 
+ ##library lmeresampler
+ 
+ 
+ ## running a parametric bootstrap
+ 
+ boo1 <- bootstrap(model = bee_model,fn='fixef',type = "parametric", B = 100)
+ require("boot")
+ as.data.frame(boo1)
 
+ 
+ boot.ci(boo1, index = 1, type=c("norm", "basic", "perc"))
+ boot.ci(boo1, index = 6, type=c("norm", "basic", "perc"))
+ ## you can also examine the bootstrap samples graphically
+ plot(boo1, index = 1)
+ 
+boot1=bootMer(bee_model,FUN='fixef',use.u=TRUE,type="parametric")
+boot.ci(boot1,index = 1, type=c("norm", "basic", "perc"))

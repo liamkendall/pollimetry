@@ -1,4 +1,4 @@
-#' @name ITbeesize
+#' @name ITsize
 #' 
 #' @title Converts IT to body size in bees.
 #' 
@@ -12,11 +12,11 @@
 #' @return A dataframe with bee body size (mg) is returned for each species.
 #' 
 #' @examples
-#' ITbodysize(c(10,5,2), Family = c("Andrenidae", "Apidae", "Colletidae"))
+#' ITsize(c(10,5,2))
 #' @references Kendall, Bartomeus... Rader (20XX) Pollinator size and its consequences: Predictive allometry for pollinating insects 
 #' 
 #' @export
-ITbodysize <- function(IT, Family){
+ITsize <- function(IT){
   if(!length(IT) == length(Family)){
     stop("IT and Family should be the same length")
   }

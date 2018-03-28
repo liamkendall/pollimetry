@@ -34,12 +34,12 @@ forage$Mean[is.na(forage$Mean)] <- forage$Median[is.na(forage$Mean)]
 
 options(na.action=na.omit)
 
-for.lme=lmer(log(Max)~log(Spec.wgt)+Social_three+Type+(1|Reference)+(1|Species),forage)
-summary(for.lme)
+for.lme=lmer(log(Max)~log(Spec.wgt)+Social_strict+(1|Type)+(1|Reference)+(1|Species),na.action=na.omit,forage)
+plot(for.lme)
 
 str(forage)
 
-plot(log(Mean)~log(Spec.wgt),forage,col=Genus)
+plot(log(Mean)~log(Spec.wgt),forage,col=Social_strict)
 
 ##REMOVE SMALL TRIBES?
 

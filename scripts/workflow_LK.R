@@ -225,9 +225,9 @@ names(hov_coefs)=c(rep(1:5,1))
 
 hov_coefs$`1`
 str(bee_mean)
-ggplot(data=bee_mean,aes((IT),(Spec.wgt)))+
-  geom_smooth(aes(col=bee_mean$Country),method="nls",formula=y ~ a * x^b,se=FALSE)+theme_bw()+
-  geom_smooth(data=bee_mean,aes(x=(bee_mean$IT),y=(bee_mean$Cane),method="nls",formula=y ~ a * x^b))
+ggplot(data=bee_mean,aes(log(IT),log(Spec.wgt)))+
+  geom_smooth(data=bee_mean,col=bee_mean$Family,method="lm",se=FALSE)+theme_bw()
+  geom_smooth(data=bee_mean,aes(x=log(bee_mean$IT),y=log(bee_mean$Cane),method="lm"))
 
 ggplot(data=bee_mean,aes(log(IT),log(Spec.wgt)))+
   geom_smooth(aes(col=bee_mean$Family),method="lm",se=FALSE)+theme_bw()

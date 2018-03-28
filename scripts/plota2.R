@@ -1,0 +1,21 @@
+ggplot(data=bee_all,aes(log(IT),log(Spec.wgt)))+geom_point(pch=0,cex=0.1*bee_all$Latitude)+
+  geom_smooth(aes(col=bee_all$Country),method="lm",formula = y ~ x,se=FALSE)+theme_bw()
+
+ggplot(data=bee_mean,aes(log(IT),log(Spec.wgt)))+geom_point(pch=0,cex=0.1*bee_mean$Latitude)+
+  geom_smooth(aes(col=bee_mean$Country),method="lm",formula = y ~ x,se=FALSE)+theme_bw()            
+
+ggplot(data=forage,aes(log(Max),log(Spec.wgt)))+geom_point(pch=0)+
+  geom_smooth(aes(col=forage$Type),method="lm",formula = y ~ x,se=FALSE)+theme_bw()            
+
+ggplot(data=forage,aes(log(Mean),log(Spec.wgt)))+geom_point(pch=0)+
+  geom_smooth(aes(col=forage$Type),method="lm",formula = y ~ x,se=FALSE)+theme_bw()            
+
+unique(forage$Species)
+table(forage$Species)
+
+str(bee_all$Climate)
+plot(log(IT)~log(Spec.wgt),bee_all,col=Region)
+identify(log(bee_all$IT)~log(bee_all$Spec.wgt))
+
+
+bee_all[c(963  ,966,  988,  991,  992 ,1014 ,1018),]

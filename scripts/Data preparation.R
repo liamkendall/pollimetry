@@ -4,17 +4,22 @@
 require(caret)
 require(kgc)
 #read data (1 file)----
-poll_all <- read.csv(file="data/PredAlloPoll23218.csv")
+poll_all <- read.csv(file="data/PA15417.csv")
 str(poll_all)
+levels(poll_all$Measurement)
 options(stringsAsFactors = TRUE)
+
+poll_all[,c("Measurement")]=as.factor(poll_all[,c("Measurement")])
+poll_all[,c("Species")]=as.factor(poll_all[,c("Species")])
 
 ##REMOVED MONSTROSA AND COHORT  (BSk climate zone - 3,
 # 1 only preserved hoverfly)
 
-#without Germany and Cane 1987
+#without Cane 1987
 poll_country <- split(poll_all,poll_all$Country)
-poll_all <- rbind(poll_country$Australia,poll_country$Britain,poll_country$Spain,poll_country$Ireland)
-
+poll_all <- rbind(poll_country$Australia,poll_country$Britain,poll_country$Spain,
+                  poll_country$Ireland,poll_country$Germany,poll_country$Switzerland)
+table(poll_all$Country)
 ##Add climate zones
 poll_climate <- data.frame(poll_all, rndCoord.lon = RoundCoordinates(poll_all$Longitude),
                            rndCoord.lat = RoundCoordinates(poll_all$Latitude))
@@ -23,7 +28,6 @@ poll_all <- data.frame(poll_climate,Climate=LookupCZ(poll_climate))
 poll_all <- data.frame(poll_all,Cl_simp=strtrim(poll_all$Climate, width=1))
 
 ##Could standardise after extracting climate
-
 
 ########PHYLO DATASET
 #split to bees and hoverflies
@@ -62,6 +66,9 @@ poll_all_split=split(poll_all,poll_all$Superfamily)
 bee_all=poll_all_split[[1]]
 hov_all=poll_all_split[[2]]
 
+plot(Spec.wgt~IT,bee_mean,col=Family)
+
+
 #########################
 #Species mean dataframes#
 #########################
@@ -69,23 +76,39 @@ hov_all=poll_all_split[[2]]
 #Bees
 options(na.action = "na.omit")
 
-bee_mean=aggregate(Latitude~Family+Tribe+Country+Measurer+Subfamily+Genus+Species+Sex,bee_all,mean)
-bee_mean$Pres.time=as.numeric(unlist(aggregate(Pres.time~Country+Species+Sex,bee_all,mean)[4]))
-bee_mean$Spec.wgt=as.numeric(unlist(aggregate(Spec.wgt~Country+Species+Sex,bee_all,mean)[4]))
-bee_mean$Wgt.SD=as.numeric(unlist(aggregate(Spec.wgt~Country+Species+Sex,bee_all,sd)[4]))
-bee_mean$IT=as.numeric(unlist(aggregate(IT~Country+Species+Sex,bee_all,mean)[4]))
-bee_mean$IT.SD=as.numeric(unlist(aggregate(IT~Country+Species+Sex,bee_all,sd)[4]))
+bee_mean=aggregate(Latitude~Family+Tribe+Country+
+                     Climate+Cl_simp+Region+Measurement+Subfamily+Genus+Species+Sex,bee_all,mean)
+#bee_mean$Pres.time=as.numeric(unlist(aggregate(Pres.time~Country+Species+Sex,bee_all,mean)[4]))
+bee_mean$Spec.wgt=as.numeric(unlist(aggregate(Spec.wgt~Country+Climate+Cl_simp+Species+Family+Tribe+Country+Measurement+Subfamily
+                                              +Genus+Species+Sex,bee_all,mean)[11]))
+bee_mean$Wgt.SD=as.numeric(unlist(aggregate(Spec.wgt~Country+Climate+Cl_simp+Species+Family+Tribe+Country+Measurement+Subfamily
+                                            +Genus+Species+Sex,bee_all,sd)[11]))
+bee_mean$IT=as.numeric(unlist(aggregate(IT_cor_65~Family+Tribe+Climate+Cl_simp+Country+Measurement+Subfamily+Genus+Species+Sex,bee_all,mean)[11]))
+bee_mean$IT.SD=as.numeric(unlist(aggregate(IT_cor_65~Country+Climate+Cl_simp+Family+Tribe+Country+Measurement+Subfamily
+                                           +Genus+Species+Sex,bee_all,sd)[11]))
+
+
+
 bee_mean$Cane=Cane(bee_mean$IT)/1000
+
+
 ##Hoverflies
 options(na.action = "na.omit")
-hov_mean=aggregate(Latitude~Family+Region+Climate+Subfamily+Genus+Species+Sex,hov_all,mean)
-hov_mean$Pres.time=as.numeric(unlist(aggregate(Pres.time~Climate+Species+Sex,hov_all,unique)[4]))
-hov_mean$Spec.wgt=as.numeric(unlist(aggregate(Spec.wgt~Climate+Species+Sex,hov_all,mean)[4]))
-hov_mean$Wgt.SD=as.numeric(unlist(aggregate(Spec.wgt~Climate+Species+Sex,hov_all,sd)[4]))
-hov_mean$IT=as.numeric(unlist(aggregate(IT~Climate+Species+Sex,hov_all,mean)[4]))
-hov_mean$IT.SD=as.numeric(unlist(aggregate(IT~Climate+Species+Sex,hov_all,sd)[4]))
-hov_mean$BL=as.numeric(unlist(aggregate(BL~Climate+Species+Sex,hov_all,mean)[4]))
-hov_mean$BL.SD=as.numeric(unlist(aggregate(BL~Climate+Species+Sex,hov_all,sd)[4]))
+hov_mean=aggregate(Latitude~Family+Tribe+Country+
+                     Climate+Cl_simp+Region+Measurement+Subfamily+Genus+Species+Sex,hov_all,mean)
+#hov_mean$Pres.time=as.numeric(unlist(aggregate(Pres.time~Climate+Species+Sex,hov_all,unique)[4]))
+hov_mean$Spec.wgt=as.numeric(unlist(aggregate(Spec.wgt~Family+Tribe+Country+
+                                                Climate+Cl_simp+Region+Measurement+Subfamily+
+                                                Genus+Species+Sex,hov_all,mean)[12]))
+#hov_mean$Wgt.SD=as.numeric(unlist(aggregate(Spec.wgt~Climate+Species+Sex,hov_all,sd)[4]))
+hov_mean$IT=as.numeric(unlist(aggregate(IT~Family+Tribe+Country+
+                                          Climate+Cl_simp+Region+Measurement+Subfamily+
+                                          Genus+Species+Sex,hov_all,mean)[12]))
+#hov_mean$IT.SD=as.numeric(unlist(aggregate(IT~Climate+Species+Sex,hov_all,sd)[4]))
+hov_mean$BL=as.numeric(unlist(aggregate(BL~Family+Tribe+Country+
+                                          Climate+Cl_simp+Region+Measurement+Subfamily+
+                                          Genus+Species+Sex,hov_all,mean)[12]))
+#hov_mean$BL.SD=as.numeric(unlist(aggregate(BL~Climate+Species+Sex,hov_all,sd)[4]))
 str(hov_mean)
 
 ## set the seed to make your partition reproductible

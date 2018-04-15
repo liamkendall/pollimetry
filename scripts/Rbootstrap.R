@@ -7,15 +7,15 @@ library(caret)
 
 bee_mean
 # define training control
-train_control <- trainControl(method = "LGOCV", p = 0.8, number = 100,
+train_control <- trainControl(method = "LGOCV", p = 0.8, number = 1000,
                               savePredictions = T)
 # train the model
-FCLP.boot <- train(log(Spec.wgt)~0 + Climate + Family + Latitude + 
-                 log(IT) + Pres.time + Sex + Climate:Latitude + Climate:log(IT) + 
-                 log(IT):Pres.time,data=bee_mean,
-               method = "lm",
+FCL.boot <- train(log(Spec.wgt) ~ Region+Family + log(IT)  + Sex +  Family:log(IT),
+               method = "lm",data = bee_mean,
                trControl = train_control)
-predict(FCLP.boot,newdata=bee_mean)
+
+warnings()
+predict(FCLP.boo,newdata=bee_mean)
 FCL.boot = train(log(Spec.wgt) ~ 0 + Climate+ log(IT) + Latitude + 
                 Sex + Family + log (IT):Latitude +  log(IT):Sex + log(IT):Climate + 
                 log(IT):Family + Climate:Latitude, data=bee_mean,

@@ -10,7 +10,7 @@ require(broom)
 
 #read data (1 file)----
 
-allo=read.csv(file="~/Dropbox/PhD/R/PollinateR/data/PredAlloPoll19218.csv")
+poll_all=read.csv(file="~/Dropbox/PhD/R/PollinateR/data/PredAlloPoll_28_3_18.csv")
 
 str(allo)
 
@@ -21,11 +21,11 @@ allo=allo[1:1247,]
 allo[269:344,c("Latitude")]=37.396355
 
 #split to bees and hoverflies
-allo_split=split(allo,allo$Taxa)
+allo_split=split(poll_all,poll_all$Superfamily)
 bee=allo_split[[1]]
 fly=allo_split[[2]]
 
-
+boxplot(Spec.wgt~Country,bee)
 #Remove one 
 bee=bee[-454,]
 

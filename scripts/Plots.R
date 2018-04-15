@@ -27,46 +27,43 @@ HOV3=ggplot(HOV,aes(x=log(Spec.wgt),y=log(ITxBL),colour=Region))+coord_equal(xli
   geom_point(aes(),lwd=2,shape=1)+theme_bw()+theme(aspect.ratio=1)+ggtitle("Hfly IT x BL")
 
 grid.arrange(HOV1,HOV2,HOV3,ncol=3)
-
+bee_all$Measurement
 #Bees
-BEE1=ggplot(BEE,aes(x=log(Spec.wgt),y=log(IT),colour=Region))+coord_equal(xlim=c(-10,-0),ylim=c(-0.5,2.5))+
+BEE1=ggplot(bee_mean,aes(x=log(Spec.wgt),y=log(IT),colour=Measurement))+coord_equal(xlim=c(-10,-0),ylim=c(-0.5,2.5))+
   geom_smooth(method="lm", formula=y~x,se=F)+
   geom_point(aes(),lwd=2,shape=1)+theme_bw()+theme(aspect.ratio=1)+ggtitle("Bee intertegular distance")
 BEE1
-BEE2=ggplot(BEE,aes(x=log(Spec.wgt),y=log(BL),colour=Region))+coord_equal(xlim=c(-10,0),ylim=c(1,4))+
+BEE2=ggplot(bee_all,aes(x=log(Spec.wgt),y=log(BL),colour=Region))+coord_equal(xlim=c(-10,0),ylim=c(1,4))+
   geom_smooth(method="lm", formula=y~x,se=F)+
   geom_point(aes(),lwd=2,shape=1)+theme_bw()+theme(aspect.ratio=1)+ggtitle("Bee body length")
 BEE2
-BEE3=ggplot(BEE,aes(x=log(Spec.wgt),y=log(ITxBL),colour=Region))+coord_equal(xlim=c(-10,0),ylim=c(0,7))+
-  geom_smooth(method="lm", formula=y~x,se=F)+
-  geom_point(aes(),lwd=2,shape=1)+theme_bw()+theme(aspect.ratio=1)+ggtitle("Bee IT x BL")
-BEE3
 
-Plots=grid.arrange(BEE1,BEE2,BEE3,HOV1,HOV2,HOV3,ncol=3,nrow=2)
+
+Plots=grid.arrange(BEE1,BEE2,HOV1,HOV2,ncol=3,nrow=2)
 
 ggsave("Plots #1.pdf",Plots,device="pdf",width = 15, height = 7.5)
 
 #Bees
-BEE4=ggplot(BEE,aes(x=log(Spec.wgt),y=log(IT),colour=Region))+coord_equal(xlim=c(-10,-0),ylim=c(-0.5,2.5))+
+BEE4=ggplot(BEE,aes(x=log(Spec.wgt),y=log(IT_cor),colour=Region))+coord_equal(xlim=c(-10,-0),ylim=c(-0.5,2.5))+
 geom_smooth(method="lm", formula=y~x,se=F)+  
   geom_point(aes(),lwd=2,shape=1)+theme_bw()+theme(aspect.ratio=1)+ggtitle("Bees")
 
-BEE5=ggplot(BEE,aes(x=log(Spec.wgt),y=log(IT),colour=Family))+coord_equal(xlim=c(-10,-0),ylim=c(-0.5,2.5))+
+BEE5=ggplot(bee_all,aes(x=log(Spec.wgt),y=log(IT_cor),colour=Family))+coord_equal(xlim=c(-10,-0),ylim=c(-0.5,2.5))+
   geom_smooth(method="lm", formula=y~x,se=F)+  
   geom_point(aes(),lwd=2,shape=1)+theme_bw()+theme(aspect.ratio=1)+ggtitle("  ")
 
-BEE6=ggplot(BEE,aes(x=log(Spec.wgt),y=log(IT),colour=Subfamily))+coord_equal(xlim=c(-10,-0),ylim=c(-0.5,2.5))+
+BEE6=ggplot(bee_all,aes(x=log(Spec.wgt),y=log(IT_cor),colour=Subfamily))+coord_equal(xlim=c(-10,-0),ylim=c(-0.5,2.5))+
   geom_smooth(method="lm", formula=y~x,se=F)+  
   geom_point(aes(),lwd=2,shape=1)+theme_bw()+theme(aspect.ratio=1)+ggtitle("  ")
 
 
 
 #Hoverflies
-HOV4=ggplot(HOV,aes(x=log(Spec.wgt),y=log(IT),colour=Region))+coord_equal(xlim=c(-10,-0),ylim=c(-0.5,2.5))+
+HOV4=ggplot(hov_all,aes(x=log(Spec.wgt),y=log(IT_cor),colour=Country))+coord_equal(xlim=c(-10,-0),ylim=c(-0.5,2.5))+
   geom_smooth(method="lm", formula=y~x,se=F)+  
   geom_point(aes(),lwd=2,shape=1)+theme_bw()+theme(aspect.ratio=1)+ggtitle("Hoverflies")
 
-HOV5=ggplot(HOV,aes(x=log(Spec.wgt),y=log(IT),colour=Subfamily))+coord_equal(xlim=c(-10,-0),ylim=c(-0.5,2.5))+
+HOV5=ggplot(hov_all,aes(x=log(Spec.wgt),y=log(IT_cor),colour=Subfamily))+coord_equal(xlim=c(-10,-0),ylim=c(-0.5,2.5))+
   geom_smooth(method="lm", formula=y~x,se=F)+  
   geom_point(aes(),lwd=2,shape=1)+theme_bw()+theme(aspect.ratio=1)+ggtitle("  ")
 

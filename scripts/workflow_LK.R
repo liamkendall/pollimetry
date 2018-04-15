@@ -1,10 +1,13 @@
 
+write.csv(unique(bee_mean$Species),"Species_list.csv")
 
+write.csv(bee_mean[!duplicated(bee_mean[,c('Species','Country')]),],"Species_list.csv")
 #################
 ##MAIN ANALYSES##
 #################
 
-#To DO:
+boxplot(Spec.wgt~IT,bee_all)
+     #To DO:
 
 ###I THINK we need a way to determine if climate or sampling bias important
 ## - assessing if climate is gradient fits hypothesis
@@ -21,6 +24,8 @@
 #DONE- make a wrapper to other existing equations (1 R file)
 
 #DONE- Check species in more than one region/country
+
+###
 
 #main analysis: 
 ################
@@ -60,9 +65,10 @@
         #unique climate zone for bees, only preserved hoverfly) 
 
 #libraries
-require(MuMIn)
-require(broom)
-require(caret)
+library(MuMIn)
+library(lme4)
+library(broom)
+library(caret)
 
 ####QUICK DIAGNOSTICS FOR BEES AND HOVERFLIES
 
@@ -78,13 +84,14 @@ plot(log(Spec.wgt)~log(IT),bee_mean,col=Climate, pch = as.numeric(Region))
 
 par(pty="s")
 par(mfrow=c(2,2))
-plot(lm(Spec.wgt~IT,bee_mean))
-plot(lm(log(Spec.wgt)~log(IT),bee_mean))
+plot(Spec.wgt~IT,bee_mean,col=Tribe)
+plot((Spec.wgt)~log(IT),bee_mean,col=Measurement)
 
+plot(bee_mean)
 ##HOVERFLIES
 par(mfrow=c(1,1))
-plot(hov_mean$Spec.wgt,hov_mean$IT,col=hov_mean$Region)
-plot(log(Spec.wgt)~log(IT),data=hov_mean[-40,],col=Region)
+plot(Spec.wgt~IT,hov_mean,col=hov_mean$Region)
+plot((Spec.wgt)~(IT),data=hov_mean[],col=Measurement)
 
 #Check outlier
 hov_mean[ which(log(hov_mean$Spec.wgt)  < -6.25), ]
@@ -107,17 +114,24 @@ plot(lm(log(Spec.wgt)~log(IT),hov_mean[-40,]))
 #1# Full model
 ###
 
+bee_all$Spec.wgt=log(bee_all$Spec.wgt)
+bee_all$IT=log(bee_all$IT_cor)
 options(na.action = "na.omit") 
 
-str(bee_mean)
-plot(bee_mean$Climate, bee_mean$Latitude)
+summary(lmer(Spec.wgt ~  IT*Region+IT*Cl_simp+IT*Latitude + IT*Sex + IT*Family + #fix factors
+  #interactions
++(1|Measurement),bee_mean))
 
-bee.full_lme=lmer(log(Spec.wgt) ~  log(IT) + Latitude + Sex + Family + #fix factors
-              log(IT):Latitude + log(IT):Sex + #interactions
-              log(IT):Family +
-                (1|Measurer),
-            data=bee_mean)
+bee_f_lme=lmer(Spec.wgt ~  IT*Region+IT*Cl_simp+IT*Latitude + IT*Sex + IT*Family + #fix factors
+                 #interactions
+                 +(1|Measurement),bee_mean)
 
+bee_f_lme_z=lmer(Spec.wgt ~0+  IT*Region+IT*Cl_simp+IT*Latitude + IT*Sex + IT*Family + #fix factors
+                   #interactions
+                   +(1|Measurement),bee_mean)
+
+
+summary(bee_f_lme_z)
 ##########
 ##dredge##
 ##########
@@ -128,21 +142,32 @@ options(na.action = "na.fail")
 #1# Full model
 ###
 
-bee_dr_lme=dredge(bee.full_lme,beta="none",rank="AIC",
+bee_dr_lme=dredge(bee_f_lme,beta="none",rank="AIC",
               trace=100) #think about "sd" and "AICc". AIC show same pattern.
+bee_dr_lme_z=dredge(bee_f_lme_z,beta="none",rank="AIC",
+                  trace=100) 
 head(bee_dr_lme)
-bee_dr_lme[1]
-
-plot(lmer(log(Spec.wgt) ~ log(IT) + Latitude + Sex + Family + 
-             log(IT):Latitude + log(IT):Sex + log(IT):Family + (1 | Measurer), 
-           data = bee_mean))
+head(bee_dr_lme_z)
+par(mfrow=c(2,2))
+plot(lmer(formula = log(Spec.wgt) ~ Family +Region+log(IT) + Sex 
+          + (1 | Measurer) + Family:log(IT), data = bee_mean))
 
 ###Extract coefficients
 
 bee_dr_mods=get.models(bee_dr_lme[1:5],subset=TRUE)
+bee_dr_mods$`62`
+summary(lmer(log(Spec.wgt) ~ Family + log(IT) + Region + Sex + (1 | Measurer) +      Family:log(IT),bee_mean))
 bee_coef=lapply(bee_dr_mods[1:5],function (x) tidy(x))
 
-bee_dr_mods[1]
+r.squaredLR(lmer(Spec.wgt ~ Family + IT + Latitude +
+                   Region + Sex + (1 | Measurement) + Family:IT + IT:Region
+,bee_mean))
+
+
+
+bee_mod_coef=bee_coef$`30`
+bee_mod_coef
+summary(lm(log(Spec.wgt) ~ Family + log(IT) + Region + Sex +      Family:log(IT),bee_mean))
 
 
 # What I would do:
@@ -150,7 +175,7 @@ bee_dr_mods[1]
 #1.1) If pres time is imp... you correct it based in Weight ~ a + b*prestime, _ STARTED
 #1.2) Then you do the means. - YES
 #2) I would test latitude within species for species which you have good coverage. - NEW DATAFRAME
-#3) Test why Spain / aus bees are wrong :( 
+#3) Test why Spain / aus bees are wrong :( DONE
 #4) Make means and test  #sup mat when the mean stabilizes or sensitivity analysis)
 #bee.reduced=lm(log(Spec.wgt) ~ 0 + log(IT) + Climate/Region + 
  # +Sex + Family +  #fix factors
@@ -163,14 +188,12 @@ bee_dr_mods[1]
 #7) test all other functions with test data and compare... 
 # and for Hoverflies, and for foraging distances.
 
-
-
 ##May this would be useful as a function
 #    = with or without preservation time - as it is very commom
 
 
-bee_model=lmer(log(Spec.wgt) ~ Family + Latitude + log(IT) + Sex + (1 | Measurer) +      
-                 Family:log(IT) + Latitude:log(IT),data=bee_mean)
+bee_model=lmer(log(Spec.wgt) ~ Family + Latitude + log(IT) + Sex +      
+                 Family:log(IT) + Latitude:log(IT) + (1 | Measurer),data=bee_mean)
 
 
 
@@ -178,9 +201,9 @@ bee_model=lmer(log(Spec.wgt) ~ Family + Latitude + log(IT) + Sex + (1 | Measurer
 
 summary(bee_model)
 
-################
-###HOVERFLIES###
-################
+################ ################ ################ ################ ################ ################ ################
+###HOVERFLIES### ###HOVERFLIES### ###HOVERFLIES### ###HOVERFLIES### ###HOVERFLIES### ###HOVERFLIES### ###HOVERFLIES### 
+################ ################ ################ ################ ################ ################ ################ 
 
 ##Added interaction between climate and latitude
 

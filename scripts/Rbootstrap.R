@@ -1,26 +1,34 @@
-##CROSS VALIDATION bootstrap alternative to training/testing
+## LEAVE OUT GROUP CROSS VALIDATION bootstrap alternative to training/testing
+
+0.8 PROPORTION
 
 #Weight by RMSE for models selected to useful
 
+FOR BEST MODEL
 # load the library
 library(caret)
+options(na.action = "na.pass")
+write.csv(bee_all,"beeee.csv")
+bee_all$Spec.wgt=exp(bee_all$Spec.wgt)
 
-bee_mean
-# define training control
+bee_all=read.csv("beeee.csv",header=T)
+plot(IT~Spec.wgt,bee_all,col=Tribe)
+
+is.na(bee_all$Spec.wgt)
+# Define training control
+
+##Leave in 80, take out 20, 1000 bootstraps
 train_control <- trainControl(method = "LGOCV", p = 0.8, number = 1000,
                               savePredictions = T)
-# train the model
-FCL.boot <- train(log(Spec.wgt) ~ Region+Family + log(IT)  + Sex +  Family:log(IT),
-               method = "lm",data = bee_mean,
-               trControl = train_control)
 
-warnings()
-predict(FCLP.boo,newdata=bee_mean)
-FCL.boot = train(log(Spec.wgt) ~ 0 + Climate+ log(IT) + Latitude + 
-                Sex + Family + log (IT):Latitude +  log(IT):Sex + log(IT):Climate + 
-                log(IT):Family + Climate:Latitude, data=bee_mean,
-                method = "lm",
-                trControl = train_control)
+# train the model ##TRIBAL MODEL with random effect - can we justify this?
+bee.boot <- train(Spec.wgt ~ IT + Latitude + Region + Sex + Family+
+                    IT:Region,data = bee_mean,method = "lm",
+               trControl = train_control)
+#http://www.jds-online.com/file_download/278/JDS-652a.pdf
+bee.boot
+
+table(as.factor(bee_all$Spec.wgt))
 predict(FCL.boot,newdata=bee_mean)
 FC.boot = train(log (Spec.wgt) ~ 0 + Climate + log (IT) + Sex + Family + 
                    log (IT):Sex +  log(IT):Climate + log (IT):Family, data = bee_mean,
@@ -35,9 +43,7 @@ Clim.boot = train(log(Spec.wgt) ~ 0 + Climate +  Sex + Climate:log (IT), data = 
 IT.boot = train(log(Spec.wgt) ~log(IT), data = bee_mean,
                   method = "lm",
                   trControl = train_control)
-IT.boot = train(log(Spec.wgt)~log(IT), data=bee_phylo[-47,], correlation=Bee_phy_vcov,
-                method = "gls",
-                trControl = train_control)
+IT.boot = train
 
 
 Subfamily.boot = train(log(Spec.wgt) ~ Subfamily, data=bee_mean,

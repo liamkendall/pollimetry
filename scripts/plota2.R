@@ -1,6 +1,14 @@
-ggplot(data=bee_all,aes(log(IT),log(Spec.wgt)))+geom_point(pch=0,cex=0.1*bee_all$Latitude)+
-  geom_smooth(aes(col=bee_all$Country),method="lm",formula = y ~ x,se=FALSE)+theme_bw()
+library(ggplot2)
+ggplot(data=bee_all,aes(log(Spec.wgt),log(IT)))+geom_point(pch=0)+
+  geom_smooth(aes(col=bee_all$Country),method="lm",formula = y ~ x,se=FALSE)+theme_bw()+
+  geom_line(data=PGLSpred,aes(x=pred,y=IT))
 
+PGLSpred=predict(Bee_PGLS1,newdata=bee_test)
+PGLSpred=cbind.data.frame((bee_test$Spec.wgt*1000),PGLSpred)
+colnames(PGLSpred)=c("IT","pred")
+
+  
+  
 ggplot(data=bee_mean,aes(log(IT),log(Spec.wgt)))+geom_point(pch=0,cex=0.1*bee_mean$Latitude)+
   geom_smooth(aes(col=bee_mean$Country),method="lm",formula = y ~ x,se=FALSE)+theme_bw()            
 
@@ -19,3 +27,8 @@ identify(log(bee_all$IT)~log(bee_all$Spec.wgt))
 
 
 bee_all[c(963  ,966,  988,  991,  992 ,1014 ,1018),]
+
+
+
+
+

@@ -1,12 +1,14 @@
-
-write.csv(unique(bee_mean$Species),"Species_list.csv")
-
-write.csv(bee_mean[!duplicated(bee_mean[,c('Species','Country')]),],"Species_list.csv")
+#libraries
+library(MuMIn)
+library(lme4)
+library(broom)
+library(caret)
+library(ggplot2)
 #################
 ##MAIN ANALYSES##
 #################
 
-boxplot(Spec.wgt~IT,bee_all)
+plot(Spec.wgt~IT,bee_all)
      #To DO:
 
 ###I THINK we need a way to determine if climate or sampling bias important
@@ -64,18 +66,12 @@ boxplot(Spec.wgt~IT,bee_all)
 ##REMOVED 4 specimens from australia sample
         #unique climate zone for bees, only preserved hoverfly) 
 
-#libraries
-library(MuMIn)
-library(lme4)
-library(broom)
-library(caret)
-
 ####QUICK DIAGNOSTICS FOR BEES AND HOVERFLIES
 
 ##BEES
 head(bee_mean)
 unique(bee_mean$Species) #>150
-plot(log(Spec.wgt)~log(IT),bee_mean,col=Climate, pch = as.numeric(Region))
+
 #black = aus
 #red = aus
 #green = aus
@@ -84,14 +80,18 @@ plot(log(Spec.wgt)~log(IT),bee_mean,col=Climate, pch = as.numeric(Region))
 
 par(pty="s")
 par(mfrow=c(2,2))
-plot(Spec.wgt~IT,bee_mean,col=Tribe)
-plot((Spec.wgt)~log(IT),bee_mean,col=Measurement)
 
-plot(bee_mean)
+plot(log(Spec.wgt)~log(IT),bee_mean,col=Measurement)
+plot(log(Spec.wgt)~log(IT),bee_mean,col=Region)
+plot(log(Spec.wgt)~log(IT),bee_mean,col=Measurement)
+plot(log(Spec.wgt)~log(IT),bee_mean,col=Country)
+
 ##HOVERFLIES
-par(mfrow=c(1,1))
-plot(Spec.wgt~IT,hov_mean,col=hov_mean$Region)
-plot((Spec.wgt)~(IT),data=hov_mean[],col=Measurement)
+par(mfrow=c(2,2))
+plot(log(Spec.wgt)~log(IT),hov_mean,col=Measurement)
+plot(log(Spec.wgt)~log(IT),hov_mean,col=Region)
+plot(log(Spec.wgt)~log(IT),hov_mean,col=Measurement)
+plot(log(Spec.wgt)~log(IT),hov_mean,col=Country)
 
 #Check outlier
 hov_mean[ which(log(hov_mean$Spec.wgt)  < -6.25), ]
@@ -113,25 +113,24 @@ plot(lm(log(Spec.wgt)~log(IT),hov_mean[-40,]))
 ###
 #1# Full model
 ###
+bee_mean$Spec.wgt=bee_mean$Spec.wgt*1000
+bee_mean$Spec.wgt=log(bee_mean$Spec.wgt)
+bee_mean$IT=log(bee_mean$IT)
 
-bee_all$Spec.wgt=log(bee_all$Spec.wgt)
-bee_all$IT=log(bee_all$IT_cor)
 options(na.action = "na.omit") 
 
-summary(lmer(Spec.wgt ~  IT*Region+IT*Cl_simp+IT*Latitude + IT*Sex + IT*Family + #fix factors
-  #interactions
-+(1|Measurement),bee_mean))
+bee_f_lme=lmer(log(Spec.wgt) ~ log(IT)  + Family+ Cl_simp + Latitude + Sex+Region+ #fix factors
+                              log(IT):Family + log(IT):Region + log(IT):Cl_simp + log(IT):Latitude + log(IT):Sex + #interactions
+                              (1|Measurement),REML=FALSE,bee_mean)
 
-bee_f_lme=lmer(Spec.wgt ~  IT*Region+IT*Cl_simp+IT*Latitude + IT*Sex + IT*Family + #fix factors
-                 #interactions
-                 +(1|Measurement),bee_mean)
+bee_f_lm=lm(log(Spec.wgt) ~ log(IT)  + Family+ Cl_simp + Latitude + Sex+Region+ #fix factors
+                 log(IT):Family + log(IT):Region + log(IT):Cl_simp + log(IT):Latitude + log(IT):Sex #interactions
+                 ,REML=FALSE,bee_mean)
 
-bee_f_lme_z=lmer(Spec.wgt ~0+  IT*Region+IT*Cl_simp+IT*Latitude + IT*Sex + IT*Family + #fix factors
-                   #interactions
-                   +(1|Measurement),bee_mean)
+plot(bee_f_lme)
+plot(bee_f_lm)
+AIC(bee_f_lme,bee_f_lm)
 
-
-summary(bee_f_lme_z)
 ##########
 ##dredge##
 ##########
@@ -142,33 +141,35 @@ options(na.action = "na.fail")
 #1# Full model
 ###
 
-bee_dr_lme=dredge(bee_f_lme,beta="none",rank="AIC",
-              trace=100) #think about "sd" and "AICc". AIC show same pattern.
-bee_dr_lme_z=dredge(bee_f_lme_z,beta="none",rank="AIC",
-                  trace=100) 
+bee_dr_lme=dredge(bee_f_lme,beta="none",rank="AICc",
+              trace=10) #think about "sd" and "AICc". AIC show same pattern.
+
+bee_dr_lm=dredge(bee_f_lm,beta="none",rank="AICc",
+                  trace=10) #think about "sd" and "AICc". AIC show same pattern.
+
 head(bee_dr_lme)
-head(bee_dr_lme_z)
-par(mfrow=c(2,2))
-plot(lmer(formula = log(Spec.wgt) ~ Family +Region+log(IT) + Sex 
-          + (1 | Measurer) + Family:log(IT), data = bee_mean))
+head(bee_dr_lm) # same tops
 
-###Extract coefficients
+##See heads, all the same bar taxonomy
+plot(Latitude~Spec.wgt,bee_all)
+bee_dr_lme_mod=get.models(bee_dr_lme[1],subset=TRUE)
 
-bee_dr_mods=get.models(bee_dr_lme[1:5],subset=TRUE)
-bee_dr_mods$`62`
-summary(lmer(log(Spec.wgt) ~ Family + log(IT) + Region + Sex + (1 | Measurer) +      Family:log(IT),bee_mean))
-bee_coef=lapply(bee_dr_mods[1:5],function (x) tidy(x))
+bee_dr_lm_mod=get.models(bee_dr_lm[1],subset=TRUE)
 
-r.squaredLR(lmer(Spec.wgt ~ Family + IT + Latitude +
-                   Region + Sex + (1 | Measurement) + Family:IT + IT:Region
-,bee_mean))
+bee_lme_model=lmer(log(Spec.wgt) ~ Cl_simp + Family + log(IT) + Region + Sex + 
+                     log(IT):Region +
+                     (1 | Measurement), data = bee_mean)
+r.squaredGLMM(bee_lme_model)
+#R2m       R2c 
+#0.7128781 0.7128781
 
+r.squaredLR()
 
+bee_lm_model=lm(formula = log(Spec.wgt) ~ Cl_simp + Family + log(IT) + Region + Sex + 
+                        log(IT):Region + 1, data = bee_mean)
+summary(bee_lm_model)
 
-bee_mod_coef=bee_coef$`30`
-bee_mod_coef
-summary(lm(log(Spec.wgt) ~ Family + log(IT) + Region + Sex +      Family:log(IT),bee_mean))
-
+#Multiple R-squared:  0.7191,	Adjusted R-squared:  0.7104
 
 # What I would do:
 #1) test preservation time in AUS and decide to keep it or not. weight ~ pres time (species) or species by species with the NON averaged dataset.
@@ -191,15 +192,6 @@ summary(lm(log(Spec.wgt) ~ Family + log(IT) + Region + Sex +      Family:log(IT)
 ##May this would be useful as a function
 #    = with or without preservation time - as it is very commom
 
-
-bee_model=lmer(log(Spec.wgt) ~ Family + Latitude + log(IT) + Sex +      
-                 Family:log(IT) + Latitude:log(IT) + (1 | Measurer),data=bee_mean)
-
-
-
-##File that will be updated
-
-summary(bee_model)
 
 ################ ################ ################ ################ ################ ################ ################
 ###HOVERFLIES### ###HOVERFLIES### ###HOVERFLIES### ###HOVERFLIES### ###HOVERFLIES### ###HOVERFLIES### ###HOVERFLIES### 
@@ -248,13 +240,25 @@ names(hov_coefs)=c(rep(1:5,1))
 
 hov_coefs$`1`
 str(bee_mean)
-ggplot(data=bee_mean,aes(log(IT),log(Spec.wgt)))+
-  geom_smooth(data=bee_mean,col=bee_mean$Family,method="lm",se=FALSE)+theme_bw()
-  geom_smooth(data=bee_mean,aes(x=log(bee_mean$IT),y=log(bee_mean$Cane),method="lm"))
 
-ggplot(data=bee_mean,aes(log(IT),log(Spec.wgt)))+
-  geom_smooth(aes(col=bee_mean$Family),method="lm",se=FALSE)+theme_bw()
 
-ggplot(data=bee_mean,aes(log(Latitude),log(Spec.wgt)))+
-  geom_smooth(aes(col=Subfamily),method="lm",se=FALSE)+theme_bw()
+ggplot(aes(bee_mean,IT,Spec.wgt,col=Family))+
+  geom_smooth(data=bee_mean,col=Family,method="lm",se=FALSE)+theme_bw()
+
+
+
+
+ # geom_smooth(data=bee_mean,aes(x=log(bee_mean$IT),y=log(bee_mean$Cane),method="lm"))
+
+ggplot(data=bee_all,aes(log(IT),log(Spec.wgt)))+
+  geom_smooth(aes(),method="glm",se=FALSE)+theme_bw()+
+  geom_smooth(data=bee_mean,aes(col=2),method="glm",se=FALSE)+
+  geom_point(aes(pch=1))
+
+
+  
+geom_smooth(data=bee_mean,aes(x=log(bee_mean$IT),y=log(bee_mean$Cane),method="lm"))
+
+ggplot(data=bee_mean,aes(IT,Spec.wgt))+
+  geom_smooth(aes(col=Family),method="lm",se=FALSE)+theme_bw()
        

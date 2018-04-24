@@ -1,10 +1,16 @@
 library(ggplot2)
+<<<<<<< HEAD
 ggplot(data=bee_all,aes(log(Spec.wgt),log(IT)))+geom_point(pch=0,col=1)+
   geom_smooth(aes(),method="lm",formula = y ~ x,se=FALSE)+theme_bw()+
   geom_line(data=PGLSpred,aes(x=exp(pred),y=exp(IT)))
   
   
   
+=======
+ggplot(data=bee_all,aes(log(Spec.wgt),log(IT)))+geom_point(pch=0)+
+  geom_smooth(aes(col=bee_all$Country),method="lm",formula = y ~ x,se=FALSE)+theme_bw()+
+  geom_line(data=PGLSpred,aes(x=pred,y=IT))
+>>>>>>> 66509a52f80b9d6b2e66bc2fdac516d5c7318e36
 
 PGLSpred=predict(Bee_PGLS1,newdata=bee_test)
 PGLSpred=cbind.data.frame((bee_test$Spec.wgt*1000),PGLSpred)

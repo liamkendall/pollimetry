@@ -2,7 +2,6 @@
 title: 'Pollimetry: Predictive allometry for pollinating insects'
 author: "Liam Kendall, Vesna Gagic..........Romina Rader, Ignasi Bartomeus "
 date: "24/04/2018"
-output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
@@ -54,6 +53,41 @@ Perhaps use Nico's input to focus largely on phylogeny - I am finding phylo sing
   - whether or not the tree used is ultrametric or not
   - including subgenera - binding trees where phylogeny is well-resolved i.e. adding bombus tree would be ace
   - making MCMCglmm do PGLS, i have numerous errors so ive given up for now - wil talk with a mol ecologist at       UNE and see if i can find some help.
+=======
+
+Method
+
+#Testing of key co-variates
+
+Preservative time - in australia only
+
+Bio region - included in analysis as considered key 
+
+Latitude -- still very unsure about this, more likely a sampling relic 
+
+
+#Sampling co-variates
+
+Measurement - Included as random effect, the measurer + instrument (incl instruments used).
+
+
+
+#Model choice
+
+
+#Model validation
+
+I read a forum post about how AIC === cross-validation / i.e. one in the same, however I still like cross-validation so i think we should use MCMCglmm (package name and fnction)- for reasons I will explain later
+
+#Where this paper is going?
+
+Phylogeny is key here - I think we present empirical data from arond the world with simple IT~Spec.weight output
+
+And then use Nico's input to focus largely on phylogeny - I am finding phylo singal (Pagel's lambda) very high but there are methodological considerations I cannot fix yet
+  - whether or not the tree used is ultrametric or not
+  - including subgenera - binding trees where phylogeny is well-resolved i.e. adding bombus tree would be ace
+  - making MCMCglmm do PGLS, i have numerous errors so ive given up for now - wil talk with mol ecologist at       UNE
+>>>>>>> 66509a52f80b9d6b2e66bc2fdac516d5c7318e36
   
 
 

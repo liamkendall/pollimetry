@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ##PHYLOSIGNAL - NOT WORKING CURRENTLY
+=======
+##PHYLOSIGNAL
+>>>>>>> 66509a52f80b9d6b2e66bc2fdac516d5c7318e36
 
 #check for phylo signal with model 2)----
 #Note to self: Model 1 can be tested too using MCMC.
@@ -52,6 +56,7 @@ points.col= lipaMoran(bee_phy4d, trait = "IT", prox.phylo = "nNodes")$p.value
 points.col = ifelse(points.col < 0.05, "red", "black")
 dotplot.phylo4d(local.i, dot.col = points.col)
 
+<<<<<<< HEAD
 ##PHYLOSIGNAL
 
 #check for phylo signal with model 2)----
@@ -88,3 +93,5 @@ points.col= lipaMoran(bee_phy4d, trait = "IT", prox.phylo = "nNodes")$p.value
 points.col = ifelse(points.col < 0.05, "red", "black")
 dotplot.phylo4d(local.i, dot.col = points.col)
 
+=======
+>>>>>>> 66509a52f80b9d6b2e66bc2fdac516d5c7318e36

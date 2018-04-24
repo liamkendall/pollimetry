@@ -133,9 +133,6 @@ poll_all_split=split(poll_all,poll_all$Superfamily)
 bee_all.2=poll_all_split[[1]]
 hov_all.2=poll_all_split[[2]]
 
-
-
-
 bee_phylo=aggregate(Latitude~Family+Subfamily+Genus+Species,bee_all.2,median)
 bee_phylo$Longitude=as.numeric(unlist(aggregate(Longitude~Species,bee_all.2,median)[2]))
 bee_phylo$Spec.wgt=as.numeric(unlist(aggregate(Spec.wgt~Species,bee_all.2,mean)[2]))

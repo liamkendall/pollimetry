@@ -44,7 +44,11 @@ poll_all_split=split(poll_all,poll_all$Superfamily)
 bee_all=poll_all_split[[1]]
 hov_all=poll_all_split[[2]]
 
+<<<<<<< HEAD
 
+=======
+bee_all$Spec.wgt=bee_all$Spec.wgt*1000
+>>>>>>> 66509a52f80b9d6b2e66bc2fdac516d5c7318e36
 #########################
 #Species mean dataframes#
 #########################

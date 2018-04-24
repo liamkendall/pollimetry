@@ -92,7 +92,7 @@ AIC(Bee_GLS_IT1,Bee_PGLS_IT1) #Really high phylo signal... interesting
 
 #df      AIC
 #Bee_GLS_IT1   2 272.5669
-#Bee_PGLS_IT1  3  95.26964
+#Bee_PGLS_IT1  3  102.579
 
 
 

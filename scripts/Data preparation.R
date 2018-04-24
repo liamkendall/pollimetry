@@ -4,7 +4,7 @@
 require(caret)
 require(kgc)
 #read data (1 file)----
-poll_all <- read.csv(file="data/PA21418.csv")
+poll_all <- read.csv(file="data/PA24418.csv")
 str(poll_all)
 levels(poll_all$Measurement)
 options(stringsAsFactors = TRUE)
@@ -24,19 +24,19 @@ table(poll_all$Country)
                   #poll_country$Ireland,poll_country$Germany,poll_country$Switzerland)
 #table(poll_all$Country)
 ##Add climate zones
-poll_climate <- data.frame(poll_all, rndCoord.lon = RoundCoordinates(poll_all$Longitude),
+#poll_climate <- data.frame(poll_all, rndCoord.lon = RoundCoordinates(poll_all$Longitude),
                            rndCoord.lat = RoundCoordinates(poll_all$Latitude))
 
-poll_all <- data.frame(poll_climate,Climate=LookupCZ(poll_climate))
-poll_all <- data.frame(poll_all,Cl_simp=strtrim(poll_all$Climate, width=1))
+#poll_all <- data.frame(poll_climate,Climate=LookupCZ(poll_climate))
+#poll_all <- data.frame(poll_all,Cl_simp=strtrim(poll_all$Climate, width=1))
 
 
 ##RESPLIT WITH STANDARDISED LATITUDE
 
 ##Standardise after extracting climate
-poll_all2=split(poll_all,poll_all$Region)
-poll_all2$Australasia$Latitude=poll_all2$Australasia$Latitude*-1
-poll_all=rbind.data.frame(poll_all2$Australasia,poll_all2$Europe)
+#poll_all2=split(poll_all,poll_all$Region)
+#poll_all2$Australasia$Latitude=poll_all2$Australasia$Latitude*-1
+#poll_all=rbind.data.frame(poll_all2$Australasia,poll_all2$Europe)
 
 #split to bees and hoverflies
 poll_all$Spec.wgt=poll_all$Spec.wgt*1000
@@ -44,11 +44,6 @@ poll_all_split=split(poll_all,poll_all$Superfamily)
 bee_all=poll_all_split[[1]]
 hov_all=poll_all_split[[2]]
 
-<<<<<<< HEAD
-
-=======
-bee_all$Spec.wgt=bee_all$Spec.wgt*1000
->>>>>>> 66509a52f80b9d6b2e66bc2fdac516d5c7318e36
 #########################
 #Species mean dataframes#
 #########################
@@ -61,12 +56,6 @@ bee_mean$Spec.wgt=as.numeric(unlist(aggregate(Spec.wgt~Country+Climate+Cl_simp+S
                                               +Genus+Species+Sex,bee_all,mean)[11]))
 bee_mean$IT=(as.numeric(unlist(aggregate(IT~Country+Climate+Cl_simp+Species+Family+Tribe+Country+Measurement+Subfamily
                                          +Genus+Species+Sex,bee_all,mean)[11])))
-
-
-
-plot(log(IT)~log(Spec.wgt),bee_mean,col=Country)
-line(bee_mean$Cane=Cane(bee_mean$IT)/1000,add=TRUE)
-
 
 ##Hoverflies
 options(na.action = "na.omit")

@@ -9,6 +9,8 @@ str(poll_all)
 levels(poll_all$Measurement)
 options(stringsAsFactors = TRUE)
 
+
+
 poll_all[,c("Measurement")]=as.factor(poll_all[,c("Measurement")])
 poll_all[,c("Species")]=as.factor(poll_all[,c("Species")])
 
@@ -37,11 +39,12 @@ poll_all2$Australasia$Latitude=poll_all2$Australasia$Latitude*-1
 poll_all=rbind.data.frame(poll_all2$Australasia,poll_all2$Europe)
 
 #split to bees and hoverflies
+poll_all$Spec.wgt=poll_all$Spec.wgt*1000
 poll_all_split=split(poll_all,poll_all$Superfamily)
 bee_all=poll_all_split[[1]]
 hov_all=poll_all_split[[2]]
 
-bee_all$Spec.wgt=bee_all$Spec.wgt*1000
+
 #########################
 #Species mean dataframes#
 #########################

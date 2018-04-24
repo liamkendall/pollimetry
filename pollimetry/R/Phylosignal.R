@@ -1,4 +1,4 @@
-##PHYLOSIGNAL
+##PHYLOSIGNAL - NOT WORKING CURRENTLY
 
 #check for phylo signal with model 2)----
 #Note to self: Model 1 can be tested too using MCMC.
@@ -48,6 +48,42 @@ plot(WGT.cg)
 
 local.i = lipaMoran(bee_phy4d, trait = "Spec.wgt",
                      prox.phylo = "nNodes", as.p4d = TRUE)
+points.col= lipaMoran(bee_phy4d, trait = "IT", prox.phylo = "nNodes")$p.value
+points.col = ifelse(points.col < 0.05, "red", "black")
+dotplot.phylo4d(local.i, dot.col = points.col)
+
+##PHYLOSIGNAL
+
+#check for phylo signal with model 2)----
+#Note to self: Model 1 can be tested too using MCMC.
+
+library(phytools)
+library(nlme)
+library(phylosignal)
+library(phylobase)
+
+@#########
+#NOT WORKING ATM
+rownames(bee_phylo)=bee_phylo$Species
+bee_phy_traits=bee_phylo[,c("IT","Spec.wgt")]
+bee_phy_traits$ITrel=bee_phylo[,c("IT")]/bee_phylo[,c("Spec.wgt")]
+
+str(bee_pruned)
+
+bee_phy4d=phylo4d(x = bee_pruned,tip.data=bee_phy_traits,tip.label=bee_pruned$tip.label,order="postorder")
+
+barplot.phylo4d(bee_phy4d)
+phyloSignal(bee_phy4d)
+
+IT.cg = phyloCorrelogram(bee_phy4d, trait = "IT")
+WGT.cg =phyloCorrelogram(bee_phy4d, trait = "Spec.wgt")
+par(mfrow=c(1,2))
+plot(IT.cg)
+plot(WGT.cg)
+
+
+local.i = lipaMoran(bee_phy4d, trait = "Spec.wgt",
+                    prox.phylo = "nNodes", as.p4d = TRUE)
 points.col= lipaMoran(bee_phy4d, trait = "IT", prox.phylo = "nNodes")$p.value
 points.col = ifelse(points.col < 0.05, "red", "black")
 dotplot.phylo4d(local.i, dot.col = points.col)

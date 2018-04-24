@@ -1,7 +1,10 @@
 library(ggplot2)
-ggplot(data=bee_all,aes(log(Spec.wgt),log(IT)))+geom_point(pch=0)+
-  geom_smooth(aes(col=bee_all$Country),method="lm",formula = y ~ x,se=FALSE)+theme_bw()+
-  geom_line(data=PGLSpred,aes(x=pred,y=IT))
+ggplot(data=bee_all,aes(log(Spec.wgt),log(IT)))+geom_point(pch=0,col=1)+
+  geom_smooth(aes(),method="lm",formula = y ~ x,se=FALSE)+theme_bw()+
+  geom_line(data=PGLSpred,aes(x=exp(pred),y=exp(IT)))
+  
+  
+  
 
 PGLSpred=predict(Bee_PGLS1,newdata=bee_test)
 PGLSpred=cbind.data.frame((bee_test$Spec.wgt*1000),PGLSpred)
@@ -18,8 +21,6 @@ ggplot(data=forage,aes(log(Max),log(Spec.wgt)))+geom_point(pch=0)+
 ggplot(data=forage,aes(log(Mean),log(Spec.wgt)))+geom_point(pch=0)+
   geom_smooth(aes(col=forage$Type),method="lm",formula = y ~ x,se=FALSE)+theme_bw()            
 
-unique(forage$Species)
-table(forage$Species)
 
 str(bee_all$Climate)
 plot(log(IT)~log(Spec.wgt),bee_all,col=Region)

@@ -1,5 +1,6 @@
 ##Preservation time
 library(dplyr)
+library(broom)
 
 #JUST AUST
 bee_country=split(bee_all,bee_all$Country)
@@ -21,20 +22,5 @@ pres.lm.out=tidy(pres.lm)
 pres.lm.out
 
 ##Preservative time co-efficient
-pres.lm.out[10,]
+Pres_coef=pres.lm.out[11,]
 
-bee_mean$Wgt.cor=bee_mean$Spec.wgt+pres.lm.out[10,2]*bee_mean$Pres.time
-
-plot(Wgt.cor~Spec.wgt,bee_mean,xlim=c(0,0.05),ylim=c(0,0.05))
-#average species co-efficient
-
-pres.lm.out[1,2]+ #intercept 
-mean(pres.lm.out[2:9,2]*-1)
-
-bee_mean$Wgt.cor.1=bee_mean$Spec.wgt+(-5.211987e-06)*bee_mean$Pres.time
-
-plot(IT~Wgt.cor.1,data=bee_mean)
-
-plot(Spec.wgt~Wgt.cor.1,bee_mean)
-
-bee_mean[which(bee_mean$Species=='Homalictus_urbanus' ),]

@@ -1,25 +1,18 @@
+library(ggplot2)
+library(grid)
+library(rworldmap)
 
-# Get the world map
-worldMap <- getMap()
-worldMap = ggmap("world")
-?get_map
-Country <- cbind(c(  'Australia'   ,  'Britain'     ,'Germany' ,    'Ireland'  ,     'Spain', 'Switzerland'),c( 
-94         ,  4       ,   66   ,       15  ,        46   ,       68 ))
+Country <- cbind(c('AUS','GBR','DEU','IRL','ESP','CHE','USA'),
+                 c(94,4,66,15,46,68,22))
+CountryTable <- data.frame(Country = Country[,1], Richness=Country[,2])
+CountryTable$Richness=as.numeric(c(94,4,66,15,46,68,22))
 
+colnames(CountryTable)=c("Country","Richness")
+bee_country <- joinCountryData2Map( CountryTable
+                             ,joinCode = "ISO3"
+                             ,nameJoinColumn = "Country")
 
-beeCoords <- lapply(worldMap, function(i){
-  df <- data.frame(worldMap@polygons[[i]]@Polygons[[1]]@coords)
-  df$region =as.character(worldMap$NAME[i])
-  colnames(df) <- list("long", "lat", "region")
-  return(df)
-})
-
-europeCoords <- do.call("rbind", europeCoords)
-
-Bee_SR=decostand(table(bee_all$Species,bee_all$Country),"pa")
-colSums(Bee_SR)
-
-europeCoords$value <- europeanUnionTable$value[match(europeCoords$region,europeanUnionTable$country)]
-
-
-p=ggplot() +
+mapDevice() #create world map shaped window
+bee_map=mapCountryData(bee_country
+               ,nameColumnToPlot="Richness")
+write(bee_map,"bee_map.pdf")

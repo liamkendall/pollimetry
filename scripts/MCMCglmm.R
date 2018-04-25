@@ -1,6 +1,5 @@
 library(MCMCglmm)
 
-
 ##FULL MODEL
 options(na.action = "na.omit")
 MCMC1=MCMCglmm(log(Spec.wgt)~log(IT)+Family+Region+Sex+

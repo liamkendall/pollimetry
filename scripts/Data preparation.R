@@ -9,8 +9,6 @@ str(poll_all)
 levels(poll_all$Measurement)
 options(stringsAsFactors = TRUE)
 
-
-
 poll_all[,c("Measurement")]=as.factor(poll_all[,c("Measurement")])
 poll_all[,c("Species")]=as.factor(poll_all[,c("Species")])
 
@@ -51,30 +49,30 @@ hov_all=poll_all_split[[2]]
 #Bees
 options(na.action = "na.omit")
 
-bee_mean=aggregate(Latitude~Family+Subfamily+Tribe+Climate+Cl_simp+Country+Region+Measurement+Subfamily+Genus+Species+Sex,bee_all,mean)
-bee_mean$Spec.wgt=as.numeric(unlist(aggregate(Spec.wgt~Country+Climate+Cl_simp+Species+Family+Tribe+Country+Measurement+Subfamily
-                                              +Genus+Species+Sex,bee_all,mean)[11]))
-bee_mean$IT=(as.numeric(unlist(aggregate(IT~Country+Climate+Cl_simp+Species+Family+Tribe+Country+Measurement+Subfamily
-                                         +Genus+Species+Sex,bee_all,mean)[11])))
+bee_mean=aggregate(Latitude~Family+Subfamily+Tribe+Region+Country+Measurement+Subfamily+Genus+Species+Sex,bee_all,mean)
+bee_mean$Spec.wgt=as.numeric(unlist(aggregate(Spec.wgt~Family+Country+Subfamily+Tribe+Region+Measurement+
+                                                Subfamily+Genus+Species+Sex,bee_all,mean)[10]))
+bee_mean$IT=(as.numeric(unlist(aggregate(IT~Family+Subfamily+Tribe+Region+Country+
+                                         Measurement+Subfamily+Genus+Species+Sex,bee_all,mean)[10])))
 
 ##Hoverflies
 options(na.action = "na.omit")
 hov_mean=aggregate(Latitude~Family+Tribe+Country+
-                     Climate+Cl_simp+Region+Measurement+Subfamily+Genus+Species+Sex,hov_all,mean)
+                     Region+Measurement+Subfamily+Genus+Species+Sex,hov_all,mean)
 hov_mean$Longitude=aggregate(Longitude~Family+Tribe+Country+
-                     Climate+Cl_simp+Region+Measurement+Subfamily+Genus+Species+Sex,hov_all,mean)[12]
+                     Region+Measurement+Subfamily+Genus+Species+Sex,hov_all,mean)[10]
 #hov_mean$Pres.time=as.numeric(unlist(aggregate(Pres.time~Climate+Species+Sex,hov_all,unique)[4]))
 hov_mean$Spec.wgt=as.numeric(unlist(aggregate(Spec.wgt~Family+Tribe+Country+
-                                                Climate+Cl_simp+Region+Measurement+Subfamily+
-                                                Genus+Species+Sex,hov_all,mean)[12]))
+                                                Region+Measurement+Subfamily+
+                                                Genus+Species+Sex,hov_all,mean)[10]))
 #hov_mean$Wgt.SD=as.numeric(unlist(aggregate(Spec.wgt~Climate+Species+Sex,hov_all,sd)[4]))
 hov_mean$IT=as.numeric(unlist(aggregate(IT~Family+Tribe+Country+
-                                          Climate+Cl_simp+Region+Measurement+Subfamily+
-                                          Genus+Species+Sex,hov_all,mean)[12]))
+                                          Region+Measurement+Subfamily+
+                                          Genus+Species+Sex,hov_all,mean)[10]))
 #hov_mean$IT.SD=as.numeric(unlist(aggregate(IT~Climate+Species+Sex,hov_all,sd)[4]))
 hov_mean$BL=as.numeric(unlist(aggregate(BL~Family+Tribe+Country+
-                                          Climate+Cl_simp+Region+Measurement+Subfamily+
-                                          Genus+Species+Sex,hov_all,mean)[12]))
+                                          Region+Measurement+Subfamily+
+                                          Genus+Species+Sex,hov_all,mean)[10]))
 #hov_mean$BL.SD=as.numeric(unlist(aggregate(BL~Climate+Species+Sex,hov_all,sd)[4]))
 str(hov_mean)
 

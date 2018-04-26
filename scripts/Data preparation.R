@@ -23,7 +23,7 @@ table(poll_all$Country)
 #table(poll_all$Country)
 ##Add climate zones
 #poll_climate <- data.frame(poll_all, rndCoord.lon = RoundCoordinates(poll_all$Longitude),
-                           rndCoord.lat = RoundCoordinates(poll_all$Latitude))
+                           #rndCoord.lat = RoundCoordinates(poll_all$Latitude))
 
 #poll_all <- data.frame(poll_climate,Climate=LookupCZ(poll_climate))
 #poll_all <- data.frame(poll_all,Cl_simp=strtrim(poll_all$Climate, width=1))

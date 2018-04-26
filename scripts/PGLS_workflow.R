@@ -4,11 +4,8 @@
 library(phytools)
 library(nlme)
 library(phangorn)
+
 ########PHYLO DATASET
-#split to bees and hoverflies
-poll_all_split=split(poll_all,poll_all$Superfamily)
-bee_all=poll_all_split[[1]]
-hov_all=poll_all_split[[2]]
 
 bee_phylo=aggregate(Latitude~Family+Subfamily+Tribe+Genus+Species,bee_all,median)
 bee_phylo$Longitude=as.numeric(unlist(aggregate(Longitude~Family+Subfamily+Tribe+Genus+Species,bee_all,median)[6]))
@@ -20,8 +17,8 @@ rownames(bee_phylo)=bee_phylo$Species
 
 ###MINUS FLAVIPANURGUS FOR NOW
 ##NO FLAVIPANURGUS on phylogeny by Hedtke - we can add individual tip though
-bee_phylo[82,]
-bee_phylo=bee_phylo[-82,]
+bee_phylo[93,]
+bee_phylo=bee_phylo[-93,]
 
 ##TREE
 bee.phy=read.tree(file="raw_data/Bee_phylogeny_Hedtke_etal2013/12862_2013_2375_MOESM3_ESM.txt",keep.multi = TRUE)
@@ -47,12 +44,12 @@ summary(Bee_GLS1)
 Bee_PGLS1 = gls(log(Spec.wgt)~log(IT), data=bee_phylo, correlation=Bee_vcv, method="ML")
 summary(Bee_PGLS1)
 #Lambda
-#0.6892926
+#0.5828042
 
 AIC(Bee_GLS1,Bee_PGLS1)
 #df      AIC
-#Bee_GLS1   3 275.4794
-#Bee_PGLS1  4 251.7689
+#Bee_GLS1   3 288.4056
+#Bee_PGLS1  4 265.8728
 
 ###NEED TO CHECK IF ULTRAMETRICITY IS IMPORTANT AS CHANGES LAMBDA
 
@@ -71,12 +68,12 @@ summary(Bee_GLS_WGT1)
 
 Bee_PGLS_WGT1 = gls(log(Spec.wgt)~1, data=bee_phylo, correlation=Bee_vcv, method="ML")
 summary(Bee_PGLS_WGT1)
-#lambda 0.764347   
+#lambda 0.7368369   
 
 AIC(Bee_GLS_WGT1,Bee_PGLS_WGT1) #Phylo signal strong
 #df      AIC
-#Bee_GLS_WGT1   2 706.8179
-#Bee_PGLS_WGT1  3 557.8304
+#Bee_GLS_WGT1   2 776.9207
+#Bee_PGLS_WGT1  3 614.2440
 
 
 ##IT span
@@ -86,18 +83,10 @@ summary(Bee_GLS_IT1)
 Bee_PGLS_IT1 = gls(log(IT)~1, data=bee_phylo, correlation=Bee_vcv, method="ML")
 summary(Bee_PGLS_IT1)
 
-#lambda 0.8002247  
+#lambda 0.7667771  
 
 AIC(Bee_GLS_IT1,Bee_PGLS_IT1) #Really high phylo signal... interesting
 
 #df      AIC
-#Bee_GLS_IT1   2 272.5669
-<<<<<<< HEAD
+#Bee_GLS_IT1   2 301.7071
 #Bee_PGLS_IT1  3  102.579
-=======
-#Bee_PGLS_IT1  3  95.26964
->>>>>>> 23589a45bdfecd70ea1ed98a9a862840ba5773d1
-
-
-
-

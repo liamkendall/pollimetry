@@ -4,16 +4,11 @@ library(lme4)
 library(broom)
 library(caret)
 library(ggplot2)
+
 #################
 ##MAIN ANALYSES##
 #################
-
-<<<<<<< HEAD
-
-=======
-plot(Spec.wgt~IT,bee_all)
->>>>>>> 66509a52f80b9d6b2e66bc2fdac516d5c7318e36
-     #To DO:
+#To DO:
 
 ###I THINK we need a way to determine if climate or sampling bias important
 ## - assessing if climate is gradient fits hypothesis
@@ -106,23 +101,20 @@ plot(lm(log(Spec.wgt)~log(IT),hov_mean[-40,]))
 
 ##########
 ###BEES###
-##########
-
-#####Models
-#############
-
-##Added interaction between climate and latitude
+################
+#####Models#####
+################
 
 ###
 #1# Full model
 ###
+
 bee_mean$Spec.wgt=bee_mean$Spec.wgt*1000
 bee_mean$Spec.wgt=log(bee_mean$Spec.wgt)
 bee_mean$IT=log(bee_mean$IT)
 
 options(na.action = "na.omit") 
 
-<<<<<<< HEAD
 bee_f_lme=lmer(log(Spec.wgt) ~ log(IT)  + Family + Sex + Region + #fix factors
                               log(IT):Family + log(IT):Region + log(IT):Sex + #interactions
                               (1|Measurement),REML=FALSE,bee_mean)
@@ -130,7 +122,6 @@ plot(bee_f_lme)
 
 AIC(bee_f_lme)
 
-=======
 bee_f_lme=lmer(log(Spec.wgt) ~ log(IT)  + Family+ Cl_simp + Latitude + Sex+Region+ #fix factors
                               log(IT):Family + log(IT):Region + log(IT):Cl_simp + log(IT):Latitude + log(IT):Sex + #interactions
                               (1|Measurement),REML=FALSE,bee_mean)
@@ -143,7 +134,6 @@ plot(bee_f_lme)
 plot(bee_f_lm)
 AIC(bee_f_lme,bee_f_lm)
 
->>>>>>> 66509a52f80b9d6b2e66bc2fdac516d5c7318e36
 ##########
 ##dredge##
 ##########
@@ -156,8 +146,6 @@ options(na.action = "na.fail")
 
 bee_dr_lme=dredge(bee_f_lme,beta="none",rank="AICc",
               trace=10) #think about "sd" and "AICc". AIC show same pattern.
-<<<<<<< HEAD
-=======
 
 bee_dr_lm=dredge(bee_f_lm,beta="none",rank="AICc",
                   trace=10) #think about "sd" and "AICc". AIC show same pattern.
@@ -270,11 +258,8 @@ r.squaredLR(hov_model)
 #attr(,"adj.r.squared")
 #[1] 0.7686215
 
-<<<<<<< HEAD
 hov_coefs=lapply(hov_dr_mods[1],function (x) tidy(x))
 
-
-=======
 hov_coefs$`1`
 str(bee_mean)
 

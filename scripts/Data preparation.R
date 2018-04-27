@@ -4,9 +4,9 @@
 require(caret)
 require(kgc)
 #read data (1 file)----
-poll_all <- read.csv(file="data/PA24418.csv")
+poll_all <- read.csv(file="data/PA28418.csv")
 str(poll_all)
-levels(poll_all$Measurement)
+levels(poll_all$Tribe)
 options(stringsAsFactors = TRUE)
 
 poll_all[,c("Measurement")]=as.factor(poll_all[,c("Measurement")])

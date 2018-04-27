@@ -14,14 +14,9 @@
 #' 
 #' @export
 allIT <- function(IT){
-  all_model=lmer(log(Spec.wgt)~log(IT)+(1|Measurement),bee_all)
+  all_model=lmer(log(Spec.wgt)~log(IT)+(1|Measurement)+(1|Species),bee_all)
   all_coefs=tidy(all_model)
   bodysize=exp(all_coefs[1,2]+log(IT)*all_coefs[2,2])
   bodysize
 }
-allIT(IT=2)
 
-all_coefs
-mean_coefs
-Cane(1)
-r.squaredGLMM(lmer(log(Spec.wgt)~log(IT)+(1|Measurement),bee_all))

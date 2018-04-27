@@ -194,9 +194,6 @@ summary(bee_lm_model)
 
 ##May this would be useful as a function
 #    = with or without preservation time - as it is very commom
->>>>>>> 66509a52f80b9d6b2e66bc2fdac516d5c7318e36
-
-head(bee_dr_lme)
 
 <<<<<<< HEAD
 bee_dr_lme_mod=get.models(bee_dr_lme[1],subset=TRUE)
@@ -215,9 +212,6 @@ r.squaredLR(bee_lme_model)
 #attr(,"adj.r.squared")
 #[1] 0.9149603
 
-
-=======
->>>>>>> 66509a52f80b9d6b2e66bc2fdac516d5c7318e36
 ################ ################ ################ ################ ################ ################ ################
 ###HOVERFLIES### ###HOVERFLIES### ###HOVERFLIES### ###HOVERFLIES### ###HOVERFLIES### ###HOVERFLIES### ###HOVERFLIES### 
 ################ ################ ################ ################ ################ ################ ################ 
@@ -248,24 +242,20 @@ head(hov_dr)
 
 hov_dr_mods=get.models(hov_dr[1],subset=TRUE)
 
-hov_model=lmer(log(Spec.wgt) ~ log(IT) + Subfamily + (1 | Measurement) + log(IT):Subfamily,hov_mean)
+hov_model=lmer(log(Spec.wgt) ~ log(IT) + Sex + Subfamily + (1 | Measurement) +      log(IT):Sex,hov_mean)
 
 r.squaredGLMM(hov_model)
 #R2m       R2c 
-#0.7276233 0.7338602 
+#0.7635235 0.7759880 
 r.squaredLR(hov_model)
-#[1] 0.7346383
+#[1] 0.7761203
 #attr(,"adj.r.squared")
-#[1] 0.7686215
+#[1] 0.825845
 
 hov_coefs=lapply(hov_dr_mods[1],function (x) tidy(x))
 
-hov_coefs$`1`
-str(bee_mean)
-
-
-ggplot(aes(bee_mean,IT,Spec.wgt,col=Family))+
-  geom_smooth(data=bee_mean,col=Family,method="lm",se=FALSE)+theme_bw()
+ggplot(data=hov_mean,aes(log(IT),log(Spec.wgt)))+
+  geom_smooth(aes(col=Subfamily),method="lm",se=FALSE)+theme_bw()+geom_point()
 
 
 
@@ -283,5 +273,3 @@ geom_smooth(data=bee_mean,aes(x=log(bee_mean$IT),y=log(bee_mean$Cane),method="lm
 
 ggplot(data=bee_mean,aes(IT,Spec.wgt))+
   geom_smooth(aes(col=Family),method="lm",se=FALSE)+theme_bw()
->>>>>>> 66509a52f80b9d6b2e66bc2fdac516d5c7318e36
-       

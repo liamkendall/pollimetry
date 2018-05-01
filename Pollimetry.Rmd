@@ -78,9 +78,23 @@ bee_pruned=genus.to.species.tree(bee_pruned, species=bee_phylo$Species)
 
 If you could help me with setting up the data files within this R markdown file, I will write the manuscript in it!
 
-All below is about bees - waiting on species ids for aussie hoverflies but workflow will be the same!
+###Methods
 
-#Method
+##Specimen collection and curation
+
+Only curated or fresh undamaged specimens were included for analysis.
+
+
+##Trait measurement
+
+#Body size
+Body size, measured as dry mass (mg) was measured on an analytical balance with an accuracy to 0.001g. Both fresh and curated specimens were dehydrated at 70 degrees celsius for 24-48h prior to weighing to remove residual humidity as moisture can contribute to measurement error (INSREF). 
+Specimen pins were not removed prior to weighing. Rather pin type and brand was identified, a sample of 10-50 pins per type and brand were measured and the mean substracted off total weight.
+
+#Intertegular distance
+Intertegular distance was measured in millimetres using a stereo-microscope, either mounted with a scale and micrometer or a microscope camera.
+
+
 
 
 #Model structure
@@ -125,8 +139,7 @@ bee_f_lme=lmer(log(Spec.wgt) ~ log(IT)  + Family + Sex + Region + #fix factors
                               log(IT):Family + log(IT):Region + log(IT):Sex + #interactions
                               (1|Measurement),REML=FALSE,bee_mean)
 
-bee_dr_lme=dredge(bee_f_lme,beta="none",rank="AIC",
-              trace=10) #think about "sd" and "AICc". AIC show same pattern.
+bee_dr_lme=dredge(bee_f_lme,beta="none",rank="AIC") #think about "sd" and "AICc". AIC show same pattern.
 head(bee_dr_lme)
 
 ```
@@ -139,8 +152,7 @@ bee_f_lme_red=lmer(log(Spec.wgt) ~ log(IT)  + Family + Sex  + #fix factors
                  (1|Measurement),REML=FALSE,bee_mean)
 
 options(na.action = "na.fail")
-bee_dr_lme_red=dredge(bee_f_lme_red,beta="none",rank="AIC",
-              trace=10) #think about "sd" and "AICc". AIC show same pattern.
+bee_dr_lme_red=dredge(bee_f_lme_red,beta="none",rank="AIC") #think about "sd" and "AICc". AIC show same pattern.
 head(bee_dr_lme_red)
 
 
@@ -165,6 +177,9 @@ p + geom_tiplab(size=3)
 ```
 
 ##Individual traits
+
+Both body size and intertegular span showed a high phylogenetic signal (BS: \( \lambda \) 0.81, lnBS:\( \lambda \) 0.78, IT: \( \lambda \) 0.82, lnIT: \( \lambda \) 0.8). Based on AIC, the PGLS better described the relationship between BS and IT than gls (AIC pgls: 268 ~ gls: 288).
+
 #Spec.wgt
 
 ```{r}
@@ -218,16 +233,26 @@ AIC(Bee_GLS1,Bee_PGLS1)
 
 ```
 
-Together, lower lambda (not sure if we should be used lambda) but good result nonetheless. Suggests a non-PGLS model is best for predicting body size even if both BS and IT have phylo-signal.
+Together, lower lambda but good result nonetheless. Suggests a non-PGLS model may be better at predicting body size even if both BS and IT have phylo-signal. The evolution of bee body size is fascinating though.
 
 https://besjournals.onlinelibrary.wiley.com/doi/pdf/10.1111/j.2041-210X.2012.00196.x
-  This paper is great for understanding the different phylo models
+  This paper is great for understanding the different phylo models.
+  
+```{r,echo=FALSE}
+
+WGT=as.data.frame(log(bee_phylo[,c("Spec.wgt")]))
+rownames(WGT)=rownames(bee_phylo)
+WGT<-as.matrix((WGT))[,1]
+obj<-contMap((bee_pruned),WGT,fsize=c(0.5,0.5),outline=FALSE)
+
+
+```
 
 ##Intraspecific variation
 
 Plotted for five most speciose species: Homalictus_urbanus, Lasioglossum_pauxillum, Bombus_lucorum, Andrena_flavipes and Lasioglossum_lanarium
 
-```{r}
+```{r,echo=FALSE}
 #Homalictus_urbanus
 #Lasioglossum_pauxillum
 #Bombus_lucorum
@@ -335,7 +360,6 @@ plot(BL_WT,ylab = "",xlab="Sample size")
 
 ```
 
-
 #Model validation
 
 ##Training and test set
@@ -431,12 +455,10 @@ hov.red=lmer(log(Spec.wgt) ~ log(IT) + Sex + Subfamily+ #fix
 ##DREDGE
 options(na.action = "na.fail")
 
-hov_dr=dredge(hov.full,beta="none",rank="AIC",
-              trace=100) #think about "sd" and "AICc". AIC show same pattern.
+hov_dr=dredge(hov.full,beta="none",rank="AIC") #think about "sd" and "AICc". AIC show same pattern.
 head(hov_dr)
 
-hov_dr_red=dredge(hov.red,beta="none",rank="AIC",
-              trace=100) #think about "sd" and "AICc". AIC show same pattern.
+hov_dr_red=dredge(hov.red,beta="none",rank="AIC") #think about "sd" and "AICc". AIC show same pattern.
 head(hov_dr_red)
 ```
 
@@ -480,7 +502,4 @@ rmse(log(hov_test$Spec.wgt),hov_pred3)
 
 ##Intraspecific variation in hoverflies
 ```{r}
-table(hov_all$Species)
-
-
 ```

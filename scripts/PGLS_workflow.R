@@ -5,6 +5,10 @@ library(phytools)
 library(nlme)
 library(phangorn)
 
+source("https://bioconductor.org/biocLite.R")
+biocLite("ggtree")
+library(ggtree)
+
 ########PHYLO DATASET
 
 bee_phylo=aggregate(Latitude~Family+Subfamily+Tribe+Genus+Species,bee_all,median)
@@ -23,16 +27,10 @@ bee_phylo=bee_phylo[-93,]
 ##TREE
 bee.phy=read.tree(file="raw_data/Bee_phylogeny_Hedtke_etal2013/12862_2013_2375_MOESM3_ESM.txt",keep.multi = TRUE)
 ##Use tree 1 (376 genera) #Genera-level phylogney
-str(bee.phy[[1]])
 bee.phy=bee.phy[[1]]
 bee.phy=as.phylo(bee.phy)
 #bee.phy=force.ultrametric(bee.phy) Not sure if this is required
-plot(bee.phy)
-
 bee_pruned=drop.tip(bee.phy, setdiff(bee.phy$tip.label,bee_phylo$Genus))
-plot(bee_pruned)
-
-#bee_pruned=genus.to.species.tree(bee_pruned, species=bee_phylo$Subgenus)
 bee_pruned=genus.to.species.tree(bee_pruned, species=bee_phylo$Species)
 
 #first compute correlation matrix from tree
@@ -90,3 +88,29 @@ AIC(Bee_GLS_IT1,Bee_PGLS_IT1) #Really high phylo signal... interesting
 #df      AIC
 #Bee_GLS_IT1   2 301.7071
 #Bee_PGLS_IT1  3  102.579
+
+
+
+
+###PGLS with intraspecific variation
+
+#Exclude NAs for Spec wgt SD
+
+complete.cases(bee_phylo[, c("Wgt.SD")])
+
+bee_intra_phy=bee_phylo[!is.na(bee_phylo$Wgt.SD),]
+bee_intra_phy
+
+
+#Build tree
+bee_intra_pruned=drop.tip(bee.phy, setdiff(bee.phy$tip.label,bee_intra_phy$Genus))
+bee_intra_pruned=genus.to.species.tree(bee_intra_pruned, species=bee_intra_phy$Species)
+bee_intra_pruned
+ggtree(bee_intra_pruned)
+
+
+
+
+pgls.Ives(bee_intra_pruned,X= bee_intra_phy$IT,y = bee_intra_phy$Spec.wgt, 
+          Vx=bee_intra_phy$IT.SD, Vy=bee_intra_phy$Wgt.SD, Cxy=NULL, lower=c(1e-8,1e-8),
+          fixed.b1=NULL)

@@ -5,36 +5,6 @@ require(caret)
 require(kgc)
 #read data (1 file)----
 poll_all <- read.csv(file="data/PA28418.csv")
-str(poll_all)
-levels(poll_all$Tribe)
-options(stringsAsFactors = TRUE)
-
-poll_all[,c("Measurement")]=as.factor(poll_all[,c("Measurement")])
-poll_all[,c("Species")]=as.factor(poll_all[,c("Species")])
-
-table(poll_all$Country)
-##REMOVED MONSTROSA AND COHORT  (BSk climate zone - 3,
-# 1 only preserved hoverfly)
-
-#without Cane 1987
-#poll_country <- split(poll_all,poll_all$Country)
-#poll_all <- rbind(poll_country$Australia,poll_country$Britain,poll_country$Spain,
-                  #poll_country$Ireland,poll_country$Germany,poll_country$Switzerland)
-#table(poll_all$Country)
-##Add climate zones
-#poll_climate <- data.frame(poll_all, rndCoord.lon = RoundCoordinates(poll_all$Longitude),
-                           #rndCoord.lat = RoundCoordinates(poll_all$Latitude))
-
-#poll_all <- data.frame(poll_climate,Climate=LookupCZ(poll_climate))
-#poll_all <- data.frame(poll_all,Cl_simp=strtrim(poll_all$Climate, width=1))
-
-
-##RESPLIT WITH STANDARDISED LATITUDE
-
-##Standardise after extracting climate
-#poll_all2=split(poll_all,poll_all$Region)
-#poll_all2$Australasia$Latitude=poll_all2$Australasia$Latitude*-1
-#poll_all=rbind.data.frame(poll_all2$Australasia,poll_all2$Europe)
 
 #split to bees and hoverflies
 poll_all$Spec.wgt=poll_all$Spec.wgt*1000
@@ -126,3 +96,7 @@ bee_phylo$Spec.wgt=as.numeric(unlist(aggregate(Spec.wgt~Species,bee_all.2,mean)[
 bee_phylo$Wgt.SD=as.numeric(unlist(aggregate(Spec.wgt~Species,bee_all.2,sd)[2]))
 bee_phylo$IT=as.numeric(unlist(aggregate(IT~Species,bee_all.2,mean)[2]))
 bee_phylo$IT.SD=as.numeric(unlist(aggregate(IT~Species,bee_all.2,sd)[2]))
+
+##Build tree
+
+

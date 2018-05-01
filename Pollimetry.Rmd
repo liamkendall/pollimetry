@@ -479,3 +479,8 @@ rmse(log(hov_test$Spec.wgt),hov_pred3)
 
 
 ##Intraspecific variation in hoverflies
+```{r}
+table(hov_all$Species)
+
+
+```

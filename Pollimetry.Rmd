@@ -1,11 +1,74 @@
 ---
 title: 'Pollimetry: Predictive allometry for pollinating insects'
-author: "Liam Kendall, Vesna Gagic..........Romina Rader, Ignasi Bartomeus "
+author: "Liam Kendall, Vesna Gagic..........Romina Rader and Ignasi Bartomeus"
 date: "24/04/2018"
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(broom)
+library(lme4)
+library(phytools)
+library(nlme)
+library(phangorn)
+library(ggtree)
+library(MuMIn)
+library(geiger)
+#dataframe
+poll_all <- read.csv(file="data/PA28418.csv")
+
+#split to bees and hoverflies
+poll_all$Spec.wgt=poll_all$Spec.wgt*1000
+poll_all_split=split(poll_all,poll_all$Superfamily)
+bee_all=poll_all_split[[1]]
+
+#JUST AUSTRALIA
+bee_country=split(bee_all,bee_all$Country)
+bee_australia=bee_country$Australia
+
+#Filter so only species with more than 1 preservative time
+
+bee_aus=as.data.frame(bee_australia %>%
+  group_by(Species) %>% 
+  filter(n_distinct(Pres.time)>1))
+##BEE mean
+bee_mean=aggregate(Latitude~Family+Subfamily+Tribe+Region+Country+Measurement+Subfamily+Genus+Species+Sex,bee_all,mean)
+bee_mean$Spec.wgt=as.numeric(unlist(aggregate(Spec.wgt~Family+Country+Subfamily+Tribe+Region+Measurement+
+                                                Subfamily+Genus+Species+Sex,bee_all,mean)[10]))
+bee_mean$IT=(as.numeric(unlist(aggregate(IT~Family+Subfamily+Tribe+Region+Country+
+                                         Measurement+Subfamily+Genus+Species+Sex,bee_all,mean)[10])))
+
+
+##Top five - for intraspecific variance
+bee_species=split(bee_all,bee_all$Species)
+
+bee_phylo=aggregate(Latitude~Family+Subfamily+
+                      Tribe+Genus+Species,bee_all,median)
+bee_phylo$Longitude=as.numeric(unlist(aggregate(Longitude~Family+Subfamily+
+                                      Tribe+Genus+Species,bee_all,median)[6]))
+bee_phylo$Spec.wgt=as.numeric(unlist(aggregate(Spec.wgt~Family+Subfamily+
+                                      Tribe+Genus+Species,bee_all,mean)[6]))
+bee_phylo$Wgt.SD=as.numeric(unlist(aggregate(log(Spec.wgt)~Family+Subfamily+
+                                      Tribe+Genus+Species,bee_all,sd)[6]))
+bee_phylo$IT=as.numeric(unlist(aggregate(IT~Family+Subfamily+
+                                      Tribe+Genus+Species,bee_all,mean)[6]))
+bee_phylo$IT.SD=as.numeric(unlist(aggregate(log(IT)~Family+Subfamily+
+                                      Tribe+Genus+Species,bee_all,sd)[6]))
+rownames(bee_phylo)=bee_phylo$Species
+
+bee_phylo=bee_phylo[-93,]
+##Build tree
+##TREE
+bee.phy=read.tree(file="raw_data/Bee_phylogeny_Hedtke_etal2013/12862_2013_2375_MOESM3_ESM.txt",keep.multi = TRUE)
+##Use tree 1 (376 genera) #Genera-level phylogney
+bee.phy=bee.phy[[1]]
+bee.phy=as.phylo(bee.phy)
+#bee.phy=force.ultrametric(bee.phy) Not sure if this is required
+bee_pruned=drop.tip(bee.phy, setdiff(bee.phy$tip.label,bee_phylo$Genus))
+bee_pruned=genus.to.species.tree(bee_pruned, species=bee_phylo$Species)
+
+
 ```
 
 ##Nacho
@@ -14,45 +77,408 @@ If you could help me with setting up the data files within this R markdown file,
 
 All below is about bees - waiting on species ids for aussie hoverflies but workflow will be the same!
 
-#Testing of key co-variates
+#Method
 
-Preservative time - in australia only 
-  - I think proper syntax is WEIGHT ~ SPECIES + PRES.TIME
-  -See preservative time workflow file - 160 = -0.8mg - very insignificant
-  
-Bio region - included in analysis
 
-I want to exclude latitude and climate - i see these impacts more likely to be sampling relics, although perhaps we can test in europe once we have belgian data!!!?
+#Model structure
 
-Intraspecific variation - done for five most speciose species
-
-#Sampling co-variates
+We included 'measurement' which denoted the measurer as well as each instrument as a random term.
 
 Measurement - Included as random effect, the measurer + instrument so my measurements in Aus and Switz are two different levels.
-
-#Model choice
 
 See workflowLK.R
 
 -done
 
+
+#Testing of key co-variates
+
+#Preservative time - Australia only
+
+We tested the effect of time in preservative (70-100% ethanol) on Australian bee samples.In total, we had nine bee species which had been subjected to different lengths within ethanol.
+
+  - I think proper syntax is WEIGHT ~ SPECIES + PRES.TIME (or Species*Pres.time?) or WGT ~ Pres.time + (1|Species)?
+
+Overall, preservative time accounted for a decrease in 0.005mg per day. 
+  
+```{r}
+
+pres.lm=lm(Spec.wgt~Species+Pres.time,bee_aus)
+
+summary(pres.lm)
+```
+
+```{r}
+library(lme4)
+pres.lme=lmer(Spec.wgt~Pres.time+(1|Species),bee_aus)
+
+summary(pres.lme)
+```
+
+#Model choice
+
+Test lme models /w and /wo biogeography.
+
+#With region
+```{r}
+
+######
+
+bee_f_lme=lmer(log(Spec.wgt) ~ log(IT)  + Family + Sex + Region + #fix factors
+                              log(IT):Family + log(IT):Region + log(IT):Sex + #interactions
+                              (1|Measurement),REML=FALSE,bee_mean)
+options(na.action = "na.fail")
+bee_dr_lme=dredge(bee_f_lme,beta="none",rank="AIC",
+              trace=10) #think about "sd" and "AICc". AIC show same pattern.
+head(bee_dr_lme)
+
+
+```
+#Without region
+
+```{r}
+
+bee_f_lme_red=lmer(log(Spec.wgt) ~ log(IT)  + Family + Sex  + #fix factors
+                 log(IT):Family + log(IT):Sex + #interactions
+                 (1|Measurement),REML=FALSE,bee_mean)
+
+options(na.action = "na.fail")
+bee_dr_lme_red=dredge(bee_f_lme_red,beta="none",rank="AIC",
+              trace=10) #think about "sd" and "AICc". AIC show same pattern.
+head(bee_dr_lme_red)
+
+
+```
+
+In both cases, the full model is retained. However, the difference in AIC is considerable (421.9 /w region vs. 479 /wo).
+
+I want to exclude latitude and climate - i see these impacts more likely to be sampling relics.
+
+Let us test this for Europe once we have belgian data as we will have good range.
+
+##Intraspecific variation
+
+Plotted for five most speciose species: Homalictus_urbanus, Lasioglossum_pauxillum, Bombus_lucorum, Andrena_flavipes and Lasioglossum_lanarium
+
+```{r}
+#Homalictus_urbanus
+#Lasioglossum_pauxillum
+#Bombus_lucorum
+#Andrena_flavipes
+#Lasioglossum_lanarium
+
+
+##ONE##
+#Homalictus_urbanus
+#IT
+HU_IT = c()
+for(i in 1:length(bee_species$Homalictus_urbanus$IT)){
+  subset1 = sample(bee_species$Homalictus_urbanus$IT, i)
+  HU_IT[i] = mean(subset1)
+}
+
+#Specimen weight
+HU_WT = c()
+for(i in 1:length(bee_species$Homalictus_urbanus$Spec.wgt)){
+  subset1 = sample(bee_species$Homalictus_urbanus$Spec.wgt, i)
+  HU_WT[i] = mean(subset1)
+}
+
+
+##TWO##
+
+#Lasioglossum_pauxillum
+#IT
+LP_IT = c()
+for(i in 1:length(bee_species$Lasioglossum_pauxillum$IT)){
+  subset1 = sample(bee_species$Lasioglossum_pauxillum$IT, i)
+  LP_IT[i] = mean(subset1)
+}
+
+#Specimen weight
+LP_WT = c()
+for(i in 1:length(bee_species$Lasioglossum_pauxillum$Spec.wgt)){
+  subset1 = sample(bee_species$Lasioglossum_pauxillum$Spec.wgt, i)
+  LP_WT[i] = mean(subset1)
+}
+
+##THREE
+#Bombus_lucorum
+BL_IT = c()
+for(i in 1:length(bee_species$Bombus_lucorum$IT)){
+  subset1 = sample(bee_species$Bombus_lucorum$IT, i)
+  BL_IT[i] = mean(subset1)
+}
+
+#Specimen weight
+BL_WT = c()
+for(i in 1:length(bee_species$Bombus_lucorum$Spec.wgt)){
+  subset1 = sample(bee_species$Bombus_lucorum$Spec.wgt, i)
+  BL_WT[i] = mean(subset1)
+}
+
+##FOUR##
+#Andrena_flavipes
+#IT
+AF_IT = c()
+for(i in 1:length(bee_species$Andrena_flavipes$IT)){
+  subset1 = sample(bee_species$Andrena_flavipes$IT, i)
+  AF_IT[i] = mean(subset1)
+}
+
+#Specimen weight
+AF_WT = c()
+for(i in 1:length(bee_species$Andrena_flavipes$Spec.wgt)){
+  subset1 = sample(bee_species$Andrena_flavipes$Spec.wgt, i)
+  AF_WT[i] = mean(subset1)
+}
+
+##FIVE##
+#Lasioglossum_lanarium
+LL_IT = c()
+for(i in 1:length(bee_species$Lasioglossum_lanarium$IT)){
+  subset1 = sample(bee_species$Lasioglossum_lanarium$IT, i)
+  LL_IT[i] = mean(subset1)
+}
+
+
+#Specimen weight
+LL_WT = c()
+for(i in 1:length(bee_species$Lasioglossum_lanarium$Spec.wgt)){
+  subset1 = sample(bee_species$Lasioglossum_lanarium$Spec.wgt, i)
+  LL_WT[i] = mean(subset1)
+}
+
+##graphed three for aesthetics based on size range
+par(mfrow=c(2,3))
+par(pty="s")
+plot(HU_IT,main="Homalictus urbanus",ylab = "ITD (mm)",xlab="")
+#plot(LP_IT,main="Lasioglossum pauxillum",ylab = "",xlab="")
+plot(AF_IT,main="Andrena flavipes",ylab = "",xlab="Sample size")
+plot(BL_IT,main="Bombus lucorum",ylab = "",xlab="")
+
+#plot(LL_IT,main="Lasioglossum lanarium",ylab = "",xlab="Sample size")
+
+plot(HU_WT,ylab = "Specimen weight (mg)",xlab="Sample size")
+#plot(LP_WT,ylab = "",xlab="Sample size")
+plot(AF_WT,ylab = "",xlab="Sample size")
+plot(BL_WT,ylab = "",xlab="Sample size")
+
+#plot(LL_WT,ylab = "",xlab="Sample size")
+```
+
+
 #Model validation
 
-I read a forum post about how AIC === cross-validation / i.e. one in the same, however I still like cross-validation so i think we should use MCMCglmm (package name and function)- as we cna use it for validation and it also allows inclusion of phylogeny
+##Training and test set
 
--Have tried using MCMCglmm for non-phylo model too - i think maybe we should just use both for final model? 
-But use lmer for model selection? Dredge doesnt accept MCMC
+##Bootstrap - not currently possible for lme so back to train/test
 
-See MCMCglmm.R for this
+```{r}
+library(ModelMetrics)
+set.seed(123)
+bee_subset=sample(seq_len(nrow(bee_mean)), size = floor(0.8 * nrow(bee_mean)))
+bee_test <- bee_mean[-bee_subset, ]
+bee_train <- bee_mean[bee_subset, ]
 
-#Where this paper is going?
+Cane <- function(IT){exp(0.6453 + 2.4691*log(IT))}
 
-SEE PGLS_workflow.R
+bee_test_mod=lmer(log(Spec.wgt) ~ log(IT)  + Family + Sex + Region + #fix factors
+                              log(IT):Family + log(IT):Region + log(IT):Sex + #interactions
+                              (1|Measurement),data=bee_train,REML=FALSE)
+bee_test_red_mod=lmer(formula = log(Spec.wgt) ~ log(IT) + Family + Sex + log(IT):Family + 
+    log(IT):Sex + (1 | Measurement), data = bee_train, REML = FALSE)
 
-I think we are going to find a big section on phylogeny given my initial PGLS results. I think there is considerable signal in the IT~weight relationship and Spec.wgt in particular. As such, we need to make sure we use the right phylogeny.
+bee_test_red_mod2=lmer(formula = log(Spec.wgt) ~ log(IT) + (1 | Measurement), data = bee_train, REML = FALSE)
 
-Perhaps use Nico's input to focus largely on phylogeny - I am finding phylo singal (Pagel's lambda) very high but there are methodological considerations I cannot fix yet
+bee_pred1=predict(bee_test_mod,newdata=bee_test)
+bee_pred2=predict(bee_test_red_mod,newdata=bee_test)
+bee_pred3=predict(bee_test_red_mod2,newdata=bee_test)
+bee_pred4=0.6453 + 2.4691*log(bee_test$IT)
+par(pty="s")
+plot(log(Spec.wgt)~log(IT),bee_train,ylab="lnSpecimen weight (mg)",xlab="lnITD (mm)")
+points(bee_pred1~log(bee_test$IT),col=2)
+points(bee_pred2~log(bee_test$IT),col=3)
+points(bee_pred3~log(bee_test$IT),col=4)
+points(bee_pred4~log(bee_test$IT),col=5)
+
+bee_rmse=cbind(
+rmse(log(bee_test$Spec.wgt),bee_pred1),
+rmse(log(bee_test$Spec.wgt),bee_pred2),
+rmse(log(bee_test$Spec.wgt),bee_pred3),
+rmse(log(bee_test$Spec.wgt),bee_pred4))
+colnames(bee_rmse)=c("Full","Reduced","IT","Cane")
+rownames(bee_rmse)=c("RMSE")
+bee_rmse
+```
+
+
+Cane is good, ours is slightly better - good validation of Cane though!! Our data captures natural variability and slight differences between families esp. Apidae vs. the rest
+
+Dan is providing data in next couple of weeks.
+
+I think phylo-signal of body size / IT is cool / interesting angle. Not sure if individual traits need to be log-transformed for signal
+
+Perhaps use Nico's input for focus on phylogeny - I am finding phylo singal (Pagel's lambda) is high but there are methodological considerations I cannot fix yet
   - whether or not the tree used is ultrametric or not
-  - including subgenera - binding trees where phylogeny is well-resolved i.e. adding bombus tree would be ace
-  - making MCMCglmm do PGLS, i have numerous errors so ive given up for now - wil talk with a mol ecologist at       UNE and see if i can find some help.
+  - including subgenera - binding trees where phylogeny is well-resolved i.e. adding bombus tree would be ace - from my understanding lambda is robust to this
 
+Here we can do two things: 1) check traits themselves and Wgt~IT, and 2) run with intraspecific variation for species we have more than one specimen (pgls.Ives (phytools)) - still working this out - it has annoying input but so does geiger
+
+
+
+```{r}
+library(phytools)
+library(nlme)
+library(phangorn)
+library(ggtree)
+##Data frame
+poll_all <- read.csv(file="data/PA28418.csv")
+
+#split to bees and hoverflies
+poll_all$Spec.wgt=poll_all$Spec.wgt*1000
+poll_all_split=split(poll_all,poll_all$Superfamily)
+bee_all=poll_all_split[[1]]
+
+
+p=ggtree((bee_pruned))
+p + geom_tiplab(size=3)
+
+```
+
+##Individual traits PIC
+#Spec.wgt
+
+```{r}
+
+bee_phylo_WGT=as.data.frame(bee_phylo[,c("Spec.wgt")])
+rownames(bee_phylo_WGT)=rownames(bee_phylo)
+
+wgt_geig=fitContinuous(bee_pruned, bee_phylo_WGT,SE=0,
+              model = c("lambda"))
+wgt_geig
+
+wgt_geig_log=fitContinuous(bee_pruned, log(bee_phylo_WGT),SE=0,
+              model = c("lambda"))
+wgt_geig_log
+```
+
+##Intertegular distance
+```{r}
+
+bee_phylo_IT=as.data.frame(bee_phylo[,c("IT")])
+rownames(bee_phylo_IT)=rownames(bee_phylo)
+
+it_geig=fitContinuous(bee_pruned, bee_phylo_IT,SE=0,
+              model = c("lambda"))
+it_geig
+
+it_geig_log=fitContinuous(bee_pruned, log(bee_phylo_IT),SE=0,
+              model = c("lambda"))
+it_geig_log
+```
+
+
+##Predictive model
+#SPEC.WGT ~ IT
+
+```{r}
+
+#first compute correlation matrix from tree
+Bee_vcv=corPagel(value=0.5,phy=bee_pruned,fixed=FALSE)
+
+Bee_GLS1<- gls(log(Spec.wgt)~log(IT), data=bee_phylo, method="ML")
+summary(Bee_GLS1)
+
+Bee_PGLS1 = gls(log(Spec.wgt)~log(IT), data=bee_phylo, correlation=Bee_vcv, method="ML")
+summary(Bee_PGLS1)
+
+AIC(Bee_GLS1,Bee_PGLS1)
+
+
+```
+
+Together, lower lambda (ln Wgt~ln IT) but good result nonetheless. 
+
+Suggests a non-PGLS model is best for predicting body size even if both BS and IT have strong phylo-signal. - multiple methods (geiger (PIC) and PGLS intercept models)
+
+
+#####Hoverflies
+
+```{r}
+hov_all=poll_all_split[[2]]
+
+options(na.action=na.omit)
+hov_mean=aggregate(Latitude~Family+Tribe+Country+
+                     Region+Measurement+Subfamily+Genus+Species+Sex,hov_all,mean)
+hov_mean$Longitude=aggregate(Longitude~Family+Tribe+Country+
+                     Region+Measurement+Subfamily+Genus+Species+Sex,hov_all,mean)[10]
+
+hov_mean$Spec.wgt=as.numeric(unlist(aggregate(Spec.wgt~Family+Tribe+Country+
+                                                Region+Measurement+Subfamily+
+                                                Genus+Species+Sex,hov_all,mean)[10]))
+hov_mean$IT=as.numeric(unlist(aggregate(IT~Family+Tribe+Country+
+                                          Region+Measurement+Subfamily+
+                                          Genus+Species+Sex,hov_all,mean)[10]))
+##Full
+hov.full=lmer(log(Spec.wgt) ~ log(IT) + Region+ Sex + Subfamily+ #fix
+            log(IT):Sex + #interactions
+            log(IT):Subfamily + log(IT):Region+ (1|Measurement)
+            ,REML=FALSE,data=hov_mean)
+##/wo region
+hov.red=lmer(log(Spec.wgt) ~ log(IT) + Sex + Subfamily+ #fix
+            log(IT):Sex + #interactions
+            log(IT):Subfamily + (1|Measurement)
+            ,REML=FALSE,data=hov_mean)
+
+##DREDGE
+options(na.action = "na.fail")
+
+hov_dr=dredge(hov.full,beta="none",rank="AIC",
+              trace=100) #think about "sd" and "AICc". AIC show same pattern.
+head(hov_dr)
+
+hov_dr_red=dredge(hov.red,beta="none",rank="AIC",
+              trace=100) #think about "sd" and "AICc". AIC show same pattern.
+head(hov_dr_red)
+```
+
+#Model validation - hoverflies
+
+##Training and test set
+
+##Bootstrap - not currently possible for lme so back to train/test
+
+```{r}
+library(ModelMetrics)
+set.seed(123)
+hov_subset=sample(seq_len(nrow(hov_mean)), size = floor(0.8 * nrow(hov_mean)))
+hov_test <- hov_mean[-hov_subset, ]
+hov_train <- hov_mean[hov_subset, ]
+
+hov_test_mod=lmer(formula = log(Spec.wgt) ~ log(IT) + Region + Sex + Subfamily + 
+    log(IT):Sex + log(IT):Subfamily + log(IT):Region + (1 | Measurement), 
+    data = hov_train, REML = FALSE)
+hov_test_red_mod=lmer(formula = log(Spec.wgt) ~ log(IT) + Sex + Subfamily + log(IT):Sex + 
+    log(IT):Subfamily + (1 | Measurement), data = hov_train, REML = FALSE)
+
+hov_test_red_mod2=lmer(formula = log(Spec.wgt) ~ log(IT) + (1 | Measurement), data = hov_train, REML = FALSE)
+
+hov_pred1=predict(hov_test_mod,newdata=hov_test)
+hov_pred2=predict(hov_test_red_mod,newdata=hov_test)
+hov_pred3=predict(hov_test_red_mod2,newdata=hov_test)
+
+par(pty="s")
+plot(log(Spec.wgt)~log(IT),hov_train,ylab="ln Specimen weight (mg)",xlab="ln ITD (mm)")
+points(hov_pred1~log(hov_test$IT),col=2)
+points(hov_pred2~log(hov_test$IT),col=3)
+points(hov_pred3~log(hov_test$IT),col=4)
+
+rmse(log(hov_test$Spec.wgt),hov_pred1)
+rmse(log(hov_test$Spec.wgt),hov_pred2)
+rmse(log(hov_test$Spec.wgt),hov_pred3)
+
+```
+
+
+##Intraspecific variation in hoverflies

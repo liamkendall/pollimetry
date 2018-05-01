@@ -4,6 +4,8 @@ library(lme4)
 library(broom)
 library(caret)
 library(ggplot2)
+source("https://bioconductor.org/biocLite.R")
+biocLite("ggtree")
 
 #################
 ##MAIN ANALYSES##
@@ -49,9 +51,7 @@ library(ggplot2)
 #discuss PGLS and phylo signal?
 
 ##NEXT
-#- replicate all for hoverflies and foraging distances
 
-#- Extra weigth flies Monday.
 
 ##DONE## Need latitude for Spanish samples (Assume no pres.time) - Set to Seville latitude
 
@@ -89,7 +89,7 @@ plot(log(Spec.wgt)~log(IT),bee_mean,col=Country)
 par(mfrow=c(2,2))
 plot(log(Spec.wgt)~log(IT),hov_mean,col=Measurement)
 plot(log(Spec.wgt)~log(IT),hov_mean,col=Region)
-plot(log(Spec.wgt)~log(IT),hov_mean,col=Measurement)
+plot(log(Spec.wgt)~log(IT),hov_mean,col=Subfamily)
 plot(log(Spec.wgt)~log(IT),hov_mean,col=Country)
 
 #Check outlier
@@ -115,24 +115,16 @@ bee_mean$IT=log(bee_mean$IT)
 
 options(na.action = "na.omit") 
 
+
+##WITH Region
 bee_f_lme=lmer(log(Spec.wgt) ~ log(IT)  + Family + Sex + Region + #fix factors
                               log(IT):Family + log(IT):Region + log(IT):Sex + #interactions
                               (1|Measurement),REML=FALSE,bee_mean)
-plot(bee_f_lme)
 
-AIC(bee_f_lme)
-
-bee_f_lme=lmer(log(Spec.wgt) ~ log(IT)  + Family+ Cl_simp + Latitude + Sex+Region+ #fix factors
-                              log(IT):Family + log(IT):Region + log(IT):Cl_simp + log(IT):Latitude + log(IT):Sex + #interactions
-                              (1|Measurement),REML=FALSE,bee_mean)
-
-bee_f_lm=lm(log(Spec.wgt) ~ log(IT)  + Family+ Cl_simp + Latitude + Sex+Region+ #fix factors
-                 log(IT):Family + log(IT):Region + log(IT):Cl_simp + log(IT):Latitude + log(IT):Sex #interactions
-                 ,REML=FALSE,bee_mean)
-
-plot(bee_f_lme)
-plot(bee_f_lm)
-AIC(bee_f_lme,bee_f_lm)
+#Without Region
+bee_f_lme_red=lmer(log(Spec.wgt) ~ log(IT)  + Family + Sex  + #fix factors
+                 log(IT):Family + log(IT):Sex + #interactions
+                 (1|Measurement),REML=FALSE,bee_mean)
 
 ##########
 ##dredge##
@@ -144,36 +136,27 @@ options(na.action = "na.fail")
 #1# Full model
 ###
 
-bee_dr_lme=dredge(bee_f_lme,beta="none",rank="AICc",
+bee_dr_lme=dredge(bee_f_lme,beta="none",rank="AIC",
               trace=10) #think about "sd" and "AICc". AIC show same pattern.
-
-bee_dr_lm=dredge(bee_f_lm,beta="none",rank="AICc",
-                  trace=10) #think about "sd" and "AICc". AIC show same pattern.
-
 head(bee_dr_lme)
-head(bee_dr_lm) # same tops
 
-##See heads, all the same bar taxonomy
-plot(Latitude~Spec.wgt,bee_all)
+bee_dr_lme_red=dredge(bee_f_lme_red,beta="none",rank="AICc",
+                  trace=10) 
+head(bee_dr_lme_red)
+bee_f_lme_red
+
+#GET Top MODEL
 bee_dr_lme_mod=get.models(bee_dr_lme[1],subset=TRUE)
 
-bee_dr_lm_mod=get.models(bee_dr_lm[1],subset=TRUE)
+bee_dr_lme_red_mod=get.models(bee_dr_lme_red[1],subset=TRUE)
 
-bee_lme_model=lmer(log(Spec.wgt) ~ Cl_simp + Family + log(IT) + Region + Sex + 
-                     log(IT):Region +
-                     (1 | Measurement), data = bee_mean)
-r.squaredGLMM(bee_lme_model)
+r.squaredGLMM(bee_dr_lme_mod[[1]])
 #R2m       R2c 
-#0.7128781 0.7128781
-
-r.squaredLR()
-
-bee_lm_model=lm(formula = log(Spec.wgt) ~ Cl_simp + Family + log(IT) + Region + Sex + 
-                        log(IT):Region + 1, data = bee_mean)
-summary(bee_lm_model)
-
-#Multiple R-squared:  0.7191,	Adjusted R-squared:  0.7104
-
+#0.8833778 0.8952139 
+r.squaredGLMM(bee_dr_lme_red_mod[[1]])
+#R2m       R2c 
+#0.8647225 0.8712988
+summary(bee_dr_lme_red_mod[[1]])
 # What I would do:
 #1) test preservation time in AUS and decide to keep it or not. weight ~ pres time (species) or species by species with the NON averaged dataset.
 #1.1) If pres time is imp... you correct it based in Weight ~ a + b*prestime, _ STARTED
@@ -195,22 +178,6 @@ summary(bee_lm_model)
 ##May this would be useful as a function
 #    = with or without preservation time - as it is very commom
 
-<<<<<<< HEAD
-bee_dr_lme_mod=get.models(bee_dr_lme[1],subset=TRUE)
-bee_dr_lme_mod
-
-#best model
-bee_lme_model=lmer(log(Spec.wgt) ~ Family + log(IT) + Region + Sex + (1 | Measurement) +  
-                     Family:log(IT) + log(IT):Region + log(IT):Sex, data = bee_mean)
-
-r.squaredGLMM(bee_lme_model)
-#R2m       R2c 
-#0.8708545 0.8715625
-
-r.squaredLR(bee_lme_model)
-#[1] 0.8757662
-#attr(,"adj.r.squared")
-#[1] 0.9149603
 
 ################ ################ ################ ################ ################ ################ ################
 ###HOVERFLIES### ###HOVERFLIES### ###HOVERFLIES### ###HOVERFLIES### ###HOVERFLIES### ###HOVERFLIES### ###HOVERFLIES### 
@@ -221,24 +188,33 @@ r.squaredLR(bee_lme_model)
 ###
 #1# Full model - with preservative time
 ###
+##Full
 
-options(na.action = "na.omit") 
+options(na.action = "na.omit")
+hov.full=lmer(log(Spec.wgt) ~ log(IT) + Region+ Sex + Subfamily+ #fix
+                log(IT):Sex + #interactions
+                log(IT):Subfamily + log(IT):Region+ (1|Measurement)
+              ,REML=FALSE,data=hov_mean)
+##/wo region
+hov.red=lmer(log(Spec.wgt) ~ log(IT) + Sex + Subfamily+ #fix
+               log(IT):Sex + #interactions
+               log(IT):Subfamily + (1|Measurement)
+             ,REML=FALSE,data=hov_mean)
 
-hov.full=lmer(log(Spec.wgt) ~ log(IT) + Sex + Subfamily+ #fix
-            log(IT):Sex + #interactions
-            log(IT):Subfamily + (1|Measurement)
-            ,REML=FALSE,data=hov_mean)
-
-##########
-##dredge##
-##########
-
+##DREDGE
 options(na.action = "na.fail")
 
 hov_dr=dredge(hov.full,beta="none",rank="AIC",
               trace=100) #think about "sd" and "AICc". AIC show same pattern.
 head(hov_dr)
-###Extract coefficients
+
+hov_dr_red=dredge(hov.red,beta="none",rank="AIC",
+                  trace=100) #think about "sd" and "AICc". AIC show same pattern.
+head(hov_dr_red)
+
+hov_dr[1]
+
+hov_dr_red[1]
 
 hov_dr_mods=get.models(hov_dr[1],subset=TRUE)
 
@@ -266,7 +242,6 @@ ggplot(data=bee_all,aes(log(IT),log(Spec.wgt)))+
   geom_smooth(aes(),method="glm",se=FALSE)+theme_bw()+
   geom_smooth(data=bee_mean,aes(col=2),method="glm",se=FALSE)+
   geom_point(aes(pch=1))
-
 
   
 geom_smooth(data=bee_mean,aes(x=log(bee_mean$IT),y=log(bee_mean$Cane),method="lm"))

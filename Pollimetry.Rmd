@@ -102,6 +102,7 @@ We tested the effect of time in preservative (70-100% ethanol) on Australian bee
 Overall, preservative time accounted for a decrease in 0.005mg per day. 
   
 ```{r}
+<<<<<<< HEAD
 
 pres.lm=lm(Spec.wgt~Species+Pres.time,bee_aus)
 
@@ -112,6 +113,38 @@ summary(pres.lm)
 library(lme4)
 pres.lme=lmer(Spec.wgt~Pres.time+(1|Species),bee_aus)
 
+=======
+library(dplyr)
+library(broom)
+library(lme4)
+#dataframe
+poll_all <- read.csv(file="data/PA28418.csv")
+
+#split to bees and hoverflies
+poll_all$Spec.wgt=poll_all$Spec.wgt*1000
+poll_all_split=split(poll_all,poll_all$Superfamily)
+bee_all=poll_all_split[[1]]
+
+#JUST AUSTRALIS
+bee_country=split(bee_all,bee_all$Country)
+bee_australia=bee_country$Australia
+
+#Filter so only species with more than 1 preservative time
+
+bee_aus=as.data.frame(bee_australia %>%
+  group_by(Species) %>% 
+  filter(n_distinct(Pres.time)>1))
+
+pres.lm=lm(Spec.wgt~Species+Pres.time,bee_aus)
+
+summary(pres.lm)
+```
+
+```{r}
+library(lme4)
+pres.lme=lmer(Spec.wgt~Pres.time+(1|Species),bee_aus)
+
+>>>>>>> 5794288ddca0a6aa4b1e4e5ec8050ad63b1556a8
 summary(pres.lme)
 ```
 
@@ -121,7 +154,17 @@ Test lme models /w and /wo biogeography.
 
 #With region
 ```{r}
+<<<<<<< HEAD
 
+=======
+library(MuMIn)
+
+bee_mean=aggregate(Latitude~Family+Subfamily+Tribe+Region+Country+Measurement+Subfamily+Genus+Species+Sex,bee_all,mean)
+bee_mean$Spec.wgt=as.numeric(unlist(aggregate(Spec.wgt~Family+Country+Subfamily+Tribe+Region+Measurement+
+                                                Subfamily+Genus+Species+Sex,bee_all,mean)[10]))
+bee_mean$IT=(as.numeric(unlist(aggregate(IT~Family+Subfamily+Tribe+Region+Country+
+                                         Measurement+Subfamily+Genus+Species+Sex,bee_all,mean)[10])))
+>>>>>>> 5794288ddca0a6aa4b1e4e5ec8050ad63b1556a8
 ######
 
 bee_f_lme=lmer(log(Spec.wgt) ~ log(IT)  + Family + Sex + Region + #fix factors
@@ -137,6 +180,25 @@ head(bee_dr_lme)
 #Without region
 
 ```{r}
+<<<<<<< HEAD
+=======
+##Data frame
+poll_all <- read.csv(file="data/PA28418.csv")
+
+#split to bees and hoverflies
+poll_all$Spec.wgt=poll_all$Spec.wgt*1000
+poll_all_split=split(poll_all,poll_all$Superfamily)
+bee_all=poll_all_split[[1]]
+
+options(na.action = "na.omit")
+
+bee_mean=aggregate(Latitude~Family+Subfamily+Tribe+Region+Country+Measurement+Subfamily+Genus+Species+Sex,bee_all,mean)
+bee_mean$Spec.wgt=as.numeric(unlist(aggregate(Spec.wgt~Family+Country+Subfamily+Tribe+Region+Measurement+
+                                                Subfamily+Genus+Species+Sex,bee_all,mean)[10]))
+bee_mean$IT=(as.numeric(unlist(aggregate(IT~Family+Subfamily+Tribe+Region+Country+
+                                         Measurement+Subfamily+Genus+Species+Sex,bee_all,mean)[10])))
+######
+>>>>>>> 5794288ddca0a6aa4b1e4e5ec8050ad63b1556a8
 
 bee_f_lme_red=lmer(log(Spec.wgt) ~ log(IT)  + Family + Sex  + #fix factors
                  log(IT):Family + log(IT):Sex + #interactions
@@ -156,11 +218,238 @@ I want to exclude latitude and climate - i see these impacts more likely to be s
 
 Let us test this for Europe once we have belgian data as we will have good range.
 
+<<<<<<< HEAD
+=======
+#Phylogenetic GLS
+
+Here we can do two things: 1) check traits themselves and Wgt~IT, and 2) run with intraspecific variation for species we have more than one specimen (pgls.Ives (phytools))
+
+```{r}
+library(phytools)
+library(nlme)
+library(phangorn)
+library(ggtree)
+##Data frame
+poll_all <- read.csv(file="data/PA28418.csv")
+
+#split to bees and hoverflies
+poll_all$Spec.wgt=poll_all$Spec.wgt*1000
+poll_all_split=split(poll_all,poll_all$Superfamily)
+bee_all=poll_all_split[[1]]
+
+bee_phylo=aggregate(Latitude~Family+Subfamily+
+                      Tribe+Genus+Species,bee_all,median)
+bee_phylo$Longitude=as.numeric(unlist(aggregate(Longitude~Family+Subfamily+
+                                      Tribe+Genus+Species,bee_all,median)[6]))
+bee_phylo$Spec.wgt=as.numeric(unlist(aggregate(Spec.wgt~Family+Subfamily+
+                                      Tribe+Genus+Species,bee_all,mean)[6]))
+bee_phylo$Wgt.SD=as.numeric(unlist(aggregate(log(Spec.wgt)~Family+Subfamily+
+                                      Tribe+Genus+Species,bee_all,sd)[6]))
+bee_phylo$IT=as.numeric(unlist(aggregate(IT~Family+Subfamily+
+                                      Tribe+Genus+Species,bee_all,mean)[6]))
+bee_phylo$IT.SD=as.numeric(unlist(aggregate(log(IT)~Family+Subfamily+
+                                      Tribe+Genus+Species,bee_all,sd)[6]))
+rownames(bee_phylo)=bee_phylo$Species
+
+##Build tree
+##TREE
+bee.phy=read.tree(file="raw_data/Bee_phylogeny_Hedtke_etal2013/12862_2013_2375_MOESM3_ESM.txt",keep.multi = TRUE)
+##Use tree 1 (376 genera) #Genera-level phylogney
+bee.phy=bee.phy[[1]]
+bee.phy=as.phylo(bee.phy)
+#bee.phy=force.ultrametric(bee.phy) Not sure if this is required
+bee_pruned=drop.tip(bee.phy, setdiff(bee.phy$tip.label,bee_phylo$Genus))
+bee_pruned=genus.to.species.tree(bee_pruned, species=bee_phylo$Species)
+
+p=ggtree((bee_pruned))
+p + geom_tiplab(size=3)
+
+```
+
+##Individual traits
+#Spec.wgt
+
+```{r}
+library(phytools)
+library(nlme)
+library(phangorn)
+library(ggtree)
+##Data frame
+poll_all <- read.csv(file="data/PA28418.csv")
+
+#split to bees and hoverflies
+poll_all$Spec.wgt=poll_all$Spec.wgt*1000
+poll_all_split=split(poll_all,poll_all$Superfamily)
+bee_all=poll_all_split[[1]]
+
+bee_phylo=aggregate(Latitude~Family+Subfamily+
+                      Tribe+Genus+Species,bee_all,median)
+bee_phylo$Longitude=as.numeric(unlist(aggregate(Longitude~Family+Subfamily+
+                                      Tribe+Genus+Species,bee_all,median)[6]))
+bee_phylo$Spec.wgt=as.numeric(unlist(aggregate(Spec.wgt~Family+Subfamily+
+                                      Tribe+Genus+Species,bee_all,mean)[6]))
+bee_phylo$Wgt.SD=as.numeric(unlist(aggregate(log(Spec.wgt)~Family+Subfamily+
+                                      Tribe+Genus+Species,bee_all,sd)[6]))
+bee_phylo$IT=as.numeric(unlist(aggregate(IT~Family+Subfamily+
+                                      Tribe+Genus+Species,bee_all,mean)[6]))
+bee_phylo$IT.SD=as.numeric(unlist(aggregate(log(IT)~Family+Subfamily+
+                                      Tribe+Genus+Species,bee_all,sd)[6]))
+rownames(bee_phylo)=bee_phylo$Species
+
+bee_phylo=bee_phylo[-93,]
+##TREE
+bee.phy=read.tree(file="raw_data/Bee_phylogeny_Hedtke_etal2013/12862_2013_2375_MOESM3_ESM.txt",keep.multi = TRUE)
+##Use tree 1 (376 genera) #Genera-level phylogeny
+bee.phy=bee.phy[[1]]
+bee.phy=as.phylo(bee.phy)
+#bee.phy=force.ultrametric(bee.phy) Not sure if this is required
+bee_pruned=drop.tip(bee.phy, setdiff(bee.phy$tip.label,bee_phylo$Genus))
+bee_pruned=genus.to.species.tree(bee_pruned, species=bee_phylo$Species)
+
+#first compute correlation matrix from tree
+Bee_vcv=corPagel(value=0.5,phy=bee_pruned,fixed=FALSE)
+
+WGT_GLS1<- gls(log(Spec.wgt)~1, data=bee_phylo, method="ML")
+WGT_PGLS1 = gls(log(Spec.wgt)~1, data=bee_phylo, correlation=Bee_vcv, method="ML")
+
+
+
+AIC(WGT_GLS1,WGT_PGLS1)
+summary(WGT_PGLS1)
+
+```
+
+
+##Intertegular distance
+
+```{r}
+library(phytools)
+library(nlme)
+library(phangorn)
+library(ggtree)
+##Data frame
+poll_all <- read.csv(file="data/PA28418.csv")
+
+#split to bees and hoverflies
+poll_all$Spec.wgt=poll_all$Spec.wgt*1000
+poll_all_split=split(poll_all,poll_all$Superfamily)
+bee_all=poll_all_split[[1]]
+
+bee_phylo=aggregate(Latitude~Family+Subfamily+
+                      Tribe+Genus+Species,bee_all,median)
+bee_phylo$Longitude=as.numeric(unlist(aggregate(Longitude~Family+Subfamily+
+                                      Tribe+Genus+Species,bee_all,median)[6]))
+bee_phylo$Spec.wgt=as.numeric(unlist(aggregate(Spec.wgt~Family+Subfamily+
+                                      Tribe+Genus+Species,bee_all,mean)[6]))
+bee_phylo$Wgt.SD=as.numeric(unlist(aggregate(log(Spec.wgt)~Family+Subfamily+
+                                      Tribe+Genus+Species,bee_all,sd)[6]))
+bee_phylo$IT=as.numeric(unlist(aggregate(IT~Family+Subfamily+
+                                      Tribe+Genus+Species,bee_all,mean)[6]))
+bee_phylo$IT.SD=as.numeric(unlist(aggregate(log(IT)~Family+Subfamily+
+                                      Tribe+Genus+Species,bee_all,sd)[6]))
+rownames(bee_phylo)=bee_phylo$Species
+
+bee_phylo=bee_phylo[-93,]
+##TREE
+bee.phy=read.tree(file="raw_data/Bee_phylogeny_Hedtke_etal2013/12862_2013_2375_MOESM3_ESM.txt",keep.multi = TRUE)
+##Use tree 1 (376 genera) #Genera-level phylogeny
+bee.phy=bee.phy[[1]]
+bee.phy=as.phylo(bee.phy)
+#bee.phy=force.ultrametric(bee.phy) Not sure if this is required
+bee_pruned=drop.tip(bee.phy, setdiff(bee.phy$tip.label,bee_phylo$Genus))
+bee_pruned=genus.to.species.tree(bee_pruned, species=bee_phylo$Species)
+
+#first compute correlation matrix from tree
+Bee_vcv=corPagel(value=0.5,phy=bee_pruned,fixed=FALSE)
+
+IT_GLS1<- gls(log(IT)~1, data=bee_phylo, method="ML")
+IT_PGLS1 = gls(log(IT)~1, data=bee_phylo, correlation=Bee_vcv, method="ML")
+
+
+
+AIC(IT_GLS1,IT_PGLS1)
+summary(IT_PGLS1)
+
+```
+
+
+##Predictive model
+#SPEC.WGT ~ IT
+
+
+```{r}
+library(phytools)
+library(nlme)
+library(phangorn)
+library(ggtree)
+##Data frame
+poll_all <- read.csv(file="data/PA28418.csv")
+
+#split to bees and hoverflies
+poll_all$Spec.wgt=poll_all$Spec.wgt*1000
+poll_all_split=split(poll_all,poll_all$Superfamily)
+bee_all=poll_all_split[[1]]
+
+bee_phylo=aggregate(Latitude~Family+Subfamily+
+                      Tribe+Genus+Species,bee_all,median)
+bee_phylo$Longitude=as.numeric(unlist(aggregate(Longitude~Family+Subfamily+
+                                      Tribe+Genus+Species,bee_all,median)[6]))
+bee_phylo$Spec.wgt=as.numeric(unlist(aggregate(Spec.wgt~Family+Subfamily+
+                                      Tribe+Genus+Species,bee_all,mean)[6]))
+bee_phylo$Wgt.SD=as.numeric(unlist(aggregate(log(Spec.wgt)~Family+Subfamily+
+                                      Tribe+Genus+Species,bee_all,sd)[6]))
+bee_phylo$IT=as.numeric(unlist(aggregate(IT~Family+Subfamily+
+                                      Tribe+Genus+Species,bee_all,mean)[6]))
+bee_phylo$IT.SD=as.numeric(unlist(aggregate(log(IT)~Family+Subfamily+
+                                      Tribe+Genus+Species,bee_all,sd)[6]))
+rownames(bee_phylo)=bee_phylo$Species
+
+bee_phylo=bee_phylo[-93,]
+##TREE
+bee.phy=read.tree(file="raw_data/Bee_phylogeny_Hedtke_etal2013/12862_2013_2375_MOESM3_ESM.txt",keep.multi = TRUE)
+##Use tree 1 (376 genera) #Genera-level phylogeny
+bee.phy=bee.phy[[1]]
+bee.phy=as.phylo(bee.phy)
+#bee.phy=force.ultrametric(bee.phy) Not sure if this is required
+bee_pruned=drop.tip(bee.phy, setdiff(bee.phy$tip.label,bee_phylo$Genus))
+bee_pruned=genus.to.species.tree(bee_pruned, species=bee_phylo$Species)
+
+#first compute correlation matrix from tree
+Bee_vcv=corPagel(value=0.5,phy=bee_pruned,fixed=FALSE)
+
+Bee_GLS1<- gls(log(Spec.wgt)~log(IT), data=bee_phylo, method="ML")
+summary(Bee_GLS1)
+
+Bee_PGLS1 = gls(log(Spec.wgt)~log(IT), data=bee_phylo, correlation=Bee_vcv, method="ML")
+summary(Bee_PGLS1)
+
+AIC(Bee_GLS1,Bee_PGLS1)
+
+
+```
+
+Together, low lambda (not sure if we should be used lambda) but good result nonetheless. Suggests a non-PGLS model is best for predicting body size even if both BS and IT have phylo-signal.
+
+>>>>>>> 5794288ddca0a6aa4b1e4e5ec8050ad63b1556a8
 ##Intraspecific variation
 
 Plotted for five most speciose species: Homalictus_urbanus, Lasioglossum_pauxillum, Bombus_lucorum, Andrena_flavipes and Lasioglossum_lanarium
 
 ```{r}
+<<<<<<< HEAD
+=======
+##Data frame
+poll_all <- read.csv(file="data/PA28418.csv")
+
+#split to bees and hoverflies
+poll_all$Spec.wgt=poll_all$Spec.wgt*1000
+poll_all_split=split(poll_all,poll_all$Superfamily)
+bee_all=poll_all_split[[1]]
+
+##Top five
+bee_species=split(bee_all,bee_all$Species)
+
+>>>>>>> 5794288ddca0a6aa4b1e4e5ec8050ad63b1556a8
 #Homalictus_urbanus
 #Lasioglossum_pauxillum
 #Bombus_lucorum
@@ -249,6 +538,7 @@ for(i in 1:length(bee_species$Lasioglossum_lanarium$Spec.wgt)){
   LL_WT[i] = mean(subset1)
 }
 
+<<<<<<< HEAD
 ##graphed three for aesthetics based on size range
 par(mfrow=c(2,3))
 par(pty="s")
@@ -265,6 +555,22 @@ plot(AF_WT,ylab = "",xlab="Sample size")
 plot(BL_WT,ylab = "",xlab="Sample size")
 
 #plot(LL_WT,ylab = "",xlab="Sample size")
+=======
+
+par(mfrow=c(2,5))
+par(pty="s")
+plot(HU_IT)
+plot(LP_IT)
+plot(BL_IT)
+plot(AF_IT)
+plot(LL_IT)
+
+plot(HU_WT)
+plot(LP_WT)
+plot(BL_WT)
+plot(AF_WT)
+plot(LL_WT)
+>>>>>>> 5794288ddca0a6aa4b1e4e5ec8050ad63b1556a8
 ```
 
 
@@ -281,7 +587,10 @@ bee_subset=sample(seq_len(nrow(bee_mean)), size = floor(0.8 * nrow(bee_mean)))
 bee_test <- bee_mean[-bee_subset, ]
 bee_train <- bee_mean[bee_subset, ]
 
+<<<<<<< HEAD
 Cane <- function(IT){exp(0.6453 + 2.4691*log(IT))}
+=======
+>>>>>>> 5794288ddca0a6aa4b1e4e5ec8050ad63b1556a8
 
 bee_test_mod=lmer(log(Spec.wgt) ~ log(IT)  + Family + Sex + Region + #fix factors
                               log(IT):Family + log(IT):Region + log(IT):Sex + #interactions
@@ -289,6 +598,7 @@ bee_test_mod=lmer(log(Spec.wgt) ~ log(IT)  + Family + Sex + Region + #fix factor
 bee_test_red_mod=lmer(formula = log(Spec.wgt) ~ log(IT) + Family + Sex + log(IT):Family + 
     log(IT):Sex + (1 | Measurement), data = bee_train, REML = FALSE)
 
+<<<<<<< HEAD
 bee_test_red_mod2=lmer(formula = log(Spec.wgt) ~ log(IT) + (1 | Measurement), data = bee_train, REML = FALSE)
 
 bee_pred1=predict(bee_test_mod,newdata=bee_test)
@@ -311,6 +621,21 @@ colnames(bee_rmse)=c("Full","Reduced","IT","Cane")
 rownames(bee_rmse)=c("RMSE")
 bee_rmse
 ```
+=======
+bee_pred1=predict(bee_test_mod,newdata=bee_test)
+bee_pred2=predict(bee_test_red_mod,newdata=bee_test)
+
+par(pty="s")
+plot(log(Spec.wgt)~log(IT),bee_train,ylab="lnSpecimen weight (mg)",xlab="lnITD (mm)")
+points(bee_pred1~log(bee_test$IT),col=2)
+points(bee_pred2~log(bee_test$IT),col=3)
+
+rmse(log(bee_test$Spec.wgt),bee_pred1)#0.007
+rmse(log(bee_test$Spec.wgt),bee_pred2)
+
+```
+
+>>>>>>> 5794288ddca0a6aa4b1e4e5ec8050ad63b1556a8
 
 
 Cane is good, ours is slightly better - good validation of Cane though!! Our data captures natural variability and slight differences between families esp. Apidae vs. the rest

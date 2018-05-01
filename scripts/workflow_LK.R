@@ -6,7 +6,10 @@ library(caret)
 library(ggplot2)
 source("https://bioconductor.org/biocLite.R")
 biocLite("ggtree")
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5794288ddca0a6aa4b1e4e5ec8050ad63b1556a8
 #################
 ##MAIN ANALYSES##
 #################

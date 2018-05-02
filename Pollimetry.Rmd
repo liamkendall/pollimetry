@@ -4,7 +4,7 @@ author: "Liam Kendall, Vesna Gagic..........Romina Rader and Ignasi Bartomeus"
 date: "24/04/2018"
 ---
 
-```{r setup, include=FALSE}
+```{r setup, include=FALSE} 
 knitr::opts_chunk$set(echo = TRUE)
 library(dplyr)
 library(broom)
@@ -77,6 +77,12 @@ bee_pruned=genus.to.species.tree(bee_pruned, species=bee_phylo$Species)
 ##Nacho
 
 If you could help me with setting up the data files within this R markdown file, I will write the manuscript in it!
+##Abstract
+
+quick and long-ish abstract
+
+State of the art, Knowledge gaps! , How we fix them, Quick methods and main results. Conclusions about the iterative workflow.
+
 
 ###Methods
 
@@ -245,7 +251,6 @@ rownames(WGT)=rownames(bee_phylo)
 WGT<-as.matrix((WGT))[,1]
 obj<-contMap((bee_pruned),WGT,fsize=c(0.5,0.5),outline=FALSE)
 
-
 ```
 
 ##Intraspecific variation
@@ -259,6 +264,7 @@ Plotted for five most speciose species: Homalictus_urbanus, Lasioglossum_pauxill
 #Andrena_flavipes
 #Lasioglossum_lanarium
 
+bee_species=split(bee_all,bee_all$Species)
 
 ##ONE##
 #Homalictus_urbanus
@@ -391,15 +397,15 @@ bee_pred4=0.6453 + 2.4691*log(bee_test$IT)
 bee_pred5=predict(Bee_PGLS1,newdata=bee_test)
 par(pty="s")
 par(mfrow=c(1,2))
-plot(log(Spec.wgt)~log(IT),bee_train,ylab="lnSpecimen weight (mg)",xlab="lnITD (mm)")
-points(bee_pred1~log(bee_test$IT),col=2)
-points(bee_pred2~log(bee_test$IT),col=3)
+plot((IT)~(Spec.wgt),bee_train,ylab="lnSpecimen weight (mg)",xlab="lnITD (mm)")
+points((bee_test$IT)~exp(bee_pred1),col=2)
+points((bee_test$IT)~exp(bee_pred2),col=3)
 
 
-plot(log(Spec.wgt)~log(IT),bee_train,ylab="lnSpecimen weight (mg)",xlab="lnITD (mm)")
-points(bee_pred3~log(bee_test$IT),col=4)
-points(bee_pred4~log(bee_test$IT),col=5)
-points(bee_pred5~log(bee_test$IT),col=6)
+plot((IT)~(Spec.wgt),bee_train,ylab="lnSpecimen weight (mg)",xlab="lnITD (mm)")
+points((bee_test$IT)~exp(bee_pred3),col=4)
+points((bee_test$IT)~exp(bee_pred4),col=5)
+points((bee_test$IT)~exp(bee_pred5),col=6)
 bee_rmse=cbind(
 rmse(log(bee_test$Spec.wgt),bee_pred1),
 rmse(log(bee_test$Spec.wgt),bee_pred2),
@@ -501,5 +507,104 @@ rmse(log(hov_test$Spec.wgt),hov_pred3)
 
 
 ##Intraspecific variation in hoverflies
-```{r}
+
+Top five species: Helophilus parallelus (n = 19), Sphaerophoria macrogaster (n = 17),
+Episyrphus balteatus (n = 15), Melanostoma mellinum (n = 12) and Syritta pipiens (n = 12).
+```{r,echo=FALSE}
+
+##ONE##
+#Helophilus_parallelus
+#IT
+HHP_IT = c()
+for(i in 1:length(hov_species$Helophilus_parallelus$IT)){
+  subset1 = sample(hov_species$Helophilus_parallelus$IT, i)
+  HHP_IT[i] = mean(subset1)
+}
+
+#Specimen weight
+HHP_WT = c()
+for(i in 1:length(hov_species$Helophilus_parallelus$Spec.wgt)){
+  subset1 = sample(hov_species$Helophilus_parallelus$Spec.wgt, i)
+  HHP_WT[i] = mean(subset1)
+}
+
+
+##TWO##
+
+#Sphaerophoria_macrogaster
+#IT
+HSM_IT = c()
+for(i in 1:length(hov_species$Sphaerophoria_macrogaster$IT)){
+  subset1 = sample(hov_species$Sphaerophoria_macrogaster$IT, i)
+  HSM_IT[i] = mean(subset1)
+}
+
+#Specimen weight
+HSM_WT = c()
+for(i in 1:length(hov_species$Sphaerophoria_macrogaster$Spec.wgt)){
+  subset1 = sample(hov_species$Sphaerophoria_macrogaster$Spec.wgt, i)
+  HSM_WT[i] = mean(subset1)
+}
+
+##THREE
+#Episyrphus_balteatus
+HEB_IT = c()
+for(i in 1:length(hov_species$Episyrphus_balteatus$IT)){
+  subset1 = sample(hov_species$Episyrphus_balteatus$IT, i)
+  HEB_IT[i] = mean(subset1)
+}
+
+#Specimen weight
+HEB_WT = c()
+for(i in 1:length(hov_species$Episyrphus_balteatus$Spec.wgt)){
+  subset1 = sample(hov_species$Episyrphus_balteatus$Spec.wgt, i)
+  HEB_WT[i] = mean(subset1)
+}
+
+##FOUR##
+#Melanostoma_mellinum
+#IT
+HMM_IT = c()
+for(i in 1:length(hov_species$Melanostoma_mellinum$IT)){
+  subset1 = sample(hov_species$Melanostoma_mellinum$IT, i)
+  HMM_IT[i] = mean(subset1)
+}
+
+#Specimen weight
+HMM_WT = c()
+for(i in 1:length(hov_species$Melanostoma_mellinum$Spec.wgt)){
+  subset1 = sample(hov_species$Melanostoma_mellinum$Spec.wgt, i)
+  HMM_WT[i] = mean(subset1)
+}
+
+##FIVE##
+#Syritta_pipiens
+HSP_IT = c()
+for(i in 1:length(hov_species$Syritta_pipiens$IT)){
+  subset1 = sample(hov_species$Syritta_pipiens$IT, i)
+  HSP_IT[i] = mean(subset1)
+}
+
+
+#Specimen weight
+HSP_WT = c()
+for(i in 1:length(hov_species$Syritta_pipiens$Spec.wgt)){
+  subset1 = sample(hov_species$Syritta_pipiens$Spec.wgt, i)
+  HSP_WT[i] = mean(subset1)
+}
+
+##graphed three for aesthetics based on size range
+par(mfrow=c(2,3))
+par(pty="s")
+plot(HHP_IT,main="Helophilus parallelus",ylab = "ITD (mm)",xlab="")
+plot(HSM_IT,main="Sphaerophoria macrogaster",ylab = "",xlab="")
+plot(HEB_IT,main="Episyrphus balteatus",ylab = "",xlab="Sample size")
+#plot(HMM_IT,main="Melanostoma_mellinum",ylab = "",xlab="")
+#plot(HSP_IT,main="Syritta_pipiens",ylab = "",xlab="Sample size")
+
+plot(HHP_WT,ylab = "Specimen weight (mg)",xlab="Sample size")
+plot(HSM_WT,ylab = "",xlab="Sample size")
+plot(HEB_WT,ylab = "",xlab="Sample size")
+#plot(HMM_WT,ylab = "",xlab="Sample size")
+#plot(HSP_WT,ylab = "",xlab="Sample size")
 ```

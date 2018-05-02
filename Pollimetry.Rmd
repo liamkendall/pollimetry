@@ -245,7 +245,6 @@ rownames(WGT)=rownames(bee_phylo)
 WGT<-as.matrix((WGT))[,1]
 obj<-contMap((bee_pruned),WGT,fsize=c(0.5,0.5),outline=FALSE)
 
-
 ```
 
 ##Intraspecific variation
@@ -391,15 +390,15 @@ bee_pred4=0.6453 + 2.4691*log(bee_test$IT)
 bee_pred5=predict(Bee_PGLS1,newdata=bee_test)
 par(pty="s")
 par(mfrow=c(1,2))
-plot(log(Spec.wgt)~log(IT),bee_train,ylab="lnSpecimen weight (mg)",xlab="lnITD (mm)")
-points(bee_pred1~log(bee_test$IT),col=2)
-points(bee_pred2~log(bee_test$IT),col=3)
+plot((IT)~(Spec.wgt),bee_train,ylab="lnSpecimen weight (mg)",xlab="lnITD (mm)")
+points((bee_test$IT)~exp(bee_pred1),col=2)
+points((bee_test$IT)~exp(bee_pred2),col=3)
 
 
-plot(log(Spec.wgt)~log(IT),bee_train,ylab="lnSpecimen weight (mg)",xlab="lnITD (mm)")
-points(bee_pred3~log(bee_test$IT),col=4)
-points(bee_pred4~log(bee_test$IT),col=5)
-points(bee_pred5~log(bee_test$IT),col=6)
+plot((IT)~(Spec.wgt),bee_train,ylab="lnSpecimen weight (mg)",xlab="lnITD (mm)")
+points((bee_test$IT)~exp(bee_pred3),col=4)
+points((bee_test$IT)~exp(bee_pred4),col=5)
+points((bee_test$IT)~exp(bee_pred5),col=6)
 bee_rmse=cbind(
 rmse(log(bee_test$Spec.wgt),bee_pred1),
 rmse(log(bee_test$Spec.wgt),bee_pred2),

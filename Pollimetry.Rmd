@@ -172,6 +172,13 @@ Lepidoptera: 21 allometric models for Lepidoptera were collated (Table 1C). This
 #Testing of key co-variates
 
 
+<<<<<<< HEAD
+=======
+  - I think proper syntax is WEIGHT ~ SPECIES + PRES.TIME (or Species*Pres.time?) or WGT ~ Pres.time + (1|Species)?
+
+<<<<<<< HEAD
+Overall, preservative time accounted for a decrease in -0.006mg per day. 
+>>>>>>> 17aa7a6e108e334695753acd2d88b29ad033b0a8
 =======
 ##Results
 
@@ -190,9 +197,14 @@ We tested the effect of time in preservative (70-100% ethanol) on Australian and
 
   - I think proper syntax is WEIGHT ~ SPECIES + PRES.TIME (or Species*Pres.time?) or WGT ~ Pres.time + (1|Species)?
 
+<<<<<<< HEAD
 Overall, preservative time accounted for a decrease in -0.006mg per day. 
 Overall, preservative time accounted for a decrease in 0.005mg per day. 
 
+=======
+Overall, preservative time accounted for a decrease in 0.005mg per day. 
+>>>>>>> 223600da56144261e512d703696890ad9cc908e7
+>>>>>>> 17aa7a6e108e334695753acd2d88b29ad033b0a8
   
 ```{r}
 

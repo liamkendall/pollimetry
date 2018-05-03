@@ -91,10 +91,10 @@ If you could help me with setting up the data files within this R markdown file,
 
 Allometric scaling laws have key implications for the conservation and management of pollinating insects in both managed and unmanaged ecosystems. 
 Body size (BS) can predict influential ecological traits yet available predictive models are outdated, rely upon geographically restricted sampling and have limited applicability for non-bee taxa. 
-More accurate prediction of pollinator body size require models that consider biogeography, ecological traits (e.g. sociality and nesting strategies), intraspecific variation and phylogenetic relatedness. 
+More accurate prediction of pollinator body size require models that consider biogeography, intraspecific variation and phylogenetic relatedness. 
 
 Here we present the results of an international collaboration that catalogued existing predictive allometries for pollinating insects (Hymenoptera (BS: 38, FD: 6), Diptera (BS: 26, FD: 0) and Lepidoptera (BS: 21, FD: 1) and improved upon pre-existing equations for estimating body size in key pollinating taxa (bees and hoverflies). 
-We measured dry weight and intertegular span ~~and body length of bees and hoverflies from Australia (n = 900), Europe (n = 1000) and USA (n = 650) and constructed region-specific predictive equations for estimating pollinator body size. These models, form an R package called 'pollimetry', will be a useful resource in the conservation management of both wild and managed pollinators globally.
+We measured dry weight and intertegular span ~~and body length of bees and hoverflies from Australia (n = 900), Europe (n = 1000) and USA (n = 650) and constructed region-specific predictive equations for estimating pollinator body size within an iterative framework. These models, form the R package  'pollimetry', will be a useful resource in the conservation management and research of both wild and managed pollinators globally.
 
 
 State of the art, Knowledge gaps! , How we fix them, Quick methods and main results. Conclusions about the iterative workflow.
@@ -125,11 +125,11 @@ Terrestrial invertebrates show considerable geographic variation in shape and fo
 The latitudinal gradient in length-mass models suggests comparable geographic regions (i.e. temperate regions) should exhibit similar allometric trends. However, length-mass models can differ considerably both between and within comparable geographical regions. For example, Rogers et al. (1977) constructed length-mass models for shrub-steppe invertebrates in North America. Remarkably, Gowing & Recher (1984) found their allometric models from both eucalypt forests and woodlands in NSW, Australia, did not differ from Rogers et al. (1977), with the exception of Hymenoptera. However, Schoener (1980) found systemic differences between their models (between two forest types in Costa Rica, and temperate forest in Massachusetts, USA) and those of Rogers et al. (1977). As such, consideration for the specific environmental conditions of differing populations/communities, i.e. ecosystem type (forest, shrub-steppe) is important when constructing predictive allometric models, even in comparable climactic zones or geographic regions. The use of specimens from multiple biogeographic areas in model fitting may provide an avenue to overcome this limitation. 
 
 
-###Methods
+###METHODOLOGY
 
 ##Existing equations
 
-We selected three key pollinating insect orders: Diptera, Hymenoptera and Lepidoptera and collated all known predictive allometric models. These represent a large selection of taxa and have a wide representation of different biogeographic regions and continental landmasses. These include both simple (body length or intertegular span) and complex models such as the multivariate regression model for Lepidoptera devised by Garcia-Barros (2015).
+We selected three key pollinating insect orders: Diptera, Hymenoptera and Lepidoptera and collated all known predictive allometric models using a systematic literature search. These represent a large selection of taxa and have a wide representation of different biogeographic regions and continental landmasses. These include both simple (body length or intertegular span) and complex models such as the multivariate regression model for Lepidoptera devised by Garcia-Barros (2015).
 
 ##Specimen collection and curation
 
@@ -143,7 +143,7 @@ Dry mass (mg), herein body size, was measured on an analytical balance with an a
 Specimen pins were not removed prior to weighing. Rather pin type and brand was identified, a sample of 10-50 pins per type and brand were measured and the mean substracted off total weight.
 
 #Intertegular distance
-Intertegular distance was measured in millimetres using a stereo-microscope, either mounted with a scale and micrometer or a microscope camera.
+Intertegular distance was measured in millimetres using a stereo-microscope, either mounted with a scale and micrometer or a camera.
 
 
 
@@ -153,10 +153,18 @@ Intertegular distance was measured in millimetres using a stereo-microscope, eit
 We included 'measurement' which denoted the measurer as well as each instrument as a random term.
 
 Measurement - Included as random effect, the measurer + instrument so my measurements in Aus and Switz are two different levels.
+We exclude latitude and climatic zone from analyses as given the geographic distribution of specimens, we cannot discount sampling biases.
+
 
 #Testing of confounding factor - preservative time
 
 Using data-sets from Australia and Germany which exhibited species-overlap in preservative time, we tested this influence upon body size using a linear model. Preservative time was found to exhibit some influence (XXX), which accounted for a loss of 0.006mg per day preserved. As such, it was not considered integral to account for such a small loss (SUPP INFORMATION). 
+
+##Model selection
+
+We fitted a mixed-effect model with all predicted explanatory variables (family, region, sex and their interactions with ITD) and measurement as a random term. We then performed model selection using all subset models using the dredge function within the R library MuMIn (REF). This was repeated for models which included biogeographic region and without. Final model was selected on the basis of AIC.
+
+We then used cross-validation to assess model bias. We split our data frame into 80/20 training, test split, re-run the best model using the training set and compared relative mean square error between predicted value of the test set against real values. Such an approach was repeated for all provided models as well as against pre-exisitng equations (i.e. Cane 1989).
 
 ##Results
 
@@ -171,15 +179,9 @@ Lepidoptera: 21 allometric models for Lepidoptera were collated (Table 1C). This
 
 #Testing of key co-variates
 
-
-<<<<<<< HEAD
-=======
   - I think proper syntax is WEIGHT ~ SPECIES + PRES.TIME (or Species*Pres.time?) or WGT ~ Pres.time + (1|Species)?
 
-<<<<<<< HEAD
 Overall, preservative time accounted for a decrease in -0.006mg per day. 
->>>>>>> 17aa7a6e108e334695753acd2d88b29ad033b0a8
-=======
 ##Results
 
 #Existing equations
@@ -197,15 +199,9 @@ We tested the effect of time in preservative (70-100% ethanol) on Australian and
 
   - I think proper syntax is WEIGHT ~ SPECIES + PRES.TIME (or Species*Pres.time?) or WGT ~ Pres.time + (1|Species)?
 
-<<<<<<< HEAD
 Overall, preservative time accounted for a decrease in -0.006mg per day. 
-Overall, preservative time accounted for a decrease in 0.005mg per day. 
 
-=======
-Overall, preservative time accounted for a decrease in 0.005mg per day. 
->>>>>>> 223600da56144261e512d703696890ad9cc908e7
->>>>>>> 17aa7a6e108e334695753acd2d88b29ad033b0a8
-  
+
 ```{r}
 
 pres.lm=lm(Spec.wgt~Species+Pres.time,bee_pres)
@@ -252,7 +248,7 @@ head(bee_dr_lme_red)
 
 In both cases, the full model is retained. However, the difference in AIC is considerable (421.9 /w region vs. 479 /wo).
 
-I want to exclude latitude and climate - i see these impacts more likely to be sampling relics.
+
 
 Let us test this for Europe once we have Belgian data as we will have good range.
 

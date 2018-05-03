@@ -16,6 +16,7 @@ library(ggtree)
 library(MuMIn)
 library(geiger)
 #dataframe
+set.seed(123)
 poll_all <- read.csv(file="data/PA010518.csv")
 
 #split to bees and hoverflies
@@ -83,18 +84,23 @@ bee_pruned=genus.to.species.tree(bee_pruned, species=bee_phylo$Species)
 
 ```
 
-##Nacho
+##Thoughts
 
-If you could help me with setting up the data files within this R markdown file, I will write the manuscript in it!
+If you could help me with setting up the data files within this R markdown file, I will write the manuscript in it!'
+
+Dan is providing data in next couple of weeks.
+
+Is the syntax of preservative time model right/appropriate?
+
 
 ##Abstract
 
 Allometric scaling laws have key implications for the conservation and management of pollinating insects in both managed and unmanaged ecosystems. 
 Body size (BS) can predict influential ecological traits yet available predictive models are outdated, rely upon geographically restricted sampling and have limited applicability for non-bee taxa. 
-More accurate prediction of pollinator body size require models that consider biogeography, ecological traits (e.g. sociality and nesting strategies), intraspecific variation and phylogenetic relatedness. 
+More accurate prediction of pollinator body size require models that consider biogeography, intraspecific variation and phylogenetic relatedness. 
 
 Here we present the results of an international collaboration that catalogued existing predictive allometries for pollinating insects (Hymenoptera (BS: 38, FD: 6), Diptera (BS: 26, FD: 0) and Lepidoptera (BS: 21, FD: 1) and improved upon pre-existing equations for estimating body size in key pollinating taxa (bees and hoverflies). 
-We measured dry weight and intertegular span ~~and body length of bees and hoverflies from Australia (n = 900), Europe (n = 1000) and USA (n = 650) and constructed region-specific predictive equations for estimating pollinator body size. These models, form an R package called 'pollimetry', will be a useful resource in the conservation management of both wild and managed pollinators globally.
+We measured dry weight and intertegular span ~~and body length of bees and hoverflies from Australia (n = 900), Europe (n = 1000) and USA (n = 650) and constructed region-specific predictive equations for estimating pollinator body size within an iterative framework. These models, form the R package  'pollimetry', will be a useful resource in the conservation management and research of both wild and managed pollinators globally.
 
 
 State of the art, Knowledge gaps! , How we fix them, Quick methods and main results. Conclusions about the iterative workflow.
@@ -124,12 +130,18 @@ Terrestrial invertebrates show considerable geographic variation in shape and fo
 
 The latitudinal gradient in length-mass models suggests comparable geographic regions (i.e. temperate regions) should exhibit similar allometric trends. However, length-mass models can differ considerably both between and within comparable geographical regions. For example, Rogers et al. (1977) constructed length-mass models for shrub-steppe invertebrates in North America. Remarkably, Gowing & Recher (1984) found their allometric models from both eucalypt forests and woodlands in NSW, Australia, did not differ from Rogers et al. (1977), with the exception of Hymenoptera. However, Schoener (1980) found systemic differences between their models (between two forest types in Costa Rica, and temperate forest in Massachusetts, USA) and those of Rogers et al. (1977). As such, consideration for the specific environmental conditions of differing populations/communities, i.e. ecosystem type (forest, shrub-steppe) is important when constructing predictive allometric models, even in comparable climactic zones or geographic regions. The use of specimens from multiple biogeographic areas in model fitting may provide an avenue to overcome this limitation. 
 
+###PREDICTIVE FRAMEWORKS UNCOMMON IN ECOLOGY
 
-###Methods
+TRAINING / TEST SET ETC ETC
+
+##Aims paragraph
+
+
+###METHODOLOGY
 
 ##Existing equations
 
-We selected three key pollinating insect orders: Diptera, Hymenoptera and Lepidoptera and collated all known predictive allometric models. These represent a large selection of taxa and have a wide representation of different biogeographic regions and continental landmasses. These include both simple (body length or intertegular span) and complex models such as the multivariate regression model for Lepidoptera devised by Garcia-Barros (2015).
+We selected three key pollinating insect orders: Diptera, Hymenoptera and Lepidoptera and collated all known predictive allometric models using a systematic literature search. These represent a large selection of taxa and have a wide representation of different biogeographic regions and continental landmasses. These include both simple (body length or intertegular span) and complex models such as the multivariate regression model for Lepidoptera devised by Garcia-Barros (2015).
 
 ##Specimen collection and curation
 
@@ -143,9 +155,11 @@ Dry mass (mg), herein body size, was measured on an analytical balance with an a
 Specimen pins were not removed prior to weighing. Rather pin type and brand was identified, a sample of 10-50 pins per type and brand were measured and the mean substracted off total weight.
 
 #Intertegular distance
-Intertegular distance was measured in millimetres using a stereo-microscope, either mounted with a scale and micrometer or a microscope camera.
+Intertegular distance was measured in millimetres using a stereo-microscope, either mounted with a scale and micrometer or a camera.
 
+##phylogeny
 
+We used the genus-level phylogeny provided within Hedtke et al. (2013)...
 
 
 #Statistics - Model structure
@@ -153,10 +167,18 @@ Intertegular distance was measured in millimetres using a stereo-microscope, eit
 We included 'measurement' which denoted the measurer as well as each instrument as a random term.
 
 Measurement - Included as random effect, the measurer + instrument so my measurements in Aus and Switz are two different levels.
+We exclude latitude and climatic zone from analyses as given the geographic distribution of specimens, we cannot discount sampling biases.
+
 
 #Testing of confounding factor - preservative time
 
 Using data-sets from Australia and Germany which exhibited species-overlap in preservative time, we tested this influence upon body size using a linear model. Preservative time was found to exhibit some influence (XXX), which accounted for a loss of 0.006mg per day preserved. As such, it was not considered integral to account for such a small loss (SUPP INFORMATION). 
+
+##Model selection
+
+We fitted a mixed-effect model with all predicted explanatory variables (family, region, sex and their interactions with ITD) and measurement as a random term. We then performed model selection using all subset models using the dredge function within the R library MuMIn (REF). This was repeated for models which included biogeographic region and without. Final model was selected on the basis of AIC.
+
+We then used cross-validation to assess model bias. We split our data frame into 80/20 training, test split, re-run the best model using the training set and compared relative mean square error between predicted value of the test set against real values. Such an approach was repeated for all provided models as well as against pre-exisitng equations (i.e. Cane 1989).
 
 ##Results
 
@@ -171,15 +193,9 @@ Lepidoptera: 21 allometric models for Lepidoptera were collated (Table 1C). This
 
 #Testing of key co-variates
 
-
-<<<<<<< HEAD
-=======
   - I think proper syntax is WEIGHT ~ SPECIES + PRES.TIME (or Species*Pres.time?) or WGT ~ Pres.time + (1|Species)?
 
-<<<<<<< HEAD
 Overall, preservative time accounted for a decrease in -0.006mg per day. 
->>>>>>> 17aa7a6e108e334695753acd2d88b29ad033b0a8
-=======
 ##Results
 
 #Existing equations
@@ -197,15 +213,9 @@ We tested the effect of time in preservative (70-100% ethanol) on Australian and
 
   - I think proper syntax is WEIGHT ~ SPECIES + PRES.TIME (or Species*Pres.time?) or WGT ~ Pres.time + (1|Species)?
 
-<<<<<<< HEAD
 Overall, preservative time accounted for a decrease in -0.006mg per day. 
-Overall, preservative time accounted for a decrease in 0.005mg per day. 
 
-=======
-Overall, preservative time accounted for a decrease in 0.005mg per day. 
->>>>>>> 223600da56144261e512d703696890ad9cc908e7
->>>>>>> 17aa7a6e108e334695753acd2d88b29ad033b0a8
-  
+
 ```{r}
 
 pres.lm=lm(Spec.wgt~Species+Pres.time,bee_pres)
@@ -252,7 +262,7 @@ head(bee_dr_lme_red)
 
 In both cases, the full model is retained. However, the difference in AIC is considerable (421.9 /w region vs. 479 /wo).
 
-I want to exclude latitude and climate - i see these impacts more likely to be sampling relics.
+
 
 Let us test this for Europe once we have Belgian data as we will have good range.
 
@@ -260,6 +270,14 @@ Let us test this for Europe once we have Belgian data as we will have good range
 #Phylogenetic GLS
 
 Here we can do two things: 1) check traits themselves and Wgt~IT, and 2) run with intraspecific variation for species we have more than one specimen (pgls.Ives (phytools))
+
+I think phylo-signal of body size / IT is cool / interesting angle. Not sure if individual traits need to be log-transformed for signal
+
+Perhaps use Nico's input for focus on phylogeny - I am finding phylo singal (Pagel's lambda) is high but there are methodological considerations I cannot fix yet
+  - whether or not the tree used is ultrametric or not
+  - including subgenera - binding trees where phylogeny is well-resolved i.e. adding bombus tree would be ace - from my understanding lambda is robust to this
+
+Here we can do two things: 1) check traits themselves and Wgt~IT, and 2) run with intraspecific variation for species we have more than one specimen (pgls.Ives (phytools)) - still working this out - it has annoying input but so does geiger
 
 ```{r}
 
@@ -338,120 +356,7 @@ obj<-contMap((bee_pruned),WGT,fsize=c(0.5,0.5),outline=FALSE)
 
 ```
 
-##Intraspecific variation
-To assess intraspecific variation in trait mesaurements. We plotted mean against increasing sample size to estimate the adequate sample size whereby mean variance stabilised.
 
-Plotted for five most speciose species: Homalictus urbanus (n = 250), Lasioglossum pauxillum (n = ), Bombus lucorum (n = ), Andrena flavipes (n = ) and Lasioglossum lanarium (n = . 
-
-
-```{r,echo=FALSE}
-#Homalictus_urbanus
-#Lasioglossum_pauxillum
-#Bombus_lucorum
-#Andrena_flavipes
-#Lasioglossum_lanarium
-
-bee_species=split(bee_all,bee_all$Species)
-
-##ONE##
-#Homalictus_urbanus
-#IT
-HU_IT = c()
-for(i in 1:length(bee_species$Homalictus_urbanus$IT)){
-  subset1 = sample(bee_species$Homalictus_urbanus$IT, i)
-  HU_IT[i] = mean(subset1)
-}
-
-#Specimen weight
-HU_WT = c()
-for(i in 1:length(bee_species$Homalictus_urbanus$Spec.wgt)){
-  subset1 = sample(bee_species$Homalictus_urbanus$Spec.wgt, i)
-  HU_WT[i] = mean(subset1)
-}
-
-
-##TWO##
-
-#Lasioglossum_pauxillum
-#IT
-LP_IT = c()
-for(i in 1:length(bee_species$Lasioglossum_pauxillum$IT)){
-  subset1 = sample(bee_species$Lasioglossum_pauxillum$IT, i)
-  LP_IT[i] = mean(subset1)
-}
-
-#Specimen weight
-LP_WT = c()
-for(i in 1:length(bee_species$Lasioglossum_pauxillum$Spec.wgt)){
-  subset1 = sample(bee_species$Lasioglossum_pauxillum$Spec.wgt, i)
-  LP_WT[i] = mean(subset1)
-}
-
-##THREE
-#Bombus_lucorum
-BL_IT = c()
-for(i in 1:length(bee_species$Bombus_lucorum$IT)){
-  subset1 = sample(bee_species$Bombus_lucorum$IT, i)
-  BL_IT[i] = mean(subset1)
-}
-
-#Specimen weight
-BL_WT = c()
-for(i in 1:length(bee_species$Bombus_lucorum$Spec.wgt)){
-  subset1 = sample(bee_species$Bombus_lucorum$Spec.wgt, i)
-  BL_WT[i] = mean(subset1)
-}
-
-##FOUR##
-#Andrena_flavipes
-#IT
-AF_IT = c()
-for(i in 1:length(bee_species$Andrena_flavipes$IT)){
-  subset1 = sample(bee_species$Andrena_flavipes$IT, i)
-  AF_IT[i] = mean(subset1)
-}
-
-#Specimen weight
-AF_WT = c()
-for(i in 1:length(bee_species$Andrena_flavipes$Spec.wgt)){
-  subset1 = sample(bee_species$Andrena_flavipes$Spec.wgt, i)
-  AF_WT[i] = mean(subset1)
-}
-
-##FIVE##
-#Lasioglossum_lanarium
-LL_IT = c()
-for(i in 1:length(bee_species$Lasioglossum_lanarium$IT)){
-  subset1 = sample(bee_species$Lasioglossum_lanarium$IT, i)
-  LL_IT[i] = mean(subset1)
-}
-
-
-#Specimen weight
-LL_WT = c()
-for(i in 1:length(bee_species$Lasioglossum_lanarium$Spec.wgt)){
-  subset1 = sample(bee_species$Lasioglossum_lanarium$Spec.wgt, i)
-  LL_WT[i] = mean(subset1)
-}
-
-##graphed three for aesthetics based on size range
-par(mfrow=c(2,3))
-par(pty="s")
-plot(HU_IT,main="Homalictus urbanus",ylab = "ITD (mm)",xlab="")
-#plot(LP_IT,main="Lasioglossum pauxillum",ylab = "",xlab="")
-plot(AF_IT,main="Andrena flavipes",ylab = "",xlab="")
-plot(BL_IT,main="Bombus lucorum",ylab = "",xlab="")
-
-#plot(LL_IT,main="Lasioglossum lanarium",ylab = "",xlab="Sample size")
-
-plot(HU_WT,ylab = "Specimen weight (mg)",xlab="Sample size")
-#plot(LP_WT,ylab = "",xlab="Sample size")
-plot(AF_WT,ylab = "",xlab="Sample size")
-plot(BL_WT,ylab = "",xlab="Sample size")
-
-#plot(LL_WT,ylab = "",xlab="Sample size")
-
-```
 
 #Model validation
 
@@ -506,15 +411,61 @@ bee_rmse
 
 Cane is good, ours is slightly better - good validation of Cane though!! Our data captures natural variability and slight differences between families esp. Apidae vs. the rest
 
-Dan is providing data in next couple of weeks.
+I repeated this process with the full bee-data set rather than the means.
 
-I think phylo-signal of body size / IT is cool / interesting angle. Not sure if individual traits need to be log-transformed for signal
+```{r,echo=FALSE}
 
-Perhaps use Nico's input for focus on phylogeny - I am finding phylo singal (Pagel's lambda) is high but there are methodological considerations I cannot fix yet
-  - whether or not the tree used is ultrametric or not
-  - including subgenera - binding trees where phylogeny is well-resolved i.e. adding bombus tree would be ace - from my understanding lambda is robust to this
+##BEE ALL MODEL VALIDATION
 
-Here we can do two things: 1) check traits themselves and Wgt~IT, and 2) run with intraspecific variation for species we have more than one specimen (pgls.Ives (phytools)) - still working this out - it has annoying input but so does geiger
+library(ModelMetrics)
+library(caret)
+set.seed(123)
+bee_all_subset=sample(seq_len(nrow(bee_all)), size = floor(0.8 * nrow(bee_all)))
+bee_all_test <- bee_mean[-bee_all_subset, ]
+bee_all_train <- bee_mean[bee_all_subset, ]
+
+Cane <- function(IT){exp(0.6453 + 2.4691*log(IT))}
+
+
+bee_all_test_mod=lmer(log(Spec.wgt) ~ log(IT)  + Family + Sex + Region + #fix factors
+                    log(IT):Family + log(IT):Region + log(IT):Sex + #interactions
+                      (1|Species) +(1|Measurement),data=bee_all_train,REML=FALSE)
+bee_all_test_red_mod=lmer(formula = log(Spec.wgt) ~ log(IT) + Family + Sex + log(IT):Family + 
+                        log(IT):Sex + (1|Species) +(1 | Measurement), data = bee_all_train, REML = FALSE)
+
+bee_all_test_red_mod2=lmer(formula = log(Spec.wgt) ~ log(IT) + (1|Species) +(1 | Measurement), data = bee_all_train, REML = FALSE)
+?predict.merMod
+bee_all_pred1=predict(bee_all_test_mod,newdata=bee_all_test,allow.new.levels=TRUE)
+bee_all_pred2=predict(bee_all_test_red_mod,newdata=bee_all_test,allow.new.levels=TRUE)
+bee_all_pred3=predict(bee_all_test_red_mod2,newdata=bee_all_test,allow.new.levels=TRUE)
+bee_all_pred4=0.6453 + 2.4691*log(bee_all_test$IT)
+bee_all_pred5=predict(Bee_PGLS1,newdata=bee_all_test)
+par(pty="s")
+par(mfrow=c(1,2))
+
+bee_all_rmse=cbind(
+  rmse(log(bee_all_test$Spec.wgt),bee_all_pred1),
+  rmse(log(bee_all_test$Spec.wgt),bee_all_pred2),
+  rmse(log(bee_all_test$Spec.wgt),bee_all_pred3),
+  rmse(log(bee_all_test$Spec.wgt),bee_all_pred4),
+  rmse(log(bee_all_test$Spec.wgt),bee_all_pred5))
+colnames(bee_all_rmse)=c("Full","Reduced","IT","Cane","PGLS")
+rownames(bee_all_rmse)=c("RMSE")
+bee_all_rmse
+
+plot((IT)~(Spec.wgt),bee_all_train,ylab="Specimen weight (mg)",xlab="ITD (mm)")
+points((bee_all_test$IT)~exp(bee_all_pred1),col=2,cex=1/bee_all_rmse[1])
+points((bee_all_test$IT)~exp(bee_all_pred2),col=3,cex=1/bee_all_rmse[2])
+
+
+plot((IT)~(Spec.wgt),bee_all_train,ylab="Specimen weight (mg)",xlab="ITD (mm)")
+points((bee_all_test$IT)~exp(bee_all_pred3),col=4,cex=1/bee_all_rmse[3])
+points((bee_all_test$IT)~exp(bee_all_pred4),col=5,cex=1/bee_all_rmse[4])
+points((bee_all_test$IT)~exp(bee_all_pred5),col=6,cex=1/bee_all_rmse[5])
+
+```
+
+
 
 
 #####Hoverflies
@@ -596,6 +547,140 @@ rownames(hov_rmse)=c("RMSE")
 hov_rmse
 ```
 
+
+##SUPP## Intraspecific variation
+We assessed intraspecific variation in trait mesaurements. We plotted mean against increasing sample size to estimate the adequate sample size whereby mean variance stabilised. ANY IDEAS HOW TO TEST THIS?
+
+
+For five most speciose species: Homalictus urbanus (n = 251), Lasioglossum pauxillum (n = 113), Bombus lucorum (n = 111), Andrena flavipes (n = 75) and Lasioglossum lanarium (n = 68), the sample size required for the mean to fit within the confidence intervals of the final mean. 
+
+
+```{r,echo=FALSE}
+#Homalictus_urbanus
+#Lasioglossum_pauxillum
+#Bombus_lucorum
+#Andrena_flavipes
+#Lasioglossum_lanarium
+
+bee_species=split(bee_all,bee_all$Species)
+
+##ONE##
+#Homalictus_urbanus
+#IT
+set.seed(123)
+HU_IT = c()
+for(i in 1:length(bee_species$Homalictus_urbanus$IT)){
+  subset1 = sample(bee_species$Homalictus_urbanus$IT, i)
+  HU_IT[i] = mean(subset1)
+}
+
+#Specimen weight
+HU_WT = c()
+for(i in 1:length(bee_species$Homalictus_urbanus$Spec.wgt)){
+  subset1 = sample(bee_species$Homalictus_urbanus$Spec.wgt, i)
+  HU_WT[i] = mean(subset1)
+}
+
+##TWO##
+
+#Lasioglossum_pauxillum
+#IT
+LP_IT = c()
+for(i in 1:length(bee_species$Lasioglossum_pauxillum$IT)){
+  subset1 = sample(bee_species$Lasioglossum_pauxillum$IT, i)
+  LP_IT[i] = mean(subset1)
+}
+
+#Specimen weight
+LP_WT = c()
+for(i in 1:length(bee_species$Lasioglossum_pauxillum$Spec.wgt)){
+  subset1 = sample(bee_species$Lasioglossum_pauxillum$Spec.wgt, i)
+  LP_WT[i] = mean(subset1)
+}
+
+##THREE
+#Bombus_lucorum
+BL_IT = c()
+for(i in 1:length(bee_species$Bombus_lucorum$IT)){
+  subset1 = sample(bee_species$Bombus_lucorum$IT, i)
+  BL_IT[i] = mean(subset1)
+}
+
+#Specimen weight
+BL_WT = c()
+for(i in 1:length(bee_species$Bombus_lucorum$Spec.wgt)){
+  subset1 = sample(bee_species$Bombus_lucorum$Spec.wgt, i)
+  BL_WT[i] = mean(subset1)
+}
+
+##FOUR##
+#Andrena_flavipes
+#IT
+AF_IT = c()
+for(i in 1:length(bee_species$Andrena_flavipes$IT)){
+  subset1 = sample(bee_species$Andrena_flavipes$IT, i)
+  AF_IT[i] = mean(subset1)
+}
+
+#Specimen weight
+AF_WT = c()
+for(i in 1:length(bee_species$Andrena_flavipes$Spec.wgt)){
+  subset1 = sample(bee_species$Andrena_flavipes$Spec.wgt, i)
+  AF_WT[i] = mean(subset1)
+}
+
+##FIVE##
+#Lasioglossum_lanarium
+LL_IT = c()
+for(i in 1:length(bee_species$Lasioglossum_lanarium$IT)){
+  subset1 = sample(bee_species$Lasioglossum_lanarium$IT, i)
+  LL_IT[i] = mean(subset1)
+}
+
+
+#Specimen weight
+LL_WT = c()
+for(i in 1:length(bee_species$Lasioglossum_lanarium$Spec.wgt)){
+  subset1 = sample(bee_species$Lasioglossum_lanarium$Spec.wgt, i)
+  LL_WT[i] = mean(subset1)
+}
+
+##graphed three for aesthetics based on size range
+par(mfrow=c(2,3))
+par(pty="s")
+plot(HU_IT,main="Homalictus urbanus",ylab = "ITD (mm)",xlab="")
+abline(a=HU_IT[251],b=0,col=2)
+abline(a=confint(lm(bee_species$Homalictus_urbanus$IT~1))[1],b=0,col=3)
+abline(a=confint(lm(bee_species$Homalictus_urbanus$IT~1))[2],b=0,col=3)
+#plot(LP_IT,main="Lasioglossum pauxillum",ylab = "",xlab="")
+plot(AF_IT,main="Andrena flavipes",ylab = "",xlab="")
+abline(a=AF_IT[75],b=0,col=2)
+abline(a=confint(lm(bee_species$Andrena_flavipes$IT~1))[1],b=0,col=3)
+abline(a=confint(lm(bee_species$Andrena_flavipes$IT~1))[2],b=0,col=3)
+plot(BL_IT,main="Bombus lucorum",ylab = "",xlab="")
+abline(a=BL_IT[111],b=0,col=2)
+abline(a=confint(lm(bee_species$Bombus_lucorum$IT~1))[1],b=0,col=3)
+abline(a=confint(lm(bee_species$Bombus_lucorum$IT~1))[2],b=0,col=3)
+
+#plot(LL_IT,main="Lasioglossum lanarium",ylab = "",xlab="Sample size")
+
+plot(HU_WT,ylab = "Specimen weight (mg)",xlab="Sample size")
+abline(a=HU_WT[251],b=0,col=2)
+abline(a=confint(lm(bee_species$Homalictus_urbanus$Spec.wgt~1))[1],b=0,col=3)
+abline(a=confint(lm(bee_species$Homalictus_urbanus$Spec.wgt~1))[2],b=0,col=3)
+#plot(LP_WT,ylab = "",xlab="Sample size")
+plot(AF_WT,ylab = "",xlab="Sample size")
+abline(a=AF_WT[75],b=0,col=2)
+abline(a=confint(lm(bee_species$Andrena_flavipes$Spec.wgt~1))[1],b=0,col=3)
+abline(a=confint(lm(bee_species$Andrena_flavipes$Spec.wgt~1))[2],b=0,col=3)
+
+plot(BL_WT,ylab = "",xlab="Sample size")
+abline(a=BL_WT[111],b=0,col=2)
+abline(a=confint(lm(bee_species$Bombus_lucorum$Spec.wgt~1))[1],b=0,col=3)
+abline(a=confint(lm(bee_species$Bombus_lucorum$Spec.wgt~1))[2],b=0,col=3)
+#plot(LL_WT,ylab = "",xlab="Sample size")
+
+```
 
 ##Intraspecific variation in hoverflies
 
@@ -688,14 +773,32 @@ for(i in 1:length(hov_species$Syritta_pipiens$Spec.wgt)){
 par(mfrow=c(2,3))
 par(pty="s")
 plot(HHP_IT,main="Helophilus parallelus",ylab = "ITD (mm)",xlab="")
+abline(a=HHP_IT[19],b=0,col=2)
+abline(a=confint(lm(hov_species$Helophilus_parallelus$IT~1))[1],b=0,col=3)
+abline(a=confint(lm(hov_species$Helophilus_parallelus$IT~1))[2],b=0,col=3)
 plot(HSM_IT,main="Sphaerophoria macrogaster",ylab = "",xlab="")
+abline(a=HSM_IT[17],b=0,col=2)
+abline(a=confint(lm(hov_species$Sphaerophoria_macrogaster$IT~1))[1],b=0,col=3)
+abline(a=confint(lm(hov_species$Sphaerophoria_macrogaster$IT~1))[2],b=0,col=3)
 plot(HEB_IT,main="Episyrphus balteatus",ylab = "",xlab="Sample size")
+abline(a=HEB_IT[15],b=0,col=2)
+abline(a=confint(lm(hov_species$Episyrphus_balteatus$IT~1))[1],b=0,col=3)
+abline(a=confint(lm(hov_species$Episyrphus_balteatus$IT~1))[2],b=0,col=3)
 #plot(HMM_IT,main="Melanostoma_mellinum",ylab = "",xlab="")
 #plot(HSP_IT,main="Syritta_pipiens",ylab = "",xlab="Sample size")
 
 plot(HHP_WT,ylab = "Specimen weight (mg)",xlab="Sample size")
+abline(a=HHP_WT[19],b=0,col=2)
+abline(a=confint(lm(hov_species$Helophilus_parallelus$Spec.wgt~1))[1],b=0,col=3)
+abline(a=confint(lm(hov_species$Helophilus_parallelus$Spec.wgt~1))[2],b=0,col=3)
 plot(HSM_WT,ylab = "",xlab="Sample size")
+abline(a=HSM_WT[17],b=0,col=2)
+abline(a=confint(lm(hov_species$Sphaerophoria_macrogaster$Spec.wgt~1))[1],b=0,col=3)
+abline(a=confint(lm(hov_species$Sphaerophoria_macrogaster$Spec.wgt~1))[2],b=0,col=3)
 plot(HEB_WT,ylab = "",xlab="Sample size")
+abline(a=HEB_WT[15],b=0,col=2)
+abline(a=confint(lm(hov_species$Episyrphus_balteatus$Spec.wgt~1))[1],b=0,col=3)
+abline(a=confint(lm(hov_species$Episyrphus_balteatus$Spec.wgt~1))[2],b=0,col=3)
 #plot(HMM_WT,ylab = "",xlab="Sample size")
 #plot(HSP_WT,ylab = "",xlab="Sample size")
 ```

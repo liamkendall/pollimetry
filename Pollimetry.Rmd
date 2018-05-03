@@ -171,6 +171,19 @@ Lepidoptera: 21 allometric models for Lepidoptera were collated (Table 1C). This
 
 #Testing of key co-variates
 
+
+=======
+##Results
+
+#Existing equations
+
+
+Diptera: 26 allometric models for Diptera were collated (Table 1A). 11 models were reported for the entire order, including nine without any taxonomic breakdown of samples used. 11 for the three main suborders Nematocera (6), Brachycera (4) and Cycllorapha (2) and two for specific families; Asilidae and Bombyliidae. Surprisingly, there were no equations for Syrphidiae, a key pollinating taxa in many ecosystems (eg. Biesmeijer et al. 2006, Jauker et al. 2012) 
+
+Hymenoptera: 38 allometric models for Hymenoptera were collated (Table 1B). These included eight combined, seven excluding ants (Formicidae) (7) as well as ten for Formicidae. There are three equations for Vespidae and two equations for Apidae (Cane 1987 & Sabo et al. (2002). Only Sample et al’s (1993) body length and body length*width equations are provided for Braconidae, Ichneumonidae, Halictidae and Pompilidae.
+
+Lepidoptera: 21 allometric models for Lepidoptera were collated (Table 1C). This includes 13 with varying taxa and without lower classifications. Hodar (1997) provides specific models for Heterocera (moths) and Ropalocera (butterflies). Sample et al. (1993) provide BL and BL*BW models for Microlepidoptera and two moth families Geometridae and Arctiidae. A multivariate regression model using specimens from 61 Lepidoptera families is also included (Garcia-Barros 2015).
+
 ##SUPP##Preservative time - Australia and Germany only
 
 We tested the effect of time in preservative (70-100% ethanol) on Australian and Germany bee samples in specimens differed in preservative length. In total, we had 20 bee species which had been subjected to different lengths within ethanol.
@@ -178,6 +191,8 @@ We tested the effect of time in preservative (70-100% ethanol) on Australian and
   - I think proper syntax is WEIGHT ~ SPECIES + PRES.TIME (or Species*Pres.time?) or WGT ~ Pres.time + (1|Species)?
 
 Overall, preservative time accounted for a decrease in -0.006mg per day. 
+Overall, preservative time accounted for a decrease in 0.005mg per day. 
+
   
 ```{r}
 

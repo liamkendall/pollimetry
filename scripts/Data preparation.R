@@ -1,7 +1,6 @@
 #Data preparation
 #read data (1 file)----
-poll_all <- read.csv(file="data/PA010518.csv")
-
+poll_all <- read.csv(file="data/PA050518.csv")
 #split to bees and hoverflies
 poll_all$Spec.wgt=poll_all$Spec.wgt*1000
 poll_all_split=split(poll_all,poll_all$Superfamily)

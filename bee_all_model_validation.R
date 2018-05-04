@@ -23,6 +23,7 @@ bee_all_pred2=predict(bee_all_test_red_mod,newdata=bee_all_test,allow.new.levels
 bee_all_pred3=predict(bee_all_test_red_mod2,newdata=bee_all_test,allow.new.levels=TRUE)
 bee_all_pred4=0.6453 + 2.4691*log(bee_all_test$IT)
 bee_all_pred5=predict(Bee_PGLS1,newdata=bee_all_test)
+bee_all_pred6=bee_pgls2$coefficients[1]+bee_pgls2$coefficients[2]*log(bee_all_test$IT)
 par(pty="s")
 par(mfrow=c(1,2))
 
@@ -31,8 +32,9 @@ bee_all_rmse=cbind(
   rmse(log(bee_all_test$Spec.wgt),bee_all_pred2),
   rmse(log(bee_all_test$Spec.wgt),bee_all_pred3),
   rmse(log(bee_all_test$Spec.wgt),bee_all_pred4),
-  rmse(log(bee_all_test$Spec.wgt),bee_all_pred5))
-colnames(bee_all_rmse)=c("Full","Reduced","IT","Cane","PGLS")
+  rmse(log(bee_all_test$Spec.wgt),bee_all_pred5),
+  rmse(log(bee_all_test$Spec.wgt),bee_all_pred6))
+colnames(bee_all_rmse)=c("Full","Reduced","IT","Cane","PGLS","PGLS_intra")
 rownames(bee_all_rmse)=c("RMSE")
 bee_all_rmse
 

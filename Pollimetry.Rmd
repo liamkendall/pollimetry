@@ -804,5 +804,8 @@ abline(a=confint(lm(hov_species$Episyrphus_balteatus$Spec.wgt~1))[1],b=0,col=3)
 abline(a=confint(lm(hov_species$Episyrphus_balteatus$Spec.wgt~1))[2],b=0,col=3)
 #plot(HMM_WT,ylab = "",xlab="Sample size")
 #plot(HSP_WT,ylab = "",xlab="Sample size")
+<<<<<<< HEAD
 
+=======
+>>>>>>> ca5d4b1fcd75a9aa247ee5cbb494e71c4b200dea
 ```

@@ -1,8 +1,8 @@
 <<<<<<< HEAD
 ---
 title: 'Pollimetry: Predictive allometry for pollinating insects'
-author: "Liam Kendall, Vesna Gagic..........Romina Rader and Ignasi Bartomeus"
-date: "24/04/2018"
+author: "Liam Kendall, Vesna Gagic..........Romina Rader, Ignasi Bartomeus"
+date: "04/05/2018"
 ---
 
 ```{r setup, include=FALSE}  

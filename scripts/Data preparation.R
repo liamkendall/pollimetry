@@ -15,6 +15,8 @@ hov_all=poll_all_split[[2]]
 options(na.action = "na.omit")
 
 bee_mean=aggregate(Latitude~Family+Subfamily+Tribe+Region+Country+Measurement+Subfamily+Genus+Species+Sex,bee_all,mean)
+bee_mean$Longitude=as.numeric(unlist(aggregate(Longitude~Family+Country+Subfamily+Tribe+Region+Measurement+
+                                                Subfamily+Genus+Species+Sex,bee_all,mean)[10]))
 bee_mean$Spec.wgt=as.numeric(unlist(aggregate(Spec.wgt~Family+Country+Subfamily+Tribe+Region+Measurement+
                                                 Subfamily+Genus+Species+Sex,bee_all,mean)[10]))
 bee_mean$IT=(as.numeric(unlist(aggregate(IT~Family+Subfamily+Tribe+Region+Country+

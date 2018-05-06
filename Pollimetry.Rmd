@@ -15,9 +15,10 @@ library(phangorn)
 library(ggtree)
 library(MuMIn)
 library(geiger)
+library(ModelMetrics)
 #dataframe
 set.seed(123)
-poll_all <- read.csv(file="data/PA010518.csv")
+poll_all <- read.csv(file="data/PA050518.csv")
 
 #split to bees and hoverflies
 poll_all$Spec.wgt=poll_all$Spec.wgt*1000
@@ -74,7 +75,7 @@ bee_phylo$IT.SD=as.numeric(unlist(aggregate(log(IT)~Family+Subfamily+
                                       Tribe+Genus+Species,bee_all,sd)[6]))
 rownames(bee_phylo)=bee_phylo$Species
 
-bee_phylo=bee_phylo[-93,]
+bee_phylo=bee_phylo[-113,]
 
 ##Build tree
 ##TREE
@@ -93,7 +94,7 @@ bee_pruned=genus.to.species.tree(bee_pruned, species=bee_phylo$Species)
 
 If you could help me with setting up the data files within this R markdown file, I will write the manuscript in it!'
 
-Dan is providing data in next couple of weeks.
+Dan's data is in - he has more to add in a couple of weeks
 
 Is the syntax of preservative time model right/appropriate?
 
@@ -185,23 +186,14 @@ We fitted a mixed-effect model with all predicted explanatory variables (family,
 
 We then used cross-validation to assess model bias. We split our data frame into 80/20 training, test split, re-run the best model using the training set and compared relative mean square error between predicted value of the test set against real values. Such an approach was repeated for all provided models as well as against pre-exisitng equations (i.e. Cane 1989).
 
-##Results
-
-#Existing equations
-
-
-Diptera: 26 allometric models for Diptera were collated (Table 1A). 11 models were reported for the entire order, including nine without any taxonomic breakdown of samples used. 11 for the three main suborders Nematocera (6), Brachycera (4) and Cycllorapha (2) and two for specific families; Asilidae and Bombyliidae. Surprisingly, there were no equations for Syrphidiae, a key pollinating taxa in many ecosystems (eg. Biesmeijer et al. 2006, Jauker et al. 2012) 
-
-Hymenoptera: 38 allometric models for Hymenoptera were collated (Table 1B). These included eight combined, seven excluding ants (Formicidae) (7) as well as ten for Formicidae. There are three equations for Vespidae and two equations for Apidae (Cane 1987 & Sabo et al. (2002). Only Sample et al’s (1993) body length and body length*width equations are provided for Braconidae, Ichneumonidae, Halictidae and Pompilidae.
-
-Lepidoptera: 21 allometric models for Lepidoptera were collated (Table 1C). This includes 13 with varying taxa and without lower classifications. Hodar (1997) provides specific models for Heterocera (moths) and Ropalocera (butterflies). Sample et al. (1993) provide BL and BL*BW models for Microlepidoptera and two moth families Geometridae and Arctiidae. A multivariate regression model using specimens from 61 Lepidoptera families is also included (Garcia-Barros 2015).
-
 #Testing of key co-variates
 
   - I think proper syntax is WEIGHT ~ SPECIES + PRES.TIME (or Species*Pres.time?) or WGT ~ Pres.time + (1|Species)?
 
 Overall, preservative time accounted for a decrease in -0.006mg per day. 
+
 ##Results
+
 
 #Existing equations
 
@@ -211,6 +203,9 @@ Diptera: 26 allometric models for Diptera were collated (Table 1A). 11 models we
 Hymenoptera: 38 allometric models for Hymenoptera were collated (Table 1B). These included eight combined, seven excluding ants (Formicidae) (7) as well as ten for Formicidae. There are three equations for Vespidae and two equations for Apidae (Cane 1987 & Sabo et al. (2002). Only Sample et al’s (1993) body length and body length*width equations are provided for Braconidae, Ichneumonidae, Halictidae and Pompilidae.
 
 Lepidoptera: 21 allometric models for Lepidoptera were collated (Table 1C). This includes 13 with varying taxa and without lower classifications. Hodar (1997) provides specific models for Heterocera (moths) and Ropalocera (butterflies). Sample et al. (1993) provide BL and BL*BW models for Microlepidoptera and two moth families Geometridae and Arctiidae. A multivariate regression model using specimens from 61 Lepidoptera families is also included (Garcia-Barros 2015).
+
+
+
 
 ##SUPP##Preservative time - Australia and Germany only
 
@@ -244,7 +239,7 @@ Test lme models /w and /wo biogeography.
 options(na.action = "na.fail")
 bee_f_lme=lmer(log(Spec.wgt) ~ log(IT)  + Family + Sex + Region + #fix factors
                               log(IT):Family + log(IT):Region + log(IT):Sex + #interactions
-                              (1|Measurement),REML=FALSE,bee_mean)
+                              (1|Measurement)+(1|Species),REML=FALSE,bee_mean)
 
 bee_dr_lme=dredge(bee_f_lme,beta="none",rank="AIC") #think about "sd" and "AICc". AIC show same pattern.
 head(bee_dr_lme)
@@ -256,7 +251,7 @@ head(bee_dr_lme)
 
 bee_f_lme_red=lmer(log(Spec.wgt) ~ log(IT)  + Family + Sex  + #fix factors
                  log(IT):Family + log(IT):Sex + #interactions
-                 (1|Measurement),REML=FALSE,bee_mean)
+                 (1|Measurement)+(1|Species),REML=FALSE,bee_mean)
 
 options(na.action = "na.fail")
 bee_dr_lme_red=dredge(bee_f_lme_red,beta="none",rank="AIC") #think about "sd" and "AICc". AIC show same pattern.
@@ -265,9 +260,7 @@ head(bee_dr_lme_red)
 
 ```
 
-In both cases, the full model is retained. However, the difference in AIC is considerable (421.9 /w region vs. 479 /wo).
-
-
+In both cases, the full model is retained. However, the difference in AIC is considerable (436.7 /w region vs. 493.3 /wo).
 
 Let us test this for Europe once we have Belgian data as we will have good range.
 
@@ -357,52 +350,51 @@ https://besjournals.onlinelibrary.wiley.com/doi/pdf/10.1111/j.2041-210X.2012.001
 WGT=as.data.frame(log(bee_phylo[,c("Spec.wgt")]))
 rownames(WGT)=rownames(bee_phylo)
 WGT<-as.matrix((WGT))[,1]
-obj<-contMap((bee_pruned),WGT,fsize=c(0.5,0.5),outline=FALSE)
+obj<-contMap((bee_pruned),WGT,fsize= 0.4,cex=1)
 
 ```
-
-
 
 #Model validation
 
 ##Training and test set
 
-##Bootstrap - not currently possible for lme so back to train/test
+Bootstrap isn't available within a package - Can probably do it with a loop but im not experienced enough to figure out the coding.
 
 ```{r}
-library(ModelMetrics)
+#Split into training and test set
 set.seed(123)
 bee_subset=sample(seq_len(nrow(bee_mean)), size = floor(0.8 * nrow(bee_mean)))
 bee_test <- bee_mean[-bee_subset, ]
 bee_train <- bee_mean[bee_subset, ]
 
+
 Cane <- function(IT){exp(0.6453 + 2.4691*log(IT))}
 
 
 bee_test_mod=lmer(log(Spec.wgt) ~ log(IT)  + Family + Sex + Region + #fix factors
-                              log(IT):Family + log(IT):Region + log(IT):Sex + #interactions
-                              (1|Measurement),data=bee_train,REML=FALSE)
-bee_test_red_mod=lmer(formula = log(Spec.wgt) ~ log(IT) + Family + Sex + log(IT):Family + 
-    log(IT):Sex + (1 | Measurement), data = bee_train, REML = FALSE)
+                              log(IT):Family + log(IT):Region + #interactions
+                              (1|Measurement)+(1|Species),data=bee_train,REML=FALSE)
+bee_test_red_mod=lmer(formula = log(Spec.wgt) ~ log(IT) + Family + Sex + log(IT):Family+ (1 | Measurement)+(1|Species), data = bee_train, REML = FALSE)
 
-bee_test_red_mod2=lmer(formula = log(Spec.wgt) ~ log(IT) + (1 | Measurement), data = bee_train, REML = FALSE)
+bee_test_red_mod2=lmer(formula = log(Spec.wgt) ~ log(IT) + (1 | Measurement)+(1|Species), data = bee_train, REML = FALSE)
 
-bee_pred1=predict(bee_test_mod,newdata=bee_test)
-bee_pred2=predict(bee_test_red_mod,newdata=bee_test)
-bee_pred3=predict(bee_test_red_mod2,newdata=bee_test)
+bee_pred1=predict(bee_test_mod,newdata=bee_test,allow.new.levels=TRUE)
+bee_pred2=predict(bee_test_red_mod,newdata=bee_test,allow.new.levels=TRUE)
+bee_pred3=predict(bee_test_red_mod2,newdata=bee_test,allow.new.levels=TRUE)
 bee_pred4=0.6453 + 2.4691*log(bee_test$IT)
 bee_pred5=predict(Bee_PGLS1,newdata=bee_test)
 par(pty="s")
 par(mfrow=c(1,2))
-plot((IT)~(Spec.wgt),bee_train,ylab="Specimen weight (mg)",xlab="ITD (mm)")
+plot((IT)~(Spec.wgt),bee_test,ylab="ITD (mm)",xlab="Dry weight (mg)")
 points((bee_test$IT)~exp(bee_pred1),col=2)
 points((bee_test$IT)~exp(bee_pred2),col=3)
 
 
-plot((IT)~(Spec.wgt),bee_train,ylab="Specimen weight (mg)",xlab="ITD (mm)")
+plot((IT)~(Spec.wgt),bee_test,ylab="ITD (mm)",xlab="Dry weight (mg)")
 points((bee_test$IT)~exp(bee_pred3),col=4)
 points((bee_test$IT)~exp(bee_pred4),col=5)
 points((bee_test$IT)~exp(bee_pred5),col=6)
+
 bee_rmse=cbind(
 rmse(log(bee_test$Spec.wgt),bee_pred1),
 rmse(log(bee_test$Spec.wgt),bee_pred2),
@@ -456,15 +448,15 @@ colnames(bee_all_rmse)=c("Full","Reduced","IT","Cane","PGLS")
 rownames(bee_all_rmse)=c("RMSE")
 bee_all_rmse
 
-plot((IT)~(Spec.wgt),bee_all_train,ylab="Specimen weight (mg)",xlab="ITD (mm)")
-points((bee_all_test$IT)~exp(bee_all_pred1),col=2,cex=1/bee_all_rmse[1])
-points((bee_all_test$IT)~exp(bee_all_pred2),col=3,cex=1/bee_all_rmse[2])
+plot((IT)~(Spec.wgt),bee_all_test,ylab="ITD (mm)",xlab="Dry weight (mg)")
+points((bee_all_test$IT)~exp(bee_all_pred1),col=2,cex=1*bee_all_rmse[1])
+points((bee_all_test$IT)~exp(bee_all_pred2),col=3,cex=1*bee_all_rmse[2])
 
 
-plot((IT)~(Spec.wgt),bee_all_train,ylab="Specimen weight (mg)",xlab="ITD (mm)")
-points((bee_all_test$IT)~exp(bee_all_pred3),col=4,cex=1/bee_all_rmse[3])
-points((bee_all_test$IT)~exp(bee_all_pred4),col=5,cex=1/bee_all_rmse[4])
-points((bee_all_test$IT)~exp(bee_all_pred5),col=6,cex=1/bee_all_rmse[5])
+plot((IT)~(Spec.wgt),bee_all_test,ylab="ITD (mm)",xlab="Dry weight (mg)")
+points((bee_all_test$IT)~exp(bee_all_pred3),col=4,cex=1*bee_all_rmse[3])
+points((bee_all_test$IT)~exp(bee_all_pred4),col=5,cex=1*bee_all_rmse[4])
+points((bee_all_test$IT)~exp(bee_all_pred5),col=6,cex=1*bee_all_rmse[5])
 
 ```
 
@@ -491,12 +483,12 @@ hov_mean$IT=as.numeric(unlist(aggregate(IT~Family+Tribe+Country+
 ##Full
 hov.full=lmer(log(Spec.wgt) ~ log(IT) + Region+ Sex + Subfamily+ #fix
             log(IT):Sex + #interactions
-            log(IT):Subfamily + log(IT):Region+ (1|Measurement)
+            log(IT):Subfamily + log(IT):Region+ (1|Measurement)+(1|Species)
             ,REML=FALSE,data=hov_mean)
 ##/wo region
 hov.red=lmer(log(Spec.wgt) ~ log(IT) + Sex + Subfamily+ #fix
             log(IT):Sex + #interactions
-            log(IT):Subfamily + (1|Measurement)
+            log(IT):Subfamily + (1|Measurement)+(1|Species)
             ,REML=FALSE,data=hov_mean)
 
 ##DREDGE
@@ -522,24 +514,21 @@ hov_subset=sample(seq_len(nrow(hov_mean)), size = floor(0.8 * nrow(hov_mean)))
 hov_test <- hov_mean[-hov_subset, ]
 hov_train <- hov_mean[hov_subset, ]
 
-hov_test_mod=lmer(formula = log(Spec.wgt) ~ log(IT) + Region + Sex + Subfamily + 
-    log(IT):Sex + log(IT):Subfamily + log(IT):Region + (1 | Measurement), 
+hov_test_mod=lmer(formula = log(Spec.wgt) ~ log(IT) + Region + Sex + (1|Species) + (1 | Measurement), 
     data = hov_train, REML = FALSE)
-hov_test_red_mod=lmer(formula = log(Spec.wgt) ~ log(IT) + Sex + Subfamily + log(IT):Sex + 
-    log(IT):Subfamily + (1 | Measurement), data = hov_train, REML = FALSE)
+hov_test_red_mod=lmer(formula = log(Spec.wgt) ~ log(IT) + Sex+(1|Species)+ (1 | Measurement), data = hov_train, REML = FALSE)
 
-hov_test_red_mod2=lmer(formula = log(Spec.wgt) ~ log(IT) + (1 | Measurement), data = hov_train, REML = FALSE)
+hov_test_red_mod2=lmer(formula = log(Spec.wgt) ~ log(IT) + (1|Species) + (1 | Measurement), data = hov_train, REML = FALSE)
 
-hov_pred1=predict(hov_test_mod,newdata=hov_test)
-hov_pred2=predict(hov_test_red_mod,newdata=hov_test)
-hov_pred3=predict(hov_test_red_mod2,newdata=hov_test)
+hov_pred1=predict(hov_test_mod,newdata=hov_test,allow.new.levels=TRUE)
+hov_pred2=predict(hov_test_red_mod,newdata=hov_test,allow.new.levels=TRUE)
+hov_pred3=predict(hov_test_red_mod2,newdata=hov_test,allow.new.levels=TRUE)
 
 par(pty="s")
-plot((IT)~Spec.wgt,hov_train,ylab="ln Specimen weight (mg)",xlab="ln ITD (mm)")
+plot((IT)~Spec.wgt,hov_test,ylab="ITD (mm)",xlab="Dry weight (mg)")
 points((hov_test$IT)~exp(hov_pred1),col=2)
 points((hov_test$IT)~exp(hov_pred2),col=3)
 points((hov_test$IT)~exp(hov_pred3),col=4)
-
 
 
 hov_rmse=cbind(rmse(log(hov_test$Spec.wgt),hov_pred1),
@@ -550,10 +539,8 @@ rownames(hov_rmse)=c("RMSE")
 hov_rmse
 ```
 
-
 ##SUPP## Intraspecific variation
 We assessed intraspecific variation in trait mesaurements. We plotted mean against increasing sample size to estimate the adequate sample size whereby mean variance stabilised. ANY IDEAS HOW TO TEST THIS?
-
 
 For five most speciose species: Homalictus urbanus (n = 251), Lasioglossum pauxillum (n = 113), Bombus lucorum (n = 111), Andrena flavipes (n = 75) and Lasioglossum lanarium (n = 68), the sample size required for the mean to fit within the confidence intervals of the final mean. 
 
@@ -775,22 +762,22 @@ for(i in 1:length(hov_species$Syritta_pipiens$Spec.wgt)){
 ##graphed three for aesthetics based on size range
 par(mfrow=c(2,3))
 par(pty="s")
-plot(HHP_IT,main="Helophilus parallelus",ylab = "ITD (mm)",xlab="")
+plot(HHP_IT,main="Helophilus parallelus",ylab = "ITD (mm)",xlab="",ylim=c(3.6,4))
 abline(a=HHP_IT[19],b=0,col=2)
 abline(a=confint(lm(hov_species$Helophilus_parallelus$IT~1))[1],b=0,col=3)
 abline(a=confint(lm(hov_species$Helophilus_parallelus$IT~1))[2],b=0,col=3)
-plot(HSM_IT,main="Sphaerophoria macrogaster",ylab = "",xlab="")
+plot(HSM_IT,main="Sphaerophoria macrogaster",ylab = "",xlab="",ylim=c(1.1,1.5))
 abline(a=HSM_IT[17],b=0,col=2)
 abline(a=confint(lm(hov_species$Sphaerophoria_macrogaster$IT~1))[1],b=0,col=3)
 abline(a=confint(lm(hov_species$Sphaerophoria_macrogaster$IT~1))[2],b=0,col=3)
-plot(HEB_IT,main="Episyrphus balteatus",ylab = "",xlab="Sample size")
+plot(HEB_IT,main="Episyrphus balteatus",ylab = "",xlab="Sample size",ylim=c(2.1,2.55))
 abline(a=HEB_IT[15],b=0,col=2)
 abline(a=confint(lm(hov_species$Episyrphus_balteatus$IT~1))[1],b=0,col=3)
 abline(a=confint(lm(hov_species$Episyrphus_balteatus$IT~1))[2],b=0,col=3)
 #plot(HMM_IT,main="Melanostoma_mellinum",ylab = "",xlab="")
 #plot(HSP_IT,main="Syritta_pipiens",ylab = "",xlab="Sample size")
 
-plot(HHP_WT,ylab = "Specimen weight (mg)",xlab="Sample size")
+plot(HHP_WT,ylab = "Specimen weight (mg)",xlab="Sample size",ylim=c(32,42))
 abline(a=HHP_WT[19],b=0,col=2)
 abline(a=confint(lm(hov_species$Helophilus_parallelus$Spec.wgt~1))[1],b=0,col=3)
 abline(a=confint(lm(hov_species$Helophilus_parallelus$Spec.wgt~1))[2],b=0,col=3)
@@ -804,12 +791,5 @@ abline(a=confint(lm(hov_species$Episyrphus_balteatus$Spec.wgt~1))[1],b=0,col=3)
 abline(a=confint(lm(hov_species$Episyrphus_balteatus$Spec.wgt~1))[2],b=0,col=3)
 #plot(HMM_WT,ylab = "",xlab="Sample size")
 #plot(HSP_WT,ylab = "",xlab="Sample size")
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-
-=======
->>>>>>> ca5d4b1fcd75a9aa247ee5cbb494e71c4b200dea
->>>>>>> c1bd9d8c80d407d602084edec8eac1b7c6623f7e
 ```

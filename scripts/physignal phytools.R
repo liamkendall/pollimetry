@@ -15,16 +15,21 @@ plot(obj)
 IT<-as.matrix(log(bee_phylo_IT))[,1]
 ITsd
 
-phylo.heatmap(bee_pruned,svl)
+WGT2=as.data.frame(bee_phylo[,c("Spec.wgt")])
+WGT2=log(WGT2)
+rownames(WGT2)=rownames(bee_phylo)
+WGT2<-as.matrix((WGT2))[,1]
+
+##TEST OF SIGNIFICANCE OF PHYLOSIGNAL
+#WGT
+phylosig(tree=bee_pruned,x=WGT2,method="lambda",test=TRUE)
+phylosig(tree=bee_pruned,x=IT,method="lambda",test=TRUE)
 
 WGT=as.data.frame(bee_intra_phy[,c("Spec.wgt")])
 rownames(WGT)=rownames(bee_intra_phy)
 WGT<-as.matrix((WGT))[,1]
 
-WGT2=as.data.frame(bee_phylo[,c("Spec.wgt")])
-WGT2=log(WGT2)
-rownames(WGT2)=rownames(bee_phylo)
-WGT2<-as.matrix((WGT2))[,1]
+
 
 
 WGTsd=as.data.frame(bee_intra_phy[,c("Wgt.SD")])
@@ -65,16 +70,20 @@ ITse=ITsd/sqrt(bee_species_counts)
 
 ##TEST OF SIGNIFICANCE OF PHYLOSIGNAL
 #WGT
-phylosig(tree=bee_intra_pruned,x=WGT,method="lambda",se=WGTse,test=TRUE)
+phylosig(tree=bee_pruned,x=WGT2,method="lambda",test=TRUE)
 
 #IT
 phylosig(tree=bee_intra_pruned,x=IT,method="lambda",se=ITse,test=TRUE)
 
 ###Phylo regression
-pgls.Ives(tree=bee_intra_pruned, X=IT, y=WGT, Vx=ITse, Vy=WGTse)
+bee_pgls1=pgls.SEy(log(Spec.wgt)~log(IT), data=bee_intra_phy, corClass=corPagel, tree=bee_intra_pruned,
+                   se=NULL, method=c("REML"), interval=c(0,1000))
 
 bee_pgls2=pgls.SEy(log(Spec.wgt)~log(IT), data=bee_intra_phy, corClass=corPagel, tree=bee_intra_pruned,
-         se=WGTse, method=c("REML","ML"), interval=c(0,1000))
+         se=WGTse, method=c("REML"), interval=c(0,1000))
+AIC(bee_pgls1,bee_pgls2)
+
+AIC(gls(log(Spec.wgt)~log(IT), data=bee_intra_phy))
 
 
 bee_pgls2$coefficients[1]+bee_pgls2$coefficients[2]*bee_test$IT

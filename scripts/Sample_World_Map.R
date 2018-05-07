@@ -1,11 +1,12 @@
 library(ggplot2)
 library(grid)
 library(rworldmap)
+table(bee_mean$Country)
 
 Country <- cbind(c('AUS','GBR','DEU','IRL','ESP','CHE','USA'),
-                 c(94,4,66,15,46,68,22))
+                 c(119,6,78,23,46,86,99))
 CountryTable <- data.frame(Country = Country[,1], Richness=Country[,2])
-CountryTable$Richness=as.numeric(c(94,4,66,15,46,68,22))
+CountryTable$Richness=as.numeric(c(119,6,78,23,46,86,99))
 
 colnames(CountryTable)=c("Country","Richness")
 bee_country <- joinCountryData2Map( CountryTable

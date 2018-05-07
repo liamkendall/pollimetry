@@ -231,10 +231,10 @@ summary(pres.lme)
 
 #Model choice
 
-Test lme models /w and /wo biogeography.
+Test lme models /w biogeography.
 
 #With region
-```{r}
+```{r} 
 
 options(na.action = "na.fail")
 bee_f_lme=lmer(log(Spec.wgt) ~ log(IT)  + Family + Sex + Region + #fix factors
@@ -243,26 +243,24 @@ bee_f_lme=lmer(log(Spec.wgt) ~ log(IT)  + Family + Sex + Region + #fix factors
 
 bee_dr_lme=dredge(bee_f_lme,beta="none",rank="AIC") #think about "sd" and "AICc". AIC show same pattern.
 head(bee_dr_lme)
-
+summary(bee_f_lme)
 ```
-#Without region
 
-```{r}
+#Within region
+Let us test this for Europe once we have Belgian data as we will have good range.
 
-bee_f_lme_red=lmer(log(Spec.wgt) ~ log(IT)  + Family + Sex  + #fix factors
-                 log(IT):Family + log(IT):Sex + #interactions
-                 (1|Measurement)+(1|Species),REML=FALSE,bee_mean)
+#Without sex?
+```{r} 
 
 options(na.action = "na.fail")
-bee_dr_lme_red=dredge(bee_f_lme_red,beta="none",rank="AIC") #think about "sd" and "AICc". AIC show same pattern.
-head(bee_dr_lme_red)
+bee_fe_lme=lmer(log(Spec.wgt) ~ log(IT)  + Family + Region + #fix factors
+                              log(IT):Family + log(IT):Region + #interactions
+                              (1|Measurement)+(1|Species),REML=FALSE,bee_mean)
 
-
+bee_dre_lme=dredge(bee_fe_lme,beta="none",rank="AIC") #think about "sd" and "AICc". AIC show same pattern.
+head(bee_dre_lme)
+summary(bee_fe_lme)
 ```
-
-In both cases, the full model is retained. However, the difference in AIC is considerable (436.7 /w region vs. 493.3 /wo).
-
-Let us test this for Europe once we have Belgian data as we will have good range.
 
 =======
 #Phylogenetic GLS
@@ -360,7 +358,7 @@ obj<-contMap((bee_pruned),WGT,fsize= 0.4,cex=1)
 
 Bootstrap isn't available within a package - Can probably do it with a loop but im not experienced enough to figure out the coding.
 
-```{r}
+```{r} 
 #Split into training and test set
 set.seed(123)
 bee_subset=sample(seq_len(nrow(bee_mean)), size = floor(0.8 * nrow(bee_mean)))
@@ -681,6 +679,7 @@ Episyrphus balteatus (n = 15), Melanostoma mellinum (n = 12) and Syritta pipiens
 ##ONE##
 #Helophilus_parallelus
 #IT
+set.seed(123)
 HHP_IT = c()
 for(i in 1:length(hov_species$Helophilus_parallelus$IT)){
   subset1 = sample(hov_species$Helophilus_parallelus$IT, i)

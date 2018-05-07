@@ -5,13 +5,13 @@ require(ggplot2)
 require(gridExtra)
 
 #Bees
-BEE1=ggplot(bee_all,aes(x=(Spec.wgt),y=(IT),colour=Region))+coord_equal(xlim=c(0,350),ylim=c(0,8))+
+BEE1=ggplot(bee_all,aes(x=(Spec.wgt),y=(IT),colour=Sex))+coord_equal(xlim=c(0,350),ylim=c(0,8))+
 geom_point(aes(),lwd=2,shape=1)+theme_bw()+theme(aspect.ratio=1)+ggtitle("ITD")
 BEE1
 BEE2=ggplot(bee_all,aes(x=(Spec.wgt),y=(IT),colour=Family))+coord_equal(xlim=c(0,320),ylim=c(0,8))+
   geom_point(aes(),lwd=2,shape=1)+theme_bw()+theme(aspect.ratio=1)+ggtitle("ITD")
 BEE2
-BEE3=ggplot(bee_all,aes(x=(Spec.wgt),y=(IT),colour=Sex))+coord_equal(xlim=c(0,50),ylim=c(0.5,5))+
+BEE3=ggplot(bee_all,aes(x=(Spec.wgt),y=(IT),colour=Family))+coord_equal(xlim=c(0,50),ylim=c(0.5,5))+
   geom_point(aes(),lwd=2,shape=1)+theme_bw()+theme(aspect.ratio=1)+ggtitle("ITD")
 BEE3
 

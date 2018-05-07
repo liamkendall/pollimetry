@@ -185,7 +185,7 @@ for(i in 1:5){
 pgls2%>%gather(.,MSE:BIC,key ="Metric",value = "Value")%>%ggplot(aes(x=Metric,y=Value,fill=Metric))+geom_boxplot()+coord_flip()+facet_wrap(~Metric,ncol=1,scales="free")+theme_bw()
 pgls2%>%select(.,15:20)%>%map_dbl(median,na.rm=T)
 
-
+##Combine RMSEs
 K_sets=cbind(unique(model1$RMSE),
 unique(model2$RMSE),
 unique(model3$RMSE),
@@ -194,5 +194,6 @@ unique(pgls2$RMSE))
 colnames(K_sets)=c("1","2","3","4","5")
 K_sets=as.data.frame(K_sets)
 
+#Box plots
 K_sets%>%gather(.,1:5,key ="Model",value = "Value")%>%ggplot(aes(x=Model,y=Value,fill=Model))+geom_boxplot()+theme_bw()
 

@@ -1,12 +1,16 @@
 ---
 title: 'Pollimetry: Predictive allometry for pollinating insects'
-author: "Liam Kendall, Vesna Gagic..........Romina Rader, Ignasi Bartomeus"
+author: "Liam Kendall, Matthias Albrecht, Katherine Baldock, Ignasi Bartomeus, Daniel Cariveau, Vesna Gagic, Romina Rader, Juanita Rodriguez, Louis Suter"
 date: "04/05/2018"
 ---
+This markdown file has all code from the MS so you can look over it, notice any issues/mistakes and make changes
 
+#Data preparation
 ```{r setup, include=FALSE}  
 knitr::opts_chunk$set(echo = TRUE)
 library(dplyr)
+library(grid)
+library(gridExtra)
 library(broom)
 library(lme4)
 library(phytools)
@@ -16,6 +20,12 @@ library(ggtree)
 library(MuMIn)
 library(geiger)
 library(ModelMetrics)
+library(tidyverse)
+library(foreign)
+library(compiler)
+library(parallel)
+library(plyr)
+
 #dataframe
 set.seed(123)
 poll_all <- read.csv(file="data/PA050518.csv")
@@ -49,6 +59,21 @@ bee_mean$Spec.wgt=as.numeric(unlist(aggregate(Spec.wgt~Family+Country+Subfamily+
 bee_mean$IT=(as.numeric(unlist(aggregate(IT~Family+Subfamily+Tribe+Region+Country+
                                          Measurement+Subfamily+Genus+Species+Sex,bee_all,mean)[10])))
 
+##HOV mean dataframe
+hov_all=poll_all_split[[2]]
+
+options(na.action=na.omit)
+hov_mean=aggregate(Latitude~Family+Tribe+Country+
+                     Region+Measurement+Subfamily+Genus+Species+Sex,hov_all,mean)
+hov_mean$Longitude=aggregate(Longitude~Family+Tribe+Country+
+                     Region+Measurement+Subfamily+Genus+Species+Sex,hov_all,mean)[10]
+
+hov_mean$Spec.wgt=as.numeric(unlist(aggregate(Spec.wgt~Family+Tribe+Country+
+                                                Region+Measurement+Subfamily+
+                                                Genus+Species+Sex,hov_all,mean)[10]))
+hov_mean$IT=as.numeric(unlist(aggregate(IT~Family+Tribe+Country+
+                                          Region+Measurement+Subfamily+
+                                          Genus+Species+Sex,hov_all,mean)[10]))
 
 set.seed(123)
 bee_all_subset=sample(seq_len(nrow(bee_all)), size = floor(0.8 * nrow(bee_all)))
@@ -90,150 +115,9 @@ bee_pruned=genus.to.species.tree(bee_pruned, species=bee_phylo$Species)
 
 ```
 
-##Thoughts
 
-If you could help me with setting up the data files within this R markdown file, I will write the manuscript in it!'
-
-Dan's data is in - he has more to add in a couple of weeks
-
-Is the syntax of preservative time model right/appropriate?
-
-
-##Abstract
-
-Allometric scaling laws have key implications for the conservation and management of pollinating insects in both managed and unmanaged ecosystems. 
-Body size (BS) can predict influential ecological traits yet available predictive models are outdated, rely upon geographically restricted sampling and have limited applicability for non-bee taxa. 
-More accurate prediction of pollinator body size require models that consider biogeography, intraspecific variation and phylogenetic relatedness. 
-
-Here we present the results of an international collaboration that catalogued existing predictive allometries for pollinating insects (Hymenoptera (BS: 38, FD: 6), Diptera (BS: 26, FD: 0) and Lepidoptera (BS: 21, FD: 1) and improved upon pre-existing equations for estimating body size in key pollinating taxa (bees and hoverflies). 
-We measured dry weight and intertegular span ~~and body length of bees and hoverflies from Australia (n = 900), Europe (n = 1000) and USA (n = 650) and constructed region-specific predictive equations for estimating pollinator body size within an iterative framework. These models, form the R package  'pollimetry', will be a useful resource in the conservation management and research of both wild and managed pollinators globally.
-
-
-State of the art, Knowledge gaps! , How we fix them, Quick methods and main results. Conclusions about the iterative workflow.
-
-##Introduction
-
-Body size is an intrinsic trait of all organisms that influences key patterns across all levels of biological organisation. Adult body size variation (both intra- and interspecific) in insects is the outcome of natural selection affecting physiological and biochemical processes during ontogeny (see Chown & Gaston 2010’s review on body size variation). Therefore, body size is central to physiological (e.g. metabolic and growth rates (Angilletta et al. 2004; Ehnes et al. 2011; Harrison et al. 2014)), life history (e.g. life span, reproductive rate and type (i.e. capital or income breeders) (Speakman 2005; Teder et al. 2008)) and ecological attributes (e.g. species abundance and richness, trophic interactions, geographic range size, dispersal ability) (Brown et al. 2004; White et al. 2007; Chown & Gaston 2010, Rall et al. 2011; Stevens et al. 2012; Dell et al. 2011, 2014; Velghe & Gregory-Eaves 2013). These effects lead to differing spatial and temporal size-frequency distributions within populations and communities as well as drive key ecosystem functions and services such as decomposition, carbon cycling, primary productivity and pollination (Greenleaf et al. 2007; Rudolf & Rasmussen 2013; Schramski et al. 2015).
-
-#Allometry 
-
-Studies of body size variation utilise allometric theory. Gould (1966) defined allometry as the ‘study of size and its consequences.’ Allometric scaling laws refer to how traits, which can be morphological, physiological or chemical, co-vary with an organism’s body size, often with important ecological and evolutionary implications size (Gould 1966; Huxley 1993). However, direct measurements of body size and ecologically important traits can be impractical for a number of reasons. First, direct measurements can be time consuming and require destructive methods, which are unfeasible for museum specimens and threatened species (Rogers et al. 1976; Henschel & Seely 1997). Second, where research occurs in remote field sites, equipment limits can prevent direct measurements (Brady & Noske 2006). 
-Thirdly, in diet/food web studies, body size estimates come from digested prey items (e.g. Hodar 1997).
-Lastly, a lack of life-history information, especially for ecologically cryptic and rare species, may not be known.
- As such, predictive allometry, which attempts to estimate body size using a co-varying trait, has emerged across many biological disciplines.
-
-#Pollination allometry
-
-A number of key pollination traits exhibit allometry. In particular, body size affects insect activity rates/periods (i.e. floral visitation) (Strienzer et al. 2015), pollen load (Ramalho et al. 1998), foraging range (Greenleaf et al. 2007; van Nieuwstadt & Iraheta 1996) and proboscis length (Cariveau et al. 2016). Despite these influences, few predictive allometric models exist for pollinating insects, with one notable exception. Cane (1987) established a predictive allometric model for bee body size as a function of the intertegular span (the distance between the wing-attachment points on either side of the thorax). Cane (1987)’s model was developed with a sample of 20 single females from solitary bee species in North America that represented six major bee families. It is now the most commonly used metric for estimating bee body size (Web of Science: 89 citations, Google scholar: 108 citations) and has used in ecological (eg. Williams et al. 2010), sensory (e.g. Spaethe & Chittka 2003; Kapustjanskij et al. 2007) and behavioural studies (e.g. Oliveira & Schlindwein 2010). It has also been used to quantify other ecologically important allometric relationships (e.g. foraging range and bee proboscis length; Greenleaf et al. 2007; Cariveau et al. 2016).
-
-Despite its widespread use, it is time to update Cane (1987)’s model in order to enhance the use of predictive allometry for pollinating insects. Specifically, the following factors should be addressed and accounted for: i) small sample size that excludes social bees and restricted taxa (i.e. Strenotritidae), ii) use of preserved museum specimens, and iii) biogeographical limits of the sample. 
-
-#Biogeographic influences 
-
-Predictive allometric models exhibit well-known differences between both aquatic and terrestrial invertebrate taxa, as well as between larval and adult growth stages, hypothetically, due to differing life histories and ontogenetic constraints (Martin et al. 2014). As adult terrestrial invertebrates are the predominant pollinating taxa, we exclude aquatic-terrestrial and larval-adult differences.
-
-Terrestrial invertebrates show considerable geographic variation in shape and form. Body length- mass accumulation rates change over a latitudinal gradient; the rate of body mass/length accumulation increasing with absolute latitude. This may reflect a biogeographic gradient of increased predation pressure toward the tropics (Martin et al. 2014). The presence of larger, comparatively lighter insects in the tropics lends support for the ‘index of bizarreness’ hypothesis (Schoener 1980; Johnson & Strong 2000) whereby larger insects are disproportionately slender due to predation pressure. Increased body mass is associated with a greater cost for both running (Garland 1983) and flying (Marden 1994). As such, slenderness may enable greater predator avoidance and/or fleeing. Crucially, this latitudinal gradient may also be the result of other well-known environmental and ecological gradients, such as primary productivity, niche width, metabolic rate and climate (Martin et al. 2014). How these contribute to this variation in mass-accumulation remains unanswered. There has been considerable under-sampling in mid-latitude arid zones, and this hinders further analyses of causes underpinning latitudinal trends in mass accumulation.
-
-The latitudinal gradient in length-mass models suggests comparable geographic regions (i.e. temperate regions) should exhibit similar allometric trends. However, length-mass models can differ considerably both between and within comparable geographical regions. For example, Rogers et al. (1977) constructed length-mass models for shrub-steppe invertebrates in North America. Remarkably, Gowing & Recher (1984) found their allometric models from both eucalypt forests and woodlands in NSW, Australia, did not differ from Rogers et al. (1977), with the exception of Hymenoptera. However, Schoener (1980) found systemic differences between their models (between two forest types in Costa Rica, and temperate forest in Massachusetts, USA) and those of Rogers et al. (1977). As such, consideration for the specific environmental conditions of differing populations/communities, i.e. ecosystem type (forest, shrub-steppe) is important when constructing predictive allometric models, even in comparable climactic zones or geographic regions. The use of specimens from multiple biogeographic areas in model fitting may provide an avenue to overcome this limitation. 
-
-###PREDICTIVE FRAMEWORKS UNCOMMON IN ECOLOGY
-
-TRAINING / TEST SET ETC ETC
-
-##Aims paragraph
-
-
-###METHODOLOGY
-
-##Existing equations
-
-We selected three key pollinating insect orders: Diptera, Hymenoptera and Lepidoptera and collated all known predictive allometric models using a systematic literature search. These represent a large selection of taxa and have a wide representation of different biogeographic regions and continental landmasses. These include both simple (body length or intertegular span) and complex models such as the multivariate regression model for Lepidoptera devised by Garcia-Barros (2015).
-
-##Specimen collection and curation
-
-Only curated or fresh undamaged specimens were included for analysis. For every included specimen, we obtained preservative time, collection location (latitude and longitude) and collection method (pan trap, sweeping, malaise trap). 
-
-
-##Trait measurement
-
-#Body size
-Dry mass (mg), herein body size, was measured on an analytical balance with an accuracy to 0.001g. Both fresh and curated specimens were dehydrated at 70 degrees celsius for 24-48h prior to weighing to remove residual humidity as moisture can contribute to measurement error (INSREF). 
-Specimen pins were not removed prior to weighing. Rather pin type and brand was identified, a sample of 10-50 pins per type and brand were measured and the mean substracted off total weight.
-
-#Intertegular distance
-Intertegular distance was measured in millimetres using a stereo-microscope, either mounted with a scale and micrometer or a camera.
-
-##phylogeny
-
-We used the genus-level phylogeny provided within Hedtke et al. (2013)...
-
-
-#Statistics - Model structure
-
-We included 'measurement' which denoted the measurer as well as each instrument as a random term.
-
-Measurement - Included as random effect, the measurer + instrument so my measurements in Aus and Switz are two different levels.
-We exclude latitude and climatic zone from analyses as given the geographic distribution of specimens, we cannot discount sampling biases.
-
-
-#Testing of confounding factor - preservative time
-
-Using data-sets from Australia and Germany which exhibited species-overlap in preservative time, we tested this influence upon body size using a linear model. Preservative time was found to exhibit some influence (XXX), which accounted for a loss of 0.006mg per day preserved. As such, it was not considered integral to account for such a small loss (SUPP INFORMATION). 
-
-##Model selection
-
-We fitted a mixed-effect model with all predicted explanatory variables (family, region, sex and their interactions with ITD) and measurement as a random term. We then performed model selection using all subset models using the dredge function within the R library MuMIn (REF). This was repeated for models which included biogeographic region and without. Final model was selected on the basis of AIC.
-
-We then used cross-validation to assess model bias. We split our data frame into 80/20 training, test split, re-run the best model using the training set and compared relative mean square error between predicted value of the test set against real values. Such an approach was repeated for all provided models as well as against pre-exisitng equations (i.e. Cane 1989).
-
-#Testing of key co-variates
-
-  - I think proper syntax is WEIGHT ~ SPECIES + PRES.TIME (or Species*Pres.time?) or WGT ~ Pres.time + (1|Species)?
-
-Overall, preservative time accounted for a decrease in -0.006mg per day. 
-
-##Results
-
-
-#Existing equations
-
-
-Diptera: 26 allometric models for Diptera were collated (Table 1A). 11 models were reported for the entire order, including nine without any taxonomic breakdown of samples used. 11 for the three main suborders Nematocera (6), Brachycera (4) and Cycllorapha (2) and two for specific families; Asilidae and Bombyliidae. Surprisingly, there were no equations for Syrphidiae, a key pollinating taxa in many ecosystems (eg. Biesmeijer et al. 2006, Jauker et al. 2012) 
-
-Hymenoptera: 38 allometric models for Hymenoptera were collated (Table 1B). These included eight combined, seven excluding ants (Formicidae) (7) as well as ten for Formicidae. There are three equations for Vespidae and two equations for Apidae (Cane 1987 & Sabo et al. (2002). Only Sample et al’s (1993) body length and body length*width equations are provided for Braconidae, Ichneumonidae, Halictidae and Pompilidae.
-
-Lepidoptera: 21 allometric models for Lepidoptera were collated (Table 1C). This includes 13 with varying taxa and without lower classifications. Hodar (1997) provides specific models for Heterocera (moths) and Ropalocera (butterflies). Sample et al. (1993) provide BL and BL*BW models for Microlepidoptera and two moth families Geometridae and Arctiidae. A multivariate regression model using specimens from 61 Lepidoptera families is also included (Garcia-Barros 2015).
-
-
-
-
-##SUPP##Preservative time - Australia and Germany only
-
-We tested the effect of time in preservative (70-100% ethanol) on Australian and Germany bee samples in specimens differed in preservative length. In total, we had 20 bee species which had been subjected to different lengths within ethanol.
-
-  - I think proper syntax is WEIGHT ~ SPECIES + PRES.TIME (or Species*Pres.time?) or WGT ~ Pres.time + (1|Species)?
-
-Overall, preservative time accounted for a decrease in -0.006mg per day. 
-
-
-```{r}
-
-pres.lm=lm(Spec.wgt~Species+Pres.time,bee_pres)
-
-summary(pres.lm)
-```
-
-```{r}
-
-pres.lme=lmer(Spec.wgt~Pres.time+(1|Species)+(1|Country),bee_pres)
-summary(pres.lme)
-```
-
-#Model choice
-
-Test lme models /w biogeography.
-
-#With region
+##Bee model selection
+Test lme models w. biogeography.
 ```{r} 
 
 options(na.action = "na.fail")
@@ -243,306 +127,710 @@ bee_f_lme=lmer(log(Spec.wgt) ~ log(IT)  + Family + Sex + Region + #fix factors
 
 bee_dr_lme=dredge(bee_f_lme,beta="none",rank="AIC") #think about "sd" and "AICc". AIC show same pattern.
 head(bee_dr_lme)
-summary(bee_f_lme)
 ```
 
-#Within region
-Let us test this for Europe once we have Belgian data as we will have good range.
-
-#Without sex?
-```{r} 
+Repeat without region
+```{r}
 
 options(na.action = "na.fail")
-bee_fe_lme=lmer(log(Spec.wgt) ~ log(IT)  + Family + Region + #fix factors
-                              log(IT):Family + log(IT):Region + #interactions
+bee_fe_lme=lmer(log(Spec.wgt) ~ log(IT)  + Family + Sex + #fix factors
+                              log(IT):Family + log(IT):Sex + #interactions
                               (1|Measurement)+(1|Species),REML=FALSE,bee_mean)
 
-bee_dre_lme=dredge(bee_fe_lme,beta="none",rank="AIC") #think about "sd" and "AICc". AIC show same pattern.
-head(bee_dre_lme)
-summary(bee_fe_lme)
+bee_de_lme=dredge(bee_fe_lme,beta="none",rank="AIC") #think about "sd" and "AICc". AIC show same pattern.
+head(bee_de_lme)
 ```
 
-=======
-#Phylogenetic GLS
-
-Here we can do two things: 1) check traits themselves and Wgt~IT, and 2) run with intraspecific variation for species we have more than one specimen (pgls.Ives (phytools))
-
-I think phylo-signal of body size / IT is cool / interesting angle. Not sure if individual traits need to be log-transformed for signal
-
-Perhaps use Nico's input for focus on phylogeny - I am finding phylo singal (Pagel's lambda) is high but there are methodological considerations I cannot fix yet
-  - whether or not the tree used is ultrametric or not
-  - including subgenera - binding trees where phylogeny is well-resolved i.e. adding bombus tree would be ace - from my understanding lambda is robust to this
-
-Here we can do two things: 1) check traits themselves and Wgt~IT, and 2) run with intraspecific variation for species we have more than one specimen (pgls.Ives (phytools)) - still working this out - it has annoying input but so does geiger
-
+And without region and sex
 ```{r}
 
-p=ggtree((bee_pruned))
-p + geom_tiplab(size=3)
+options(na.action = "na.fail")
+bee_fes_lme=lmer(log(Spec.wgt) ~ log(IT)  + Family  + #fix factors
+                              log(IT):Family + #interactions
+                              (1|Measurement)+(1|Species),REML=FALSE,bee_mean)
 
+bee_des_lme=dredge(bee_fes_lme,beta="none",rank="AIC") #think about "sd" and "AICc". AIC show same pattern.
+head(bee_des_lme)
 ```
 
-##Individual traits
-
-Both body size and intertegular span showed a high phylogenetic signal (BS: \( \lambda \) 0.81, lnBS:\( \lambda \) 0.78, IT: \( \lambda \) 0.82, lnIT: \( \lambda \) 0.8). Based on AIC, the PGLS better described the relationship between BS and IT than gls (AIC pgls: 268 ~ gls: 288).
-
-#Spec.wgt
-
-```{r}
-
-bee_phylo_WGT=as.data.frame(bee_phylo[,c("Spec.wgt")])
-rownames(bee_phylo_WGT)=rownames(bee_phylo)
-
-WGT_phylo=fitContinuous(bee_pruned, (bee_phylo_WGT),SE=0,
-              model = c("lambda"))
-WGT_phylo
-
-WGT_phylo_log=fitContinuous(bee_pruned, log(bee_phylo_WGT),SE=0,
-              model = c("lambda"))
-WGT_phylo_log
-```
-
-##Intertegular distance
-
-```{r}
-
-bee_phylo_IT=as.data.frame(bee_phylo[,c("IT")])
-rownames(bee_phylo_IT)=rownames(bee_phylo)
-
-IT_phylo=fitContinuous(bee_pruned, bee_phylo_IT,SE=0,
-              model = c("lambda"))
-IT_phylo
-
-IT_phylo_log=fitContinuous(bee_pruned, log(bee_phylo_IT),SE=0,
-              model = c("lambda"))
-IT_phylo_log
-```
-
-
-##Predictive model
-#SPEC.WGT ~ IT
-
-
-```{r}
-#first compute correlation matrix from tree
-Bee_vcv=corPagel(value=0.5,phy=bee_pruned,fixed=FALSE)
-
-Bee_GLS1<- gls(log(Spec.wgt)~log(IT), data=bee_phylo, method="ML")
-summary(Bee_GLS1)
-
-Bee_PGLS1 = gls(log(Spec.wgt)~log(IT), data=bee_phylo, correlation=Bee_vcv, method="ML")
-summary(Bee_PGLS1)
-
-AIC(Bee_GLS1,Bee_PGLS1)
-
-
-```
-
-Together, lower lambda but good result nonetheless. Suggests a non-PGLS model may be better at predicting body size even if both BS and IT have phylo-signal. The evolution of bee body size is fascinating though.
-
-https://besjournals.onlinelibrary.wiley.com/doi/pdf/10.1111/j.2041-210X.2012.00196.x
-  This paper is great for understanding the different phylo models.
-  
+Just ITD
 ```{r,echo=FALSE}
 
-WGT=as.data.frame(log(bee_phylo[,c("Spec.wgt")]))
-rownames(WGT)=rownames(bee_phylo)
-WGT<-as.matrix((WGT))[,1]
-obj<-contMap((bee_pruned),WGT,fsize= 0.4,cex=1)
-
+bee_IT_lme=lmer(log(Spec.wgt) ~ log(IT) +
+                              (1|Measurement)+(1|Species),REML=FALSE,bee_mean)
+AIC(bee_IT_lme)
 ```
 
-#Model validation
+#TBC - within region
+Let us test this for Europe once we have Belgian data as we will have good range.
 
-##Training and test set
-
-Bootstrap isn't available within a package - Can probably do it with a loop but im not experienced enough to figure out the coding.
-
-```{r} 
-#Split into training and test set
-set.seed(123)
-bee_subset=sample(seq_len(nrow(bee_mean)), size = floor(0.8 * nrow(bee_mean)))
-bee_test <- bee_mean[-bee_subset, ]
-bee_train <- bee_mean[bee_subset, ]
-
-
-Cane <- function(IT){exp(0.6453 + 2.4691*log(IT))}
-
-
-bee_test_mod=lmer(log(Spec.wgt) ~ log(IT)  + Family + Sex + Region + #fix factors
-                              log(IT):Family + log(IT):Region + #interactions
-                              (1|Measurement)+(1|Species),data=bee_train,REML=FALSE)
-bee_test_red_mod=lmer(formula = log(Spec.wgt) ~ log(IT) + Family + Sex + log(IT):Family+ (1 | Measurement)+(1|Species), data = bee_train, REML = FALSE)
-
-bee_test_red_mod2=lmer(formula = log(Spec.wgt) ~ log(IT) + (1 | Measurement)+(1|Species), data = bee_train, REML = FALSE)
-
-bee_pred1=predict(bee_test_mod,newdata=bee_test,allow.new.levels=TRUE)
-bee_pred2=predict(bee_test_red_mod,newdata=bee_test,allow.new.levels=TRUE)
-bee_pred3=predict(bee_test_red_mod2,newdata=bee_test,allow.new.levels=TRUE)
-bee_pred4=0.6453 + 2.4691*log(bee_test$IT)
-bee_pred5=predict(Bee_PGLS1,newdata=bee_test)
-par(pty="s")
-par(mfrow=c(1,2))
-plot((IT)~(Spec.wgt),bee_test,ylab="ITD (mm)",xlab="Dry weight (mg)")
-points((bee_test$IT)~exp(bee_pred1),col=2)
-points((bee_test$IT)~exp(bee_pred2),col=3)
-
-
-plot((IT)~(Spec.wgt),bee_test,ylab="ITD (mm)",xlab="Dry weight (mg)")
-points((bee_test$IT)~exp(bee_pred3),col=4)
-points((bee_test$IT)~exp(bee_pred4),col=5)
-points((bee_test$IT)~exp(bee_pred5),col=6)
-
-bee_rmse=cbind(
-rmse(log(bee_test$Spec.wgt),bee_pred1),
-rmse(log(bee_test$Spec.wgt),bee_pred2),
-rmse(log(bee_test$Spec.wgt),bee_pred3),
-rmse(log(bee_test$Spec.wgt),bee_pred4),
-rmse(log(bee_test$Spec.wgt),bee_pred5))
-colnames(bee_rmse)=c("Full","Reduced","IT","Cane","PGLS")
-rownames(bee_rmse)=c("RMSE")
-bee_rmse
-```
-
-Cane is good, ours is slightly better - good validation of Cane though!! Our data captures natural variability and slight differences between families esp. Apidae vs. the rest
-
-I repeated this process with the full bee-data set rather than the means.
-
-```{r,echo=FALSE}
-
-##BEE ALL MODEL VALIDATION
-
-library(ModelMetrics)
-library(caret)
-
-options(na.action=na.omit)
-
-Cane <- function(IT){exp(0.6453 + 2.4691*log(IT))}
-
-
-bee_all_test_mod=lmer(log(Spec.wgt) ~ log(IT)  + Family + Sex + Region + #fix factors
-                    log(IT):Family + log(IT):Region + log(IT):Sex + #interactions
-                      (1|Species) +(1|Measurement),data=bee_all_train,REML=FALSE)
-bee_all_test_red_mod=lmer(formula = log(Spec.wgt) ~ log(IT) + Family + Sex + log(IT):Family + 
-                        log(IT):Sex + (1|Species) +(1 | Measurement), data = bee_all_train, REML = FALSE)
-
-bee_all_test_red_mod2=lmer(formula = log(Spec.wgt) ~ log(IT) + (1|Species) +(1 | Measurement), data = bee_all_train, REML = FALSE)
-?predict.merMod
-bee_all_pred1=predict(bee_all_test_mod,newdata=bee_all_test,allow.new.levels=TRUE)
-bee_all_pred2=predict(bee_all_test_red_mod,newdata=bee_all_test,allow.new.levels=TRUE)
-bee_all_pred3=predict(bee_all_test_red_mod2,newdata=bee_all_test,allow.new.levels=TRUE)
-bee_all_pred4=0.6453 + 2.4691*log(bee_all_test$IT)
-bee_all_pred5=predict(Bee_PGLS1,newdata=bee_all_test)
-par(pty="s")
-par(mfrow=c(1,2))
-
-bee_all_rmse=cbind(
-  rmse(log(bee_all_test$Spec.wgt),bee_all_pred1),
-  rmse(log(bee_all_test$Spec.wgt),bee_all_pred2),
-  rmse(log(bee_all_test$Spec.wgt),bee_all_pred3),
-  rmse(log(bee_all_test$Spec.wgt),bee_all_pred4),
-  rmse(log(bee_all_test$Spec.wgt),bee_all_pred5))
-colnames(bee_all_rmse)=c("Full","Reduced","IT","Cane","PGLS")
-rownames(bee_all_rmse)=c("RMSE")
-bee_all_rmse
-
-plot((IT)~(Spec.wgt),bee_all_test,ylab="ITD (mm)",xlab="Dry weight (mg)")
-points((bee_all_test$IT)~exp(bee_all_pred1),col=2,cex=1*bee_all_rmse[1])
-points((bee_all_test$IT)~exp(bee_all_pred2),col=3,cex=1*bee_all_rmse[2])
-
-
-plot((IT)~(Spec.wgt),bee_all_test,ylab="ITD (mm)",xlab="Dry weight (mg)")
-points((bee_all_test$IT)~exp(bee_all_pred3),col=4,cex=1*bee_all_rmse[3])
-points((bee_all_test$IT)~exp(bee_all_pred4),col=5,cex=1*bee_all_rmse[4])
-points((bee_all_test$IT)~exp(bee_all_pred5),col=6,cex=1*bee_all_rmse[5])
-
-```
-
-
-
-
-#####Hoverflies
-
+#Hoverfly model selection
+Test w. biogeography
 ```{r}
-hov_all=poll_all_split[[2]]
 
-options(na.action=na.omit)
-hov_mean=aggregate(Latitude~Family+Tribe+Country+
-                     Region+Measurement+Subfamily+Genus+Species+Sex,hov_all,mean)
-hov_mean$Longitude=aggregate(Longitude~Family+Tribe+Country+
-                     Region+Measurement+Subfamily+Genus+Species+Sex,hov_all,mean)[10]
-
-hov_mean$Spec.wgt=as.numeric(unlist(aggregate(Spec.wgt~Family+Tribe+Country+
-                                                Region+Measurement+Subfamily+
-                                                Genus+Species+Sex,hov_all,mean)[10]))
-hov_mean$IT=as.numeric(unlist(aggregate(IT~Family+Tribe+Country+
-                                          Region+Measurement+Subfamily+
-                                          Genus+Species+Sex,hov_all,mean)[10]))
 ##Full
 hov.full=lmer(log(Spec.wgt) ~ log(IT) + Region+ Sex + Subfamily+ #fix
             log(IT):Sex + #interactions
             log(IT):Subfamily + log(IT):Region+ (1|Measurement)+(1|Species)
             ,REML=FALSE,data=hov_mean)
-##/wo region
-hov.red=lmer(log(Spec.wgt) ~ log(IT) + Sex + Subfamily+ #fix
-            log(IT):Sex + #interactions
-            log(IT):Subfamily + (1|Measurement)+(1|Species)
-            ,REML=FALSE,data=hov_mean)
 
-##DREDGE
 options(na.action = "na.fail")
-
 hov_dr=dredge(hov.full,beta="none",rank="AIC") #think about "sd" and "AICc". AIC show same pattern.
 head(hov_dr)
+```
+
+And without sex
+```{r}
+hov.red=lmer(log(Spec.wgt) ~ log(IT) + Subfamily + #interactions
+            log(IT):Subfamily + (1|Measurement)+(1|Species)
+            ,REML=FALSE,data=hov_mean)
 
 hov_dr_red=dredge(hov.red,beta="none",rank="AIC") #think about "sd" and "AICc". AIC show same pattern.
 head(hov_dr_red)
 ```
 
-#Model validation - hoverflies
+#Phylogenetic GLS - BEES
 
-##Training and test set
-
-##Bootstrap - not currently possible for lme so back to train/test
-
+https://besjournals.onlinelibrary.wiley.com/doi/pdf/10.1111/j.2041-210X.2012.00196.x
+  This paper is great for understanding the different phylo models
+  
+PGLS data frame for biogeographic model
 ```{r}
-library(ModelMetrics)
-set.seed(123)
-hov_subset=sample(seq_len(nrow(hov_mean)), size = floor(0.8 * nrow(hov_mean)))
-hov_test <- hov_mean[-hov_subset, ]
-hov_train <- hov_mean[hov_subset, ]
-
-hov_test_mod=lmer(formula = log(Spec.wgt) ~ log(IT) + Region + Sex + (1|Species) + (1 | Measurement), 
-    data = hov_train, REML = FALSE)
-hov_test_red_mod=lmer(formula = log(Spec.wgt) ~ log(IT) + Sex+(1|Species)+ (1 | Measurement), data = hov_train, REML = FALSE)
-
-hov_test_red_mod2=lmer(formula = log(Spec.wgt) ~ log(IT) + (1|Species) + (1 | Measurement), data = hov_train, REML = FALSE)
-
-hov_pred1=predict(hov_test_mod,newdata=hov_test,allow.new.levels=TRUE)
-hov_pred2=predict(hov_test_red_mod,newdata=hov_test,allow.new.levels=TRUE)
-hov_pred3=predict(hov_test_red_mod2,newdata=hov_test,allow.new.levels=TRUE)
-
-par(pty="s")
-plot((IT)~Spec.wgt,hov_test,ylab="ITD (mm)",xlab="Dry weight (mg)")
-points((hov_test$IT)~exp(hov_pred1),col=2)
-points((hov_test$IT)~exp(hov_pred2),col=3)
-points((hov_test$IT)~exp(hov_pred3),col=4)
+bee_phylo_2=aggregate(Latitude~Region+Family+Subfamily+
+                      Tribe+Genus+Species,bee_all,median)
+bee_phylo_2$Longitude=as.numeric(unlist(aggregate(Longitude~Region+Family+Subfamily+
+                                                  Tribe+Genus+Species,bee_all,median)[7]))
+bee_phylo_2$Spec.wgt=as.numeric(unlist(aggregate(Spec.wgt~Region+Family+Subfamily+
+                                                 Tribe+Genus+Species,bee_all,mean)[7]))
+bee_phylo_2$Wgt.SD=as.numeric(unlist(aggregate(log(Spec.wgt)~Region+Family+Subfamily+
+                                               Tribe+Genus+Species,bee_all,sd)[7]))
+bee_phylo_2$IT=as.numeric(unlist(aggregate(IT~Region+Family+Subfamily+
+                                           Tribe+Genus+Species,bee_all,mean)[7]))
+bee_phylo_2$IT.SD=as.numeric(unlist(aggregate(log(IT)~Region+Family+Subfamily+
+                                              Tribe+Genus+Species,bee_all,sd)[7]))
 
 
-hov_rmse=cbind(rmse(log(hov_test$Spec.wgt),hov_pred1),
-rmse(log(hov_test$Spec.wgt),hov_pred2),
-rmse(log(hov_test$Spec.wgt),hov_pred3))
-colnames(hov_rmse)=c("Full","Reduced","IT")
-rownames(hov_rmse)=c("RMSE")
-hov_rmse
+##REMOVE DUPLICATES FROM REGIONS - Apis from Australia, Halictus rubicundus from NA and Flavipanurgus
+#duplicated(bee_phylo_2$Species)
+
+bee_phylo_2=bee_phylo_2[-55,]
+bee_phylo_2=bee_phylo_2[-120,]
+bee_phylo_2=bee_phylo_2[-113,]
+
+rownames(bee_phylo_2)=bee_phylo_2$Species
+##PGLS WITH REGION
+
+##TREE
+bee.phy=read.tree(file="raw_data/Bee_phylogeny_Hedtke_etal2013/12862_2013_2375_MOESM3_ESM.txt",keep.multi = TRUE)
+##Use tree 1 (376 genera) #Genera-level phylogney
+bee.phy=bee.phy[[1]]
+bee.phy=as.phylo(bee.phy)
+#bee.phy=force.ultrametric(bee.phy) Not sure if this is required
+bee_pruned_2=drop.tip(bee.phy, setdiff(bee.phy$tip.label,bee_phylo_2$Genus))
+bee_pruned_2=genus.to.species.tree(bee_pruned, species=bee_phylo_2$Species)
+
+
 ```
 
-##SUPP## Intraspecific variation
-We assessed intraspecific variation in trait mesaurements. We plotted mean against increasing sample size to estimate the adequate sample size whereby mean variance stabilised. ANY IDEAS HOW TO TEST THIS?
+#Individual traits
+  - not in MS at the moment but both significant as correlated
+  Spec.wgt
+```{r}
+WGT=as.data.frame(bee_phylo_2[,c("Spec.wgt")])
+WGT=log(WGT)
+rownames(WGT)=rownames(bee_phylo_2)
+WGT<-as.matrix((WGT))[,1]
+phylosig(tree=bee_pruned_2,x=WGT,method="lambda",test=TRUE)
 
-For five most speciose species: Homalictus urbanus (n = 251), Lasioglossum pauxillum (n = 113), Bombus lucorum (n = 111), Andrena flavipes (n = 75) and Lasioglossum lanarium (n = 68), the sample size required for the mean to fit within the confidence intervals of the final mean. 
+```
+  
+  Intertegular distance
+```{r}
+IT=as.data.frame(bee_phylo_2[,c("IT")])
+IT=log(IT)
+rownames(IT)=rownames(bee_phylo_2)
+IT<-as.matrix((IT))[,1]
+phylosig(tree=bee_pruned_2,x=IT,method="lambda",test=TRUE)
 
 
+```
+
+#PGLS
+
+SPEC.WGT ~ IT * Region and subsets - compared against standard GLS for reference
+
+```{r}  
+
+#standard gls
+
+Bee_GLS1<- gls(log(Spec.wgt)~log(IT)*Region, data=bee_phylo_2,
+               method="ML")
+
+Bee_GLS2<- gls(log(Spec.wgt)~log(IT)+Region, data=bee_phylo_2,
+               method="ML")
+
+Bee_GLS3<- gls(log(Spec.wgt)~log(IT), data=bee_phylo_2,
+               method="ML")
+
+#PGLS
+#compute correlation matrix from tree
+Bee2vcv=corPagel(value=0.5,phy=bee_pruned_2,fixed=FALSE)
+
+
+Bee_PGLS1 = gls(log(Spec.wgt)~log(IT)*Region, data=bee_phylo_2, 
+                correlation=Bee2vcv, method="ML")
+
+Bee_PGLS2 = gls(log(Spec.wgt)~log(IT)+Region, data=bee_phylo_2, 
+                correlation=Bee2vcv, method="ML")
+
+Bee_PGLS3 = gls(log(Spec.wgt)~log(IT), data=bee_phylo_2, 
+                correlation=Bee2vcv, method="ML")
+
+AIC(Bee_GLS1,Bee_GLS2,Bee_GLS3,Bee_PGLS1,Bee_PGLS2,Bee_PGLS3)
+
+dredge(Bee_PGLS1,rank="AIC")
+
+```
+
+#Phylogenetic GLS - HOVERFLIES
+
+EMPTY - waiting on current phylogeny
+
+##Model validation - k-fold cross validation
+
+Bees
+```{r}  
+#libraries
+
+##Create fold function for LME and PGLS
+
+fold_cv=function(data,k){
+  folds=cvTools::cvFolds(nrow(data),K=k)
+  invisible(folds)
+}
+
+set.seed(123)
+fold<-bee_mean%>%fold_cv(.,k=5)
+
+##WITH REGION
+model1<-bee_mean%>%mutate(Fold=rep(0,nrow(bee_mean)),holdoutpred=rep(0,nrow(bee_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
+  for(i in 1:5){
+    train=model1[fold$subsets[fold$which != i], ]
+    validation=model1[fold$subsets[fold$which == i], ]
+    newlm=lme4::lmer(formula=log(Spec.wgt) ~ log(IT)  + Family + Sex  + Region+#fix factors
+                       log(IT):Family  + log(IT):Sex + log(IT):Region+ #interactions
+                       (1|Measurement)+(1|Species),data=train)
+    newpred=predict(newlm,newdata=validation,allow.new.levels=TRUE)
+    true=log(validation$Spec.wgt)
+    error=(true-newpred)
+    rmse=sqrt(mean(error^2))
+    mse=mean((newpred-true)^2)
+    R2=1-(sum((true-newpred)^2)/sum((true-mean(true))^2))
+    mae=mean(abs(error))
+    model1[fold$subsets[fold$which == i], ]$holdoutpred <- newpred
+    model1[fold$subsets[fold$which == i], ]$RMSE=rmse
+    model1[fold$subsets[fold$which == i], ]$MSE=mse
+    model1[fold$subsets[fold$which == i], ]$MAE=mae
+    model1[fold$subsets[fold$which == i], ]$R2=R2
+    model1[fold$subsets[fold$which == i], ]$AIC=AIC(newlm)
+    model1[fold$subsets[fold$which == i], ]$BIC=BIC(newlm)
+    model1[fold$subsets[fold$which == i], ]$Fold=i
+  }
+
+
+##Without sex
+model2<-bee_mean%>%mutate(Fold=rep(0,nrow(bee_mean)),holdoutpred=rep(0,nrow(bee_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
+for(i in 1:5){
+  train=model2[fold$subsets[fold$which != i], ]
+  validation=model2[fold$subsets[fold$which == i], ]
+  newlm=lme4::lmer(formula=log(Spec.wgt) ~ log(IT)  + Family + Region  + Sex+ #fix factors
+                     log(IT):Family  + log(IT):Region + #interactions
+                     (1|Measurement)+(1|Species),data=train)
+  newpred=predict(newlm,newdata=validation,allow.new.levels=TRUE)
+  true=log(validation$Spec.wgt)
+  error=(true-newpred)
+  rmse=sqrt(mean(error^2))
+  mse=mean((newpred-true)^2)
+  R2=1-(sum((true-newpred)^2)/sum((true-mean(true))^2))
+  mae=mean(abs(error))
+  model2[fold$subsets[fold$which == i], ]$holdoutpred <- newpred
+  model2[fold$subsets[fold$which == i], ]$RMSE=rmse
+  model2[fold$subsets[fold$which == i], ]$MSE=mse
+  model2[fold$subsets[fold$which == i], ]$MAE=mae
+  model2[fold$subsets[fold$which == i], ]$R2=R2
+  model2[fold$subsets[fold$which == i], ]$AIC=AIC(newlm)
+  model2[fold$subsets[fold$which == i], ]$BIC=BIC(newlm)
+  model2[fold$subsets[fold$which == i], ]$Fold=i
+}
+
+
+##Without sex
+model3<-bee_mean%>%mutate(Fold=rep(0,nrow(bee_mean)),holdoutpred=rep(0,nrow(bee_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
+for(i in 1:5){
+  train=model3[fold$subsets[fold$which != i], ]
+  validation=model3[fold$subsets[fold$which == i], ]
+  newlm=lme4::lmer(formula=log(Spec.wgt) ~ log(IT)  + Family + Region  + #fix factors
+                     log(IT):Family  + log(IT):Region + #interactions
+                     (1|Measurement)+(1|Species),data=train)
+  newpred=predict(newlm,newdata=validation,allow.new.levels=TRUE)
+  true=log(validation$Spec.wgt)
+  error=(true-newpred)
+  rmse=sqrt(mean(error^2))
+  mse=mean((newpred-true)^2)
+  R2=1-(sum((true-newpred)^2)/sum((true-mean(true))^2))
+  mae=mean(abs(error))
+  model3[fold$subsets[fold$which == i], ]$holdoutpred <- newpred
+  model3[fold$subsets[fold$which == i], ]$RMSE=rmse
+  model3[fold$subsets[fold$which == i], ]$MSE=mse
+  model3[fold$subsets[fold$which == i], ]$MAE=mae
+  model3[fold$subsets[fold$which == i], ]$R2=R2
+  model3[fold$subsets[fold$which == i], ]$AIC=AIC(newlm)
+  model3[fold$subsets[fold$which == i], ]$BIC=BIC(newlm)
+  model3[fold$subsets[fold$which == i], ]$Fold=i
+}
+
+##Without region
+model4<-bee_mean%>%mutate(Fold=rep(0,nrow(bee_mean)),holdoutpred=rep(0,nrow(bee_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
+for(i in 1:5){
+  train=model4[fold$subsets[fold$which != i], ]
+  validation=model4[fold$subsets[fold$which == i], ]
+  newlm=lme4::lmer(formula=log(Spec.wgt) ~ log(IT)  + Family + Sex + #fix factors
+                     log(IT):Family + log(IT):Sex + #interactions
+                     (1|Measurement)+(1|Species),data=train)
+  newpred=predict(newlm,newdata=validation,allow.new.levels=TRUE)
+  true=log(validation$Spec.wgt)
+  error=(true-newpred)
+  rmse=sqrt(mean(error^2))
+  mse=mean((newpred-true)^2)
+  R2=1-(sum((true-newpred)^2)/sum((true-mean(true))^2))
+  mae=mean(abs(error))
+  model4[fold$subsets[fold$which == i], ]$holdoutpred <- newpred
+  model4[fold$subsets[fold$which == i], ]$RMSE=rmse
+  model4[fold$subsets[fold$which == i], ]$MSE=mse
+  model4[fold$subsets[fold$which == i], ]$MAE=mae
+  model4[fold$subsets[fold$which == i], ]$R2=R2
+  model4[fold$subsets[fold$which == i], ]$AIC=AIC(newlm)
+  model4[fold$subsets[fold$which == i], ]$BIC=BIC(newlm)
+  model4[fold$subsets[fold$which == i], ]$Fold=i
+}
+
+##Without region and sex
+model5<-bee_mean%>%mutate(Fold=rep(0,nrow(bee_mean)),holdoutpred=rep(0,nrow(bee_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
+for(i in 1:5){
+  train=model5[fold$subsets[fold$which != i], ]
+  validation=model5[fold$subsets[fold$which == i], ]
+  newlm=lme4::lmer(formula=log(Spec.wgt) ~ log(IT)  + Family  + #fix factors
+                     log(IT):Family + #interactions
+                     (1|Measurement)+(1|Species),data=train)
+  newpred=predict(newlm,newdata=validation,allow.new.levels=TRUE)
+  true=log(validation$Spec.wgt)
+  error=(true-newpred)
+  rmse=sqrt(mean(error^2))
+  mse=mean((newpred-true)^2)
+  R2=1-(sum((true-newpred)^2)/sum((true-mean(true))^2))
+  mae=mean(abs(error))
+  model5[fold$subsets[fold$which == i], ]$holdoutpred <- newpred
+  model5[fold$subsets[fold$which == i], ]$RMSE=rmse
+  model5[fold$subsets[fold$which == i], ]$MSE=mse
+  model5[fold$subsets[fold$which == i], ]$MAE=mae
+  model5[fold$subsets[fold$which == i], ]$R2=R2
+  model5[fold$subsets[fold$which == i], ]$AIC=AIC(newlm)
+  model5[fold$subsets[fold$which == i], ]$BIC=BIC(newlm)
+  model5[fold$subsets[fold$which == i], ]$Fold=i
+}
+
+##Just IT
+model6<-bee_mean%>%mutate(Fold=rep(0,nrow(bee_mean)),holdoutpred=rep(0,nrow(bee_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
+for(i in 1:5){
+  train=model6[fold$subsets[fold$which != i], ]
+  validation=model6[fold$subsets[fold$which == i], ]
+  newlm=lme4::lmer(formula=log(Spec.wgt) ~ log(IT) + #interactions
+                     (1|Measurement)+(1|Species),data=train)
+  newpred=predict(newlm,newdata=validation,allow.new.levels=TRUE)
+  true=log(validation$Spec.wgt)
+  error=(true-newpred)
+  rmse=sqrt(mean(error^2))
+  mse=mean((newpred-true)^2)
+  R2=1-(sum((true-newpred)^2)/sum((true-mean(true))^2))
+  mae=mean(abs(error))
+  model6[fold$subsets[fold$which == i], ]$holdoutpred <- newpred
+  model6[fold$subsets[fold$which == i], ]$RMSE=rmse
+  model6[fold$subsets[fold$which == i], ]$MSE=mse
+  model6[fold$subsets[fold$which == i], ]$MAE=mae
+  model6[fold$subsets[fold$which == i], ]$R2=R2
+  model6[fold$subsets[fold$which == i], ]$AIC=AIC(newlm)
+  model6[fold$subsets[fold$which == i], ]$BIC=BIC(newlm)
+  model6[fold$subsets[fold$which == i], ]$Fold=i
+}
+
+##PGLS - WORKING!!
+#Set up folds
+set.seed(123)
+fold_phy<-bee_phylo_2%>%fold_cv(.,k=5)
+
+pgls1<-bee_phylo_2%>%mutate(Fold=rep(0,nrow(bee_phylo_2)),holdoutpred=rep(0,nrow(bee_phylo_2)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
+for(i in 1:5){
+  train=pgls1[fold_phy$subsets[fold_phy$which != i], ]
+  validation=pgls1[fold_phy$subsets[fold_phy$which == i], ]
+  tree=ape::drop.tip(bee.phy, setdiff(bee.phy$tip.label,train$Genus))
+  tree=phytools::genus.to.species.tree(tree, species=train$Species)
+  train_vcv=ape::corPagel(value=0.5,phy=tree,fixed=FALSE)
+  
+  newlm=nlme::gls(log(Spec.wgt)~log(IT)*Region,
+                  correlation=train_vcv, method="ML",data=train)
+  
+  newpred=predict(newlm,newdata=validation,allow.new.levels=TRUE)
+  true=log(validation$Spec.wgt)
+  error=(true-newpred)
+  rmse=sqrt(mean(error^2))
+  mse=mean((newpred-true)^2)
+  R2=1-(sum((true-newpred)^2)/sum((true-mean(true))^2))
+  mae=mean(abs(error))
+  pgls1[fold_phy$subsets[fold_phy$which == i], ]$holdoutpred <- newpred
+  pgls1[fold_phy$subsets[fold_phy$which == i], ]$RMSE=rmse
+  pgls1[fold_phy$subsets[fold_phy$which == i], ]$MSE=mse
+  pgls1[fold_phy$subsets[fold_phy$which == i], ]$MAE=mae
+  pgls1[fold_phy$subsets[fold_phy$which == i], ]$R2=R2
+  pgls1[fold_phy$subsets[fold_phy$which == i], ]$AIC=AIC(newlm)
+  pgls1[fold_phy$subsets[fold_phy$which == i], ]$BIC=BIC(newlm)
+  pgls1[fold_phy$subsets[fold_phy$which == i], ]$Fold=i
+}
+
+##JUST IT + Region
+pgls2<-bee_phylo_2%>%mutate(Fold=rep(0,nrow(bee_phylo_2)),holdoutpred=rep(0,nrow(bee_phylo_2)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
+for(i in 1:5){
+  train=pgls2[fold_phy$subsets[fold_phy$which != i], ]
+  validation=pgls2[fold_phy$subsets[fold_phy$which == i], ]
+  tree=ape::drop.tip(bee.phy, setdiff(bee.phy$tip.label,train$Genus))
+  tree=phytools::genus.to.species.tree(tree, species=train$Species)
+  train_vcv=ape::corPagel(value=0.5,phy=tree,fixed=FALSE)
+  
+  newlm=nlme::gls(log(Spec.wgt)~log(IT) + Region,
+                  correlation=train_vcv, method="ML",data=train)
+  
+  newpred=predict(newlm,newdata=validation,allow.new.levels=TRUE)
+  true=log(validation$Spec.wgt)
+  error=(true-newpred)
+  rmse=sqrt(mean(error^2))
+  mse=mean((newpred-true)^2)
+  R2=1-(sum((true-newpred)^2)/sum((true-mean(true))^2))
+  mae=mean(abs(error))
+  pgls2[fold_phy$subsets[fold_phy$which == i], ]$holdoutpred <- newpred
+  pgls2[fold_phy$subsets[fold_phy$which == i], ]$RMSE=rmse
+  pgls2[fold_phy$subsets[fold_phy$which == i], ]$MSE=mse
+  pgls2[fold_phy$subsets[fold_phy$which == i], ]$MAE=mae
+  pgls2[fold_phy$subsets[fold_phy$which == i], ]$R2=R2
+  pgls2[fold_phy$subsets[fold_phy$which == i], ]$AIC=AIC(newlm)
+  pgls2[fold_phy$subsets[fold_phy$which == i], ]$BIC=BIC(newlm)
+  pgls2[fold_phy$subsets[fold_phy$which == i], ]$Fold=i
+}
+
+##JUST IT
+pgls3<-bee_phylo_2%>%mutate(Fold=rep(0,nrow(bee_phylo_2)),holdoutpred=rep(0,nrow(bee_phylo_2)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
+for(i in 1:5){
+  train=pgls3[fold_phy$subsets[fold_phy$which != i], ]
+  validation=pgls3[fold_phy$subsets[fold_phy$which == i], ]
+  tree=ape::drop.tip(bee.phy, setdiff(bee.phy$tip.label,train$Genus))
+  tree=phytools::genus.to.species.tree(tree, species=train$Species)
+  train_vcv=ape::corPagel(value=0.5,phy=tree,fixed=FALSE)
+  
+  newlm=nlme::gls(log(Spec.wgt)~log(IT) + Region,
+                  correlation=train_vcv, method="ML",data=train)
+  
+  newpred=predict(newlm,newdata=validation,allow.new.levels=TRUE)
+  true=log(validation$Spec.wgt)
+  error=(true-newpred)
+  rmse=sqrt(mean(error^2))
+  mse=mean((newpred-true)^2)
+  R2=1-(sum((true-newpred)^2)/sum((true-mean(true))^2))
+  mae=mean(abs(error))
+  pgls3[fold_phy$subsets[fold_phy$which == i], ]$holdoutpred <- newpred
+  pgls3[fold_phy$subsets[fold_phy$which == i], ]$RMSE=rmse
+  pgls3[fold_phy$subsets[fold_phy$which == i], ]$MSE=mse
+  pgls3[fold_phy$subsets[fold_phy$which == i], ]$MAE=mae
+  pgls3[fold_phy$subsets[fold_phy$which == i], ]$R2=R2
+  pgls3[fold_phy$subsets[fold_phy$which == i], ]$AIC=AIC(newlm)
+  pgls3[fold_phy$subsets[fold_phy$which == i], ]$BIC=BIC(newlm)
+  pgls3[fold_phy$subsets[fold_phy$which == i], ]$Fold=i
+}
+
+K_sets=rbind(
+model1%>%select(.,15:20)%>%map_dbl(median,na.rm=T),
+model2%>%select(.,15:20)%>%map_dbl(median,na.rm=T),
+model3%>%select(.,15:20)%>%map_dbl(median,na.rm=T),
+model4%>%select(.,15:20)%>%map_dbl(median,na.rm=T),
+model5%>%select(.,15:20)%>%map_dbl(median,na.rm=T),
+model6%>%select(.,15:20)%>%map_dbl(median,na.rm=T),
+pgls1%>%select(.,15:20)%>%map_dbl(median,na.rm=T),
+pgls2%>%select(.,15:20)%>%map_dbl(median,na.rm=T),
+pgls3%>%select(.,15:20)%>%map_dbl(median,na.rm=T))
+rownames(K_sets)=c("lme1","lme2","lme3","lme4","lme5","lme6","pgls1","pgls2","pgls3")
+K_sets=as.data.frame(K_sets)
+K_sets
+##Combine RMSEs
+RMSE_sets=cbind(unique(model1$RMSE),
+unique(model2$RMSE),
+unique(model3$RMSE),
+unique(model4$RMSE),
+unique(model5$RMSE),
+unique(model6$RMSE),
+unique(pgls1$RMSE),
+unique(pgls2$RMSE),
+unique(pgls3$RMSE))
+colnames(RMSE_sets)=c("LM1","LM2","LM3","LM4","LM5","LM6","PG1","PG2","PG3")
+RMSE_sets=as.data.frame(RMSE_sets)
+
+#Box plots
+bee_RMSE=RMSE_sets%>%gather(.,1:9,key ="Model",value = "RMSE")%>%ggplot(aes(x=Model,y=RMSE,fill=Model))+geom_boxplot()+theme_bw()+ theme(aspect.ratio=1)+ggtitle("Bees")
+
+
+```
+
+Hoverflies
+```{r}
+#k-fold hoverflies
+
+set.seed(123)
+hov_fold<-hov_mean%>%fold_cv(.,k=5)
+
+hov_model1<-hov_mean%>%mutate(Fold=rep(0,nrow(hov_mean)),holdoutpred=rep(0,nrow(hov_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
+for(i in 1:5){
+  train=hov_model1[hov_fold$subsets[hov_fold$which != i], ]
+  validation=hov_model1[hov_fold$subsets[hov_fold$which == i], ]
+  newlm=lme4::lmer(formula=log(Spec.wgt) ~ log(IT) + Sex  + Region+#Fixed
+                     (1|Measurement)+(1|Species),data=train)
+  newpred=predict(newlm,newdata=validation,allow.new.levels=TRUE)
+  true=log(validation$Spec.wgt)
+  error=(true-newpred)
+  rmse=sqrt(mean(error^2))
+  mse=mean((newpred-true)^2)
+  R2=1-(sum((true-newpred)^2)/sum((true-mean(true))^2))
+  mae=mean(abs(error))
+  hov_model1[hov_fold$subsets[hov_fold$which == i], ]$holdoutpred <- newpred
+  hov_model1[hov_fold$subsets[hov_fold$which == i], ]$RMSE=rmse
+  hov_model1[hov_fold$subsets[hov_fold$which == i], ]$MSE=mse
+  hov_model1[hov_fold$subsets[hov_fold$which == i], ]$MAE=mae
+  hov_model1[hov_fold$subsets[hov_fold$which == i], ]$R2=R2
+  hov_model1[hov_fold$subsets[hov_fold$which == i], ]$AIC=AIC(newlm)
+  hov_model1[hov_fold$subsets[hov_fold$which == i], ]$BIC=BIC(newlm)
+  hov_model1[hov_fold$subsets[hov_fold$which == i], ]$Fold=i
+}
+
+
+##IT + Sex
+hov_model2<-hov_mean%>%mutate(Fold=rep(0,nrow(hov_mean)),holdoutpred=rep(0,nrow(hov_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
+for(i in 1:5){
+  train=hov_model2[hov_fold$subsets[hov_fold$which != i], ]
+  validation=hov_model2[hov_fold$subsets[hov_fold$which == i], ]
+  newlm=lme4::lmer(formula=log(Spec.wgt) ~ log(IT) + Sex+#Fixed
+                     (1|Measurement)+(1|Species),data=train)
+  newpred=predict(newlm,newdata=validation,allow.new.levels=TRUE)
+  true=log(validation$Spec.wgt)
+  error=(true-newpred)
+  rmse=sqrt(mean(error^2))
+  mse=mean((newpred-true)^2)
+  R2=1-(sum((true-newpred)^2)/sum((true-mean(true))^2))
+  mae=mean(abs(error))
+  hov_model2[hov_fold$subsets[hov_fold$which == i], ]$holdoutpred <- newpred
+  hov_model2[hov_fold$subsets[hov_fold$which == i], ]$RMSE=rmse
+  hov_model2[hov_fold$subsets[hov_fold$which == i], ]$MSE=mse
+  hov_model2[hov_fold$subsets[hov_fold$which == i], ]$MAE=mae
+  hov_model2[hov_fold$subsets[hov_fold$which == i], ]$R2=R2
+  hov_model2[hov_fold$subsets[hov_fold$which == i], ]$AIC=AIC(newlm)
+  hov_model2[hov_fold$subsets[hov_fold$which == i], ]$BIC=BIC(newlm)
+  hov_model2[hov_fold$subsets[hov_fold$which == i], ]$Fold=i
+}
+
+##IT + Sex
+hov_model3<-hov_mean%>%mutate(Fold=rep(0,nrow(hov_mean)),holdoutpred=rep(0,nrow(hov_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
+for(i in 1:5){
+  train=hov_model3[hov_fold$subsets[hov_fold$which != i], ]
+  validation=hov_model3[hov_fold$subsets[hov_fold$which == i], ]
+  newlm=lme4::lmer(formula=log(Spec.wgt) ~ log(IT)*Sex + Region+#Fixed
+                     (1|Measurement)+(1|Species),data=train)
+  newpred=predict(newlm,newdata=validation,allow.new.levels=TRUE)
+  true=log(validation$Spec.wgt)
+  error=(true-newpred)
+  rmse=sqrt(mean(error^2))
+  mse=mean((newpred-true)^2)
+  R2=1-(sum((true-newpred)^2)/sum((true-mean(true))^2))
+  mae=mean(abs(error))
+  hov_model3[hov_fold$subsets[hov_fold$which == i], ]$holdoutpred <- newpred
+  hov_model3[hov_fold$subsets[hov_fold$which == i], ]$RMSE=rmse
+  hov_model3[hov_fold$subsets[hov_fold$which == i], ]$MSE=mse
+  hov_model3[hov_fold$subsets[hov_fold$which == i], ]$MAE=mae
+  hov_model3[hov_fold$subsets[hov_fold$which == i], ]$R2=R2
+  hov_model3[hov_fold$subsets[hov_fold$which == i], ]$AIC=AIC(newlm)
+  hov_model3[hov_fold$subsets[hov_fold$which == i], ]$BIC=BIC(newlm)
+  hov_model3[hov_fold$subsets[hov_fold$which == i], ]$Fold=i
+}
+
+##IT * Sex
+hov_model4<-hov_mean%>%mutate(Fold=rep(0,nrow(hov_mean)),holdoutpred=rep(0,nrow(hov_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
+for(i in 1:5){
+  train=hov_model4[hov_fold$subsets[hov_fold$which != i], ]
+  validation=hov_model4[hov_fold$subsets[hov_fold$which == i], ]
+  newlm=lme4::lmer(formula=log(Spec.wgt) ~ log(IT)*Sex +#Fixed
+                     (1|Measurement)+(1|Species),data=train)
+  newpred=predict(newlm,newdata=validation,allow.new.levels=TRUE)
+  true=log(validation$Spec.wgt)
+  error=(true-newpred)
+  rmse=sqrt(mean(error^2))
+  mse=mean((newpred-true)^2)
+  R2=1-(sum((true-newpred)^2)/sum((true-mean(true))^2))
+  mae=mean(abs(error))
+  hov_model4[hov_fold$subsets[hov_fold$which == i], ]$holdoutpred <- newpred
+  hov_model4[hov_fold$subsets[hov_fold$which == i], ]$RMSE=rmse
+  hov_model4[hov_fold$subsets[hov_fold$which == i], ]$MSE=mse
+  hov_model4[hov_fold$subsets[hov_fold$which == i], ]$MAE=mae
+  hov_model4[hov_fold$subsets[hov_fold$which == i], ]$R2=R2
+  hov_model4[hov_fold$subsets[hov_fold$which == i], ]$AIC=AIC(newlm)
+  hov_model4[hov_fold$subsets[hov_fold$which == i], ]$BIC=BIC(newlm)
+  hov_model4[hov_fold$subsets[hov_fold$which == i], ]$Fold=i
+}
+
+##IT + Subfamily
+hov_model5<-hov_mean%>%mutate(Fold=rep(0,nrow(hov_mean)),holdoutpred=rep(0,nrow(hov_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
+for(i in 1:5){
+  train=hov_model5[hov_fold$subsets[hov_fold$which != i], ]
+  validation=hov_model5[hov_fold$subsets[hov_fold$which == i], ]
+  newlm=lme4::lmer(formula=log(Spec.wgt) ~ log(IT) * Subfamily +#Fixed
+                     (1|Measurement)+(1|Species),data=train)
+  newpred=predict(newlm,newdata=validation,allow.new.levels=TRUE)
+  true=log(validation$Spec.wgt)
+  error=(true-newpred)
+  rmse=sqrt(mean(error^2))
+  mse=mean((newpred-true)^2)
+  R2=1-(sum((true-newpred)^2)/sum((true-mean(true))^2))
+  mae=mean(abs(error))
+  hov_model5[hov_fold$subsets[hov_fold$which == i], ]$holdoutpred <- newpred
+  hov_model5[hov_fold$subsets[hov_fold$which == i], ]$RMSE=rmse
+  hov_model5[hov_fold$subsets[hov_fold$which == i], ]$MSE=mse
+  hov_model5[hov_fold$subsets[hov_fold$which == i], ]$MAE=mae
+  hov_model5[hov_fold$subsets[hov_fold$which == i], ]$R2=R2
+  hov_model5[hov_fold$subsets[hov_fold$which == i], ]$AIC=AIC(newlm)
+  hov_model5[hov_fold$subsets[hov_fold$which == i], ]$BIC=BIC(newlm)
+  hov_model5[hov_fold$subsets[hov_fold$which == i], ]$Fold=i
+}
+
+##IT + Subfamily
+hov_model6<-hov_mean%>%mutate(Fold=rep(0,nrow(hov_mean)),holdoutpred=rep(0,nrow(hov_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
+for(i in 1:5){
+  train=hov_model6[hov_fold$subsets[hov_fold$which != i], ]
+  validation=hov_model6[hov_fold$subsets[hov_fold$which == i], ]
+  newlm=lme4::lmer(formula=log(Spec.wgt) ~ log(IT) +#Fixed
+                     (1|Measurement)+(1|Species),data=train)
+  newpred=predict(newlm,newdata=validation,allow.new.levels=TRUE)
+  true=log(validation$Spec.wgt)
+  error=(true-newpred)
+  rmse=sqrt(mean(error^2))
+  mse=mean((newpred-true)^2)
+  R2=1-(sum((true-newpred)^2)/sum((true-mean(true))^2))
+  mae=mean(abs(error))
+  hov_model6[hov_fold$subsets[hov_fold$which == i], ]$holdoutpred <- newpred
+  hov_model6[hov_fold$subsets[hov_fold$which == i], ]$RMSE=rmse
+  hov_model6[hov_fold$subsets[hov_fold$which == i], ]$MSE=mse
+  hov_model6[hov_fold$subsets[hov_fold$which == i], ]$MAE=mae
+  hov_model6[hov_fold$subsets[hov_fold$which == i], ]$R2=R2
+  hov_model6[hov_fold$subsets[hov_fold$which == i], ]$AIC=AIC(newlm)
+  hov_model6[hov_fold$subsets[hov_fold$which == i], ]$BIC=BIC(newlm)
+  hov_model6[hov_fold$subsets[hov_fold$which == i], ]$Fold=i
+}
+
+Hov_K_sets=rbind(
+  hov_model1%>%select(.,16:21)%>%map_dbl(median,na.rm=T),
+  hov_model2%>%select(.,16:21)%>%map_dbl(median,na.rm=T),
+  hov_model3%>%select(.,16:21)%>%map_dbl(median,na.rm=T),
+  hov_model4%>%select(.,16:21)%>%map_dbl(median,na.rm=T),
+  hov_model5%>%select(.,16:21)%>%map_dbl(median,na.rm=T),
+  hov_model6%>%select(.,16:21)%>%map_dbl(median,na.rm=T))
+rownames(Hov_K_sets)=c("LM1","LM2","LM3","LM4","LM5","LM6")
+Hov_K_sets
+
+##Combine RMSEs
+Hov_RMSE_sets=cbind(unique(hov_model1$RMSE),
+                unique(hov_model2$RMSE),
+                unique(hov_model3$RMSE),
+                unique(hov_model4$RMSE),
+                unique(hov_model5$RMSE),
+                unique(hov_model6$RMSE))
+colnames(Hov_RMSE_sets)=c("LM1","LM2","LM3","LM4","LM5","LM6")
+Hov_RMSE_sets=as.data.frame(Hov_RMSE_sets)
+
+#Box plots
+Hov_RMSE=Hov_RMSE_sets%>%gather(.,1:6,key ="Model",value = "RMSE")%>%ggplot(aes(x=Model,y=RMSE,fill=Model))+geom_boxplot()+theme_bw()+ theme(aspect.ratio=1)+ggtitle("Hoverflies")
+
+```
+
+#RMSE plots
+```{r}
+RMSE_Plots=grid.arrange(bee_RMSE,Hov_RMSE,ncol=2,nrow=1)
+
+```
+
+##Intraspecific predictions and variation
+
+##Body size predictions - just females
+```{r}
+
+bee_top5=rbind(bee_species$Homalictus_urbanus[bee_species$Homalictus_urbanus$Sex == "Female",],
+               bee_species$Lasioglossum_pauxillum[bee_species$Lasioglossum_pauxillum$Sex == "Female",],
+               bee_species$Bombus_lucorum[bee_species$Bombus_lucorum$Sex == "Female",],
+               bee_species$Andrena_flavipes[bee_species$Andrena_flavipes$Sex == "Female",],
+               bee_species$Lasioglossum_lanarium[bee_species$Lasioglossum_lanarium$Sex == "Female",])
+
+HU_lm=lm(log(Spec.wgt)~log(IT),data=bee_species$Homalictus_urbanus[bee_species$Homalictus_urbanus$Sex == "Female",])
+
+LP_lm=lm(log(Spec.wgt)~log(IT),data=bee_species$Lasioglossum_pauxillum[bee_species$Lasioglossum_pauxillum$Sex == "Female",])
+
+BL_lm=lm(log(Spec.wgt)~log(IT),bee_species$Bombus_lucorum[bee_species$Bombus_lucorum$Sex == "Female",])
+
+AF_lm=lm(log(Spec.wgt)~log(IT),bee_species$Andrena_flavipes[bee_species$Andrena_flavipes$Sex == "Female",])
+
+LL_lm=lm(log(Spec.wgt)~log(IT),bee_species$Lasioglossum_lanarium[bee_species$Lasioglossum_lanarium$Sex == "Female",])
+
+summary(HU_lm)
+summary(LP_lm)
+summary(BL_lm)
+summary(AF_lm)
+summary(LL_lm)
+
+#HOVERFLIES
+hov_top5=rbind(hov_species$Helophilus_parallelus[hov_species$Helophilus_parallelus$Sex == "Female",],
+               hov_species$Sphaerophoria_macrogaster[hov_species$Sphaerophoria_macrogaster$Sex == "Female",],
+               hov_species$Episyrphus_balteatus[hov_species$Episyrphus_balteatus$Sex == "Female",],
+               hov_species$Melanostoma_mellinum[hov_species$Melanostoma_mellinum$Sex == "Female",],
+               hov_species$Syritta_pipiens[hov_species$Syritta_pipiens$Sex == "Female",])
+
+HP_lm=lm(log(Spec.wgt)~log(IT),data=hov_species$Helophilus_parallelus[hov_species$Helophilus_parallelus$Sex == "Female",])
+
+SM_lm=lm(log(Spec.wgt)~log(IT),data=hov_species$Sphaerophoria_macrogaster[hov_species$Sphaerophoria_macrogaster$Sex == "Female",])
+
+EB_lm=lm(log(Spec.wgt)~log(IT),hov_species$Episyrphus_balteatus[hov_species$Episyrphus_balteatus$Sex == "Female",])
+
+MM_lm=lm(log(Spec.wgt)~log(IT),hov_species$Melanostoma_mellinum[hov_species$Melanostoma_mellinum$Sex == "Female",])
+
+SP_lm=lm(log(Spec.wgt)~log(IT),hov_species$Syritta_pipiens[hov_species$Syritta_pipiens$Sex == "Female",])
+
+summary(HP_lm)
+summary(SM_lm)
+summary(EB_lm)
+summary(MM_lm)
+summary(SP_lm)
+
+int_bee1=ggplot(data=bee_top5,aes(x=log(Spec.wgt),y=log(IT),col=Species))+
+  geom_point(pch=1)+
+  geom_smooth(method="glm",se=FALSE)+
+  theme_bw()+ theme(aspect.ratio=1)+ggtitle("Bees")
+int_hov1=ggplot(data=hov_top5,aes(x=log(Spec.wgt),y=log(IT),col=Species))+
+  geom_point(pch=1)+
+  geom_smooth(method="glm",se=FALSE)+
+  theme_bw()+ theme(aspect.ratio=1)+ggtitle("Hoverflies")
+
+grid.arrange(int_bee1,int_hov1,ncol=2,nrow=1)
+```
+
+##Bee intraspecific variation with sample size
 ```{r,echo=FALSE}
 #Homalictus_urbanus
 #Lasioglossum_pauxillum
@@ -670,10 +958,8 @@ abline(a=confint(lm(bee_species$Bombus_lucorum$Spec.wgt~1))[2],b=0,col=3)
 
 ```
 
-##Intraspecific variation in hoverflies
+##Hoverfly intraspecific variation with sample size
 
-Top five species: Helophilus parallelus (n = 19), Sphaerophoria macrogaster (n = 17),
-Episyrphus balteatus (n = 15), Melanostoma mellinum (n = 12) and Syritta pipiens (n = 12).
 ```{r,echo=FALSE}
 
 ##ONE##
@@ -791,4 +1077,17 @@ abline(a=confint(lm(hov_species$Episyrphus_balteatus$Spec.wgt~1))[2],b=0,col=3)
 #plot(HMM_WT,ylab = "",xlab="Sample size")
 #plot(HSP_WT,ylab = "",xlab="Sample size")
 
+```
+
+##Test of preservative time - Australia and German bees
+
+Two ways - LM or LME, similar result
+```{r}
+
+pres.lm=lm(Spec.wgt~Species+Pres.time,bee_pres)
+
+pres.lme=lmer(Spec.wgt~Pres.time+(1|Species)+(1|Country),bee_pres)
+
+summary(pres.lm)
+summary(pres.lme)
 ```

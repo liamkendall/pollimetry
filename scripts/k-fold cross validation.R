@@ -12,6 +12,9 @@
 http://rpubs.com/ledongnhatnam/241926
 #Followed this for loop
 
+##BEEESS##
+
+#libraries
 library(foreign)
 library(tidyverse)
 require(compiler)
@@ -20,16 +23,14 @@ require(boot)
 require(lme4)
 library(plyr)
 
+##Create fold function for LME and PGLS
+set.seed(123)
 fold_cv=function(data,k){
   folds=cvTools::cvFolds(nrow(data),K=k)
   invisible(folds)
 }
 
-set.seed(123)
 fold<-bee_mean%>%fold_cv(.,k=5)
-fold_phy<-bee_phylo_2%>%fold_cv(.,k=5)
-
-str(fold_phy)
 
 ##WITH REGION
 model1<-bee_mean%>%mutate(Fold=rep(0,nrow(bee_mean)),holdoutpred=rep(0,nrow(bee_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
@@ -63,7 +64,7 @@ model2<-bee_mean%>%mutate(Fold=rep(0,nrow(bee_mean)),holdoutpred=rep(0,nrow(bee_
 for(i in 1:5){
   train=model2[fold$subsets[fold$which != i], ]
   validation=model2[fold$subsets[fold$which == i], ]
-  newlm=lme4::lmer(formula=log(Spec.wgt) ~ log(IT)  + Family + Region  + #fix factors
+  newlm=lme4::lmer(formula=log(Spec.wgt) ~ log(IT)  + Family + Region  + Sex+ #fix factors
                      log(IT):Family  + log(IT):Region + #interactions
                      (1|Measurement)+(1|Species),data=train)
   newpred=predict(newlm,newdata=validation,allow.new.levels=TRUE)
@@ -86,12 +87,13 @@ model2%>%gather(.,MSE:BIC,key ="Metric",value = "Value")%>%ggplot(aes(x=Metric,y
 model2%>%select(.,15:20)%>%map_dbl(median,na.rm=T)
 fold$subsets
 
-##Just IT
+##Without sex
 model3<-bee_mean%>%mutate(Fold=rep(0,nrow(bee_mean)),holdoutpred=rep(0,nrow(bee_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
 for(i in 1:5){
   train=model3[fold$subsets[fold$which != i], ]
   validation=model3[fold$subsets[fold$which == i], ]
-  newlm=lme4::lmer(formula=log(Spec.wgt) ~ log(IT) + #interactions
+  newlm=lme4::lmer(formula=log(Spec.wgt) ~ log(IT)  + Family + Region  + #fix factors
+                     log(IT):Family  + log(IT):Region + #interactions
                      (1|Measurement)+(1|Species),data=train)
   newpred=predict(newlm,newdata=validation,allow.new.levels=TRUE)
   true=log(validation$Spec.wgt)
@@ -112,17 +114,91 @@ for(i in 1:5){
 model3%>%gather(.,MSE:BIC,key ="Metric",value = "Value")%>%ggplot(aes(x=Metric,y=Value,fill=Metric))+geom_boxplot()+coord_flip()+facet_wrap(~Metric,ncol=1,scales="free")+theme_bw()
 model3%>%select(.,15:20)%>%map_dbl(median,na.rm=T)
 
-##PGLS - not done yet - not working ugh
 
+##Without region
+model4<-bee_mean%>%mutate(Fold=rep(0,nrow(bee_mean)),holdoutpred=rep(0,nrow(bee_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
+for(i in 1:5){
+  train=model4[fold$subsets[fold$which != i], ]
+  validation=model4[fold$subsets[fold$which == i], ]
+  newlm=lme4::lmer(formula=log(Spec.wgt) ~ log(IT)  + Family + Sex + #fix factors
+                     log(IT):Family + log(IT):Sex + #interactions
+                     (1|Measurement)+(1|Species),data=train)
+  newpred=predict(newlm,newdata=validation,allow.new.levels=TRUE)
+  true=log(validation$Spec.wgt)
+  error=(true-newpred)
+  rmse=sqrt(mean(error^2))
+  mse=mean((newpred-true)^2)
+  R2=1-(sum((true-newpred)^2)/sum((true-mean(true))^2))
+  mae=mean(abs(error))
+  model4[fold$subsets[fold$which == i], ]$holdoutpred <- newpred
+  model4[fold$subsets[fold$which == i], ]$RMSE=rmse
+  model4[fold$subsets[fold$which == i], ]$MSE=mse
+  model4[fold$subsets[fold$which == i], ]$MAE=mae
+  model4[fold$subsets[fold$which == i], ]$R2=R2
+  model4[fold$subsets[fold$which == i], ]$AIC=AIC(newlm)
+  model4[fold$subsets[fold$which == i], ]$BIC=BIC(newlm)
+  model4[fold$subsets[fold$which == i], ]$Fold=i
+}
+model4%>%gather(.,MSE:BIC,key ="Metric",value = "Value")%>%ggplot(aes(x=Metric,y=Value,fill=Metric))+geom_boxplot()+coord_flip()+facet_wrap(~Metric,ncol=1,scales="free")+theme_bw()
+model4%>%select(.,15:20)%>%map_dbl(median,na.rm=T)
 
+##Without region and sex
+model5<-bee_mean%>%mutate(Fold=rep(0,nrow(bee_mean)),holdoutpred=rep(0,nrow(bee_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
+for(i in 1:5){
+  train=model5[fold$subsets[fold$which != i], ]
+  validation=model5[fold$subsets[fold$which == i], ]
+  newlm=lme4::lmer(formula=log(Spec.wgt) ~ log(IT)  + Family  + #fix factors
+                     log(IT):Family + #interactions
+                     (1|Measurement)+(1|Species),data=train)
+  newpred=predict(newlm,newdata=validation,allow.new.levels=TRUE)
+  true=log(validation$Spec.wgt)
+  error=(true-newpred)
+  rmse=sqrt(mean(error^2))
+  mse=mean((newpred-true)^2)
+  R2=1-(sum((true-newpred)^2)/sum((true-mean(true))^2))
+  mae=mean(abs(error))
+  model5[fold$subsets[fold$which == i], ]$holdoutpred <- newpred
+  model5[fold$subsets[fold$which == i], ]$RMSE=rmse
+  model5[fold$subsets[fold$which == i], ]$MSE=mse
+  model5[fold$subsets[fold$which == i], ]$MAE=mae
+  model5[fold$subsets[fold$which == i], ]$R2=R2
+  model5[fold$subsets[fold$which == i], ]$AIC=AIC(newlm)
+  model5[fold$subsets[fold$which == i], ]$BIC=BIC(newlm)
+  model5[fold$subsets[fold$which == i], ]$Fold=i
+}
+model5%>%gather(.,MSE:BIC,key ="Metric",value = "Value")%>%ggplot(aes(x=Metric,y=Value,fill=Metric))+geom_boxplot()+coord_flip()+facet_wrap(~Metric,ncol=1,scales="free")+theme_bw()
+model5%>%select(.,15:20)%>%map_dbl(median,na.rm=T)
+
+##Just IT
+model6<-bee_mean%>%mutate(Fold=rep(0,nrow(bee_mean)),holdoutpred=rep(0,nrow(bee_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
+for(i in 1:5){
+  train=model6[fold$subsets[fold$which != i], ]
+  validation=model6[fold$subsets[fold$which == i], ]
+  newlm=lme4::lmer(formula=log(Spec.wgt) ~ log(IT) + #interactions
+                     (1|Measurement)+(1|Species),data=train)
+  newpred=predict(newlm,newdata=validation,allow.new.levels=TRUE)
+  true=log(validation$Spec.wgt)
+  error=(true-newpred)
+  rmse=sqrt(mean(error^2))
+  mse=mean((newpred-true)^2)
+  R2=1-(sum((true-newpred)^2)/sum((true-mean(true))^2))
+  mae=mean(abs(error))
+  model6[fold$subsets[fold$which == i], ]$holdoutpred <- newpred
+  model6[fold$subsets[fold$which == i], ]$RMSE=rmse
+  model6[fold$subsets[fold$which == i], ]$MSE=mse
+  model6[fold$subsets[fold$which == i], ]$MAE=mae
+  model6[fold$subsets[fold$which == i], ]$R2=R2
+  model6[fold$subsets[fold$which == i], ]$AIC=AIC(newlm)
+  model6[fold$subsets[fold$which == i], ]$BIC=BIC(newlm)
+  model6[fold$subsets[fold$which == i], ]$Fold=i
+}
+model6%>%gather(.,MSE:BIC,key ="Metric",value = "Value")%>%ggplot(aes(x=Metric,y=Value,fill=Metric))+geom_boxplot()+coord_flip()+facet_wrap(~Metric,ncol=1,scales="free")+theme_bw()
+model6%>%select(.,15:20)%>%map_dbl(median,na.rm=T)
+
+##PGLS - WORKING!!
 #Set up folds
+set.seed(123)
 fold_phy<-bee_phylo_2%>%fold_cv(.,k=5)
-
-#Need these two steps in the loop - for validation set
-bee.phy
-tree=drop.tip(bee.phy, setdiff(bee.phy$tip.label,bee_phylo$Genus))
-tree=genus.to.species.tree(bee_pruned, species=bee_phylo$Species)
-Bee_vcv=corPagel(value=0.5,phy=tree,fixed=FALSE)
 
 pgls1<-bee_phylo_2%>%mutate(Fold=rep(0,nrow(bee_phylo_2)),holdoutpred=rep(0,nrow(bee_phylo_2)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
 for(i in 1:5){
@@ -154,7 +230,7 @@ for(i in 1:5){
 pgls1%>%gather(.,MSE:BIC,key ="Metric",value = "Value")%>%ggplot(aes(x=Metric,y=Value,fill=Metric))+geom_boxplot()+coord_flip()+facet_wrap(~Metric,ncol=1,scales="free")+theme_bw()
 pgls1%>%select(.,15:20)%>%map_dbl(median,na.rm=T)
 
-##JUST IT
+##JUST IT + Region
 pgls2<-bee_phylo_2%>%mutate(Fold=rep(0,nrow(bee_phylo_2)),holdoutpred=rep(0,nrow(bee_phylo_2)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
 for(i in 1:5){
   train=pgls2[fold_phy$subsets[fold_phy$which != i], ]
@@ -163,7 +239,7 @@ for(i in 1:5){
   tree=phytools::genus.to.species.tree(tree, species=train$Species)
   train_vcv=ape::corPagel(value=0.5,phy=tree,fixed=FALSE)
   
-  newlm=nlme::gls(log(Spec.wgt)~log(IT),
+  newlm=nlme::gls(log(Spec.wgt)~log(IT) + Region,
                   correlation=train_vcv, method="ML",data=train)
   
   newpred=predict(newlm,newdata=validation,allow.new.levels=TRUE)
@@ -185,15 +261,67 @@ for(i in 1:5){
 pgls2%>%gather(.,MSE:BIC,key ="Metric",value = "Value")%>%ggplot(aes(x=Metric,y=Value,fill=Metric))+geom_boxplot()+coord_flip()+facet_wrap(~Metric,ncol=1,scales="free")+theme_bw()
 pgls2%>%select(.,15:20)%>%map_dbl(median,na.rm=T)
 
-##Combine RMSEs
-K_sets=cbind(unique(model1$RMSE),
-unique(model2$RMSE),
-unique(model3$RMSE),
-unique(pgls1$RMSE),
-unique(pgls2$RMSE))
-colnames(K_sets)=c("1","2","3","4","5")
+
+##JUST IT
+pgls3<-bee_phylo_2%>%mutate(Fold=rep(0,nrow(bee_phylo_2)),holdoutpred=rep(0,nrow(bee_phylo_2)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
+for(i in 1:5){
+  train=pgls3[fold_phy$subsets[fold_phy$which != i], ]
+  validation=pgls3[fold_phy$subsets[fold_phy$which == i], ]
+  tree=ape::drop.tip(bee.phy, setdiff(bee.phy$tip.label,train$Genus))
+  tree=phytools::genus.to.species.tree(tree, species=train$Species)
+  train_vcv=ape::corPagel(value=0.5,phy=tree,fixed=FALSE)
+  
+  newlm=nlme::gls(log(Spec.wgt)~log(IT) + Region,
+                  correlation=train_vcv, method="ML",data=train)
+  
+  newpred=predict(newlm,newdata=validation,allow.new.levels=TRUE)
+  true=log(validation$Spec.wgt)
+  error=(true-newpred)
+  rmse=sqrt(mean(error^2))
+  mse=mean((newpred-true)^2)
+  R2=1-(sum((true-newpred)^2)/sum((true-mean(true))^2))
+  mae=mean(abs(error))
+  pgls3[fold_phy$subsets[fold_phy$which == i], ]$holdoutpred <- newpred
+  pgls3[fold_phy$subsets[fold_phy$which == i], ]$RMSE=rmse
+  pgls3[fold_phy$subsets[fold_phy$which == i], ]$MSE=mse
+  pgls3[fold_phy$subsets[fold_phy$which == i], ]$MAE=mae
+  pgls3[fold_phy$subsets[fold_phy$which == i], ]$R2=R2
+  pgls3[fold_phy$subsets[fold_phy$which == i], ]$AIC=AIC(newlm)
+  pgls3[fold_phy$subsets[fold_phy$which == i], ]$BIC=BIC(newlm)
+  pgls3[fold_phy$subsets[fold_phy$which == i], ]$Fold=i
+}
+pgls3%>%gather(.,MSE:BIC,key ="Metric",value = "Value")%>%ggplot(aes(x=Metric,y=Value,fill=Metric))+geom_boxplot()+coord_flip()+facet_wrap(~Metric,ncol=1,scales="free")+theme_bw()
+
+K_sets=rbind(
+model1%>%select(.,15:20)%>%map_dbl(median,na.rm=T),
+model2%>%select(.,15:20)%>%map_dbl(median,na.rm=T),
+model3%>%select(.,15:20)%>%map_dbl(median,na.rm=T),
+model4%>%select(.,15:20)%>%map_dbl(median,na.rm=T),
+model5%>%select(.,15:20)%>%map_dbl(median,na.rm=T),
+model6%>%select(.,15:20)%>%map_dbl(median,na.rm=T),
+pgls1%>%select(.,15:20)%>%map_dbl(median,na.rm=T),
+pgls2%>%select(.,15:20)%>%map_dbl(median,na.rm=T),
+pgls3%>%select(.,15:20)%>%map_dbl(median,na.rm=T))
+str(K_sets)
+rownames(K_sets)=c("lme1","lme2","lme3","lme4","lme5","lme6","pgls1","pgls2","pgls3")
 K_sets=as.data.frame(K_sets)
 
-#Box plots
-K_sets%>%gather(.,1:5,key ="Model",value = "Value")%>%ggplot(aes(x=Model,y=Value,fill=Model))+geom_boxplot()+theme_bw()
+##Combine RMSEs
+RMSE_sets=cbind(unique(model1$RMSE),
+unique(model2$RMSE),
+unique(model3$RMSE),
+unique(model4$RMSE),
+unique(model5$RMSE),
+unique(model6$RMSE),
+unique(pgls1$RMSE),
+unique(pgls2$RMSE),
+unique(pgls3$RMSE))
+colnames(RMSE_sets)=c("LM1","LM2","LM3","LM4","LM5","LM6","PG1","PG2","PG3")
+RMSE_sets=as.data.frame(RMSE_sets)
 
+#Box plots
+bee_RMSE=RMSE_sets%>%gather(.,1:9,key ="Model",value = "RMSE")%>%ggplot(aes(x=Model,y=RMSE,fill=Model))+geom_boxplot()+theme_bw()+ theme(aspect.ratio=1)
+
+
+RMSE_Plots=grid.arrange(bee_RMSE,Hov_RMSE,ncol=2,nrow=1)
+RMSE_Plots

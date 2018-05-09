@@ -1,6 +1,7 @@
 ---
 title: 'Pollimetry: Predictive allometry for pollinating insects'
-author: "Liam Kendall, Matthias Albrecht, Katherine Baldock, Ignasi Bartomeus, Daniel Cariveau, Vesna Gagic, Romina Rader, Juanita Rodriguez, Louis Suter"
+author: Liam Kendall, Matthias Albrecht, Katherine Baldock, Ignasi Bartomeus, Daniel
+  Cariveau, Vesna Gagic, Romina Rader, Juanita Rodriguez, Louis Suter
 date: "04/05/2018"
 ---
 
@@ -29,7 +30,7 @@ library(plyr)
 
 #dataframe
 set.seed(123)
-poll_all <- read.csv(file="data/PA050518.csv")
+poll_all <- read.csv(file="data/PA090518.csv")
 
 #split to bees and hoverflies
 poll_all$Spec.wgt=poll_all$Spec.wgt*1000
@@ -197,28 +198,31 @@ https://besjournals.onlinelibrary.wiley.com/doi/pdf/10.1111/j.2041-210X.2012.001
 PGLS data frame for biogeographic model
 ```{r}
 bee_phylo_2=aggregate(Latitude~Region+Family+Subfamily+
-                      Tribe+Genus+Species,bee_all,median)
+                        Tribe+Genus+Species,bee_all,median)
 bee_phylo_2$Longitude=as.numeric(unlist(aggregate(Longitude~Region+Family+Subfamily+
-                                                  Tribe+Genus+Species,bee_all,median)[7]))
+                                                    Tribe+Genus+Species,bee_all,median)[7]))
 bee_phylo_2$Spec.wgt=as.numeric(unlist(aggregate(Spec.wgt~Region+Family+Subfamily+
-                                                 Tribe+Genus+Species,bee_all,mean)[7]))
+                                                   Tribe+Genus+Species,bee_all,mean)[7]))
 bee_phylo_2$Wgt.SD=as.numeric(unlist(aggregate(log(Spec.wgt)~Region+Family+Subfamily+
-                                               Tribe+Genus+Species,bee_all,sd)[7]))
+                                                 Tribe+Genus+Species,bee_all,sd)[7]))
 bee_phylo_2$IT=as.numeric(unlist(aggregate(IT~Region+Family+Subfamily+
-                                           Tribe+Genus+Species,bee_all,mean)[7]))
+                                             Tribe+Genus+Species,bee_all,mean)[7]))
 bee_phylo_2$IT.SD=as.numeric(unlist(aggregate(log(IT)~Region+Family+Subfamily+
-                                              Tribe+Genus+Species,bee_all,sd)[7]))
+                                                Tribe+Genus+Species,bee_all,sd)[7]))
 
 
 ##REMOVE DUPLICATES FROM REGIONS - Apis from Australia, Halictus rubicundus from NA and Flavipanurgus
 #duplicated(bee_phylo_2$Species)
 
-bee_phylo_2=bee_phylo_2[-55,]
-bee_phylo_2=bee_phylo_2[-120,]
-bee_phylo_2=bee_phylo_2[-113,]
+bee_phylo_2[110,]
+bee_phylo_2[103,]
+bee_phylo_2[52,]
+
+bee_phylo_2=bee_phylo_2[-110,]
+bee_phylo_2=bee_phylo_2[-103,]
+bee_phylo_2=bee_phylo_2[-52,]
 
 rownames(bee_phylo_2)=bee_phylo_2$Species
-##PGLS WITH REGION
 
 ##TREE
 bee.phy=read.tree(file="raw_data/Bee_phylogeny_Hedtke_etal2013/12862_2013_2375_MOESM3_ESM.txt",keep.multi = TRUE)
@@ -227,8 +231,7 @@ bee.phy=bee.phy[[1]]
 bee.phy=as.phylo(bee.phy)
 #bee.phy=force.ultrametric(bee.phy) Not sure if this is required
 bee_pruned_2=drop.tip(bee.phy, setdiff(bee.phy$tip.label,bee_phylo_2$Genus))
-bee_pruned_2=genus.to.species.tree(bee_pruned, species=bee_phylo_2$Species)
-
+bee_pruned_2=genus.to.species.tree(bee_pruned_2, species=bee_phylo_2$Species)
 
 ```
 
@@ -251,7 +254,6 @@ IT=log(IT)
 rownames(IT)=rownames(bee_phylo_2)
 IT<-as.matrix((IT))[,1]
 phylosig(tree=bee_pruned_2,x=IT,method="lambda",test=TRUE)
-
 
 ```
 
@@ -462,7 +464,9 @@ for(i in 1:5){
   model6[fold$subsets[fold$which == i], ]$BIC=BIC(newlm)
   model6[fold$subsets[fold$which == i], ]$Fold=i
 }
+```
 
+```{r}
 ##PGLS - WORKING!!
 #Set up folds
 set.seed(123)

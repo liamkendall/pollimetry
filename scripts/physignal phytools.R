@@ -12,18 +12,21 @@ plot(obj)
 
 ##########
 
-IT<-as.matrix(log(bee_phylo_IT))[,1]
-ITsd
+WGT=as.data.frame(bee_phylo_2[,c("Spec.wgt")])
+WGT=log(WGT)
+rownames(WGT)=rownames(bee_phylo_2)
+WGT<-as.matrix((WGT))[,1]
 
-WGT2=as.data.frame(bee_phylo[,c("Spec.wgt")])
-WGT2=log(WGT2)
-rownames(WGT2)=rownames(bee_phylo)
-WGT2<-as.matrix((WGT2))[,1]
+IT=as.data.frame(bee_phylo_2[,c("IT")])
+IT=log(IT)
+rownames(IT)=rownames(bee_phylo_2)
+IT<-as.matrix((IT))[,1]
+
 
 ##TEST OF SIGNIFICANCE OF PHYLOSIGNAL
 #WGT
-phylosig(tree=bee_pruned,x=WGT2,method="lambda",test=TRUE)
-phylosig(tree=bee_pruned,x=IT,method="lambda",test=TRUE)
+phylosig(tree=bee_pruned_2,x=WGT,method="lambda",test=TRUE)
+phylosig(tree=bee_pruned_2,x=IT,method="lambda",test=TRUE)
 
 WGT=as.data.frame(bee_intra_phy[,c("Spec.wgt")])
 rownames(WGT)=rownames(bee_intra_phy)

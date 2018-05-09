@@ -3,8 +3,8 @@ library(dplyr)
 library(broom)
 
 #JUST AUST and GER
-bee_country=split(bee_all,bee_all$Country)
-bee_pres=rbind(bee_country$Australia,bee_country$Germany)
+bee_coun=split(bee_all,bee_all$Country)
+bee_pres=rbind(bee_coun$Australia,bee_coun$Germany)
 
 #Filter so only species with more than 1 preservative time
 

@@ -5,6 +5,12 @@ require(ggplot2)
 require(gridExtra)
 
 #Bees
+#REGION PHYLO PLOT
+p=ggplot(bee_phylo_2, aes(x = log(Spec.wgt), y = log(IT),col=Region))+
+  geom_point(col=1,pch=1)+stat_smooth(method="lm",se=FALSE)+theme_bw()
+p
+
+
 BEE1=ggplot(bee_all,aes(x=(Spec.wgt),y=(IT),colour=Sex))+coord_equal(xlim=c(0,350),ylim=c(0,8))+
 geom_point(aes(),lwd=2,shape=1)+theme_bw()+theme(aspect.ratio=1)+ggtitle("ITD")
 BEE1

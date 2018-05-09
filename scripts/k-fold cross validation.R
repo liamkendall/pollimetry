@@ -238,10 +238,8 @@ for(i in 1:5){
   tree=ape::drop.tip(bee.phy, setdiff(bee.phy$tip.label,train$Genus))
   tree=phytools::genus.to.species.tree(tree, species=train$Species)
   train_vcv=ape::corPagel(value=0.5,phy=tree,fixed=FALSE)
-  
   newlm=nlme::gls(log(Spec.wgt)~log(IT) + Region,
                   correlation=train_vcv, method="ML",data=train)
-  
   newpred=predict(newlm,newdata=validation,allow.new.levels=TRUE)
   true=log(validation$Spec.wgt)
   error=(true-newpred)

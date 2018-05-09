@@ -1,6 +1,6 @@
 #Data preparation
 #read data (1 file)----
-poll_all <- read.csv(file="data/PA050518.csv")
+poll_all <- read.csv(file="data/PA090518.csv")
 #split to bees and hoverflies
 poll_all$Spec.wgt=poll_all$Spec.wgt*1000
 poll_all_split=split(poll_all,poll_all$Superfamily)
@@ -74,23 +74,45 @@ save(bee_model,file =  "pollimetry/data/bee_model.rda")
 
 ########PHYLO DATASET
 #split to bees and hoverflies
-poll_all_split=split(poll_all,poll_all$Superfamily)
-bee_all.2=poll_all_split[[1]]
-hov_all.2=poll_all_split[[2]]
 
-bee_phylo=aggregate(Latitude~Family+Subfamily+
-                      Tribe+Genus+Species,bee_all,median)
-bee_phylo$Longitude=as.numeric(unlist(aggregate(Longitude~Family+Subfamily+
-                                                  Tribe+Genus+Species,bee_all,median)[6]))
-bee_phylo$Spec.wgt=as.numeric(unlist(aggregate(Spec.wgt~Family+Subfamily+
-                                                 Tribe+Genus+Species,bee_all,mean)[6]))
-bee_phylo$Wgt.SD=as.numeric(unlist(aggregate(log(Spec.wgt)~Family+Subfamily+
-                                               Tribe+Genus+Species,bee_all,sd)[6]))
-bee_phylo$IT=as.numeric(unlist(aggregate(IT~Family+Subfamily+
-                                           Tribe+Genus+Species,bee_all,mean)[6]))
-bee_phylo$IT.SD=as.numeric(unlist(aggregate(log(IT)~Family+Subfamily+
-                                              Tribe+Genus+Species,bee_all,sd)[6]))
+bee_phylo_2=aggregate(Latitude~Region+Family+Subfamily+
+                        Tribe+Genus+Species,bee_all,median)
+bee_phylo_2$Longitude=as.numeric(unlist(aggregate(Longitude~Region+Family+Subfamily+
+                                                    Tribe+Genus+Species,bee_all,median)[7]))
+bee_phylo_2$Spec.wgt=as.numeric(unlist(aggregate(Spec.wgt~Region+Family+Subfamily+
+                                                   Tribe+Genus+Species,bee_all,mean)[7]))
+bee_phylo_2$Wgt.SD=as.numeric(unlist(aggregate(log(Spec.wgt)~Region+Family+Subfamily+
+                                                 Tribe+Genus+Species,bee_all,sd)[7]))
+bee_phylo_2$IT=as.numeric(unlist(aggregate(IT~Region+Family+Subfamily+
+                                             Tribe+Genus+Species,bee_all,mean)[7]))
+bee_phylo_2$IT.SD=as.numeric(unlist(aggregate(log(IT)~Region+Family+Subfamily+
+                                                Tribe+Genus+Species,bee_all,sd)[7]))
 
-bee_phylo=bee_phylo[-93,]
-rownames(bee_phylo)=bee_phylo$Species
 
+##REMOVE DUPLICATES FROM REGIONS - Apis from Australia, Halictus rubicundus from NA and Flavipanurgus
+#duplicated(bee_phylo_2$Species)
+
+bee_phylo_2[110,]
+bee_phylo_2[103,]
+bee_phylo_2[52,]
+
+bee_phylo_2=bee_phylo_2[-110,]
+bee_phylo_2=bee_phylo_2[-103,]
+bee_phylo_2=bee_phylo_2[-52,]
+
+rownames(bee_phylo_2)=bee_phylo_2$Species
+
+##TREE
+bee.phy=read.tree(file="raw_data/Bee_phylogeny_Hedtke_etal2013/12862_2013_2375_MOESM3_ESM.txt",keep.multi = TRUE)
+##Use tree 1 (376 genera) #Genera-level phylogney
+bee.phy=bee.phy[[1]]
+bee.phy=as.phylo(bee.phy)
+#bee.phy=force.ultrametric(bee.phy) Not sure if this is required
+bee_pruned_2=drop.tip(bee.phy, setdiff(bee.phy$tip.label,bee_phylo_2$Genus))
+bee_pruned_2=genus.to.species.tree(bee_pruned_2, species=bee_phylo_2$Species)
+
+Bee2vcv=corPagel(value=0.5,phy=bee_pruned_2,fixed=FALSE)
+
+
+Bee_PGLS1 = gls(log(Spec.wgt)~log(IT)*Region, data=bee_phylo_2, 
+                correlation=Bee2vcv, method="ML")

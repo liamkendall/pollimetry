@@ -8,7 +8,7 @@ require(boot)
 require(lme4)
 library(plyr)
 
-
+set.seed(123)
 hov_fold<-hov_mean%>%fold_cv(.,k=5)
 
 hov_model1<-hov_mean%>%mutate(Fold=rep(0,nrow(hov_mean)),holdoutpred=rep(0,nrow(hov_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
@@ -33,7 +33,6 @@ for(i in 1:5){
   hov_model1[hov_fold$subsets[hov_fold$which == i], ]$BIC=BIC(newlm)
   hov_model1[hov_fold$subsets[hov_fold$which == i], ]$Fold=i
 }
-
 
 ##IT + Sex
 hov_model2<-hov_mean%>%mutate(Fold=rep(0,nrow(hov_mean)),holdoutpred=rep(0,nrow(hov_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
@@ -156,12 +155,12 @@ for(i in 1:5){
 }
 
 Hov_K_sets=rbind(
-  hov_model1%>%select(.,16:21)%>%map_dbl(median,na.rm=T),
-  hov_model2%>%select(.,16:21)%>%map_dbl(median,na.rm=T),
-  hov_model3%>%select(.,16:21)%>%map_dbl(median,na.rm=T),
-  hov_model4%>%select(.,16:21)%>%map_dbl(median,na.rm=T),
-  hov_model5%>%select(.,16:21)%>%map_dbl(median,na.rm=T),
-  hov_model6%>%select(.,16:21)%>%map_dbl(median,na.rm=T))
+  hov_model1%>%dplyr::select(.,16:21)%>%map_dbl(median,na.rm=T),
+  hov_model2%>%dplyr::select(.,16:21)%>%map_dbl(median,na.rm=T),
+  hov_model3%>%dplyr::select(.,16:21)%>%map_dbl(median,na.rm=T),
+  hov_model4%>%dplyr::select(.,16:21)%>%map_dbl(median,na.rm=T),
+  hov_model5%>%dplyr::select(.,16:21)%>%map_dbl(median,na.rm=T),
+  hov_model6%>%dplyr::select(.,16:21)%>%map_dbl(median,na.rm=T))
 Hov_K_sets
 
 ##Combine RMSEs
@@ -176,4 +175,4 @@ Hov_RMSE_sets=as.data.frame(Hov_RMSE_sets)
 
 #Box plots
 Hov_RMSE=Hov_RMSE_sets%>%gather(.,1:6,key ="Model",value = "RMSE")%>%ggplot(aes(x=Model,y=RMSE,fill=Model))+geom_boxplot()+theme_bw()+ theme(aspect.ratio=1)
-
+Hov_RMSE

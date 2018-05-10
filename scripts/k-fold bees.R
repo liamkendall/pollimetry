@@ -12,16 +12,16 @@
 http://rpubs.com/ledongnhatnam/241926
 #Followed this for loop
 
-##BEEESS##
+##BEES##
 
 #libraries
-library(foreign)
-library(tidyverse)
+require(foreign)
+require(tidyverse)
 require(compiler)
 require(parallel)
 require(boot)
 require(lme4)
-library(plyr)
+require(plyr)
 
 ##Create fold function for LME and PGLS
 set.seed(123)
@@ -199,18 +199,23 @@ model6%>%select(.,15:20)%>%map_dbl(median,na.rm=T)
 #Set up folds
 set.seed(123)
 fold_phy<-bee_phylo_2%>%fold_cv(.,k=5)
-
-pgls1<-bee_phylo_2%>%mutate(Fold=rep(0,nrow(bee_phylo_2)),holdoutpred=rep(0,nrow(bee_phylo_2)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
+set.seed(123)
+require(ape)
+require(phytools)
+require(nlme)
+pgls1<-bee_phylo_2%>%mutate(Fold=rep(0,nrow(bee_phylo_2)),
+                            holdoutpred=rep(0,nrow(bee_phylo_2)),
+                            MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),
+                            MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),
+                            AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
 for(i in 1:5){
   train=pgls1[fold_phy$subsets[fold_phy$which != i], ]
   validation=pgls1[fold_phy$subsets[fold_phy$which == i], ]
-  tree=ape::drop.tip(bee.phy, setdiff(bee.phy$tip.label,train$Genus))
-  tree=phytools::genus.to.species.tree(tree, species=train$Species)
-  train_vcv=ape::corPagel(value=0.5,phy=tree,fixed=FALSE)
-  
-  newlm=nlme::gls(log(Spec.wgt)~log(IT)*Region,
+  tree=drop.tip(bee.phy, setdiff(bee.phy$tip.label,train$Genus))
+  tree=genus.to.species.tree(tree, species=train$Species)
+  train_vcv=corPagel(value=0.5,phy=tree,fixed=FALSE)
+  newlm=gls(log(Spec.wgt)~log(IT)*Region,
                   correlation=train_vcv, method="ML",data=train)
-  
   newpred=predict(newlm,newdata=validation,allow.new.levels=TRUE)
   true=log(validation$Spec.wgt)
   error=(true-newpred)
@@ -229,6 +234,7 @@ for(i in 1:5){
 }
 pgls1%>%gather(.,MSE:BIC,key ="Metric",value = "Value")%>%ggplot(aes(x=Metric,y=Value,fill=Metric))+geom_boxplot()+coord_flip()+facet_wrap(~Metric,ncol=1,scales="free")+theme_bw()
 pgls1%>%select(.,15:20)%>%map_dbl(median,na.rm=T)
+
 
 ##JUST IT + Region
 pgls2<-bee_phylo_2%>%mutate(Fold=rep(0,nrow(bee_phylo_2)),holdoutpred=rep(0,nrow(bee_phylo_2)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
@@ -258,7 +264,7 @@ for(i in 1:5){
 }
 pgls2%>%gather(.,MSE:BIC,key ="Metric",value = "Value")%>%ggplot(aes(x=Metric,y=Value,fill=Metric))+geom_boxplot()+coord_flip()+facet_wrap(~Metric,ncol=1,scales="free")+theme_bw()
 pgls2%>%select(.,15:20)%>%map_dbl(median,na.rm=T)
-
+table(pgls2$Fold)
 
 ##JUST IT
 pgls3<-bee_phylo_2%>%mutate(Fold=rep(0,nrow(bee_phylo_2)),holdoutpred=rep(0,nrow(bee_phylo_2)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
@@ -291,15 +297,15 @@ for(i in 1:5){
 pgls3%>%gather(.,MSE:BIC,key ="Metric",value = "Value")%>%ggplot(aes(x=Metric,y=Value,fill=Metric))+geom_boxplot()+coord_flip()+facet_wrap(~Metric,ncol=1,scales="free")+theme_bw()
 
 K_sets=rbind(
-model1%>%select(.,15:20)%>%map_dbl(median,na.rm=T),
-model2%>%select(.,15:20)%>%map_dbl(median,na.rm=T),
-model3%>%select(.,15:20)%>%map_dbl(median,na.rm=T),
-model4%>%select(.,15:20)%>%map_dbl(median,na.rm=T),
-model5%>%select(.,15:20)%>%map_dbl(median,na.rm=T),
-model6%>%select(.,15:20)%>%map_dbl(median,na.rm=T),
-pgls1%>%select(.,15:20)%>%map_dbl(median,na.rm=T),
-pgls2%>%select(.,15:20)%>%map_dbl(median,na.rm=T),
-pgls3%>%select(.,15:20)%>%map_dbl(median,na.rm=T))
+model1%>%dplyr::select(.,15:20)%>%map_dbl(median,na.rm=T),
+model2%>%dplyr::select(.,15:20)%>%map_dbl(median,na.rm=T),
+model3%>%dplyr::select(.,15:20)%>%map_dbl(median,na.rm=T),
+model4%>%dplyr::select(.,15:20)%>%map_dbl(median,na.rm=T),
+model5%>%dplyr::select(.,15:20)%>%map_dbl(median,na.rm=T),
+model6%>%dplyr::select(.,15:20)%>%map_dbl(median,na.rm=T),
+pgls1%>%dplyr::select(.,15:20)%>%map_dbl(median,na.rm=T),
+pgls2%>%dplyr::select(.,15:20)%>%map_dbl(median,na.rm=T),
+pgls3%>%dplyr::select(.,15:20)%>%map_dbl(median,na.rm=T))
 str(K_sets)
 rownames(K_sets)=c("lme1","lme2","lme3","lme4","lme5","lme6","pgls1","pgls2","pgls3")
 K_sets=as.data.frame(K_sets)

@@ -443,7 +443,7 @@ for(i in 1:5){
   rownames(validation)=validation$Species
   tree=ape::drop.tip(bee.phy, setdiff(bee.phy$tip.label,train$Genus))
   tree=phytools::genus.to.species.tree(tree, species=train$Species)
-  train_vcv=ape::corPagel(value=0.5,phy=tree,fixed=FALSE)
+  train_vcv=ape::corPagel(value=0.5,phy=tree,fixed=TRUE)
   
   newlm=nlme::gls(log(Spec.wgt)~log(IT)*Region,
                   correlation=train_vcv, method="ML",data=train)
@@ -478,7 +478,7 @@ for(i in 1:5){
   rownames(validation)=validation$Species
   tree=ape::drop.tip(bee.phy, setdiff(bee.phy$tip.label,train$Genus))
   tree=phytools::genus.to.species.tree(tree, species=train$Species)
-  train_vcv=ape::corPagel(value=0.5,phy=tree,fixed=FALSE)
+  train_vcv=ape::corPagel(value=0.5,phy=tree,fixed=TRUE)
   
   newlm=nlme::gls(log(Spec.wgt)~log(IT) + Region,
                   correlation=train_vcv, method="ML",data=train)
@@ -513,7 +513,7 @@ for(i in 1:5){
   rownames(validation)=validation$Species
   tree=ape::drop.tip(bee.phy, setdiff(bee.phy$tip.label,train$Genus))
   tree=phytools::genus.to.species.tree(tree, species=train$Species)
-  train_vcv=ape::corPagel(value=0.5,phy=tree,fixed=FALSE)
+  train_vcv=ape::corPagel(value=0.5,phy=tree,fixed=TRUE)
   
   newlm=nlme::gls(log(Spec.wgt)~log(IT) + Region,
                   correlation=train_vcv, method="ML",data=train)
@@ -576,7 +576,7 @@ Hoverflies
 set.seed(123)
 hov_fold<-hov_mean%>%fold_cv(.,k=5)
 
-hov_model1<-hov_mean%>%mutate(Fold=rep(0,nrow(hov_mean)),holdoutpred=rep(0,nrow(hov_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
+hov_model1<-hov_mean%>%plyr::mutate(Fold=rep(0,nrow(hov_mean)),holdoutpred=rep(0,nrow(hov_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
 for(i in 1:5){
   train=hov_model1[hov_fold$subsets[hov_fold$which != i], ]
   validation=hov_model1[hov_fold$subsets[hov_fold$which == i], ]
@@ -601,7 +601,7 @@ for(i in 1:5){
 
 
 ##IT + Sex
-hov_model2<-hov_mean%>%mutate(Fold=rep(0,nrow(hov_mean)),holdoutpred=rep(0,nrow(hov_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
+hov_model2<-hov_mean%>%plyr::mutate(Fold=rep(0,nrow(hov_mean)),holdoutpred=rep(0,nrow(hov_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
 for(i in 1:5){
   train=hov_model2[hov_fold$subsets[hov_fold$which != i], ]
   validation=hov_model2[hov_fold$subsets[hov_fold$which == i], ]
@@ -625,7 +625,7 @@ for(i in 1:5){
 }
 
 ##IT + Sex
-hov_model3<-hov_mean%>%mutate(Fold=rep(0,nrow(hov_mean)),holdoutpred=rep(0,nrow(hov_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
+hov_model3<-hov_mean%>%plyr::mutate(Fold=rep(0,nrow(hov_mean)),holdoutpred=rep(0,nrow(hov_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
 for(i in 1:5){
   train=hov_model3[hov_fold$subsets[hov_fold$which != i], ]
   validation=hov_model3[hov_fold$subsets[hov_fold$which == i], ]
@@ -649,7 +649,7 @@ for(i in 1:5){
 }
 
 ##IT * Sex
-hov_model4<-hov_mean%>%mutate(Fold=rep(0,nrow(hov_mean)),holdoutpred=rep(0,nrow(hov_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
+hov_model4<-hov_mean%>%plyr::mutate(Fold=rep(0,nrow(hov_mean)),holdoutpred=rep(0,nrow(hov_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
 for(i in 1:5){
   train=hov_model4[hov_fold$subsets[hov_fold$which != i], ]
   validation=hov_model4[hov_fold$subsets[hov_fold$which == i], ]
@@ -673,7 +673,7 @@ for(i in 1:5){
 }
 
 ##IT + Subfamily
-hov_model5<-hov_mean%>%mutate(Fold=rep(0,nrow(hov_mean)),holdoutpred=rep(0,nrow(hov_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
+hov_model5<-hov_mean%>%plyr::mutate(Fold=rep(0,nrow(hov_mean)),holdoutpred=rep(0,nrow(hov_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
 for(i in 1:5){
   train=hov_model5[hov_fold$subsets[hov_fold$which != i], ]
   validation=hov_model5[hov_fold$subsets[hov_fold$which == i], ]
@@ -697,7 +697,7 @@ for(i in 1:5){
 }
 
 ##IT + Subfamily
-hov_model6<-hov_mean%>%mutate(Fold=rep(0,nrow(hov_mean)),holdoutpred=rep(0,nrow(hov_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
+hov_model6<-hov_mean%>%plyr::mutate(Fold=rep(0,nrow(hov_mean)),holdoutpred=rep(0,nrow(hov_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
 for(i in 1:5){
   train=hov_model6[hov_fold$subsets[hov_fold$which != i], ]
   validation=hov_model6[hov_fold$subsets[hov_fold$which == i], ]

@@ -25,7 +25,7 @@ library(tidyverse)
 
 #dataframe
 set.seed(123)
-poll_all <- read.csv(file="data/PA090518.csv",header=T)
+poll_all <- read.csv(file="data/PA120518.csv",header=T)
 
 #split to bees and hoverflies
 poll_all$Spec.wgt=poll_all$Spec.wgt*1000
@@ -81,13 +81,13 @@ bee_phylo$IT.SD=as.numeric(unlist(aggregate(log(IT)~Region+Family+Subfamily+
 #Flavipanurgus as not in phylogeny
 #duplicated(bee_phylo_2$Species)
 
-bee_phylo[110,]
-bee_phylo[103,]
-bee_phylo[52,]
+bee_phylo[121,]
+bee_phylo[114,]
+bee_phylo[55,]
 
-bee_phylo=bee_phylo[-110,]
-bee_phylo=bee_phylo[-103,]
-bee_phylo=bee_phylo[-52,]
+bee_phylo=bee_phylo[-121,]
+bee_phylo=bee_phylo[-114,]
+bee_phylo=bee_phylo[-55,]
 
 rownames(bee_phylo)=bee_phylo$Species
 
@@ -180,7 +180,36 @@ hov_dr=dredge(hov.full,beta="none",rank="AIC") #think about "sd" and "AICc". AIC
 head(hov_dr)
 ```
 
+With tribe
+```{r}
+
+##Full
+hov.full.2=lmer(log(Spec.wgt) ~ log(IT) + Region+ Sex + Tribe+ #fix
+            log(IT):Sex + #interactions
+            log(IT):Tribe + log(IT):Region+ (1|Measurement)+(1|Species)
+            ,REML=FALSE,data=hov_mean)
+
+options(na.action = "na.fail")
+hov_dr_2=dredge(hov.full.2,beta="none",rank="AIC") #think about "sd" and "AICc". AIC show same pattern.
+head(hov_dr_2)
+
+hov.full.3=lmer(log(Spec.wgt) ~ log(IT) * Tribe+ #fix
+             (1|Measurement)+(1|Species)
+            ,REML=FALSE,data=hov_mean)
+hov_dr_3=dredge(hov.full.3,beta="none",rank="AIC") #think about "sd" and "AICc". AIC show same pattern.
+head(hov_dr_3)
+
+hov.full.4=lmer(log(Spec.wgt) ~ log(IT) + Region+ Sex + Genus+ #fix
+            log(IT):Sex + #interactions
+            log(IT):Genus + log(IT):Region+ (1|Measurement)+(1|Species)
+            ,REML=FALSE,data=hov_mean)
+
+hov_dr_4=dredge(hov.full.4,beta="none",rank="AIC") #think about "sd" and "AICc". AIC show same pattern.
+head(hov_dr_4)
+```
+
 And without sex
+
 ```{r}
 hov.red=lmer(log(Spec.wgt) ~ log(IT) + Subfamily + #interactions
             log(IT):Subfamily + (1|Measurement)+(1|Species)

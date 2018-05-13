@@ -54,3 +54,5 @@ summary(lm(log(Spec.wgt)~Species+log(IT),hov_top5))
 
 int_Plots=grid.arrange(int_bee1,int_hov1,ncol=2,nrow=1)
 int_Plots
+
+write.csv(as.data.frame(unique(hov_mean$Species)),"hov_species_list.csv")

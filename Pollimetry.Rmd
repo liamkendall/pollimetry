@@ -79,7 +79,7 @@ bee_phylo$IT.SD=as.numeric(unlist(aggregate(log(IT)~Region+Family+Subfamily+
 #Apis from Australia
 #Halictus rubicundus from NA
 #Flavipanurgus as not in phylogeny
-#duplicated(bee_phylo_2$Species)
+#duplicated(bee_phylo$Species)
 
 bee_phylo[121,]
 bee_phylo[114,]

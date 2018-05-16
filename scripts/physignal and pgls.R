@@ -39,9 +39,9 @@ bee_pruned_2=genus.to.species.tree(bee_pruned_2, species=bee_phylo_2$Species)
 
 ##########
 
-WGT=as.data.frame(bee_phylo_2[,c("Spec.wgt")])
+WGT=as.data.frame(bee_phylo[,c("Spec.wgt")])
 WGT=log(WGT)
-rownames(WGT)=rownames(bee_phylo_2)
+rownames(WGT)=rownames(bee_phylo)
 WGT<-as.matrix((WGT))[,1]
 
 IT=as.data.frame(bee_phylo_2[,c("IT")])
@@ -85,3 +85,8 @@ Bee_PGLS3 = gls(log(Spec.wgt)~log(IT), data=bee_phylo_2,
 AIC(Bee_GLS1,Bee_GLS2,Bee_GLS3,Bee_PGLS1,Bee_PGLS2,Bee_PGLS3)
 
 dredge(Bee_PGLS1,rank="AIC")
+
+###PLOT BODY SIZE phylogeny
+
+bee_wgt_phy=contMap(bee_pruned,WGT,plot=FALSE)
+plot(bee_wgt_phy,fsize=c(0.4,1),lwd=0.75,leg.txt="ln(BS)")

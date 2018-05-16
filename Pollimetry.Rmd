@@ -11,6 +11,7 @@ This markdown file has all code from the MS so you can look over it, notice any 
 ```{r setup, include=FALSE}  
 knitr::opts_chunk$set(echo = TRUE)
 library(broom)
+library(grid)
 library(gridExtra)
 library(lme4)
 library(nlme)
@@ -598,11 +599,13 @@ unique(pgls1$RMSE),
 unique(pgls2$RMSE),
 unique(pgls3$RMSE),
 rbind(VCR1,VCR2,VCR3,VCR4,VCR5))
-colnames(RMSE_sets)=c("LM1","LM2","LM3","LM4","LM5","LM6","PG1","PG2","PG3","Cane 89")
+colnames(RMSE_sets)=c("LM1","LM2","LM3","LM4","LM5","LM6","PG1","PG2","PG3","JC89")
 RMSE_sets=as.data.frame(RMSE_sets)
 
 #Box plots
-bee_RMSE=RMSE_sets%>%gather(.,1:10,key ="Model",value = "RMSE")%>%ggplot(aes(x=Model,y=RMSE,fill=Model))+geom_boxplot()+theme_bw()+ theme(aspect.ratio=1)+ggtitle("Bees")
+bee_RMSE=RMSE_sets%>%gather(.,1:10,key ="Model",value = "RMSE")%>%ggplot(aes(x=Model,y=RMSE,fill=Model))+geom_boxplot()+theme_bw()+ theme(aspect.ratio=1,axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())+ggtitle("Bees")
 
 
 ```
@@ -830,14 +833,17 @@ colnames(Hov_RMSE_sets)=c("LM1","LM2","LM3","LM4","LM5","LM6","LM7","LM8")
 Hov_RMSE_sets=as.data.frame(Hov_RMSE_sets)
 
 #Box plots
-Hov_RMSE=Hov_RMSE_sets%>%gather(.,1:8,key ="Model",value = "RMSE")%>%ggplot(aes(x=Model,y=RMSE,fill=Model))+geom_boxplot()+theme_bw()+ theme(aspect.ratio=1)+ggtitle("Hoverflies")
+Hov_RMSE=Hov_RMSE_sets%>%gather(.,1:8,key ="Model",value = "RMSE")%>%ggplot(aes(x=Model,y=RMSE,fill=Model))+geom_boxplot()+theme_bw()+ theme(aspect.ratio=1,axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())+ggtitle("Hoverflies")
 
 ```
 
 #RMSE plots
 ```{r}
-bee_RMSE
-Hov_RMSE
+bee_RMSE2=ggplotGrob(bee_RMSE)
+Hov_RMSE2=ggplotGrob(Hov_RMSE)
+grid.draw(cbind(bee_RMSE2, Hov_RMSE2, size = "first"))
 
 ```
 
@@ -901,6 +907,11 @@ int_hov1=ggplot(data=hov_top5,aes(x=log(Spec.wgt),y=log(IT),col=Species))+
   theme_bw()+ theme(aspect.ratio=1)+ggtitle("Hoverflies")
 
 grid.arrange(int_bee1,int_hov1,ncol=2,nrow=1)
+
+int_bee2=ggplotGrob(int_bee1)
+int_hov2=ggplotGrob(int_hov1)
+grid.draw(cbind(int_bee2, int_hov2, size = "first"))
+
 ```
 
 ##Bee intraspecific variation with sample size
@@ -1154,14 +1165,11 @@ abline(a=confint(lm(hov_species$Episyrphus_balteatus$Spec.wgt~1))[2],b=0,col=3)
 
 ##Test of preservative time - Australia and German bees
 
-Two ways - LM or LME, similar result
+LME
 ```{r}
 
-pres.lm=lm(log(Spec.wgt)~Species+Pres.time,bee_pres)
+pres.lme=lmer(log(Spec.wgt)~Pres.time+Sex+(1|Species)+(1|Country),bee_pres)
 
-pres.lme=lmer(log(Spec.wgt)~Pres.time+(1|Species)+(1|Country),bee_pres)
-
-summary(pres.lm)
 summary(pres.lme)
 plot(pres.lme)
 ```

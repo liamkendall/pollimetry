@@ -878,8 +878,8 @@ summary(LL_lm)
 hov_top5=rbind(hov_species$Helophilus_parallelus[hov_species$Helophilus_parallelus$Sex == "Female",],
                hov_species$Sphaerophoria_macrogaster[hov_species$Sphaerophoria_macrogaster$Sex == "Female",],
                hov_species$Episyrphus_balteatus[hov_species$Episyrphus_balteatus$Sex == "Female",],
-               hov_species$Melanostoma_mellinum[hov_species$Melanostoma_mellinum$Sex == "Female",],
-               hov_species$Syritta_pipiens[hov_species$Syritta_pipiens$Sex == "Female",])
+               hov_species$Melanostoma_scalare[hov_species$Melanostoma_scalare$Sex == "Female",],
+               hov_species$Austrosyphus_aussp1[hov_species$Austrosyphus_aussp1$Sex == "Female",])
 
 HP_lm=lm(log(Spec.wgt)~log(IT),data=hov_species$Helophilus_parallelus[hov_species$Helophilus_parallelus$Sex == "Female",])
 
@@ -887,15 +887,15 @@ SM_lm=lm(log(Spec.wgt)~log(IT),data=hov_species$Sphaerophoria_macrogaster[hov_sp
 
 EB_lm=lm(log(Spec.wgt)~log(IT),hov_species$Episyrphus_balteatus[hov_species$Episyrphus_balteatus$Sex == "Female",])
 
-MM_lm=lm(log(Spec.wgt)~log(IT),hov_species$Melanostoma_mellinum[hov_species$Melanostoma_mellinum$Sex == "Female",])
+MS_lm=lm(log(Spec.wgt)~log(IT),hov_species$Melanostoma_scalare[hov_species$Melanostoma_scalare$Sex == "Female",])
 
-SP_lm=lm(log(Spec.wgt)~log(IT),hov_species$Syritta_pipiens[hov_species$Syritta_pipiens$Sex == "Female",])
+AA_lm=lm(log(Spec.wgt)~log(IT),hov_species$Austrosyphus_aussp1[hov_species$Austrosyphus_aussp1$Sex == "Female",])
 
 summary(HP_lm)
 summary(SM_lm)
 summary(EB_lm)
-summary(MM_lm)
-summary(SP_lm)
+summary(MS_lm)
+summary(AA_lm)
 
 int_bee1=ggplot(data=bee_top5,aes(x=log(Spec.wgt),y=log(IT),col=Species))+
   geom_point(pch=1)+
@@ -924,52 +924,57 @@ grid.draw(cbind(int_bee2, int_hov2, size = "first"))
 
 bee_species=split(bee_all,bee_all$Species)
 
+set.seed(123)
 ##ONE##
 #Homalictus_urbanus
 #IT
-set.seed(123)
 HU_IT = c()
-for(i in 1:length(bee_species$Homalictus_urbanus$IT)){
-  subset1 = sample(bee_species$Homalictus_urbanus$IT, i)
+for(i in 1:length(bee_species$Homalictus_urbanus[bee_species$Homalictus_urbanus$Sex == "Female",]$IT)){
+  subset1 = sample(bee_species$Homalictus_urbanus[bee_species$Homalictus_urbanus$Sex == "Female",]$IT, i)
   HU_IT[i] = mean(subset1)
 }
 
+
 #Specimen weight
 HU_WT = c()
-for(i in 1:length(bee_species$Homalictus_urbanus$Spec.wgt)){
-  subset1 = sample(bee_species$Homalictus_urbanus$Spec.wgt, i)
+for(i in 1:length(bee_species$Homalictus_urbanus[bee_species$Homalictus_urbanus$Sex == "Female",]$Spec.wgt)){
+  subset1 = sample(bee_species$Homalictus_urbanus[bee_species$Homalictus_urbanus$Sex == "Female",]$Spec.wgt, i)
   HU_WT[i] = mean(subset1)
 }
+
 
 ##TWO##
 
 #Lasioglossum_pauxillum
 #IT
 LP_IT = c()
-for(i in 1:length(bee_species$Lasioglossum_pauxillum$IT)){
-  subset1 = sample(bee_species$Lasioglossum_pauxillum$IT, i)
+for(i in 1:length(bee_species$Lasioglossum_pauxillum[bee_species$Lasioglossum_pauxillum$Sex == "Female",]$IT)){
+  subset1 = sample(bee_species$Lasioglossum_pauxillum[bee_species$Lasioglossum_pauxillum$Sex == "Female",]$IT, i)
   LP_IT[i] = mean(subset1)
 }
 
+
 #Specimen weight
 LP_WT = c()
-for(i in 1:length(bee_species$Lasioglossum_pauxillum$Spec.wgt)){
-  subset1 = sample(bee_species$Lasioglossum_pauxillum$Spec.wgt, i)
+for(i in 1:length(bee_species$Lasioglossum_pauxillum[bee_species$Lasioglossum_pauxillum$Sex == "Female",]$Spec.wgt)){
+  subset1 = sample(bee_species$Lasioglossum_pauxillum[bee_species$Lasioglossum_pauxillum$Sex == "Female",]$Spec.wgt, i)
   LP_WT[i] = mean(subset1)
 }
+
 
 ##THREE
 #Bombus_lucorum
 BL_IT = c()
-for(i in 1:length(bee_species$Bombus_lucorum$IT)){
-  subset1 = sample(bee_species$Bombus_lucorum$IT, i)
+for(i in 1:length(bee_species$Bombus_lucorum[bee_species$Bombus_lucorum$Sex == "Female",]$IT)){
+  subset1 = sample(bee_species$Bombus_lucorum[bee_species$Bombus_lucorum$Sex == "Female",]$IT, i)
   BL_IT[i] = mean(subset1)
 }
 
+
 #Specimen weight
 BL_WT = c()
-for(i in 1:length(bee_species$Bombus_lucorum$Spec.wgt)){
-  subset1 = sample(bee_species$Bombus_lucorum$Spec.wgt, i)
+for(i in 1:length(bee_species$Bombus_lucorum[bee_species$Bombus_lucorum$Sex == "Female",]$Spec.wgt)){
+  subset1 = sample(bee_species$Bombus_lucorum[bee_species$Bombus_lucorum$Sex == "Female",]$Spec.wgt, i)
   BL_WT[i] = mean(subset1)
 }
 
@@ -977,68 +982,87 @@ for(i in 1:length(bee_species$Bombus_lucorum$Spec.wgt)){
 #Andrena_flavipes
 #IT
 AF_IT = c()
-for(i in 1:length(bee_species$Andrena_flavipes$IT)){
-  subset1 = sample(bee_species$Andrena_flavipes$IT, i)
+for(i in 1:length(bee_species$Andrena_flavipes[bee_species$Andrena_flavipes$Sex == "Female",]$IT)){
+  subset1 = sample(bee_species$Andrena_flavipes[bee_species$Andrena_flavipes$Sex == "Female",]$IT, i)
   AF_IT[i] = mean(subset1)
 }
 
+
 #Specimen weight
 AF_WT = c()
-for(i in 1:length(bee_species$Andrena_flavipes$Spec.wgt)){
-  subset1 = sample(bee_species$Andrena_flavipes$Spec.wgt, i)
+for(i in 1:length(bee_species$Andrena_flavipes[bee_species$Andrena_flavipes$Sex == "Female",]$Spec.wgt)){
+  subset1 = sample(bee_species$Andrena_flavipes[bee_species$Andrena_flavipes$Sex == "Female",]$Spec.wgt, i)
   AF_WT[i] = mean(subset1)
 }
 
 ##FIVE##
 #Lasioglossum_lanarium
 LL_IT = c()
-for(i in 1:length(bee_species$Lasioglossum_lanarium$IT)){
-  subset1 = sample(bee_species$Lasioglossum_lanarium$IT, i)
+for(i in 1:length(bee_species$Lasioglossum_lanarium[bee_species$Lasioglossum_lanarium$Sex == "Female",]$IT)){
+  subset1 = sample(bee_species$Lasioglossum_lanarium[bee_species$Lasioglossum_lanarium$Sex == "Female",]$IT, i)
   LL_IT[i] = mean(subset1)
 }
 
-
 #Specimen weight
 LL_WT = c()
-for(i in 1:length(bee_species$Lasioglossum_lanarium$Spec.wgt)){
-  subset1 = sample(bee_species$Lasioglossum_lanarium$Spec.wgt, i)
+for(i in 1:length(bee_species$Lasioglossum_lanarium[bee_species$Lasioglossum_lanarium$Sex == "Female",]$Spec.wgt)){
+  subset1 = sample(bee_species$Lasioglossum_lanarium[bee_species$Lasioglossum_lanarium$Sex == "Female",]$Spec.wgt, i)
   LL_WT[i] = mean(subset1)
 }
 
-##graphed three for aesthetics based on size range
-par(mfrow=c(2,3))
 par(pty="s")
+par(mfrow=c(2,5))
+#1
 plot(HU_IT,main="Homalictus urbanus",ylab = "ITD (mm)",xlab="")
-abline(a=HU_IT[251],b=0,col=2)
-abline(a=confint(lm(bee_species$Homalictus_urbanus$IT~1))[1],b=0,col=3)
-abline(a=confint(lm(bee_species$Homalictus_urbanus$IT~1))[2],b=0,col=3)
-#plot(LP_IT,main="Lasioglossum pauxillum",ylab = "",xlab="")
-plot(AF_IT,main="Andrena flavipes",ylab = "",xlab="")
-abline(a=AF_IT[75],b=0,col=2)
-abline(a=confint(lm(bee_species$Andrena_flavipes$IT~1))[1],b=0,col=3)
-abline(a=confint(lm(bee_species$Andrena_flavipes$IT~1))[2],b=0,col=3)
-plot(BL_IT,main="Bombus lucorum",ylab = "",xlab="")
-abline(a=BL_IT[111],b=0,col=2)
-abline(a=confint(lm(bee_species$Bombus_lucorum$IT~1))[1],b=0,col=3)
-abline(a=confint(lm(bee_species$Bombus_lucorum$IT~1))[2],b=0,col=3)
+abline(a=HU_IT[211],b=0,col=2)
+abline(a=confint(lm(bee_species$Homalictus_urbanus[bee_species$Homalictus_urbanus$Sex == "Female",]$IT~1))[1],b=0,col=3)
+abline(a=confint(lm(bee_species$Homalictus_urbanus[bee_species$Homalictus_urbanus$Sex == "Female",]$IT~1))[2],b=0,col=3)
+#2
+plot(LP_IT,main="Lasioglossum pauxillum",ylab = "ITD (mm)",xlab="")
+abline(a=LP_IT[112],b=0,col=2)
+abline(a=confint(lm(bee_species$Lasioglossum_pauxillum[bee_species$Lasioglossum_pauxillum$Sex == "Female",]$IT~1))[1],b=0,col=3)
+abline(a=confint(lm(bee_species$Lasioglossum_pauxillum[bee_species$Lasioglossum_pauxillum$Sex == "Female",]$IT~1))[2],b=0,col=3)
+#3
+plot(BL_IT,main="Bombus lucorum",ylab = "ITD (mm)",xlab="")
+abline(a=BL_IT[103],b=0,col=2)
+abline(a=confint(lm(bee_species$Bombus_lucorum[bee_species$Bombus_lucorum$Sex == "Female",]$IT~1))[1],b=0,col=3)
+abline(a=confint(lm(bee_species$Bombus_lucorum[bee_species$Bombus_lucorum$Sex == "Female",]$IT~1))[2],b=0,col=3)
+#4
+plot(AF_IT,main="Andrena flavipes",ylab = "ITD (mm)",xlab="")
+abline(a=AF_IT[59],b=0,col=2)
+abline(a=confint(lm(bee_species$Andrena_flavipes[bee_species$Andrena_flavipes$Sex == "Female",]$IT~1))[1],b=0,col=3)
+abline(a=confint(lm(bee_species$Andrena_flavipes[bee_species$Andrena_flavipes$Sex == "Female",]$IT~1))[2],b=0,col=3)
+#5
+plot(LL_IT,main="Lasioglossum lanarium",ylab = "ITD (mm)",xlab="")
+abline(a=LL_IT[63],b=0,col=2)
+abline(a=confint(lm(bee_species$Lasioglossum_lanarium[bee_species$Lasioglossum_lanarium$Sex == "Female",]$IT~1))[1],b=0,col=3)
+abline(a=confint(lm(bee_species$Lasioglossum_lanarium[bee_species$Lasioglossum_lanarium$Sex == "Female",]$IT~1))[2],b=0,col=3)
 
-#plot(LL_IT,main="Lasioglossum lanarium",ylab = "",xlab="Sample size")
-
-plot(HU_WT,ylab = "Specimen weight (mg)",xlab="Sample size")
-abline(a=HU_WT[251],b=0,col=2)
-abline(a=confint(lm(bee_species$Homalictus_urbanus$Spec.wgt~1))[1],b=0,col=3)
-abline(a=confint(lm(bee_species$Homalictus_urbanus$Spec.wgt~1))[2],b=0,col=3)
-#plot(LP_WT,ylab = "",xlab="Sample size")
-plot(AF_WT,ylab = "",xlab="Sample size")
-abline(a=AF_WT[75],b=0,col=2)
-abline(a=confint(lm(bee_species$Andrena_flavipes$Spec.wgt~1))[1],b=0,col=3)
-abline(a=confint(lm(bee_species$Andrena_flavipes$Spec.wgt~1))[2],b=0,col=3)
-
-plot(BL_WT,ylab = "",xlab="Sample size")
-abline(a=BL_WT[111],b=0,col=2)
-abline(a=confint(lm(bee_species$Bombus_lucorum$Spec.wgt~1))[1],b=0,col=3)
-abline(a=confint(lm(bee_species$Bombus_lucorum$Spec.wgt~1))[2],b=0,col=3)
-#plot(LL_WT,ylab = "",xlab="Sample size")
+#1
+plot(HU_WT)
+abline(a=HU_WT[211],b=0,col=2)
+abline(a=confint(lm(bee_species$Homalictus_urbanus[bee_species$Homalictus_urbanus$Sex == "Female",]$Spec.wgt~1))[1],b=0,col=3)
+abline(a=confint(lm(bee_species$Homalictus_urbanus[bee_species$Homalictus_urbanus$Sex == "Female",]$Spec.wgt~1))[2],b=0,col=3)
+#2
+plot(LP_WT)
+abline(a=LP_WT[112],b=0,col=2)
+abline(a=confint(lm(bee_species$Lasioglossum_pauxillum[bee_species$Lasioglossum_pauxillum$Sex == "Female",]$Spec.wgt~1))[1],b=0,col=3)
+abline(a=confint(lm(bee_species$Lasioglossum_pauxillum[bee_species$Lasioglossum_pauxillum$Sex == "Female",]$Spec.wgt~1))[2],b=0,col=3)
+#3
+plot(BL_WT)
+abline(a=BL_WT[103],b=0,col=2)
+abline(a=confint(lm(bee_species$Bombus_lucorum[bee_species$Bombus_lucorum$Sex == "Female",]$Spec.wgt~1))[1],b=0,col=3)
+abline(a=confint(lm(bee_species$Bombus_lucorum[bee_species$Bombus_lucorum$Sex == "Female",]$Spec.wgt~1))[2],b=0,col=3)
+#4
+plot(AF_WT)
+abline(a=AF_WT[59],b=0,col=2)
+abline(a=confint(lm(bee_species$Andrena_flavipes[bee_species$Andrena_flavipes$Sex == "Female",]$Spec.wgt~1))[1],b=0,col=3)
+abline(a=confint(lm(bee_species$Andrena_flavipes[bee_species$Andrena_flavipes$Sex == "Female",]$Spec.wgt~1))[2],b=0,col=3)
+#5
+plot(LL_WT)
+abline(a=LL_WT[63],b=0,col=2)
+abline(a=confint(lm(bee_species$Lasioglossum_lanarium[bee_species$Lasioglossum_lanarium$Sex == "Female",]$Spec.wgt~1))[1],b=0,col=3)
+abline(a=confint(lm(bee_species$Lasioglossum_lanarium[bee_species$Lasioglossum_lanarium$Sex == "Female",]$Spec.wgt~1))[2],b=0,col=3)
 
 ```
 
@@ -1046,120 +1070,142 @@ abline(a=confint(lm(bee_species$Bombus_lucorum$Spec.wgt~1))[2],b=0,col=3)
 
 ```{r,echo=FALSE}
 
+set.seed(123)
 ##ONE##
+#Austrosyrphus 
+HAA_IT = c()
+for(i in 1:length(hov_species$Austrosyphus_aussp1[hov_species$Austrosyphus_aussp1$Sex == "Female",]$IT)){
+  subset1 = sample(hov_species$Austrosyphus_aussp1[hov_species$Austrosyphus_aussp1$Sex == "Female",]$IT, i)
+  HAA_IT[i] = mean(subset1)
+}
+
+
+#Specimen weight
+HAA_WT = c()
+for(i in 1:length(hov_species$Austrosyphus_aussp1[hov_species$Austrosyphus_aussp1$Sex == "Female",]$Spec.wgt)){
+  subset1 = sample(hov_species$Austrosyphus_aussp1[hov_species$Austrosyphus_aussp1$Sex == "Female",]$Spec.wgt, i)
+  HAA_WT[i] = mean(subset1)
+}
+##TWO##
 #Helophilus_parallelus
 #IT
-set.seed(123)
 HHP_IT = c()
-for(i in 1:length(hov_species$Helophilus_parallelus$IT)){
-  subset1 = sample(hov_species$Helophilus_parallelus$IT, i)
+for(i in 1:length(hov_species$Helophilus_parallelus[hov_species$Helophilus_parallelus$Sex == "Female",]$IT)){
+  subset1 = sample(hov_species$Helophilus_parallelus[hov_species$Helophilus_parallelus$Sex == "Female",]$IT, i)
   HHP_IT[i] = mean(subset1)
 }
 
 #Specimen weight
 HHP_WT = c()
-for(i in 1:length(hov_species$Helophilus_parallelus$Spec.wgt)){
-  subset1 = sample(hov_species$Helophilus_parallelus$Spec.wgt, i)
+for(i in 1:length(hov_species$Helophilus_parallelus[hov_species$Helophilus_parallelus$Sex == "Female",]$Spec.wgt)){
+  subset1 = sample(hov_species$Helophilus_parallelus[hov_species$Helophilus_parallelus$Sex == "Female",]$Spec.wgt, i)
   HHP_WT[i] = mean(subset1)
 }
 
 
-##TWO##
+##THREE
 
 #Sphaerophoria_macrogaster
 #IT
 HSM_IT = c()
-for(i in 1:length(hov_species$Sphaerophoria_macrogaster$IT)){
-  subset1 = sample(hov_species$Sphaerophoria_macrogaster$IT, i)
+for(i in 1:length(hov_species$Sphaerophoria_macrogaster[hov_species$Sphaerophoria_macrogaster$Sex == "Female",]$IT)){
+  subset1 = sample(hov_species$Sphaerophoria_macrogaster[hov_species$Sphaerophoria_macrogaster$Sex == "Female",]$IT, i)
   HSM_IT[i] = mean(subset1)
 }
 
 #Specimen weight
 HSM_WT = c()
-for(i in 1:length(hov_species$Sphaerophoria_macrogaster$Spec.wgt)){
-  subset1 = sample(hov_species$Sphaerophoria_macrogaster$Spec.wgt, i)
+for(i in 1:length(hov_species$Sphaerophoria_macrogaster[hov_species$Sphaerophoria_macrogaster$Sex == "Female",]$Spec.wgt)){
+  subset1 = sample(hov_species$Sphaerophoria_macrogaster[hov_species$Sphaerophoria_macrogaster$Sex == "Female",]$Spec.wgt, i)
   HSM_WT[i] = mean(subset1)
 }
 
-##THREE
+##FOUR##
 #Episyrphus_balteatus
 HEB_IT = c()
-for(i in 1:length(hov_species$Episyrphus_balteatus$IT)){
-  subset1 = sample(hov_species$Episyrphus_balteatus$IT, i)
+for(i in 1:length(hov_species$Episyrphus_balteatus[hov_species$Episyrphus_balteatus$Sex == "Female",]$IT)){
+  subset1 = sample(hov_species$Episyrphus_balteatus[hov_species$Episyrphus_balteatus$Sex == "Female",]$IT, i)
   HEB_IT[i] = mean(subset1)
 }
 
 #Specimen weight
 HEB_WT = c()
-for(i in 1:length(hov_species$Episyrphus_balteatus$Spec.wgt)){
-  subset1 = sample(hov_species$Episyrphus_balteatus$Spec.wgt, i)
+for(i in 1:length(hov_species$Episyrphus_balteatus[hov_species$Episyrphus_balteatus$Sex == "Female",]$Spec.wgt)){
+  subset1 = sample(hov_species$Episyrphus_balteatus[hov_species$Episyrphus_balteatus$Sex == "Female",]$Spec.wgt, i)
   HEB_WT[i] = mean(subset1)
 }
 
-##FOUR##
-#Melanostoma_mellinum
-#IT
-HMM_IT = c()
-for(i in 1:length(hov_species$Melanostoma_mellinum$IT)){
-  subset1 = sample(hov_species$Melanostoma_mellinum$IT, i)
-  HMM_IT[i] = mean(subset1)
-}
-
-#Specimen weight
-HMM_WT = c()
-for(i in 1:length(hov_species$Melanostoma_mellinum$Spec.wgt)){
-  subset1 = sample(hov_species$Melanostoma_mellinum$Spec.wgt, i)
-  HMM_WT[i] = mean(subset1)
-}
-
 ##FIVE##
-#Syritta_pipiens
-HSP_IT = c()
-for(i in 1:length(hov_species$Syritta_pipiens$IT)){
-  subset1 = sample(hov_species$Syritta_pipiens$IT, i)
-  HSP_IT[i] = mean(subset1)
+#Melanostoma_scalare
+#IT
+HMS_IT = c()
+for(i in 1:length(hov_species$Melanostoma_scalare[hov_species$Melanostoma_scalare$Sex == "Female",]$IT)){
+  subset1 = sample(hov_species$Melanostoma_scalare[hov_species$Melanostoma_scalare$Sex == "Female",]$IT, i)
+  HMS_IT[i] = mean(subset1)
 }
-
 
 #Specimen weight
-HSP_WT = c()
-for(i in 1:length(hov_species$Syritta_pipiens$Spec.wgt)){
-  subset1 = sample(hov_species$Syritta_pipiens$Spec.wgt, i)
-  HSP_WT[i] = mean(subset1)
+HMS_WT = c()
+for(i in 1:length(hov_species$Melanostoma_scalare[hov_species$Melanostoma_scalare$Sex == "Female",]$Spec.wgt)){
+  subset1 = sample(hov_species$Melanostoma_scalare[hov_species$Melanostoma_scalare$Sex == "Female",]$Spec.wgt, i)
+  HMS_WT[i] = mean(subset1)
 }
+
+
+
 
 ##graphed three for aesthetics based on size range
-par(mfrow=c(2,3))
+par(mfrow=c(2,5))
 par(pty="s")
-plot(HHP_IT,main="Helophilus parallelus",ylab = "ITD (mm)",xlab="",ylim=c(3.6,4))
-abline(a=HHP_IT[19],b=0,col=2)
-abline(a=confint(lm(hov_species$Helophilus_parallelus$IT~1))[1],b=0,col=3)
-abline(a=confint(lm(hov_species$Helophilus_parallelus$IT~1))[2],b=0,col=3)
-plot(HSM_IT,main="Sphaerophoria macrogaster",ylab = "",xlab="",ylim=c(1.1,1.5))
-abline(a=HSM_IT[17],b=0,col=2)
-abline(a=confint(lm(hov_species$Sphaerophoria_macrogaster$IT~1))[1],b=0,col=3)
-abline(a=confint(lm(hov_species$Sphaerophoria_macrogaster$IT~1))[2],b=0,col=3)
-plot(HEB_IT,main="Episyrphus balteatus",ylab = "",xlab="Sample size",ylim=c(2.1,2.55))
-abline(a=HEB_IT[15],b=0,col=2)
-abline(a=confint(lm(hov_species$Episyrphus_balteatus$IT~1))[1],b=0,col=3)
-abline(a=confint(lm(hov_species$Episyrphus_balteatus$IT~1))[2],b=0,col=3)
-#plot(HMM_IT,main="Melanostoma_mellinum",ylab = "",xlab="")
-#plot(HSP_IT,main="Syritta_pipiens",ylab = "",xlab="Sample size")
+plot(HAA_IT,main="Austrosyrphus spp.",ylab = "ITD (mm)",xlab="")
+abline(a=HAA_IT[32],b=0,col=2)
+abline(a=confint(lm(hov_species$Austrosyphus_aussp1[hov_species$Austrosyphus_aussp1$Sex == "Female",]$IT~1))[1],b=0,col=3)
+abline(a=confint(lm(hov_species$Austrosyphus_aussp1[hov_species$Austrosyphus_aussp1$Sex == "Female",]$IT~1))[2],b=0,col=3)
 
-plot(HHP_WT,ylab = "Specimen weight (mg)",xlab="Sample size",ylim=c(32,42))
+plot(HHP_IT,main="Helophilus parallelus",ylab = "",xlab="",ylim=c(3.6,4))
+abline(a=HHP_IT[19],b=0,col=2)
+abline(a=confint(lm(hov_species$Helophilus_parallelus[hov_species$Helophilus_parallelus$Sex == "Female",]$IT~1))[1],b=0,col=3)
+abline(a=confint(lm(hov_species$Helophilus_parallelus[hov_species$Helophilus_parallelus$Sex == "Female",]$IT~1))[2],b=0,col=3)
+
+plot(HEB_IT,main="Episyrphus balteatus",ylab = "",xlab="",ylim=c(2.1,2.55))
+abline(a=HEB_IT[11],b=0,col=2)
+abline(a=confint(lm(hov_species$Episyrphus_balteatus[hov_species$Episyrphus_balteatus$Sex == "Female",]$IT~1))[1],b=0,col=3)
+abline(a=confint(lm(hov_species$Episyrphus_balteatus[hov_species$Episyrphus_balteatus$Sex == "Female",]$IT~1))[2],b=0,col=3)
+
+plot(HSM_IT,main="Sphaerophoria macrogaster",ylab = "",xlab="",ylim=c(1.1,1.5))
+abline(a=HSM_IT[10],b=0,col=2)
+abline(a=confint(lm(hov_species$Sphaerophoria_macrogaster[hov_species$Sphaerophoria_macrogaster$Sex == "Female",]$IT~1))[1],b=0,col=3)
+abline(a=confint(lm(hov_species$Sphaerophoria_macrogaster[hov_species$Sphaerophoria_macrogaster$Sex == "Female",]$IT~1))[2],b=0,col=3)
+
+plot(HMS_IT,main="Melanostoma scalare",ylab = "",xlab="",ylim=c(1.45,1.7))
+abline(a=HMS_IT[9],b=0,col=2)
+abline(a=confint(lm(hov_species$Melanostoma_scalare[hov_species$Melanostoma_scalare$Sex == "Female",]$IT~1))[1],b=0,col=3)
+abline(a=confint(lm(hov_species$Melanostoma_scalare[hov_species$Melanostoma_scalare$Sex == "Female",]$IT~1))[2],b=0,col=3)
+
+plot(HAA_WT,ylab = "Specimen weight (mg)",xlab="Sample size")
+abline(a=HAA_WT[32],b=0,col=2)
+abline(a=confint(lm(hov_species$Austrosyphus_aussp1[hov_species$Austrosyphus_aussp1$Sex == "Female",]$Spec.wgt~1))[1],b=0,col=3)
+abline(a=confint(lm(hov_species$Austrosyphus_aussp1[hov_species$Austrosyphus_aussp1$Sex == "Female",]$Spec.wgt~1))[2],b=0,col=3)
+
+plot(HHP_WT,ylab = "",xlab="Sample size",ylim=c(32,42))
 abline(a=HHP_WT[19],b=0,col=2)
-abline(a=confint(lm(hov_species$Helophilus_parallelus$Spec.wgt~1))[1],b=0,col=3)
-abline(a=confint(lm(hov_species$Helophilus_parallelus$Spec.wgt~1))[2],b=0,col=3)
-plot(HSM_WT,ylab = "",xlab="Sample size")
-abline(a=HSM_WT[17],b=0,col=2)
-abline(a=confint(lm(hov_species$Sphaerophoria_macrogaster$Spec.wgt~1))[1],b=0,col=3)
-abline(a=confint(lm(hov_species$Sphaerophoria_macrogaster$Spec.wgt~1))[2],b=0,col=3)
-plot(HEB_WT,ylab = "",xlab="Sample size",ylim=c(4,12))
-abline(a=HEB_WT[15],b=0,col=2)
-abline(a=confint(lm(hov_species$Episyrphus_balteatus$Spec.wgt~1))[1],b=0,col=3)
-abline(a=confint(lm(hov_species$Episyrphus_balteatus$Spec.wgt~1))[2],b=0,col=3)
-#plot(HMM_WT,ylab = "",xlab="Sample size")
-#plot(HSP_WT,ylab = "",xlab="Sample size")
+abline(a=confint(lm(hov_species$Helophilus_parallelus[hov_species$Helophilus_parallelus$Sex == "Female",]$Spec.wgt~1))[1],b=0,col=3)
+abline(a=confint(lm(hov_species$Helophilus_parallelus[hov_species$Helophilus_parallelus$Sex == "Female",]$Spec.wgt~1))[2],b=0,col=3)
+
+plot(HEB_WT,ylab = "",xlab="Sample size",ylim=c(6,14))
+abline(a=HEB_WT[11],b=0,col=2)
+abline(a=confint(lm(hov_species$Episyrphus_balteatus[hov_species$Episyrphus_balteatus$Sex == "Female",]$Spec.wgt~1))[1],b=0,col=3)
+abline(a=confint(lm(hov_species$Episyrphus_balteatus[hov_species$Episyrphus_balteatus$Sex == "Female",]$Spec.wgt~1))[2],b=0,col=3)
+
+plot(HSM_WT,ylab = "",xlab="Sample size",ylim=c(1.2,2))
+abline(a=HSM_WT[10],b=0,col=2)
+abline(a=confint(lm(hov_species$Sphaerophoria_macrogaster[hov_species$Sphaerophoria_macrogaster$Sex == "Female",]$Spec.wgt~1))[1],b=0,col=3)
+abline(a=confint(lm(hov_species$Sphaerophoria_macrogaster[hov_species$Sphaerophoria_macrogaster$Sex == "Female",]$Spec.wgt~1))[2],b=0,col=3)
+
+plot(HMS_WT,ylab = "",xlab="Sample size",ylim=c(1.5,6.5))
+abline(a=HMS_WT[9],b=0,col=2)
+abline(a=confint(lm(hov_species$Melanostoma_scalare[hov_species$Melanostoma_scalare$Sex == "Female",]$Spec.wgt~1))[1],b=0,col=3)
+abline(a=confint(lm(hov_species$Melanostoma_scalare[hov_species$Melanostoma_scalare$Sex == "Female",]$Spec.wgt~1))[2],b=0,col=3)
 
 ```
 

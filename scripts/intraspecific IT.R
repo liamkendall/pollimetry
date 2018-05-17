@@ -30,8 +30,8 @@ int_bee1
 hov_top5=rbind(hov_species$Helophilus_parallelus[hov_species$Helophilus_parallelus$Sex == "Female",],
                hov_species$Sphaerophoria_macrogaster[hov_species$Sphaerophoria_macrogaster$Sex == "Female",],
                hov_species$Episyrphus_balteatus[hov_species$Episyrphus_balteatus$Sex == "Female",],
-               hov_species$Melanostoma_mellinum[hov_species$Melanostoma_mellinum$Sex == "Female",],
-               hov_species$Syritta_pipiens[hov_species$Syritta_pipiens$Sex == "Female",])
+               hov_species$Melanostoma_scalare[hov_species$Melanostoma_scalare$Sex == "Female",],
+               hov_species$Austrosyphus_aussp1[hov_species$Austrosyphus_aussp1$Sex == "Female",])
 table(hov_top5$Species)
 
 int_hov1=ggplot(data=hov_top5,aes(x=log(Spec.wgt),y=log(IT),col=Species))+
@@ -46,9 +46,9 @@ summary(lm(log(Spec.wgt)~log(IT),data=hov_species$Sphaerophoria_macrogaster[hov_
 
 summary(lm(log(Spec.wgt)~log(IT),hov_species$Episyrphus_balteatus[hov_species$Episyrphus_balteatus$Sex == "Female",]))
 
-summary(lm(log(Spec.wgt)~log(IT),hov_species$Melanostoma_mellinum[hov_species$Melanostoma_mellinum$Sex == "Female",]))
+summary(lm(log(Spec.wgt)~log(IT),hov_species$Melanostoma_scalare[hov_species$Melanostoma_scalare$Sex == "Female",]))
 
-summary(lm(log(Spec.wgt)~log(IT),hov_species$Syritta_pipiens[hov_species$Syritta_pipiens$Sex == "Female",]))
+summary(lm(log(Spec.wgt)~log(IT),hov_species$Austrosyphus_aussp1[hov_species$Austrosyphus_aussp1$Sex == "Female",]))
 
 summary(lm(log(Spec.wgt)~Species+log(IT),hov_top5))
 
@@ -56,3 +56,7 @@ int_Plots=grid.arrange(int_bee1,int_hov1,ncol=2,nrow=1)
 int_Plots
 
 write.csv(as.data.frame(unique(hov_mean$Species)),"hov_species_list.csv")
+
+int_bee2=ggplotGrob(int_bee1)
+int_hov2=ggplotGrob(int_hov1)
+grid.draw(cbind(int_bee2, int_hov2, size = "first"))

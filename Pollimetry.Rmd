@@ -1214,8 +1214,9 @@ abline(a=confint(lm(hov_species$Melanostoma_scalare[hov_species$Melanostoma_scal
 LME
 ```{r}
 
-pres.lme=lmer(log(Spec.wgt)~Pres.time+Sex+(1|Species)+(1|Country),bee_pres)
+pres.lme=lmer(log(Spec.wgt)~IT+Pres.time+Sex+(1|Species)+(1|Country),bee_pres)
 
 summary(pres.lme)
 plot(pres.lme)
+
 ```

@@ -271,8 +271,86 @@ dredge(Bee_PGLS1,rank="AIC")
 
 #Phylogenetic GLS - HOVERFLIES
 
-EMPTY - waiting on current phylogeny
+EMPTY
 
+#Model co-efficients
+#Bees
+```{r}
+
+bee_1=lmer(formula=log(Spec.wgt) ~ log(IT)  + Family + Sex  + Region+#fix factors
+             log(IT):Family  + log(IT):Sex + log(IT):Region+ #interactions
+             (1|Measurement)+(1|Species),data=bee_mean)
+bee_2=lmer(formula=log(Spec.wgt) ~ log(IT)  + Family + Region  + Sex+ #fix factors
+            log(IT):Family  + log(IT):Region + #interactions
+            (1|Measurement)+(1|Species),data=bee_mean)
+bee_3=lmer(formula=log(Spec.wgt) ~ log(IT)  + Family + Region  + #fix factors
+             log(IT):Family  + log(IT):Region + #interactions
+             (1|Measurement)+(1|Species),data=bee_mean)
+bee_4=lmer(formula=log(Spec.wgt) ~ log(IT)  + Family + Sex + #fix factors
+             log(IT):Family + log(IT):Sex + #interactions
+             (1|Measurement)+(1|Species),data=bee_mean)
+bee_5=lmer(formula=log(Spec.wgt) ~ log(IT)  + Family  + #fix factors
+             log(IT):Family + #interactions
+             (1|Measurement)+(1|Species),data=bee_mean)
+bee_6=lmer(formula=log(Spec.wgt) ~ log(IT) + #interactions
+             (1|Measurement)+(1|Species),data=bee_mean)
+#LME1
+tidy(bee_1)
+#LME2
+tidy(bee_2)
+#LME3
+tidy(bee_3)
+#LME4
+tidy(bee_4)
+#LME5
+tidy(bee_5)
+#LME6
+tidy(bee_6)
+
+#PGLS1
+summary(Bee_PGLS1)
+summary(Bee_PGLS2)
+summary(Bee_PGLS3)
+
+
+```
+#Hoverflies
+```{r}
+hov_1=lmer(formula=log(Spec.wgt) ~ log(IT) + Sex +#Fixed
+             (1|Measurement)+(1|Species),data=hov_mean)
+hov_2=lmer(formula=log(Spec.wgt) ~ log(IT) + Sex+ Region+#Fixed
+             (1|Measurement)+(1|Species),data=hov_mean)
+hov_3=lmer(formula=log(Spec.wgt) ~ log(IT)+Sex + Region+Subfamily+#Fixed
+             (1|Measurement)+(1|Species),data=hov_mean)
+hov_4=lmer(formula=log(Spec.wgt) ~ log(IT) +Sex + Subfamily+#Fixed
+             (1|Measurement)+(1|Species),data=hov_mean)
+hov_5=lmer(formula=log(Spec.wgt) ~ log(IT) * Sex +#Fixed
+             (1|Measurement)+(1|Species),data=hov_mean)
+hov_6=lmer(formula=log(Spec.wgt) ~ log(IT)*Sex + Region+#Fixed
+             (1|Measurement)+(1|Species),data=hov_mean)
+hov_7=lmer(formula=log(Spec.wgt) ~ log(IT)  + Subfamily+#Fixed
+             (1|Measurement)+(1|Species),data=hov_mean)
+hov_8=lmer(formula=log(Spec.wgt) ~ log(IT)+#Fixed
+             (1|Measurement)+(1|Species),data=hov_mean)
+#LME1
+tidy(hov_1)
+#LME2
+tidy(hov_2)
+#LME3
+tidy(hov_3)
+#LME4
+tidy(hov_4)
+#LME5
+tidy(hov_5)
+#LME6
+tidy(hov_6)
+#LME7
+tidy(hov_7)
+#LME8
+tidy(hov_8)
+
+
+```
 #Model validation - k-fold cross validation
 
 Bees

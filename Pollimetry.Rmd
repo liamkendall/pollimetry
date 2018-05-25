@@ -1,10 +1,13 @@
 ---
 title: 'Pollimetry: Predictive allometry for pollinating insects'
 author: Liam Kendall, Romina Rader, Vesna Gagic, Daniel Cariveau, Matthias Albrecht,
-  Katherine Baldock, Breno Freitus, Juanita Rodriguez, Laura Russo, Louis Suter and Ignasi Bartomeus
+  Katherine Baldock, Breno Freitus, Juanita Rodriguez, Laura Russo, Louis Suter and
+  Ignasi Bartomeus
 date: "18/05/2018"
 output:
   pdf_document: default
+  html_document:
+    df_print: paged
   word_document: default
 ---
 
@@ -28,6 +31,7 @@ library(parallel)
 library(phytools)
 library(plyr)
 library(dplyr)
+library(stargazer)
 library(tidyverse)
 
 #dataframe
@@ -130,7 +134,7 @@ Cane=function(IT){exp(0.6453 + 2.4691*log(IT))}
 
 ##Bee model selection
 Test lme models w. biogeography.
-```{r} 
+```{r bee biog model} 
 
 options(na.action = "na.fail")
 bee_f_lme=lmer(log(Spec.wgt) ~ log(IT)  + Family + Sex + Region + #fix factors
@@ -142,7 +146,7 @@ head(bee_dr_lme)
 ```
 
 Repeat without region
-```{r}
+```{r bee models without region}
 
 options(na.action = "na.fail")
 bee_fe_lme=lmer(log(Spec.wgt) ~ log(IT)  + Family + Sex + #fix factors
@@ -154,7 +158,7 @@ head(bee_de_lme)
 ```
 
 And without region and sex
-```{r}
+```{r wi}
 
 options(na.action = "na.fail")
 bee_fes_lme=lmer(log(Spec.wgt) ~ log(IT)  + Family  + #fix factors
@@ -218,6 +222,7 @@ WGT<-as.matrix((WGT))[,1]
 phylosig(tree=bee_pruned,x=WGT,method="lambda",test=TRUE)
 
 ```
+
 ```{r}
 bee_wgt_phy=contMap(bee_pruned,WGT,plot=FALSE)
 plot(bee_wgt_phy,fsize=c(0.4,1),lwd=0.75,leg.txt="log(WGT)")
@@ -305,24 +310,17 @@ bee_5=lmer(formula=log(Spec.wgt) ~ log(IT)  + Family  + #fix factors
              (1|Measurement/Species),data=bee_mean)
 bee_6=lmer(formula=log(Spec.wgt) ~ log(IT) + #interactions
              (1|Measurement/Species),data=bee_mean)
-#LME1
+
 tidy(bee_1)
-#LME2
 tidy(bee_2)
-#LME3
 tidy(bee_3)
-#LME4
 tidy(bee_4)
-#LME5
 tidy(bee_5)
-#LME6
 tidy(bee_6)
+```
 
-#PGLS1
-summary(Bee_PGLS1)
-summary(Bee_PGLS2)
-summary(Bee_PGLS3)
-
+```{r, results='asis'}
+stargazer(bee_1,bee_2, bee_3, bee_4, bee_5, bee_6, header=FALSE,type='latex')
 
 ```
 #Hoverflies
@@ -343,23 +341,6 @@ hov_7=lmer(formula=log(Spec.wgt) ~ log(IT)  + Subfamily+#Fixed
              (1|Measurement/Species),data=hov_mean)
 hov_8=lmer(formula=log(Spec.wgt) ~ log(IT)+#Fixed
              (1|Measurement/Species),data=hov_mean)
-#LME1
-tidy(hov_1)
-#LME2
-tidy(hov_2)
-#LME3
-tidy(hov_3)
-#LME4
-tidy(hov_4)
-#LME5
-tidy(hov_5)
-#LME6
-tidy(hov_6)
-#LME7
-tidy(hov_7)
-#LME8
-tidy(hov_8)
-
 
 ```
 #Model validation - k-fold cross validation
@@ -692,7 +673,7 @@ colnames(RMSE_sets)=c("LM1","LM2","LM3","LM4","LM5","LM6","PG1","PG2","PG3","JC8
 RMSE_sets=as.data.frame(RMSE_sets)
 
 #Box plots
-bee_RMSE=RMSE_sets%>%gather(.,1:10,key ="Model",value = "RMSE")%>%ggplot(aes(x=Model,y=RMSE,fill=Model))+geom_boxplot()+theme_bw()+ theme(aspect.ratio=1,axis.title.x=element_blank(),
+bee_RMSE=RMSE_sets%>%gather(.,c("LM1","PG1","JC89"),key ="Model",value = "RMSE")%>%ggplot(aes(x=Model,y=RMSE,fill=Model))+geom_boxplot()+theme_bw()+ theme(aspect.ratio=1,axis.title.x=element_blank(),
         axis.text.x=element_blank(),
         axis.ticks.x=element_blank())+ggtitle("Bees")
 
@@ -1003,8 +984,6 @@ int_hov1=ggplot(data=hov_top5,aes(x=log(Spec.wgt),y=log(IT),col=Species))+
   geom_smooth(method="lm",se=FALSE)+
   theme_bw()+ theme(aspect.ratio=1)+ggtitle("Hoverflies")
 
-grid.arrange(int_bee1,int_hov1,ncol=2,nrow=1)
-
 int_bee2=ggplotGrob(int_bee1)
 int_hov2=ggplotGrob(int_hov1)
 grid.draw(cbind(int_bee2, int_hov2, size = "first"))
@@ -1311,9 +1290,40 @@ abline(a=confint(lm(hov_species$Melanostoma_scalare[hov_species$Melanostoma_scal
 LME
 ```{r}
 
-pres.lme=lmer(log(Spec.wgt)~IT+Pres.time+Sex+(1|Species)+(1|Country),bee_pres)
+pres.lme=lmer(log(Spec.wgt)~log(IT)+Pres.time+Sex+(1|Country/Species),bee_pres)
 
 summary(pres.lme)
 plot(pres.lme)
+
+```
+
+```{r}
+
+bee1=ggplot(bee_mean,aes(x=log(IT),y=log(Spec.wgt),col=Region))+geom_point(col=1,pch=1)+
+  geom_smooth(method="lm",se=FALSE)+theme_bw()
+bee2=ggplot(bee_mean,aes(x=log(IT),y=log(Spec.wgt),col=Sex))+geom_point(col=1,pch=1)+
+  geom_smooth(method="lm",se=FALSE)+theme_bw()
+bee3=ggplot(bee_mean,aes(x=log(IT),y=log(Spec.wgt),col=Family))+geom_point(col=1,pch=1)+
+  geom_smooth(method="lm",se=FALSE)+theme_bw()
+  
+  
+bee1=ggplotGrob(bee1)
+bee2=ggplotGrob(bee2)
+bee3=ggplotGrob(bee3)
+grid.draw(cbind(bee1, bee2,bee3, size = "first"))
+
+hov1=ggplot(hov_mean,aes(x=log(IT),y=log(Spec.wgt),col=Region))+geom_point(col=1,pch=1)+
+  geom_smooth(method="lm",se=FALSE)+theme_bw()
+hov2=ggplot(hov_mean,aes(x=log(IT),y=log(Spec.wgt),col=Sex))+geom_point(col=1,pch=1)+
+  geom_smooth(method="lm",se=FALSE)+theme_bw()
+hov3=ggplot(hov_mean,aes(x=log(IT),y=log(Spec.wgt),col=Subfamily))+geom_point(col=1,pch=1)+
+  geom_smooth(method="lm",se=FALSE)+theme_bw()
+  
+  
+hov1=ggplotGrob(hov1)
+hov2=ggplotGrob(hov2)
+hov3=ggplotGrob(hov3)
+grid.draw(cbind(hov1, hov2,hov3, size = "first"))
+
 
 ```

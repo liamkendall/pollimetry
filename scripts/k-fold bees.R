@@ -32,14 +32,28 @@ fold_cv=function(data,k){
 
 fold<-bee_mean%>%fold_cv(.,k=5)
 
+# set some constant values
+# set some constant values
+prior1 <- list(R = list(V=1, nu=0.002),  G = list(G1 = list(V=1, nu=0.002))) #non-informative prior
+Nnitt <- 101000 # default is 13000
+Nburnin <- 1000 # default is 3000
+Nthin <- 100 # thinning of 1000 needed for autocorrelation in VCV
+
+
+
 ##WITH REGION
 model1<-bee_mean%>%mutate(Fold=rep(0,nrow(bee_mean)),holdoutpred=rep(0,nrow(bee_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
   for(i in 1:5){
     train=model1[fold$subsets[fold$which != i], ]
     validation=model1[fold$subsets[fold$which == i], ]
-    newlm=lme4::lmer(formula=log(Spec.wgt) ~ log(IT)  + Family + Sex  + Region+#fix factors
-                       log(IT):Family  + log(IT):Sex + log(IT):Region+ #interactions
-                       (1|Measurement)+(1|Species),data=train)
+    newlm=MCMCglmm::MCMCglmm(log(Spec.wgt) ~ log(IT)  + Family + 
+                     Sex + Region + #fix factors
+                     log(IT):Family + log(IT):Region + log(IT):Sex, 
+                   random = ~Species,
+                   family = "gaussian", 
+                   singular.ok=TRUE,data= train, 
+                   verbose=FALSE, thin=Nthin, 
+                   nitt=Nnitt, burnin=Nburnin)
     newpred=predict(newlm,newdata=validation,allow.new.levels=TRUE)
     true=log(validation$Spec.wgt)
     error=(true-newpred)

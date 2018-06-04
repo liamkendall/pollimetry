@@ -1,8 +1,7 @@
 ---
-title: 'Pollimetry: Predictive allometry for pollinating insects'
+title: 'Pollinator size and its consequences: Predictive allometry for pollinating insects'
 author: Liam Kendall, Romina Rader, Vesna Gagic, Daniel Cariveau, Matthias Albrecht,
-  Katherine Baldock, Breno Freitus, Juanita Rodriguez, Laura Russo, Louis Suter and
-  Ignasi Bartomeus
+  Katherine Baldock, Breno Freitus, Mark Hall, Janeally Pereira, Juanita Rodriguez, Laura Russo, Louis Suter and Ignasi Bartomeus
 date: "18/05/2018"
 output:
   pdf_document: default
@@ -22,9 +21,10 @@ library(cvTools)
 library(grid)
 library(gridExtra)
 library(lme4)
-library(nlme)
+library(MCMCglmm)
 library(ModelMetrics)
 library(MuMIn)
+library(nlme)
 library(foreign)
 library(compiler)
 library(parallel)
@@ -36,7 +36,7 @@ library(tidyverse)
 
 #dataframe
 set.seed(123)
-poll_all <- read.csv(file="data/PA120518.csv",header=T)
+poll_all <- read.csv(file="data/PA310518.csv",header=T)
 
 #split to bees and hoverflies
 poll_all$Spec.wgt=poll_all$Spec.wgt*1000
@@ -49,69 +49,80 @@ bee_country=split(bee_all,bee_all$Country)
 bee_australia=bee_country$Australia
 
 ##BEE mean dataframe
-bee_mean=aggregate(Latitude~Family+Subfamily+Tribe+Region+Country+Measurement+Subfamily+Genus+Species+Sex,bee_all,mean)
-bee_mean$Spec.wgt=as.numeric(unlist(aggregate(Spec.wgt~Family+Country+Subfamily+Tribe+Region+Measurement+
-                                                Subfamily+Genus+Species+Sex,bee_all,mean)[10]))
-bee_mean$IT=(as.numeric(unlist(aggregate(IT~Family+Subfamily+Tribe+Region+Country+
-                                         Measurement+Subfamily+Genus+Species+Sex,bee_all,mean)[10])))
+bee_mean=aggregate(Latitude~Family+Subfamily+Tribe+Region+Subfamily+Genus+Species+Sex,bee_all,mean)
+bee_mean$Spec.wgt=as.numeric(unlist(aggregate(Spec.wgt~Family+Subfamily+Tribe+Region+
+                                                Subfamily+Genus+Species+Sex,bee_all,mean)[8]))
+bee_mean$IT=(as.numeric(unlist(aggregate(IT~Family+Subfamily+Tribe+Region+
+                                           Subfamily+Genus+Species+Sex,bee_all,mean)[8])))
+
+bee_mean=bee_mean[!bee_mean$Species=="Flavipanurgus_venustus",]
+bee_mean=bee_mean[!bee_mean$Species=="Protomeliturga_turnerea",]
+bee_mean=bee_mean[!bee_mean$Species=="Tetrapedia_diversipes",]
+bee_mean=bee_mean[-344,] #HAlictus NA
+bee_mean=bee_mean[-49,] # APIS AUS
+bee_mean$animal=bee_mean$Species
+bee_mean$Region=relevel(bee_mean$Region,ref="Europe")
+bee_mean$Family=relevel(bee_mean$Family,ref="Apidae")
+bee_mean$Family=droplevels(bee_mean$Family)
 
 ##HOV mean dataframe
-hov_all=poll_all_split[[2]]
+hov_mean=aggregate(Latitude~Family+Tribe+
+                     Region+Subfamily+Genus+Species+Sex,hov_all,mean)
+hov_mean$Longitude=aggregate(Longitude~Family+Tribe+
+                     Region+Subfamily+Genus+Species+Sex,hov_all,mean)[8]
 
-options(na.action=na.omit)
-hov_mean=aggregate(Latitude~Family+Tribe+Country+
-                     Region+Measurement+Subfamily+Genus+Species+Sex,hov_all,mean)
-hov_mean$Longitude=aggregate(Longitude~Family+Tribe+Country+
-                     Region+Measurement+Subfamily+Genus+Species+Sex,hov_all,mean)[10]
-
-hov_mean$Spec.wgt=as.numeric(unlist(aggregate(Spec.wgt~Family+Tribe+Country+
-                                                Region+Measurement+Subfamily+
-                                                Genus+Species+Sex,hov_all,mean)[10]))
-hov_mean$IT=as.numeric(unlist(aggregate(IT~Family+Tribe+Country+
-                                          Region+Measurement+Subfamily+
-                                          Genus+Species+Sex,hov_all,mean)[10]))
-
+hov_mean$Spec.wgt=as.numeric(unlist(aggregate(Spec.wgt~Family+Tribe+
+                                                Region+Subfamily+
+                                                Genus+Species+Sex,hov_all,mean)[8]))
+hov_mean$IT=as.numeric(unlist(aggregate(IT~Family+Tribe+
+                                          Region+Subfamily+
+                                          Genus+Species+Sex,hov_all,mean)[8]))
 
 ##PHYLO Dataframe
 bee_phylo=aggregate(Latitude~Region+Family+Subfamily+
-                        Tribe+Genus+Species,bee_all,median)
+                      Tribe+Genus+Species,bee_all,median)
 bee_phylo$Longitude=as.numeric(unlist(aggregate(Longitude~Region+Family+Subfamily+
-                                                    Tribe+Genus+Species,bee_all,median)[7]))
+                                                  Tribe+Genus+Species,bee_all,median)[7]))
 bee_phylo$Spec.wgt=as.numeric(unlist(aggregate(Spec.wgt~Region+Family+Subfamily+
-                                                   Tribe+Genus+Species,bee_all,mean)[7]))
+                                                 Tribe+Genus+Species,bee_all,mean)[7]))
 bee_phylo$Wgt.SD=as.numeric(unlist(aggregate(log(Spec.wgt)~Region+Family+Subfamily+
-                                                 Tribe+Genus+Species,bee_all,sd)[7]))
+                                               Tribe+Genus+Species,bee_all,sd)[7]))
 bee_phylo$IT=as.numeric(unlist(aggregate(IT~Region+Family+Subfamily+
-                                             Tribe+Genus+Species,bee_all,mean)[7]))
+                                           Tribe+Genus+Species,bee_all,mean)[7]))
 bee_phylo$IT.SD=as.numeric(unlist(aggregate(log(IT)~Region+Family+Subfamily+
-                                                Tribe+Genus+Species,bee_all,sd)[7]))
-
-##REMOVE DUPLICATES FROM REGIONS
-#Apis from Australia
-#Halictus rubicundus from NA
-#Flavipanurgus as not in phylogeny
-#duplicated(bee_phylo$Species)
-
-bee_phylo[121,]
-bee_phylo[114,]
-bee_phylo[55,]
-
-bee_phylo=bee_phylo[-121,]
-bee_phylo=bee_phylo[-114,]
-bee_phylo=bee_phylo[-55,]
+                                              Tribe+Genus+Species,bee_all,sd)[7]))
+bee_phylo=bee_phylo[-131,]
+bee_phylo=bee_phylo[-56,]
+bee_phylo=bee_phylo[!bee_phylo$Species=="Flavipanurgus_venustus",]
+bee_phylo=bee_phylo[!bee_phylo$Species=="Protomeliturga_turnerea",]
+bee_phylo=bee_phylo[!bee_phylo$Species=="Tetrapedia_diversipes",]
 
 rownames(bee_phylo)=bee_phylo$Species
 
-##Bee phylogeny
-bee.phy=read.tree(file="raw_data/Bee_phylogeny_Hedtke_etal2013/12862_2013_2375_MOESM3_ESM.txt",keep.multi = TRUE)
-##Use tree 1 (376 genera) #Genera-level phylogney
-bee.phy=bee.phy[[1]]
-bee.phy=as.phylo(bee.phy)
-bee.phy=root(bee.phy,outgroup="Tachysphex")
-#bee.phy=force.ultrametric(bee.phy) Not sure if this is required
-bee_pruned=drop.tip(bee.phy, setdiff(bee.phy$tip.label,bee_phylo$Genus))
-bee_pruned=genus.to.species.tree(bee_pruned, species=bee_phylo$Species)
+#Tree for MCMC
 
+bee.trees=read.tree(file="raw_data/Bee_phylogeny_Hedtke_etal2013/12862_2013_2375_MOESM3_ESM.txt")
+bee.mcmc[[1]]
+str(bee.mcmc)
+##Use tree 1 (376 genera) #Genera-level phylogney
+bee.mcmc=bee.trees[[1]]
+
+bee.mcmc=as.phylo(bee.mcmc)
+
+bee.mcmc=root(bee.mcmc,outgroup="Tachysphex")
+
+species=unique(as.character(bee_mean$Species))
+
+bee.tree=drop.tip(bee.mcmc, setdiff(bee.mcmc$tip.label,unique(bee_mean$Genus)))
+
+bee.tree=genus.to.species.tree(bee.tree, species=species)
+
+bee.tree=chronoMPL(bee.tree)
+
+bee.tree$edge.length[bee.tree$edge.length <0]=0.000001
+
+bee.tree=force.ultrametric(bee.tree,"extend")
+bee.tree$node.label=NULL
 
 ##Intraspecific variance data frames
 bee_species=split(bee_all,bee_all$Species)
@@ -130,119 +141,118 @@ bee_pres=as.data.frame(bee_pres %>%
 
 ##Cane function
 Cane=function(IT){exp(0.6453 + 2.4691*log(IT))}
+
+##Create fold function
+fold_cv=function(data,k){
+  folds=cvTools::cvFolds(nrow(data),K=k)
+  invisible(folds)
+}
+
+##
+MCMCglmm.updateable<- updateable(MCMCglmm)
 ```
 
-##Bee model selection
-Test lme models w. biogeography.
+##MCMCglmm bee biogeography
+Test OLS models w. biogeography
 ```{r bee biog model} 
 
-options(na.action = "na.fail")
-bee_f_lme=lmer(log(Spec.wgt) ~ log(IT)  + Family + Sex + Region + #fix factors
-                              log(IT):Family + log(IT):Region + log(IT):Sex + #interactions
-                              (1|Measurement/Species),REML=FALSE,bee_mean)
+# set some constant values
+prior1 <- list(R = list(V=1, nu=0.002),  G = list(G1 = list(V=1, nu=0.002))) #non-informative prior
+Nnitt <- 101000 # default is 13000
+Nburnin <- 1000 # default is 3000
+Nthin <- 100 # thinning of 1000 needed for autocorrelation in VCV
 
-bee_dr_lme=dredge(bee_f_lme,beta="none",rank="AIC") #think about "sd" and "AICc". AIC show same pattern.
-head(bee_dr_lme)
+MCMCglmm.updateable<- updateable(MCMCglmm)
+bee_mean$Family=droplevels(bee_mean$Family)
+
+MCMC_full_mod <- MCMCglmm.updateable(log(Spec.wgt) ~ log(IT)  + Family + 
+                                       Sex + Region + #fix factors
+                  log(IT):Family + log(IT):Region + log(IT):Sex, 
+                  random = ~Species,
+                family = "gaussian", prior=prior1,
+                singular.ok=TRUE,data= bee_mean, 
+                verbose=FALSE, thin=Nthin, 
+                nitt=Nnitt, burnin=Nburnin)
+
 ```
 
-Repeat without region
-```{r bee models without region}
-
-options(na.action = "na.fail")
-bee_fe_lme=lmer(log(Spec.wgt) ~ log(IT)  + Family + Sex + #fix factors
-                              log(IT):Family + log(IT):Sex + #interactions
-                              (1|Measurement/Species),REML=FALSE,bee_mean)
-
-bee_de_lme=dredge(bee_fe_lme,beta="none",rank="AIC") #think about "sd" and "AICc". AIC show same pattern.
-head(bee_de_lme)
+```{r}
+MCMC_bee_full_dredge=dredge(MCMC_full_mod,beta="none",fixed="log(IT)",rank="DIC") 
+bee_models=lapply(dredge(MCMC_full_mod, fixed="log(IT)", evaluate = FALSE), eval)
 ```
-
-And without region and sex
-```{r wi}
-
-options(na.action = "na.fail")
-bee_fes_lme=lmer(log(Spec.wgt) ~ log(IT)  + Family  + #fix factors
-                              log(IT):Family + #interactions
-                              (1|Measurement/Species),REML=FALSE,bee_mean)
-
-bee_des_lme=dredge(bee_fes_lme,beta="none",rank="AIC") #think about "sd" and "AICc". AIC show same pattern.
-head(bee_des_lme)
-```
-
-Just ITD
-```{r,echo=FALSE}
-
-bee_IT_lme=lmer(log(Spec.wgt) ~ log(IT) +
-                              (1|Measurement/Species),REML=FALSE,bee_mean)
-AIC(bee_IT_lme)
-```
-
-#TBC - within region
-Let us test this for Europe once we have Belgian data as we will have good range.
 
 #Hoverfly model selection
 Test w. biogeography
 ```{r}
+# set some constant values
+prior1 <- list(R = list(V=1, nu=0.002),  G = list(G1 = list(V=1, nu=0.002))) #non-informative prior
+Nnitt <- 101000 # default is 13000
+Nburnin <- 1000 # default is 3000
+Nthin <- 100 # thinning of 1000 needed for autocorrelation in VCV
 
 ##Full
-hov.full=lmer(log(Spec.wgt) ~ log(IT) + Region+ Sex + Subfamily+ #fix
-            log(IT):Sex + #interactions
-            log(IT):Subfamily + log(IT):Region+ (1|Measurement/Species)
-            ,REML=FALSE,data=hov_mean)
+hov_mean$animal=hov_mean$Species
+hov_mean$Subfamily=droplevels(hov_mean$Subfamily)
+hov.full=MCMCglmm.updateable(log(Spec.wgt) ~ log(IT)  + Subfamily + 
+                                       Sex + Region + #fix factors
+                  log(IT):Subfamily + log(IT):Region + log(IT):Sex, 
+                  random = ~Species,
+                family = "gaussian", prior=prior1,
+                singular.ok=TRUE,data= hov_mean, 
+                verbose=FALSE, thin=Nthin, 
+                nitt=Nnitt, burnin=Nburnin)
+```
 
+```{r}
 options(na.action = "na.fail")
-hov_dr=dredge(hov.full,beta="none",rank="AIC") #think about "sd" and "AICc". AIC show same pattern.
-head(hov_dr)
+hov_dr=dredge(hov.full,beta="none",fixed="log(IT)",rank="DIC")
+hov_models=lapply(dredge(hov.full, fixed="log(IT)", evaluate = FALSE), eval)
+
 ```
 
-And without sex
+##Phylo signal
 
-```{r}
-hov.red=lmer(log(Spec.wgt) ~ log(IT) + Subfamily + #interactions
-            log(IT):Subfamily + (1|Measurement/Species)
-            ,REML=FALSE,data=hov_mean)
-
-hov_dr_red=dredge(hov.red,beta="none",rank="AIC") #think about "sd" and "AICc". AIC show same pattern.
-head(hov_dr_red)
-```
-
-#Phylogenetic GLS - BEES
-
-https://besjournals.onlinelibrary.wiley.com/doi/pdf/10.1111/j.2041-210X.2012.00196.x
-  This paper is great for understanding the different phylo models
-
-#Individual traits
-  - not in MS at the moment but both significant as correlated
-  Spec.wgt
-```{r}
+#Weight
+```{r,Spec.wgt}
 WGT=as.data.frame(bee_phylo[,c("Spec.wgt")])
 WGT=log(WGT)
 rownames(WGT)=rownames(bee_phylo)
 WGT<-as.matrix((WGT))[,1]
-phylosig(tree=bee_pruned,x=WGT,method="lambda",test=TRUE)
+phylosig(tree=bee.tree,x=WGT,method="lambda",test=TRUE)
 
 ```
 
+##PGLMM - only bees, no phylogeny for hoverflies
 ```{r}
-bee_wgt_phy=contMap(bee_pruned,WGT,plot=FALSE)
-plot(bee_wgt_phy,fsize=c(0.4,1),lwd=0.75,leg.txt="log(WGT)")
+#same priors as previous models
+prior1 <- list(R = list(V=1, nu=0.002),  G = list(G1 = list(V=1, nu=0.002))) #non-informative prior
+Nnitt <- 101000 # default is 13000
+Nburnin <- 1000 # default is 3000
+Nthin <- 100 # thinning of 1000 needed for autocorrelation in VCV
+
+##random set to animal or else phylo model is no different to non-phylo model
+
+MCMC_phy_mod <- MCMCglmm.updateable(log(Spec.wgt) ~ log(IT) + Sex + Region + #fix factors
+                                        log(IT):Region + log(IT):Sex, 
+                                    random = ~animal,
+                                    family = "gaussian", 
+                                    singular.ok=TRUE,data=bee_mean,prior=prior1,
+                                    pedigree = bee.tree, verbose=FALSE, 
+                                    thin=Nthin, nitt=Nnitt, burnin=Nburnin)
+
+MCMC_phy_mod_dredge=dredge(MCMC_phy_mod,rank="DIC",fixed="log(IT)",trace=TRUE)
+
+phy_models=lapply(dredge(MCMC_phy_mod, fixed="log(IT)", evaluate = FALSE), eval)
+
 ```
-Intertegular distance
-
-```{r}
-IT=as.data.frame(bee_phylo[,c("IT")])
-IT=log(IT)
-rownames(IT)=rownames(bee_phylo)
-IT<-as.matrix((IT))[,1]
-phylosig(tree=bee_pruned,x=IT,method="lambda",test=TRUE)
-
-```
-
-#PGLS
+#PGLS - not used
 
 SPEC.WGT ~ IT * Region and subsets - compared against standard GLS for reference
 
 ```{r}  
+
+bee_phylo$Region=relevel(bee_phylo$Region,ref="Europe")
+bee_phylo$Family=relevel(bee_phylo$Family,ref="Apidae")
 
 #standard gls
 
@@ -268,14 +278,9 @@ Bee_PGLS2 = gls(log(Spec.wgt)~log(IT)+Region, data=bee_phylo,
 Bee_PGLS3 = gls(log(Spec.wgt)~log(IT), data=bee_phylo, 
                 correlation=Bee2vcv, method="ML")
 
-Bee_PGLS1
-Bee_PGLS2
-Bee_PGLS3
 AIC(Bee_GLS1,Bee_GLS2,Bee_GLS3,Bee_PGLS1,Bee_PGLS2,Bee_PGLS3)
 
-AIC(Bee_GLS1)-AIC(Bee_PGLS1)
-AIC(Bee_GLS2)-AIC(Bee_PGLS2)
-AIC(Bee_GLS3)-AIC(Bee_PGLS3)
+#Model selection
 dredge(Bee_PGLS1,rank="AIC")
 
 #likelihood ratio test
@@ -285,94 +290,30 @@ anova(Bee_GLS3,Bee_PGLS3)
 ```
 
 
-#Phylogenetic GLS - HOVERFLIES
-
-EMPTY
-
 #Model co-efficients
 #Bees
-```{r}
 
-bee_1=lmer(formula=log(Spec.wgt) ~ log(IT)  + Family + Sex  + Region+#fix factors
-             log(IT):Family  + log(IT):Sex + log(IT):Region+ #interactions
-             (1|Measurement/Species),data=bee_mean)
-bee_2=lmer(formula=log(Spec.wgt) ~ log(IT)  + Family + Region  + Sex+ #fix factors
-            log(IT):Family  + log(IT):Region + #interactions
-            (1|Measurement/Species),data=bee_mean)
-bee_3=lmer(formula=log(Spec.wgt) ~ log(IT)  + Family + Region  + #fix factors
-             log(IT):Family  + log(IT):Region + #interactions
-             (1|Measurement/Species),data=bee_mean)
-bee_4=lmer(formula=log(Spec.wgt) ~ log(IT)  + Family + Sex + #fix factors
-             log(IT):Family + log(IT):Sex + #interactions
-             (1|Measurement/Species),data=bee_mean)
-bee_5=lmer(formula=log(Spec.wgt) ~ log(IT)  + Family  + #fix factors
-             log(IT):Family + #interactions
-             (1|Measurement/Species),data=bee_mean)
-bee_6=lmer(formula=log(Spec.wgt) ~ log(IT) + #interactions
-             (1|Measurement/Species),data=bee_mean)
-
-tidy(bee_1)
-tidy(bee_2)
-tidy(bee_3)
-tidy(bee_4)
-tidy(bee_5)
-tidy(bee_6)
-```
-
-```{r, results='asis'}
-stargazer(bee_1,bee_2, bee_3, bee_4, bee_5, bee_6, header=FALSE,type='latex')
-
-```
-#Hoverflies
-```{r}
-hov_1=lmer(formula=log(Spec.wgt) ~ log(IT) + Sex +#Fixed
-             (1|Measurement/Species),data=hov_mean)
-hov_2=lmer(formula=log(Spec.wgt) ~ log(IT) + Sex+ Region+#Fixed
-             (1|Measurement/Species),data=hov_mean)
-hov_3=lmer(formula=log(Spec.wgt) ~ log(IT)+Sex + Region+Subfamily+#Fixed
-             (1|Measurement/Species),data=hov_mean)
-hov_4=lmer(formula=log(Spec.wgt) ~ log(IT) +Sex + Subfamily+#Fixed
-             (1|Measurement/Species),data=hov_mean)
-hov_5=lmer(formula=log(Spec.wgt) ~ log(IT) * Sex +#Fixed
-             (1|Measurement/Species),data=hov_mean)
-hov_6=lmer(formula=log(Spec.wgt) ~ log(IT)*Sex + Region+#Fixed
-             (1|Measurement/Species),data=hov_mean)
-hov_7=lmer(formula=log(Spec.wgt) ~ log(IT)  + Subfamily+#Fixed
-             (1|Measurement/Species),data=hov_mean)
-hov_8=lmer(formula=log(Spec.wgt) ~ log(IT)+#Fixed
-             (1|Measurement/Species),data=hov_mean)
-
-```
 #Model validation - k-fold cross validation
 
 Bees
 ```{r}  
-#libraries
-
-##Create fold function for LME and PGLS
-
-fold_cv=function(data,k){
-  folds=cvTools::cvFolds(nrow(data),K=k)
-  invisible(folds)
-}
 
 set.seed(123)
 fold<-bee_mean%>%fold_cv(.,k=5)
 
-##WITH REGION
+##Full model
 model1<-bee_mean%>%mutate(Fold=rep(0,nrow(bee_mean)),holdoutpred=rep(0,nrow(bee_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
   for(i in 1:5){
     train=model1[fold$subsets[fold$which != i], ]
     validation=model1[fold$subsets[fold$which == i], ]
-    newlm=lme4::lmer(formula=log(Spec.wgt) ~ log(IT)  + Family + Sex  + Region+#fix factors
-                       log(IT):Family  + log(IT):Sex + log(IT):Region+ #interactions
-                       (1|Measurement/Species),data=train)
-    newpred=predict(newlm,newdata=validation,allow.new.levels=TRUE)
+    newlm=lm(formula=log(Spec.wgt) ~ log(IT)  + Family + Sex  + Region+
+                       log(IT):Family  + log(IT):Sex + log(IT):Region,data=train)
+    newpred=predict(newlm,newdata=validation)
     true=log(validation$Spec.wgt)
     error=(true-newpred)
     rmse=sqrt(mean(error^2))
     mse=mean((newpred-true)^2)
-    R2=1-(sum((true-newpred)^2)/sum((true-mean(true))^2))
+    R2=summary(newlm)$adj.r.squared
     mae=mean(abs(error))
     model1[fold$subsets[fold$which == i], ]$holdoutpred <- newpred
     model1[fold$subsets[fold$which == i], ]$RMSE=rmse
@@ -384,21 +325,19 @@ model1<-bee_mean%>%mutate(Fold=rep(0,nrow(bee_mean)),holdoutpred=rep(0,nrow(bee_
     model1[fold$subsets[fold$which == i], ]$Fold=i
   }
 
-
-##Without sex
+#MODEL 2 
 model2<-bee_mean%>%mutate(Fold=rep(0,nrow(bee_mean)),holdoutpred=rep(0,nrow(bee_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
 for(i in 1:5){
   train=model2[fold$subsets[fold$which != i], ]
   validation=model2[fold$subsets[fold$which == i], ]
-  newlm=lme4::lmer(formula=log(Spec.wgt) ~ log(IT)  + Family + Region  + Sex+ #fix factors
-                     log(IT):Family  + log(IT):Region + #interactions
-                     (1|Measurement/Species),data=train)
-  newpred=predict(newlm,newdata=validation,allow.new.levels=TRUE)
+  newlm=lm(formula=log(Spec.wgt) ~ log(IT)  + Family + Region + #fix factors
+                     log(IT):Family  + log(IT):Region,data=train)
+  newpred=predict(newlm,newdata=validation)
   true=log(validation$Spec.wgt)
   error=(true-newpred)
   rmse=sqrt(mean(error^2))
   mse=mean((newpred-true)^2)
-  R2=1-(sum((true-newpred)^2)/sum((true-mean(true))^2))
+  R2=summary(newlm)$adj.r.squared
   mae=mean(abs(error))
   model2[fold$subsets[fold$which == i], ]$holdoutpred <- newpred
   model2[fold$subsets[fold$which == i], ]$RMSE=rmse
@@ -411,20 +350,19 @@ for(i in 1:5){
 }
 
 
-##Without sex
+#MODEL 3
 model3<-bee_mean%>%mutate(Fold=rep(0,nrow(bee_mean)),holdoutpred=rep(0,nrow(bee_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
 for(i in 1:5){
   train=model3[fold$subsets[fold$which != i], ]
   validation=model3[fold$subsets[fold$which == i], ]
-  newlm=lme4::lmer(formula=log(Spec.wgt) ~ log(IT)  + Family + Region  + #fix factors
-                     log(IT):Family  + log(IT):Region + #interactions
-                     (1|Measurement/Species),data=train)
-  newpred=predict(newlm,newdata=validation,allow.new.levels=TRUE)
+  newlm=lm(formula=log(Spec.wgt) ~ log(IT)  + Sex + Region  + #fix factors
+                     log(IT):Sex  + log(IT):Region,data=train)
+  newpred=predict(newlm,newdata=validation)
   true=log(validation$Spec.wgt)
   error=(true-newpred)
   rmse=sqrt(mean(error^2))
   mse=mean((newpred-true)^2)
-  R2=1-(sum((true-newpred)^2)/sum((true-mean(true))^2))
+  R2=summary(newlm)$adj.r.squared
   mae=mean(abs(error))
   model3[fold$subsets[fold$which == i], ]$holdoutpred <- newpred
   model3[fold$subsets[fold$which == i], ]$RMSE=rmse
@@ -441,15 +379,13 @@ model4<-bee_mean%>%mutate(Fold=rep(0,nrow(bee_mean)),holdoutpred=rep(0,nrow(bee_
 for(i in 1:5){
   train=model4[fold$subsets[fold$which != i], ]
   validation=model4[fold$subsets[fold$which == i], ]
-  newlm=lme4::lmer(formula=log(Spec.wgt) ~ log(IT)  + Family + Sex + #fix factors
-                     log(IT):Family + log(IT):Sex + #interactions
-                     (1|Measurement/Species),data=train)
-  newpred=predict(newlm,newdata=validation,allow.new.levels=TRUE)
+  newlm=lm(formula=log(Spec.wgt) ~ log(IT)  * Region,data=train)
+  newpred=predict(newlm,newdata=validation)
   true=log(validation$Spec.wgt)
   error=(true-newpred)
   rmse=sqrt(mean(error^2))
   mse=mean((newpred-true)^2)
-  R2=1-(sum((true-newpred)^2)/sum((true-mean(true))^2))
+  R2=summary(newlm)$adj.r.squared
   mae=mean(abs(error))
   model4[fold$subsets[fold$which == i], ]$holdoutpred <- newpred
   model4[fold$subsets[fold$which == i], ]$RMSE=rmse
@@ -461,20 +397,19 @@ for(i in 1:5){
   model4[fold$subsets[fold$which == i], ]$Fold=i
 }
 
-##Without region and sex
+##Model 5
 model5<-bee_mean%>%mutate(Fold=rep(0,nrow(bee_mean)),holdoutpred=rep(0,nrow(bee_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
 for(i in 1:5){
   train=model5[fold$subsets[fold$which != i], ]
   validation=model5[fold$subsets[fold$which == i], ]
-  newlm=lme4::lmer(formula=log(Spec.wgt) ~ log(IT)  + Family  + #fix factors
-                     log(IT):Family + #interactions
-                     (1|Measurement/Species),data=train)
-  newpred=predict(newlm,newdata=validation,allow.new.levels=TRUE)
+  newlm=lm(formula=log(Spec.wgt) ~ log(IT)  + Family  + Sex+#fix factors
+                     log(IT):Family + log(IT):Sex,data=train)
+  newpred=predict(newlm,newdata=validation)
   true=log(validation$Spec.wgt)
   error=(true-newpred)
   rmse=sqrt(mean(error^2))
   mse=mean((newpred-true)^2)
-  R2=1-(sum((true-newpred)^2)/sum((true-mean(true))^2))
+  R2=summary(newlm)$adj.r.squared
   mae=mean(abs(error))
   model5[fold$subsets[fold$which == i], ]$holdoutpred <- newpred
   model5[fold$subsets[fold$which == i], ]$RMSE=rmse
@@ -486,19 +421,18 @@ for(i in 1:5){
   model5[fold$subsets[fold$which == i], ]$Fold=i
 }
 
-##Just IT
+#MOdel 6
 model6<-bee_mean%>%mutate(Fold=rep(0,nrow(bee_mean)),holdoutpred=rep(0,nrow(bee_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
 for(i in 1:5){
   train=model6[fold$subsets[fold$which != i], ]
   validation=model6[fold$subsets[fold$which == i], ]
-  newlm=lme4::lmer(formula=log(Spec.wgt) ~ log(IT) + #interactions
-                     (1|Measurement/Species),data=train)
-  newpred=predict(newlm,newdata=validation,allow.new.levels=TRUE)
+  newlm=lm(formula=log(Spec.wgt) ~ log(IT) * Family,data=train)
+  newpred=predict(newlm,newdata=validation)
   true=log(validation$Spec.wgt)
   error=(true-newpred)
   rmse=sqrt(mean(error^2))
   mse=mean((newpred-true)^2)
-  R2=1-(sum((true-newpred)^2)/sum((true-mean(true))^2))
+  R2=summary(newlm)$adj.r.squared
   mae=mean(abs(error))
   model6[fold$subsets[fold$which == i], ]$holdoutpred <- newpred
   model6[fold$subsets[fold$which == i], ]$RMSE=rmse
@@ -508,6 +442,52 @@ for(i in 1:5){
   model6[fold$subsets[fold$which == i], ]$AIC=AIC(newlm)
   model6[fold$subsets[fold$which == i], ]$BIC=BIC(newlm)
   model6[fold$subsets[fold$which == i], ]$Fold=i
+}
+
+##MOdel 7
+model7<-bee_mean%>%mutate(Fold=rep(0,nrow(bee_mean)),holdoutpred=rep(0,nrow(bee_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
+for(i in 1:5){
+  train=model7[fold$subsets[fold$which != i], ]
+  validation=model7[fold$subsets[fold$which == i], ]
+  newlm=lm(formula=log(Spec.wgt) ~ log(IT) * Sex,data=train)
+  newpred=predict(newlm,newdata=validation)
+  true=log(validation$Spec.wgt)
+  error=(true-newpred)
+  rmse=sqrt(mean(error^2))
+  mse=mean((newpred-true)^2)
+  R2=summary(newlm)$adj.r.squared
+  mae=mean(abs(error))
+  model7[fold$subsets[fold$which == i], ]$holdoutpred <- newpred
+  model7[fold$subsets[fold$which == i], ]$RMSE=rmse
+  model7[fold$subsets[fold$which == i], ]$MSE=mse
+  model7[fold$subsets[fold$which == i], ]$MAE=mae
+  model7[fold$subsets[fold$which == i], ]$R2=R2
+  model7[fold$subsets[fold$which == i], ]$AIC=AIC(newlm)
+  model7[fold$subsets[fold$which == i], ]$BIC=BIC(newlm)
+  model7[fold$subsets[fold$which == i], ]$Fold=i
+}
+
+##Just IT
+model8<-bee_mean%>%mutate(Fold=rep(0,nrow(bee_mean)),holdoutpred=rep(0,nrow(bee_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
+for(i in 1:5){
+  train=model8[fold$subsets[fold$which != i], ]
+  validation=model8[fold$subsets[fold$which == i], ]
+  newlm=lm(formula=log(Spec.wgt) ~ log(IT),data=train)
+  newpred=predict(newlm,newdata=validation)
+  true=log(validation$Spec.wgt)
+  error=(true-newpred)
+  rmse=sqrt(mean(error^2))
+  mse=mean((newpred-true)^2)
+  R2=summary(newlm)$adj.r.squared
+  mae=mean(abs(error))
+  model8[fold$subsets[fold$which == i], ]$holdoutpred <- newpred
+  model8[fold$subsets[fold$which == i], ]$RMSE=rmse
+  model8[fold$subsets[fold$which == i], ]$MSE=mse
+  model8[fold$subsets[fold$which == i], ]$MAE=mae
+  model8[fold$subsets[fold$which == i], ]$R2=R2
+  model8[fold$subsets[fold$which == i], ]$AIC=AIC(newlm)
+  model8[fold$subsets[fold$which == i], ]$BIC=BIC(newlm)
+  model8[fold$subsets[fold$which == i], ]$Fold=i
 }
 ```
 
@@ -529,7 +509,7 @@ for(i in 1:5){
   rownames(validation)=validation$Species
   tree=ape::drop.tip(bee.phy, setdiff(bee.phy$tip.label,train$Genus))
   tree=phytools::genus.to.species.tree(tree, species=train$Species)
-  train_vcv=ape::corPagel(value=0.52351,phy=tree,fixed=TRUE)
+  train_vcv=ape::corPagel(value=0.45,phy=tree,fixed=TRUE)
   
   newlm=nlme::gls(log(Spec.wgt)~log(IT)*Region,
                   correlation=train_vcv, method="ML",data=train)
@@ -564,7 +544,7 @@ for(i in 1:5){
   rownames(validation)=validation$Species
   tree=ape::drop.tip(bee.phy, setdiff(bee.phy$tip.label,train$Genus))
   tree=phytools::genus.to.species.tree(tree, species=train$Species)
-  train_vcv=ape::corPagel(value=0.5400448,phy=tree,fixed=TRUE)
+  train_vcv=ape::corPagel(value=0.46,phy=tree,fixed=TRUE)
   
   newlm=nlme::gls(log(Spec.wgt)~log(IT) + Region,
                   correlation=train_vcv, method="ML",data=train)
@@ -599,7 +579,7 @@ for(i in 1:5){
   rownames(validation)=validation$Species
   tree=ape::drop.tip(bee.phy, setdiff(bee.phy$tip.label,train$Genus))
   tree=phytools::genus.to.species.tree(tree, species=train$Species)
-  train_vcv=ape::corPagel(value=0.6,phy=tree,fixed=TRUE)
+  train_vcv=ape::corPagel(value=0.54,phy=tree,fixed=TRUE)
   
   newlm=nlme::gls(log(Spec.wgt)~log(IT) + Region,
                   correlation=train_vcv, method="ML",data=train)
@@ -646,18 +626,21 @@ VCR5=rmse(log(VC5),log(validation5$Spec.wgt))
 
 ```{r}
 K_sets=rbind(
-model1%>%dplyr::select(.,15:20)%>%map_dbl(mean,na.rm=T),
-model2%>%dplyr::select(.,15:20)%>%map_dbl(mean,na.rm=T),
-model3%>%dplyr::select(.,15:20)%>%map_dbl(mean,na.rm=T),
-model4%>%dplyr::select(.,15:20)%>%map_dbl(mean,na.rm=T),
-model5%>%dplyr::select(.,15:20)%>%map_dbl(mean,na.rm=T),
-model6%>%dplyr::select(.,15:20)%>%map_dbl(mean,na.rm=T),
+model1%>%dplyr::select(.,13:18)%>%map_dbl(mean,na.rm=T),
+model2%>%dplyr::select(.,13:18)%>%map_dbl(mean,na.rm=T),
+model3%>%dplyr::select(.,13:18)%>%map_dbl(mean,na.rm=T),
+model4%>%dplyr::select(.,13:18)%>%map_dbl(mean,na.rm=T),
+model5%>%dplyr::select(.,13:18)%>%map_dbl(mean,na.rm=T),
+model6%>%dplyr::select(.,13:18)%>%map_dbl(mean,na.rm=T),
+model7%>%dplyr::select(.,13:18)%>%map_dbl(mean,na.rm=T),
+model8%>%dplyr::select(.,13:18)%>%map_dbl(mean,na.rm=T),
 pgls1%>%dplyr::select(.,15:20)%>%map_dbl(mean,na.rm=T),
 pgls2%>%dplyr::select(.,15:20)%>%map_dbl(mean,na.rm=T),
 pgls3%>%dplyr::select(.,15:20)%>%map_dbl(mean,na.rm=T))
-rownames(K_sets)=c("lme1","lme2","lme3","lme4","lme5","lme6","pgls1","pgls2","pgls3")
+rownames(K_sets)=c("lm1","lm2","lm3","lm4","lm5","lm6","lme7","lm8","pgls1","pgls2","pgls3")
 K_sets=as.data.frame(K_sets)
 K_sets
+
 ##Combine RMSEs
 RMSE_sets=cbind(unique(model1$RMSE),
 unique(model2$RMSE),
@@ -665,49 +648,46 @@ unique(model3$RMSE),
 unique(model4$RMSE),
 unique(model5$RMSE),
 unique(model6$RMSE),
+unique(model7$RMSE),
+unique(model8$RMSE),
 unique(pgls1$RMSE),
 unique(pgls2$RMSE),
 unique(pgls3$RMSE),
 rbind(VCR1,VCR2,VCR3,VCR4,VCR5))
-colnames(RMSE_sets)=c("LM1","LM2","LM3","LM4","LM5","LM6","PG1","PG2","PG3","JC89")
+colnames(RMSE_sets)=c("LM1","LM2","LM3","LM4","LM5","LM6","LM7","LM8","PG1","PG2","PG3","JC87")
 RMSE_sets=as.data.frame(RMSE_sets)
+RMsd=lapply(RMSE_sets,sd)
+RMsd=unlist(RMsd)
+RMsd/sqrt(5)
+colMeans(RMSE_sets)
 
 #Box plots
-bee_RMSE=RMSE_sets%>%gather(.,c("LM1","PG1","JC89"),key ="Model",value = "RMSE")%>%ggplot(aes(x=Model,y=RMSE,fill=Model))+geom_boxplot()+theme_bw()+ theme(aspect.ratio=1,axis.title.x=element_blank(),
+bee_RMSE=RMSE_sets%>%gather(.,c("JC87","LM1","LM5","PG1"),key ="Model",value = "RMSLE")%>%ggplot(aes(x=Model,y=(RMSLE),fill=Model))+geom_boxplot(pch=1)+theme_bw() + theme(aspect.ratio=1,axis.title.x=element_blank(),
         axis.text.x=element_blank(),
         axis.ticks.x=element_blank())+ggtitle("Bees")
-
+bee_RMSE
 
 ```
 
-#Comparing RMSE among models (differences)
-```{r}
-exp(mean(RMSE_sets$PG2)-mean(RMSE_sets$PG1))
-
-mean(RMSE_sets$LM1)-mean(RMSE_sets$PG1)
-mean(RMSE_sets$LM2)-mean(RMSE_sets$PG1)
-```
-
-Hoverflies
-```{r}
+##Hoverflies
+```{r,Hoverflies}
 #k-fold hoverflies
 
 set.seed(123)
 hov_fold<-hov_mean%>%fold_cv(.,k=5)
 
-#IT + Sex
+#IT + Region + Sex + Subfamily
 hov_model1<-hov_mean%>%plyr::mutate(Fold=rep(0,nrow(hov_mean)),holdoutpred=rep(0,nrow(hov_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
 for(i in 1:5){
   train=hov_model1[hov_fold$subsets[hov_fold$which != i], ]
   validation=hov_model1[hov_fold$subsets[hov_fold$which == i], ]
-  newlm=lme4::lmer(formula=log(Spec.wgt) ~ log(IT) + Sex +#Fixed
-                     (1|Measurement/Species),data=train)
-  newpred=predict(newlm,newdata=validation,allow.new.levels=TRUE)
+  newlm=lm(formula=log(Spec.wgt) ~ log(IT) +  Region+Sex+Subfamily,data=train)
+  newpred=predict(newlm,newdata=validation)
   true=log(validation$Spec.wgt)
   error=(true-newpred)
   rmse=sqrt(mean(error^2))
   mse=mean((newpred-true)^2)
-  R2=1-(sum((true-newpred)^2)/sum((true-mean(true))^2))
+  R2=summary(newlm)$adj.r.squared
   mae=mean(abs(error))
   hov_model1[hov_fold$subsets[hov_fold$which == i], ]$holdoutpred <- newpred
   hov_model1[hov_fold$subsets[hov_fold$which == i], ]$RMSE=rmse
@@ -720,19 +700,18 @@ for(i in 1:5){
 }
 
 
-##IT + Region+ Sex
+##IT + Region + Subfamily
 hov_model2<-hov_mean%>%plyr::mutate(Fold=rep(0,nrow(hov_mean)),holdoutpred=rep(0,nrow(hov_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
 for(i in 1:5){
   train=hov_model2[hov_fold$subsets[hov_fold$which != i], ]
   validation=hov_model2[hov_fold$subsets[hov_fold$which == i], ]
-  newlm=lme4::lmer(formula=log(Spec.wgt) ~ log(IT) + Sex+ Region+#Fixed
-                     (1|Measurement/Species),data=train)
-  newpred=predict(newlm,newdata=validation,allow.new.levels=TRUE)
+  newlm=lm(formula=log(Spec.wgt) ~ log(IT) + Subfamily+ Region,data=train)
+  newpred=predict(newlm,newdata=validation)
   true=log(validation$Spec.wgt)
   error=(true-newpred)
   rmse=sqrt(mean(error^2))
   mse=mean((newpred-true)^2)
-  R2=1-(sum((true-newpred)^2)/sum((true-mean(true))^2))
+  R2=summary(newlm)$adj.r.squared
   mae=mean(abs(error))
   hov_model2[hov_fold$subsets[hov_fold$which == i], ]$holdoutpred <- newpred
   hov_model2[hov_fold$subsets[hov_fold$which == i], ]$RMSE=rmse
@@ -744,19 +723,18 @@ for(i in 1:5){
   hov_model2[hov_fold$subsets[hov_fold$which == i], ]$Fold=i
 }
 
-##IT + Sex + Region + Sub
+##IT + Region + Sex
 hov_model3<-hov_mean%>%plyr::mutate(Fold=rep(0,nrow(hov_mean)),holdoutpred=rep(0,nrow(hov_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
 for(i in 1:5){
   train=hov_model3[hov_fold$subsets[hov_fold$which != i], ]
   validation=hov_model3[hov_fold$subsets[hov_fold$which == i], ]
-  newlm=lme4::lmer(formula=log(Spec.wgt) ~ log(IT)+Sex + Region+Subfamily+#Fixed
-                     (1|Measurement/Species),data=train)
-  newpred=predict(newlm,newdata=validation,allow.new.levels=TRUE)
+  newlm=lm(formula=log(Spec.wgt) ~ log(IT) + Sex + Region,data=train)
+  newpred=predict(newlm,newdata=validation)
   true=log(validation$Spec.wgt)
   error=(true-newpred)
   rmse=sqrt(mean(error^2))
   mse=mean((newpred-true)^2)
-  R2=1-(sum((true-newpred)^2)/sum((true-mean(true))^2))
+  R2=summary(newlm)$adj.r.squared
   mae=mean(abs(error))
   hov_model3[hov_fold$subsets[hov_fold$which == i], ]$holdoutpred <- newpred
   hov_model3[hov_fold$subsets[hov_fold$which == i], ]$RMSE=rmse
@@ -768,19 +746,18 @@ for(i in 1:5){
   hov_model3[hov_fold$subsets[hov_fold$which == i], ]$Fold=i
 }
 
-##IT + Sex + Sub
+##IT + Region
 hov_model4<-hov_mean%>%plyr::mutate(Fold=rep(0,nrow(hov_mean)),holdoutpred=rep(0,nrow(hov_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
 for(i in 1:5){
   train=hov_model4[hov_fold$subsets[hov_fold$which != i], ]
   validation=hov_model4[hov_fold$subsets[hov_fold$which == i], ]
-  newlm=lme4::lmer(formula=log(Spec.wgt) ~ log(IT) +Sex + Subfamily+#Fixed
-                     (1|Measurement/Species),data=train)
-  newpred=predict(newlm,newdata=validation,allow.new.levels=TRUE)
+  newlm=lm(formula=log(Spec.wgt) ~ log(IT) + Region,data=train)
+  newpred=predict(newlm,newdata=validation)
   true=log(validation$Spec.wgt)
   error=(true-newpred)
   rmse=sqrt(mean(error^2))
   mse=mean((newpred-true)^2)
-  R2=1-(sum((true-newpred)^2)/sum((true-mean(true))^2))
+  R2=summary(newlm)$adj.r.squared
   mae=mean(abs(error))
   hov_model4[hov_fold$subsets[hov_fold$which == i], ]$holdoutpred <- newpred
   hov_model4[hov_fold$subsets[hov_fold$which == i], ]$RMSE=rmse
@@ -792,19 +769,18 @@ for(i in 1:5){
   hov_model4[hov_fold$subsets[hov_fold$which == i], ]$Fold=i
 }
 
-##IT * Sex
+##IT + Subfamily + Sex
 hov_model5<-hov_mean%>%plyr::mutate(Fold=rep(0,nrow(hov_mean)),holdoutpred=rep(0,nrow(hov_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
 for(i in 1:5){
   train=hov_model5[hov_fold$subsets[hov_fold$which != i], ]
   validation=hov_model5[hov_fold$subsets[hov_fold$which == i], ]
-  newlm=lme4::lmer(formula=log(Spec.wgt) ~ log(IT) * Sex +#Fixed
-                     (1|Measurement/Species),data=train)
-  newpred=predict(newlm,newdata=validation,allow.new.levels=TRUE)
+  newlm=lm(formula=log(Spec.wgt) ~ log(IT) + Sex + Subfamily,data=train)
+  newpred=predict(newlm,newdata=validation)
   true=log(validation$Spec.wgt)
   error=(true-newpred)
   rmse=sqrt(mean(error^2))
   mse=mean((newpred-true)^2)
-  R2=1-(sum((true-newpred)^2)/sum((true-mean(true))^2))
+  R2=summary(newlm)$adj.r.squared
   mae=mean(abs(error))
   hov_model5[hov_fold$subsets[hov_fold$which == i], ]$holdoutpred <- newpred
   hov_model5[hov_fold$subsets[hov_fold$which == i], ]$RMSE=rmse
@@ -816,19 +792,18 @@ for(i in 1:5){
   hov_model5[hov_fold$subsets[hov_fold$which == i], ]$Fold=i
 }
 
-##IT * Sex+ Region
+##IT + Subfamily
 hov_model6<-hov_mean%>%plyr::mutate(Fold=rep(0,nrow(hov_mean)),holdoutpred=rep(0,nrow(hov_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
 for(i in 1:5){
   train=hov_model6[hov_fold$subsets[hov_fold$which != i], ]
   validation=hov_model6[hov_fold$subsets[hov_fold$which == i], ]
-  newlm=lme4::lmer(formula=log(Spec.wgt) ~ log(IT)*Sex + Region+#Fixed
-                     (1|Measurement/Species),data=train)
-  newpred=predict(newlm,newdata=validation,allow.new.levels=TRUE)
+  newlm=lm(formula=log(Spec.wgt) ~ log(IT) + Subfamily,data=train)
+  newpred=predict(newlm,newdata=validation)
   true=log(validation$Spec.wgt)
   error=(true-newpred)
   rmse=sqrt(mean(error^2))
   mse=mean((newpred-true)^2)
-  R2=1-(sum((true-newpred)^2)/sum((true-mean(true))^2))
+  R2=summary(newlm)$adj.r.squared
   mae=mean(abs(error))
   hov_model6[hov_fold$subsets[hov_fold$which == i], ]$holdoutpred <- newpred
   hov_model6[hov_fold$subsets[hov_fold$which == i], ]$RMSE=rmse
@@ -839,19 +814,18 @@ for(i in 1:5){
   hov_model6[hov_fold$subsets[hov_fold$which == i], ]$BIC=BIC(newlm)
   hov_model6[hov_fold$subsets[hov_fold$which == i], ]$Fold=i
 }
-##IT * Sex+ Region
+##IT
 hov_model7<-hov_mean%>%plyr::mutate(Fold=rep(0,nrow(hov_mean)),holdoutpred=rep(0,nrow(hov_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
 for(i in 1:5){
   train=hov_model7[hov_fold$subsets[hov_fold$which != i], ]
   validation=hov_model7[hov_fold$subsets[hov_fold$which == i], ]
-  newlm=lme4::lmer(formula=log(Spec.wgt) ~ log(IT)  + Subfamily+#Fixed
-                     (1|Measurement/Species),data=train)
-  newpred=predict(newlm,newdata=validation,allow.new.levels=TRUE)
+  newlm=lm(formula=log(Spec.wgt) ~ log(IT) + Sex,data=train)
+  newpred=predict(newlm,newdata=validation)
   true=log(validation$Spec.wgt)
   error=(true-newpred)
   rmse=sqrt(mean(error^2))
   mse=mean((newpred-true)^2)
-  R2=1-(sum((true-newpred)^2)/sum((true-mean(true))^2))
+  R2=summary(newlm)$adj.r.squared
   mae=mean(abs(error))
   hov_model7[hov_fold$subsets[hov_fold$which == i], ]$holdoutpred <- newpred
   hov_model7[hov_fold$subsets[hov_fold$which == i], ]$RMSE=rmse
@@ -862,19 +836,18 @@ for(i in 1:5){
   hov_model7[hov_fold$subsets[hov_fold$which == i], ]$BIC=BIC(newlm)
   hov_model7[hov_fold$subsets[hov_fold$which == i], ]$Fold=i
 }
-##IT
+
 hov_model8<-hov_mean%>%plyr::mutate(Fold=rep(0,nrow(hov_mean)),holdoutpred=rep(0,nrow(hov_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),AIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
 for(i in 1:5){
   train=hov_model8[hov_fold$subsets[hov_fold$which != i], ]
   validation=hov_model8[hov_fold$subsets[hov_fold$which == i], ]
-  newlm=lme4::lmer(formula=log(Spec.wgt) ~ log(IT)+#Fixed
-                     (1|Measurement/Species),data=train)
-  newpred=predict(newlm,newdata=validation,allow.new.levels=TRUE)
+  newlm=lm(formula=log(Spec.wgt) ~ log(IT),data=train)
+  newpred=predict(newlm,newdata=validation)
   true=log(validation$Spec.wgt)
   error=(true-newpred)
   rmse=sqrt(mean(error^2))
   mse=mean((newpred-true)^2)
-  R2=1-(sum((true-newpred)^2)/sum((true-mean(true))^2))
+  R2=summary(newlm)$adj.r.squared
   mae=mean(abs(error))
   hov_model8[hov_fold$subsets[hov_fold$which == i], ]$holdoutpred <- newpred
   hov_model8[hov_fold$subsets[hov_fold$which == i], ]$RMSE=rmse
@@ -887,14 +860,14 @@ for(i in 1:5){
 }
 
 Hov_K_sets=rbind(
-  hov_model1%>%dplyr::select(.,16:21)%>%map_dbl(median,na.rm=T),
-  hov_model2%>%dplyr::select(.,16:21)%>%map_dbl(median,na.rm=T),
-  hov_model3%>%dplyr::select(.,16:21)%>%map_dbl(median,na.rm=T),
-  hov_model4%>%dplyr::select(.,16:21)%>%map_dbl(median,na.rm=T),
-  hov_model5%>%dplyr::select(.,16:21)%>%map_dbl(median,na.rm=T),
-  hov_model6%>%dplyr::select(.,16:21)%>%map_dbl(median,na.rm=T),
-  hov_model7%>%dplyr::select(.,16:21)%>%map_dbl(median,na.rm=T),
-  hov_model8%>%dplyr::select(.,16:21)%>%map_dbl(median,na.rm=T))
+  hov_model1%>%dplyr::select(.,14:19)%>%map_dbl(median,na.rm=T),
+  hov_model2%>%dplyr::select(.,14:19)%>%map_dbl(median,na.rm=T),
+  hov_model3%>%dplyr::select(.,14:19)%>%map_dbl(median,na.rm=T),
+  hov_model4%>%dplyr::select(.,14:19)%>%map_dbl(median,na.rm=T),
+  hov_model5%>%dplyr::select(.,14:19)%>%map_dbl(median,na.rm=T),
+  hov_model6%>%dplyr::select(.,14:19)%>%map_dbl(median,na.rm=T),
+  hov_model7%>%dplyr::select(.,14:19)%>%map_dbl(median,na.rm=T),
+  hov_model8%>%dplyr::select(.,14:19)%>%map_dbl(median,na.rm=T))
 rownames(Hov_K_sets)=c("LM1","LM2","LM3","LM4","LM5","LM6","LM7","LM8")
 Hov_K_sets
 
@@ -911,10 +884,10 @@ colnames(Hov_RMSE_sets)=c("LM1","LM2","LM3","LM4","LM5","LM6","LM7","LM8")
 Hov_RMSE_sets=as.data.frame(Hov_RMSE_sets)
 
 #Box plots
-Hov_RMSE=Hov_RMSE_sets%>%gather(.,1:8,key ="Model",value = "RMSE")%>%ggplot(aes(x=Model,y=RMSE,fill=Model))+geom_boxplot()+theme_bw()+ theme(aspect.ratio=1,axis.title.x=element_blank(),
+Hov_RMSE=Hov_RMSE_sets%>%gather(.,c("LM1","LM5","LM8"),key ="Model",value = "RMSLE")%>%ggplot(aes(x=Model,y=(RMSLE),fill=Model))+geom_boxplot()+theme_bw()+ theme(aspect.ratio=1,axis.title.x=element_blank(),
         axis.text.x=element_blank(),
         axis.ticks.x=element_blank())+ggtitle("Hoverflies")
-
+Hov_RMSE
 ```
 
 #RMSE plots
@@ -1290,10 +1263,20 @@ abline(a=confint(lm(hov_species$Melanostoma_scalare[hov_species$Melanostoma_scal
 LME
 ```{r}
 
-pres.lme=lmer(log(Spec.wgt)~log(IT)+Pres.time+Sex+(1|Country/Species),bee_pres)
+pres.lm=lm(log(Spec.wgt)~log(IT)+Pres.time+Sex+Species,bee_pres)
 
-summary(pres.lme)
-plot(pres.lme)
+summary(pres.lm)
+plot(pres.lm)
+
+##Female, IT = 1, Andrena_flavipes, pres time =10
+range(bee_pres$IT)
+exp(1.27+0.1775480+log(0.5)*1.85+(100*-0.0012556))
+exp(1.27+0.1775480+log(0.5)*1.85+(50*-0.0012556))
+exp(1.27+0.1775480+log(0.5)*1.85+(1*-0.0012556))
+
+exp(1.27+0.1775480+log(4)*1.85+(100*-0.0012556))
+exp(1.27+0.1775480+log(4)*1.85+(50*-0.0012556))
+exp(1.27+0.1775480+log(4)*1.85+(1*-0.0012556))
 
 ```
 

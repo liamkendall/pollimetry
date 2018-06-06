@@ -37,7 +37,7 @@ library(tidyverse)
 
 #dataframe
 set.seed(123)
-poll_all <- read.csv(file="data/PA310518.csv",header=T)
+poll_all <- read.csv(file="data/PA060618.csv",header=T)
 
 #split to bees and hoverflies
 poll_all$Spec.wgt=poll_all$Spec.wgt*1000
@@ -78,27 +78,27 @@ hov_mean$Subfamily=droplevels(hov_mean$Subfamily)
 hov_mean$Region=droplevels(hov_mean$Region)
 hov_mean$Region=relevel(hov_mean$Region,ref="Europe")
 
-##PHYLO Dataframe -obsolete
+##PHYLO Dataframe -obsolete (except for phylogeny)
 
-bee_phylo=aggregate(Latitude~Region+Family+Subfamily+
+bee_phylo=aggregate(Latitude~Family+Subfamily+
                       Tribe+Genus+Species,bee_all,median)
-bee_phylo$Longitude=as.numeric(unlist(aggregate(Longitude~Region+Family+Subfamily+
-                                                  Tribe+Genus+Species,bee_all,median)[7]))
-bee_phylo$Spec.wgt=as.numeric(unlist(aggregate(Spec.wgt~Region+Family+Subfamily+
-                                                 Tribe+Genus+Species,bee_all,mean)[7]))
-bee_phylo$Wgt.SD=as.numeric(unlist(aggregate(log(Spec.wgt)~Region+Family+Subfamily+
-                                               Tribe+Genus+Species,bee_all,sd)[7]))
-bee_phylo$IT=as.numeric(unlist(aggregate(IT~Region+Family+Subfamily+
-                                           Tribe+Genus+Species,bee_all,mean)[7]))
-bee_phylo$IT.SD=as.numeric(unlist(aggregate(log(IT)~Region+Family+Subfamily+
-                                              Tribe+Genus+Species,bee_all,sd)[7]))
-bee_phylo=bee_phylo[-131,]
-bee_phylo=bee_phylo[-56,]
+bee_phylo$Longitude=as.numeric(unlist(aggregate(Longitude~Family+Subfamily+
+                                                  Tribe+Genus+Species,bee_all,median)[6]))
+bee_phylo$Spec.wgt=as.numeric(unlist(aggregate(Spec.wgt~Family+Subfamily+
+                                                 Tribe+Genus+Species,bee_all,mean)[6]))
+bee_phylo$Wgt.SD=as.numeric(unlist(aggregate(log(Spec.wgt)~Family+Subfamily+
+                                               Tribe+Genus+Species,bee_all,sd)[6]))
+bee_phylo$IT=as.numeric(unlist(aggregate(IT~Family+Subfamily+
+                                           Tribe+Genus+Species,bee_all,mean)[6]))
+bee_phylo$IT.SD=as.numeric(unlist(aggregate(log(IT)~Family+Subfamily+
+                                              Tribe+Genus+Species,bee_all,sd)[6]))
+#bee_phylo=bee_phylo[-140,]
+#bee_phylo=bee_phylo[-62,]
 bee_phylo=bee_phylo[!bee_phylo$Species=="Flavipanurgus_venustus",]
 bee_phylo=bee_phylo[!bee_phylo$Species=="Protomeliturga_turnerea",]
 bee_phylo=bee_phylo[!bee_phylo$Species=="Tetrapedia_diversipes",]
 
-rownames(bee_phylo)=bee_phylo$Species
+rownames(bee_phylo)=droplevels(bee_phylo$Species)
 
 #Tree for MCMC
 
@@ -165,7 +165,7 @@ Test OLS models w. biogeography
 
 # set some constant values
 prior1 <- list(R = list(V=1, nu=0.002),  G = list(G1 = list(V=1,nu=0.002))) #non-informative prior
-Nnitt <- 80000 # default is 13000
+Nnitt <- 110000 # default is 13000
 Nburnin <- 10000 # default is 3000
 Nthin <- 100 # thinning of 100 needed for autocorrelation in VCV
 
@@ -179,12 +179,12 @@ MCMC_full_mod <- MCMCglmm.updateable(log(Spec.wgt) ~ log(IT)  + Family +
                 singular.ok=TRUE,data= bee_mean, 
                 verbose=FALSE, thin=Nthin, 
                 nitt=Nnitt, burnin=Nburnin)
-
+summary(MCMC_full_mod)
 ```
 
 ```{r}
 MCMC_bee_full_dredge=dredge(MCMC_full_mod,beta="none",fixed="log(IT)",rank="DIC") 
-#bee_models=lapply(dredge(MCMC_full_mod, fixed="log(IT)", evaluate = FALSE), eval)
+bee_models=lapply(dredge(MCMC_full_mod, fixed="log(IT)", evaluate = FALSE), eval)
 ```
 
 #Hoverfly model selection
@@ -192,7 +192,7 @@ Test w. biogeography
 ```{r}
 # set some constant values
 prior1 <- list(R = list(V=1, nu=0.002),  G = list(G1 = list(V=1,nu=0.002))) #non-informative prior
-Nnitt <- 80000 # default is 13000
+Nnitt <- 110000 # default is 13000
 Nburnin <- 10000 # default is 3000
 Nthin <- 100 # thinning of 100 needed for autocorrelation in VCV
 
@@ -213,7 +213,7 @@ hov.full=MCMCglmm.updateable(log(Spec.wgt) ~ log(IT)  + Subfamily +
 ```{r}
 options(na.action = "na.fail")
 hov_dr=dredge(hov.full,beta="none",fixed="log(IT)",rank="DIC")
-#hov_models=lapply(dredge(hov.full, fixed="log(IT)", evaluate = FALSE), eval)
+hov_models=lapply(dredge(hov.full, fixed="log(IT)", evaluate = FALSE), eval)
 
 ```
 
@@ -232,7 +232,7 @@ phylosig(tree=bee.tree,x=WGT,method="lambda",test=TRUE)
 ```{r}
 #same priors as previous models
 prior1 <- list(R = list(V=1, nu=0.002),  G = list(G1 = list(V=1, nu=0.002))) #non-informative prior
-Nnitt <- 80000 # default is 13000
+Nnitt <- 110000 # default is 13000
 Nburnin <- 10000 # default is 3000
 Nthin <- 100 # thinning of 100 needed for autocorrelation in VCV
 
@@ -248,17 +248,16 @@ MCMC_phy_mod <- MCMCglmm.updateable(log(Spec.wgt) ~ log(IT) + Sex + Region + #fi
 
 MCMC_phy_mod_dredge=dredge(MCMC_phy_mod,rank="DIC",fixed="log(IT)",trace=TRUE)
 
-#phy_models=lapply(dredge(MCMC_phy_mod, fixed="log(IT)", evaluate = FALSE), eval)
-
+phy_models=lapply(dredge(MCMC_phy_mod, fixed="log(IT)", evaluate = FALSE), eval)
 ```
 
 #Model co-efficients
 #Bees
 
-#Model validation - k-fold cross validation
+##Model validation - k-fold cross validation
 
-Bees
-```{r}  
+
+```{r, bees}  
 
 ##Model1
 model1<-bee_mean%>%mutate(Fold=rep(0,nrow(bee_mean)),
@@ -326,7 +325,7 @@ for(i in 1:10){
 model2%>%select(.,14:19)%>%map_dbl(median,na.rm=T)
 
 
-##MOdel 3
+##Model 3
 model3<-bee_mean%>%mutate(Fold=rep(0,nrow(bee_mean)),holdoutpred=rep(0,nrow(bee_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),DIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
 for(i in 1:10){
   train=model3[bfold$subsets[bfold$which != i], ]
@@ -424,8 +423,8 @@ model6<-bee_mean%>%mutate(Fold=rep(0,nrow(bee_mean)),holdoutpred=rep(0,nrow(bee_
 for(i in 1:10){
   train=model6[bfold$subsets[bfold$which != i], ]
   validation=model6[bfold$subsets[bfold$which == i], ]
-  newlm=MCMCglmm::MCMCglmm(log(Spec.wgt) ~ log(IT) + 
-                             Region , 
+  newlm=MCMCglmm::MCMCglmm(log(Spec.wgt) ~ log(IT) * 
+                             Region, 
                            random = ~Species,
                            family = "gaussian", prior=prior1,
                            singular.ok=TRUE,data=train, 
@@ -454,7 +453,7 @@ model7<-bee_mean%>%mutate(Fold=rep(0,nrow(bee_mean)),holdoutpred=rep(0,nrow(bee_
 for(i in 1:10){
   train=model7[bfold$subsets[bfold$which != i], ]
   validation=model7[bfold$subsets[bfold$which == i], ]
-  newlm=MCMCglmm::MCMCglmm(log(Spec.wgt) ~ log(IT) + 
+  newlm=MCMCglmm::MCMCglmm(log(Spec.wgt) ~ log(IT) * 
                              Family, 
                            random = ~Species,
                            family = "gaussian", prior=prior1,
@@ -484,8 +483,7 @@ model8<-bee_mean%>%mutate(Fold=rep(0,nrow(bee_mean)),holdoutpred=rep(0,nrow(bee_
 for(i in 1:10){
   train=model8[bfold$subsets[bfold$which != i], ]
   validation=model8[bfold$subsets[bfold$which == i], ]
-  newlm=MCMCglmm::MCMCglmm(log(Spec.wgt) ~ log(IT) + 
-                             Family, 
+  newlm=MCMCglmm::MCMCglmm(log(Spec.wgt) ~ log(IT), 
                            random = ~Species,
                            family = "gaussian", prior=prior1,
                            singular.ok=TRUE,data=train, 
@@ -552,8 +550,7 @@ for(i in 1:10){
   train=pglmm2[bfold$subsets[bfold$which != i], ]
   validation=pglmm2[bfold$subsets[bfold$which == i], ]
   
-  newlm=MCMCglmm::MCMCglmm(log(Spec.wgt) ~ log(IT) + Sex+
-                             log(IT):Sex, 
+  newlm=MCMCglmm::MCMCglmm(log(Spec.wgt) ~ log(IT) * Sex, 
                            random = ~animal,pedigree = bee.tree,
                            family = "gaussian", prior=prior1,
                            singular.ok=TRUE,data=train,
@@ -584,8 +581,7 @@ pglmm3<-bee_mean%>%mutate(Fold=rep(0,nrow(bee_mean)),holdoutpred=rep(0,nrow(bee_
 for(i in 1:10){
   train=pglmm3[bfold$subsets[bfold$which != i], ]
   validation=pglmm3[bfold$subsets[bfold$which == i], ]
-  newlm=MCMCglmm::MCMCglmm(log(Spec.wgt) ~ log(IT) + Region+
-                             log(IT):Region, 
+  newlm=MCMCglmm::MCMCglmm(log(Spec.wgt) ~ log(IT) * Region, 
                            random = ~animal,pedigree = bee.tree,
                            family = "gaussian", prior=prior1,
                            singular.ok=TRUE,data=train,
@@ -675,6 +671,17 @@ VCR7=rmse(VC7,validation7$Spec.wgt)
 VCR8=rmse(VC8,validation8$Spec.wgt)
 VCR9=rmse(VC9,validation9$Spec.wgt)
 VCR10=rmse(VC10,validation10$Spec.wgt)
+
+VCM1=mae(VC1,validation1$Spec.wgt)
+VCM2=mae(VC2,validation2$Spec.wgt)
+VCM3=mae(VC3,validation3$Spec.wgt)
+VCM4=mae(VC4,validation4$Spec.wgt)
+VCM5=mae(VC5,validation5$Spec.wgt)
+VCM6=mae(VC6,validation6$Spec.wgt)
+VCM7=mae(VC7,validation7$Spec.wgt)
+VCM8=mae(VC8,validation8$Spec.wgt)
+VCM9=mae(VC9,validation9$Spec.wgt)
+VCM10=mae(VC10,validation10$Spec.wgt)
 ```
 
 ```{r}
@@ -709,7 +716,7 @@ unique(pglmm2$RMSE),
 unique(pglmm3$RMSE),
 unique(pglmm4$RMSE),
 rbind(VCR1,VCR2,VCR3,VCR4,VCR5,VCR6,VCR7,VCR8,VCR9,VCR10))
-colnames(RMSE_sets)=c("LM1","LM2","LM3","LM4","LM5","LM6","LM7","LM8","PG1","PG2","PG3","PG4","JC87")
+colnames(RMSE_sets)=c("LM1","LM2","LM3","LM4","LM5","LM6","LM7","LM_IT","PG1","PG2","PG3","PG_IT","JC87")
 RMSE_sets=as.data.frame(RMSE_sets)
 
 colMeans(RMSE_sets[,1:13])
@@ -758,7 +765,7 @@ for(i in 1:10){
   hov_model1[hov_fold$subsets[hov_fold$which == i], ]$Fold=i
 }
 
-##IT + Sex + Sub*IT + Region
+##MODEL 2 IT + Sex + Sub*IT + Region
 hov_model2<-hov_mean%>%mutate(Fold=rep(0,nrow(hov_mean)),
                               holdoutpred=rep(0,nrow(hov_mean)),
                               MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),
@@ -792,13 +799,13 @@ for(i in 1:10){
 }
 
 ##MODEL 3
-##IT + Subfamily + Sex*IT
+##Sex
 hov_model3<-hov_mean%>%mutate(Fold=rep(0,nrow(hov_mean)),holdoutpred=rep(0,nrow(hov_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),DIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
 for(i in 1:10){
   train=hov_model3[hov_fold$subsets[hov_fold$which != i], ]
   validation=hov_model3[hov_fold$subsets[hov_fold$which == i], ]
   newlm=MCMCglmm.updateable(log(Spec.wgt) ~ log(IT)  + 
-                              Sex + Subfamily + log(IT):Sex, 
+                              Sex, 
                             random = ~Species,
                             family = "gaussian", prior=prior1,
                             singular.ok=TRUE,data=train, 
@@ -827,7 +834,7 @@ for(i in 1:10){
   train=hov_model4[hov_fold$subsets[hov_fold$which != i], ]
   validation=hov_model4[hov_fold$subsets[hov_fold$which == i], ]
   newlm=MCMCglmm.updateable(log(Spec.wgt) ~ log(IT)  + 
-                              Sex, 
+                              Subfamily + Sex + log(IT):Subfamily, 
                             random = ~Species,
                             family = "gaussian", prior=prior1,
                             singular.ok=TRUE,data=train, 
@@ -855,7 +862,7 @@ hov_model5<-hov_mean%>%mutate(Fold=rep(0,nrow(hov_mean)),holdoutpred=rep(0,nrow(
 for(i in 1:10){
   train=hov_model5[hov_fold$subsets[hov_fold$which != i], ]
   validation=hov_model5[hov_fold$subsets[hov_fold$which == i], ]
-  newlm=MCMCglmm.updateable(log(Spec.wgt) ~ log(IT)  + Region, 
+  newlm=MCMCglmm.updateable(log(Spec.wgt) ~ log(IT)  + Subfamily + Region, 
                             random = ~Species,
                             family = "gaussian", prior=prior1,
                             singular.ok=TRUE,data=train, 
@@ -878,13 +885,13 @@ for(i in 1:10){
   hov_model5[hov_fold$subsets[hov_fold$which == i], ]$Fold=i
 }
 
-##MODEL 6 IT + Subfamily + Region*IT
+##MODEL 6 IT + Region
 hov_model6<-hov_mean%>%mutate(Fold=rep(0,nrow(hov_mean)),holdoutpred=rep(0,nrow(hov_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),DIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
 for(i in 1:10){
   train=hov_model6[hov_fold$subsets[hov_fold$which != i], ]
   validation=hov_model6[hov_fold$subsets[hov_fold$which == i], ]
   newlm=MCMCglmm.updateable(log(Spec.wgt) ~ log(IT)  + 
-                              Subfamily + Region + log(IT):Region, 
+                               Region, 
                             random = ~Species,
                             family = "gaussian", prior=prior1,
                             singular.ok=TRUE,data=train, 
@@ -907,13 +914,12 @@ for(i in 1:10){
   hov_model6[hov_fold$subsets[hov_fold$which == i], ]$Fold=i
 }
 
-##MODEL 7 IT + Subfamily + Region*IT
+##MODEL 7 IT * Subfamily 
 hov_model7<-hov_mean%>%mutate(Fold=rep(0,nrow(hov_mean)),holdoutpred=rep(0,nrow(hov_mean)),MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),MAE=rep(0,nrow(.)),R2=rep(0,nrow(.)),DIC=rep(0,nrow(.)),BIC=rep(0,nrow(.)))
 for(i in 1:10){
   train=hov_model7[hov_fold$subsets[hov_fold$which != i], ]
   validation=hov_model7[hov_fold$subsets[hov_fold$which == i], ]
-  newlm=MCMCglmm.updateable(log(Spec.wgt) ~ log(IT)  + 
-                              Subfamily  + log(IT):Subfamily, 
+  newlm=MCMCglmm.updateable(log(Spec.wgt) ~ log(IT) *Subfamily, 
                             random = ~Species,
                             family = "gaussian", prior=prior1,
                             singular.ok=TRUE,data=train, 
@@ -963,16 +969,16 @@ for(i in 1:10){
   hov_model8[hov_fold$subsets[hov_fold$which == i], ]$BIC=BIC(newlm)
   hov_model8[hov_fold$subsets[hov_fold$which == i], ]$Fold=i
 }
-
+str(hov_model1)
 Hov_K_sets=rbind(
-  hov_model1%>%dplyr::select(.,13:18)%>%map_dbl(median,na.rm=T),
-  hov_model2%>%dplyr::select(.,13:18)%>%map_dbl(median,na.rm=T),
-  hov_model3%>%dplyr::select(.,13:18)%>%map_dbl(median,na.rm=T),
-  hov_model4%>%dplyr::select(.,13:18)%>%map_dbl(median,na.rm=T),
-  hov_model5%>%dplyr::select(.,13:18)%>%map_dbl(median,na.rm=T),
-  hov_model6%>%dplyr::select(.,13:18)%>%map_dbl(median,na.rm=T),
-  hov_model7%>%dplyr::select(.,13:18)%>%map_dbl(median,na.rm=T),
-  hov_model8%>%dplyr::select(.,13:18)%>%map_dbl(median,na.rm=T))
+  hov_model1%>%dplyr::select(.,14:19)%>%map_dbl(median,na.rm=T),
+  hov_model2%>%dplyr::select(.,14:19)%>%map_dbl(median,na.rm=T),
+  hov_model3%>%dplyr::select(.,14:19)%>%map_dbl(median,na.rm=T),
+  hov_model4%>%dplyr::select(.,14:19)%>%map_dbl(median,na.rm=T),
+  hov_model5%>%dplyr::select(.,14:19)%>%map_dbl(median,na.rm=T),
+  hov_model6%>%dplyr::select(.,14:19)%>%map_dbl(median,na.rm=T),
+  hov_model7%>%dplyr::select(.,14:19)%>%map_dbl(median,na.rm=T),
+  hov_model8%>%dplyr::select(.,14:19)%>%map_dbl(median,na.rm=T))
 rownames(Hov_K_sets)=c("LM1","LM2","LM3","LM4","LM5","LM6","LM7","LM8")
 Hov_K_sets
 

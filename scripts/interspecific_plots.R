@@ -8,13 +8,6 @@ bee2=ggplot(bee_mean,aes(x=log(IT),y=log(Spec.wgt),col=Sex))+geom_point(col=1,pc
 bee3=ggplot(bee_mean,aes(x=log(IT),y=log(Spec.wgt),col=Family))+geom_point(col=1,pch=1)+
   geom_smooth(method = "lm",se=FALSE)+theme_bw()
 
-bee4=ggplot(bee_phylo,aes(x=log(IT),y=log(Spec.wgt),col=Region))+geom_point(col=1,pch=1)+
-  geom_smooth(method = "lm", formula = y ~ x,se=FALSE)+theme_bw()
-bee5=ggplot(bee_mean,aes(x=log(IT),y=log(Spec.wgt),col=Sex))+geom_point(col=1,pch=1)+
-  geom_smooth(method = "lm",se=FALSE)+theme_bw()
-bee6=ggplot(bee_mean,aes(x=log(IT),y=log(Spec.wgt),col=Family))+geom_point(col=1,pch=1)+
-  geom_smooth(method = "lm",se=FALSE)+theme_bw()
-
 #GFAM
 bee1=ggplot(bee_phylo,aes(y=IT,x=Spec.wgt,col=Region))+geom_point(col=1,pch=1)+
 geom_smooth(method = "gam", formula = y ~ s(log(x)),se=FALSE)+theme_bw()
@@ -29,11 +22,11 @@ bee2=ggplotGrob(bee2)
 bee3=ggplotGrob(bee3)
 grid.draw(cbind(bee1, bee2,bee3, size = "first"))
 
-hov1=ggplot(hov_mean,aes(x=(IT),y=(Spec.wgt),col=Region))+geom_point(col=1,pch=1)+
+hov1=ggplot(hov_mean,aes(x=log(IT),y=log(Spec.wgt),col=Region))+geom_point(col=1,pch=1)+
   geom_smooth(method="lm",se=FALSE)+theme_bw()
-hov2=ggplot(hov_mean,aes(x=(IT),y=(Spec.wgt),col=Sex))+geom_point(col=1,pch=1)+
+hov2=ggplot(hov_mean,aes(x=log(IT),y=log(Spec.wgt),col=Sex))+geom_point(col=1,pch=1)+
   geom_smooth(method="lm",se=FALSE)+theme_bw()
-hov3=ggplot(hov_mean,aes(x=(IT),y=(Spec.wgt),col=Subfamily))+geom_point(col=1,pch=1)+
+hov3=ggplot(hov_mean,aes(x=log(IT),y=log(Spec.wgt),col=Subfamily))+geom_point(col=1,pch=1)+
   geom_smooth(method="lm",se=FALSE)+theme_bw()
 
 
@@ -41,7 +34,7 @@ hov1=ggplotGrob(hov1)
 hov2=ggplotGrob(hov2)
 hov3=ggplotGrob(hov3)
 grid.draw(cbind(hov1, hov2,hov3, size = "first"))
-
+# 6 x 17 size device
 lay <- rbind(c(1,2,3),
              c(4,5,6))
 plot_grid(bee1,bee2,bee3,hov1,hov2,hov3,ncol=3,nrow=2,layout_matrix = lay)
@@ -78,37 +71,32 @@ bee.plot=genus.to.species.tree(bee.plot, species=bee_phylo$Species)
 
 bee_wgt_phy=contMap(bee.tree,WGT,plot=FALSE)
 
-plot(bee_wgt_phy,ftype="off",fsize=c(0.4,0.4),lwd=0.95,xlim=c(0,1.25*max(nodeHeights(tree))),
-     ftype="i",leg.txt="ln(Body size)")
+plot(bee_wgt_phy
+,ftype="off",
+fsize=c(0.4,1),lwd=0.95,
+xlim=c(0,1.25*max(nodeHeights(bee.tree))),
+     ftype="i",leg.txt="ln body size")
 
 mel_tips<-c("Macropis_europaea","Hesperapis_carinata")
-megachil_tips<-c("Megachile_captionis","Anthidium_sticticum")
+megachil_tips<-c("Lithurgus_spp","Anthidium_sticticum")
 apid_tips<-c("Ceratina_mikmaqi","Amegilla_chlorocyanea")
 andren_tips<-c("Panurgus_dargius","Andrena_bicolor")
 halicti_tips<-c("Dufourea_marginata","Lipotriches_flavoviridis")
 colletid_tips<-c("Leioproctus_leisp1","Hylaeus_communis")
-cladelabels(bee_pruned,node=findMRCA(bee_pruned,mel_tips),text="Melittidae",
-            orientation="horizontal",offset=8)
-cladelabels(bee_pruned,node=findMRCA(bee_pruned,megachil_tips),text="Megachilidae",
-            orientation="horizontal",offset=8)
-cladelabels(bee_pruned,node=findMRCA(bee_pruned,apid_tips),text="Apidae",
-            orientation="horizontal",offset=8)
-cladelabels(bee_pruned,node=findMRCA(bee_pruned,andren_tips),text="Andrenidae",
-            orientation="horizontal",offset=8)
-cladelabels(bee_pruned,node=findMRCA(bee_pruned,halicti_tips),text="Halictidae",
-            orientation="horizontal",offset=8)
-cladelabels(bee_pruned,node=findMRCA(bee_pruned,colletid_tips),text="Colletidae",
-            orientation="horizontal",offset=8)
+cladelabels(bee.tree,node=findMRCA(bee.tree,mel_tips),text="Melittidae",
+            orientation="horizontal",offset=2)
+cladelabels(bee.tree,node=findMRCA(bee.tree,megachil_tips),text="Megachilidae",
+            orientation="horizontal",offset=2)
+cladelabels(bee.tree,node=findMRCA(bee.tree,apid_tips),text="Apidae",
+            orientation="horizontal",offset=2.01)
+cladelabels(bee.tree,node=findMRCA(bee.tree,andren_tips),text="Andrenidae",
+            orientation="horizontal",offset=2)
+cladelabels(bee.tree,node=findMRCA(bee.tree,halicti_tips),text="Halictidae",
+            orientation="horizontal",offset=2)
+cladelabels(bee.tree,node=findMRCA(bee.tree,colletid_tips),text="Colletidae",
+            orientation="horizontal",offset=2)
 
 
-Region=as.data.frame(bee_phylo$Region)
-rownames(Region)=rownames(bee_phylo)
-Region<-as.matrix((Region))[,1]
-
-
-fmode<-as.factor(setNames(bee_phylo$Region,rownames(bee_phylo)))
-dotTree(bee_pruned,fmode,colors=setNames(c("blue","red","green"),
-                                       c("Australia","Europe","North America")),ftype="off",fsize=c(0.4,1))
 
 ##DENSITY PLOTS
 ggplot(bee_mean,aes(x=log(Spec.wgt),col=Region))+geom_density(cex=0.75)+theme_bw()+facet_grid(Family ~.)

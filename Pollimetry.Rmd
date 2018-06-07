@@ -1,13 +1,15 @@
 ---
 title: 'Pollinator size and its consequences: Predictive allometry for pollinating insects'
 author: Liam Kendall, Romina Rader, Vesna Gagic, Daniel Cariveau, Matthias Albrecht,
-  Katherine Baldock, Breno Freitus, Mark Hall, Janeally Pereira, Juanita Rodriguez, Laura Russo, Louis Suter and Ignasi Bartomeus
+  Katherine Baldock, Breno Freitas, Mark Hall, Janeally Pereira, Juanita Rodriguez, Laura Russo, Louis Suter and Ignasi Bartomeus
 date: "18/05/2018"
 output:
   pdf_document: default
   html_document:
     df_print: paged
   word_document: default
+editor_options: 
+  chunk_output_type: console
 ---
 
 This markdown file has all code from the MS so you can look over it, notice any issues/mistakes and make changes :)
@@ -38,6 +40,7 @@ library(tidyverse)
 #dataframe
 set.seed(123)
 poll_all <- read.csv(file="data/PA060618.csv",header=T)
+head(poll_all)
 
 #split to bees and hoverflies
 poll_all$Spec.wgt=poll_all$Spec.wgt*1000
@@ -56,7 +59,7 @@ bee_mean$Spec.wgt=as.numeric(unlist(aggregate(Spec.wgt~Family+Subfamily+Tribe+Re
 bee_mean$IT=(as.numeric(unlist(aggregate(IT~Family+Subfamily+Tribe+Region+
                                            Subfamily+Genus+Species+Sex,bee_all,mean)[8])))
 
-bee_mean=bee_mean[!bee_mean$Species=="Flavipanurgus_venustus",]
+bee_mean=bee_mean[!bee_mean$Species=="Flavipanurgus_venustus",] #Why exclude this species?
 bee_mean=bee_mean[!bee_mean$Species=="Protomeliturga_turnerea",]
 bee_mean=bee_mean[!bee_mean$Species=="Tetrapedia_diversipes",]
 bee_mean=bee_mean[-344,] #HAlictus NA

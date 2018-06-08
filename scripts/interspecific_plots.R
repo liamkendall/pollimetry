@@ -2,19 +2,11 @@
 
 #LOG LM
 bee1=ggplot(bee_mean,aes(x=log(IT),y=log(Spec.wgt),col=Region))+geom_point(col=1,pch=1)+
-  geom_smooth(method = "lm", formula = y ~ x,se=FALSE)+theme_bw()
+  geom_smooth(method = "lm", formula = y ~ x,se=TRUE)+theme(aspect.ratio=1)+theme_bw()
 bee2=ggplot(bee_mean,aes(x=log(IT),y=log(Spec.wgt),col=Sex))+geom_point(col=1,pch=1)+
-  geom_smooth(method = "lm",se=FALSE)+theme_bw()
+  geom_smooth(method = "lm",se=TRUE)+theme(aspect.ratio=1)+theme_bw()
 bee3=ggplot(bee_mean,aes(x=log(IT),y=log(Spec.wgt),col=Family))+geom_point(col=1,pch=1)+
-  geom_smooth(method = "lm",se=FALSE)+theme_bw()
-
-#GFAM
-bee1=ggplot(bee_phylo,aes(y=IT,x=Spec.wgt,col=Region))+geom_point(col=1,pch=1)+
-geom_smooth(method = "gam", formula = y ~ s(log(x)),se=FALSE)+theme_bw()
-bee2=ggplot(bee_mean,aes(y=IT,x=Spec.wgt,col=Sex))+geom_point(col=1,pch=1)+
-  geom_smooth(method = "gam", formula = y ~ s(log(x)),se=FALSE)+theme_bw()
-bee3=ggplot(bee_mean,aes(y=IT,x=Spec.wgt))+geom_point(col=1,pch=1)+
-  geom_smooth(method = "gam", formula = y ~ s(log(x)),se=FALSE)+theme_bw()#+facet_grid(Family ~.)
+  geom_smooth(method = "lm",se=TRUE)+theme(aspect.ratio=1)+theme_bw()
 
 
 bee1=ggplotGrob(bee1)
@@ -23,11 +15,11 @@ bee3=ggplotGrob(bee3)
 grid.draw(cbind(bee1, bee2,bee3, size = "first"))
 
 hov1=ggplot(hov_mean,aes(x=log(IT),y=log(Spec.wgt),col=Region))+geom_point(col=1,pch=1)+
-  geom_smooth(method="lm",se=FALSE)+theme_bw()
+  geom_smooth(method="lm",se=TRUE)+theme(aspect.ratio=1)+theme_bw()
 hov2=ggplot(hov_mean,aes(x=log(IT),y=log(Spec.wgt),col=Sex))+geom_point(col=1,pch=1)+
-  geom_smooth(method="lm",se=FALSE)+theme_bw()
+  geom_smooth(method="lm",se=TRUE)+theme(aspect.ratio=1)+theme_bw()
 hov3=ggplot(hov_mean,aes(x=log(IT),y=log(Spec.wgt),col=Subfamily))+geom_point(col=1,pch=1)+
-  geom_smooth(method="lm",se=FALSE)+theme_bw()
+  geom_smooth(method="lm",se=TRUE)+theme(aspect.ratio=1)+theme_bw()
 
 
 hov1=ggplotGrob(hov1)

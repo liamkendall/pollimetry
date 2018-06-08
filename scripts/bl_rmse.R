@@ -2,19 +2,40 @@
 bee_bl=bee_all[!is.na(bee_all$BL),]
 hov_bl=hov_all[!is.na(hov_all$BL),]
 
-###BEES
-summary(lm(log(IT)~ log(BL),bee_bl))
+bee_bl_mean=aggregate(Latitude~Family+Subfamily+Tribe+Region+Subfamily+Genus+Species+Sex,bee_bl,mean)
 
-summary(lm( log(Spec.wgt)~ log(BL),bee_bl))
-summary(lm( log(Spec.wgt)~ log(IT),bee_bl))
+bee_bl_mean$Spec.wgt=as.numeric(unlist(aggregate(Spec.wgt~Family+Subfamily+Tribe+Region+
+                                                Subfamily+Genus+Species+Sex,bee_bl,mean)[8]))
+bee_bl_mean$IT=(as.numeric(unlist(aggregate(IT~Family+Subfamily+Tribe+Region+
+                                           Subfamily+Genus+Species+Sex,bee_bl,mean)[8])))
+bee_bl_mean$BL=(as.numeric(unlist(aggregate(BL~Family+Subfamily+Tribe+Region+
+                                              Subfamily+Genus+Species+Sex,bee_bl,mean)[8])))
+
+
+hov_bl_mean=aggregate(Latitude~Family+Subfamily+Tribe+Region+Subfamily+Genus+Species+Sex,hov_bl,mean)
+
+hov_bl_mean$Spec.wgt=as.numeric(unlist(aggregate(Spec.wgt~Family+Subfamily+Tribe+Region+
+                                                   Subfamily+Genus+Species+Sex,hov_bl,mean)[8]))
+hov_bl_mean$IT=(as.numeric(unlist(aggregate(IT~Family+Subfamily+Tribe+Region+
+                                              Subfamily+Genus+Species+Sex,hov_bl,mean)[8])))
+hov_bl_mean$BL=(as.numeric(unlist(aggregate(BL~Family+Subfamily+Tribe+Region+
+                                              Subfamily+Genus+Species+Sex,hov_bl,mean)[8])))
+
+
+###BEES
+
+summary(lm(log(IT)~ log(BL),bee_bl_mean))
+
+summary(lm(log(Spec.wgt)~log(BL),bee_bl_mean))
+summary(lm(log(Spec.wgt)~log(IT),bee_bl_mean))
 
 
 
 ###HOV
-summary(lm(log (IT)~ log(BL),hov_bl))
+summary(lm(log (IT)~ log(BL),hov_bl_mean))
 
-summary(lm(log (Spec.wgt)~ log(BL),hov_bl))
-summary(lm(log (Spec.wgt)~log (IT),hov_bl))
+summary(lm(log (Spec.wgt)~log(BL),hov_bl_mean))
+summary(lm(log (Spec.wgt)~log (IT),hov_bl_mean))
 
 
 

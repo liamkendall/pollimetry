@@ -52,6 +52,10 @@ hov_all=poll_all_split[[2]]
 bee_country=split(bee_all,bee_all$Country)
 bee_australia=bee_country$Australia
 
+bee_all$Family=droplevels(relevel(bee_all$Family,ref="Apidae"))
+bee_all$Region=droplevels(relevel(bee_all$Region,ref="Europe"))
+bee_all$Species=droplevels(bee_all$Species)
+
 ##BEE mean dataframe
 bee_mean=aggregate(Latitude~Family+Subfamily+Tribe+Region+Subfamily+Genus+Species+Sex,bee_all,mean)
 bee_mean$Spec.wgt=as.numeric(unlist(aggregate(Spec.wgt~Family+Subfamily+Tribe+Region+
@@ -59,15 +63,16 @@ bee_mean$Spec.wgt=as.numeric(unlist(aggregate(Spec.wgt~Family+Subfamily+Tribe+Re
 bee_mean$IT=(as.numeric(unlist(aggregate(IT~Family+Subfamily+Tribe+Region+
                                            Subfamily+Genus+Species+Sex,bee_all,mean)[8])))
 
-bee_mean=bee_mean[!bee_mean$Species=="Flavipanurgus_venustus",] #Why exclude this species?
+bee_mean=bee_mean[!bee_mean$Species=="Flavipanurgus_venustus",] #Why exclude this species? - not in phylogeny
 bee_mean=bee_mean[!bee_mean$Species=="Protomeliturga_turnerea",]
 bee_mean=bee_mean[!bee_mean$Species=="Tetrapedia_diversipes",]
-bee_mean=bee_mean[-344,] #HAlictus NA
-bee_mean=bee_mean[-49,] # APIS AUS
+
+#bee_mean=bee_mean[-344,] #HAlictus NA
+#bee_mean=bee_mean[-49,] # APIS AUS
+bee_mean$Species=droplevels(bee_mean$Species)
 bee_mean$animal=bee_mean$Species
 bee_mean$Region=relevel(bee_mean$Region,ref="Europe")
-bee_mean$Family=relevel(bee_mean$Family,ref="Apidae")
-bee_mean$Family=droplevels(bee_mean$Family)
+bee_mean$Family=droplevels(relevel(bee_mean$Family,ref="Apidae"))
 
 ##HOV mean dataframe
 hov_mean=aggregate(Latitude~Family+Tribe+
@@ -95,8 +100,8 @@ bee_phylo$IT=as.numeric(unlist(aggregate(IT~Family+Subfamily+
                                            Tribe+Genus+Species,bee_all,mean)[6]))
 bee_phylo$IT.SD=as.numeric(unlist(aggregate(log(IT)~Family+Subfamily+
                                               Tribe+Genus+Species,bee_all,sd)[6]))
-#bee_phylo=bee_phylo[-140,]
-#bee_phylo=bee_phylo[-62,]
+bee_phylo=bee_phylo[-140,]
+bee_phylo=bee_phylo[-62,]
 bee_phylo=bee_phylo[!bee_phylo$Species=="Flavipanurgus_venustus",]
 bee_phylo=bee_phylo[!bee_phylo$Species=="Protomeliturga_turnerea",]
 bee_phylo=bee_phylo[!bee_phylo$Species=="Tetrapedia_diversipes",]
@@ -304,7 +309,7 @@ for(i in 1:10){
   validation=model2[bfold$subsets[bfold$which == i], ]
   newlm=MCMCglmm::MCMCglmm(log(Spec.wgt) ~ log(IT) + 
                              Sex + Region + #fix factors
-                             + log(IT):Sex, 
+                             + log(IT):Sex+ log(IT):Region, 
                            random = ~Species,prior=prior1,
                            family = "gaussian", 
                            singular.ok=TRUE,data=train, 
@@ -335,8 +340,8 @@ for(i in 1:10){
   train=model3[bfold$subsets[bfold$which != i], ]
   validation=model3[bfold$subsets[bfold$which == i], ]
   newlm=MCMCglmm::MCMCglmm(log(Spec.wgt) ~ log(IT) + Family+
-                              Region + #fix factors
-                             + log(IT):Family + log(IT):Region , 
+                              Sex + #fix factors
+                             + log(IT):Sex, 
                            random = ~Species,
                            family = "gaussian", prior=prior1,
                            singular.ok=TRUE,data=train, 
@@ -367,8 +372,8 @@ for(i in 1:10){
   train=model4[bfold$subsets[bfold$which != i], ]
   validation=model4[bfold$subsets[bfold$which == i], ]
   newlm=MCMCglmm::MCMCglmm(log(Spec.wgt) ~ log(IT) + Family+
-                             Sex + #fix factors
-                             + log(IT):Family + log(IT):Sex , 
+                             Region + #fix factors
+                             + log(IT):Family + log(IT):Region , 
                            random = ~Species,prior=prior1,
                            family = "gaussian", 
                            singular.ok=TRUE,data=train, 
@@ -457,7 +462,7 @@ model7<-bee_mean%>%mutate(Fold=rep(0,nrow(bee_mean)),holdoutpred=rep(0,nrow(bee_
 for(i in 1:10){
   train=model7[bfold$subsets[bfold$which != i], ]
   validation=model7[bfold$subsets[bfold$which == i], ]
-  newlm=MCMCglmm::MCMCglmm(log(Spec.wgt) ~ log(IT) * 
+  newlm=MCMCglmm::MCMCglmm(log(Spec.wgt) ~ log(IT) + 
                              Family, 
                            random = ~Species,
                            family = "gaussian", prior=prior1,
@@ -739,12 +744,12 @@ bee_rmse_plot=ggplot(bee_rmse_means[c("LM1","LM_IT","JC87","PG1","PG_IT"),], aes
   geom_errorbar(aes(ymin = Mean-SEM,
                     ymax = Mean+SEM),
                 width = 0.05, 
-                size  = 0.5) +ylim(10,30)+
+                size  = 0.5) +ylim(10,31)+
   geom_point(shape = 1, 
              size  = 2) +
   theme_bw() +
   theme(aspect.ratio=1) +
-  ylab("Root mean square error (mg)")+ggtitle("Bees")
+  ylab("RMSE (mg)")+ggtitle("Bees")
 
 bee_rmse_plot
 ```
@@ -786,7 +791,7 @@ for(i in 1:10){
   hov_model1[hov_fold$subsets[hov_fold$which == i], ]$Fold=i
 }
 
-##MODEL 2 IT + Sex + Sub*IT + Region
+##MODEL 2
 hov_model2<-hov_mean%>%mutate(Fold=rep(0,nrow(hov_mean)),
                               holdoutpred=rep(0,nrow(hov_mean)),
                               MSE=rep(0,nrow(.)),RMSE=rep(0,nrow(.)),
@@ -796,7 +801,7 @@ for(i in 1:10){
   train=hov_model2[hov_fold$subsets[hov_fold$which != i], ]
   validation=hov_model2[hov_fold$subsets[hov_fold$which == i], ]
   newlm=MCMCglmm.updateable(log(Spec.wgt) ~ log(IT)  + 
-                              Sex + Subfamily + Region + log(IT):Subfamily, 
+                              Sex + Subfamily + Region + log(IT):Subfamily+ log(IT):Region, 
                             random = ~Species,
                             family = "gaussian", prior=prior1,
                             singular.ok=TRUE,data=train, 
@@ -940,7 +945,7 @@ hov_model7<-hov_mean%>%mutate(Fold=rep(0,nrow(hov_mean)),holdoutpred=rep(0,nrow(
 for(i in 1:10){
   train=hov_model7[hov_fold$subsets[hov_fold$which != i], ]
   validation=hov_model7[hov_fold$subsets[hov_fold$which == i], ]
-  newlm=MCMCglmm.updateable(log(Spec.wgt) ~ log(IT) *Subfamily, 
+  newlm=MCMCglmm.updateable(log(Spec.wgt) ~ log(IT) + Subfamily, 
                             random = ~Species,
                             family = "gaussian", prior=prior1,
                             singular.ok=TRUE,data=train, 
@@ -1094,15 +1099,14 @@ summary(EB_lm)
 summary(MS_lm)
 summary(AA_lm)
 
-int_bee1=ggplot(data=bee_top5,aes(x=log(Spec.wgt),y=log(IT),col=Species))+
+int_bee1=ggplot(data=bee_top5,aes(y=log(Spec.wgt),x=log(IT),col=Species))+
   geom_point(pch=1)+
-  geom_smooth(method="lm",se=FALSE)+
+  geom_smooth(method="lm",se=FALSE)+labs(x="ln ITD (mm)",y="ln dry weight (mg)")+
   theme_bw()+ theme(aspect.ratio=1)+ggtitle("Bees")
-int_hov1=ggplot(data=hov_top5,aes(x=log(Spec.wgt),y=log(IT),col=Species))+
+int_hov1=ggplot(data=hov_top5,aes(y=log(Spec.wgt),x=log(IT),col=Species))+
   geom_point(pch=1)+
-  geom_smooth(method="lm",se=FALSE)+
+  geom_smooth(method="lm",se=FALSE)+labs(x="ln ITD (mm)",y="")+
   theme_bw()+ theme(aspect.ratio=1)+ggtitle("Hoverflies")
-
 int_bee2=ggplotGrob(int_bee1)
 int_hov2=ggplotGrob(int_hov1)
 grid.draw(cbind(int_bee2, int_hov2, size = "first"))
@@ -1413,16 +1417,13 @@ pres.lm=lm(log(Spec.wgt)~log(IT)+Pres.time+Sex+Species,bee_pres)
 
 summary(pres.lm)
 plot(pres.lm)
-
+bee_mean[bee_mean$Species=="Andrena_flavipes",]$IT
 ##Female, IT = 1, Andrena_flavipes, pres time =10
 range(bee_pres$IT)
-exp(1.27+0.1775480+log(0.5)*1.85+(100*-0.0012556))
-exp(1.27+0.1775480+log(0.5)*1.85+(50*-0.0012556))
-exp(1.27+0.1775480+log(0.5)*1.85+(1*-0.0012556))
-
-exp(1.27+0.1775480+log(4)*1.85+(100*-0.0012556))
-exp(1.27+0.1775480+log(4)*1.85+(50*-0.0012556))
-exp(1.27+0.1775480+log(4)*1.85+(1*-0.0012556))
+exp(1.27+0.1775480+log(2)*1.85+(0*-0.0012556))-exp(1.27+0.1775480+log(2)*1.85+(100*-0.0012556))
+exp(1.27+0.1775480+log(2)*1.85+(0*-0.0012556))-exp(1.27+0.1775480+log(2)*1.85+(50*-0.0012556))
+exp(1.27+0.1775480+log(2)*1.85+(0*-0.0012556))-exp(1.27+0.1775480+log(2)*1.85+(1*-0.0012556))
+exp(1.27+0.1775480+log(2)*1.85+(0*-0.0012556))
 
 ```
 

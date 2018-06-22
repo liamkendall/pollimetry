@@ -1,8 +1,8 @@
 ---
 title: 'Pollinator size and its consequences: Predictive allometry for pollinating insects'
 author: Liam Kendall, Romina Rader, Vesna Gagic, Daniel Cariveau, Matthias Albrecht,
-  Katherine Baldock, Breno Freitas, Mark Hall, Janeally Pereira, Juanita Rodriguez, Laura Russo, Louis Suter and Ignasi Bartomeus
-date: "18/05/2018"
+  Katherine Baldock, Breno Freitas, Mark Hall, Janeally Pereira, Juanita Rodriguez, Laura Russo, Louis Sutter and Ignasi Bartomeus
+date: "17/06/2018"
 output:
   pdf_document: default
   html_document:
@@ -39,7 +39,7 @@ library(tidyverse)
 
 #dataframe
 set.seed(123)
-poll_all <- read.csv(file="data/PA060618.csv",header=T)
+poll_all <- read.csv(file="data/PA170618.csv",header=T)
 head(poll_all)
 
 #split to bees and hoverflies
@@ -100,8 +100,8 @@ bee_phylo$IT=as.numeric(unlist(aggregate(IT~Family+Subfamily+
                                            Tribe+Genus+Species,bee_all,mean)[6]))
 bee_phylo$IT.SD=as.numeric(unlist(aggregate(log(IT)~Family+Subfamily+
                                               Tribe+Genus+Species,bee_all,sd)[6]))
-bee_phylo=bee_phylo[-140,]
-bee_phylo=bee_phylo[-62,]
+#bee_phylo=bee_phylo[-140,]
+#bee_phylo=bee_phylo[-62,]
 bee_phylo=bee_phylo[!bee_phylo$Species=="Flavipanurgus_venustus",]
 bee_phylo=bee_phylo[!bee_phylo$Species=="Protomeliturga_turnerea",]
 bee_phylo=bee_phylo[!bee_phylo$Species=="Tetrapedia_diversipes",]
@@ -230,6 +230,7 @@ hov_models=lapply(dredge(hov.full, fixed="log(IT)", evaluate = FALSE), eval)
 #Weight
 ```{r,Spec.wgt}
 WGT=as.data.frame(bee_phylo[,c("Spec.wgt")])
+str(WGT)
 WGT=log(WGT)
 rownames(WGT)=rownames(bee_phylo)
 WGT<-as.matrix((WGT))[,1]
@@ -680,17 +681,6 @@ VCR7=rmse(VC7,validation7$Spec.wgt)
 VCR8=rmse(VC8,validation8$Spec.wgt)
 VCR9=rmse(VC9,validation9$Spec.wgt)
 VCR10=rmse(VC10,validation10$Spec.wgt)
-
-VCM1=mae(VC1,validation1$Spec.wgt)
-VCM2=mae(VC2,validation2$Spec.wgt)
-VCM3=mae(VC3,validation3$Spec.wgt)
-VCM4=mae(VC4,validation4$Spec.wgt)
-VCM5=mae(VC5,validation5$Spec.wgt)
-VCM6=mae(VC6,validation6$Spec.wgt)
-VCM7=mae(VC7,validation7$Spec.wgt)
-VCM8=mae(VC8,validation8$Spec.wgt)
-VCM9=mae(VC9,validation9$Spec.wgt)
-VCM10=mae(VC10,validation10$Spec.wgt)
 ```
 
 ```{r}
@@ -1056,7 +1046,7 @@ grid.draw(cbind(bee_RMSE2, Hov_RMSE2, size = "first"))
 
 bee_top5=rbind(bee_species$Homalictus_urbanus[bee_species$Homalictus_urbanus$Sex == "Female",],
                bee_species$Lasioglossum_pauxillum[bee_species$Lasioglossum_pauxillum$Sex == "Female",],
-               bee_species$Bombus_lucorum[bee_species$Bombus_lucorum$Sex == "Female",],
+               bee_species$Bombus_terrestris[bee_species$Bombus_terrestris$Sex == "Female",],
                bee_species$Andrena_flavipes[bee_species$Andrena_flavipes$Sex == "Female",],
                bee_species$Lasioglossum_lanarium[bee_species$Lasioglossum_lanarium$Sex == "Female",])
 
@@ -1064,7 +1054,7 @@ HU_lm=lm(log(Spec.wgt)~log(IT),data=bee_species$Homalictus_urbanus[bee_species$H
 
 LP_lm=lm(log(Spec.wgt)~log(IT),data=bee_species$Lasioglossum_pauxillum[bee_species$Lasioglossum_pauxillum$Sex == "Female",])
 
-BL_lm=lm(log(Spec.wgt)~log(IT),bee_species$Bombus_lucorum[bee_species$Bombus_lucorum$Sex == "Female",])
+BL_lm=lm(log(Spec.wgt)~log(IT),bee_species$Bombus_terrestris[bee_species$Bombus_terrestris$Sex == "Female",])
 
 AF_lm=lm(log(Spec.wgt)~log(IT),bee_species$Andrena_flavipes[bee_species$Andrena_flavipes$Sex == "Female",])
 
@@ -1117,8 +1107,7 @@ grid.draw(cbind(int_bee2, int_hov2, size = "first"))
 ```{r,echo=FALSE}
 #Homalictus_urbanus
 #Lasioglossum_pauxillum
-#Bombus_lucorum
-#Andrena_flavipes
+#Bombus_terrestris
 #Lasioglossum_lanarium
 
 bee_species=split(bee_all,bee_all$Species)
@@ -1222,10 +1211,10 @@ abline(a=LP_IT[112],b=0,col=2)
 abline(a=confint(lm(bee_species$Lasioglossum_pauxillum[bee_species$Lasioglossum_pauxillum$Sex == "Female",]$IT~1))[1],b=0,col=3)
 abline(a=confint(lm(bee_species$Lasioglossum_pauxillum[bee_species$Lasioglossum_pauxillum$Sex == "Female",]$IT~1))[2],b=0,col=3)
 #3
-plot(BL_IT,main="Bombus lucorum",ylab = "ITD (mm)",xlab="")
+plot(BL_IT,main="Bombus terrestris",ylab = "ITD (mm)",xlab="")
 abline(a=BL_IT[103],b=0,col=2)
-abline(a=confint(lm(bee_species$Bombus_lucorum[bee_species$Bombus_lucorum$Sex == "Female",]$IT~1))[1],b=0,col=3)
-abline(a=confint(lm(bee_species$Bombus_lucorum[bee_species$Bombus_lucorum$Sex == "Female",]$IT~1))[2],b=0,col=3)
+abline(a=confint(lm(bee_species$Bombus_terrestris[bee_species$Bombus_terrestris$Sex == "Female",]$IT~1))[1],b=0,col=3)
+abline(a=confint(lm(bee_species$Bombus_terrestris[bee_species$Bombus_terrestris$Sex == "Female",]$IT~1))[2],b=0,col=3)
 #4
 plot(AF_IT,main="Andrena flavipes",ylab = "ITD (mm)",xlab="")
 abline(a=AF_IT[59],b=0,col=2)
@@ -1250,8 +1239,8 @@ abline(a=confint(lm(bee_species$Lasioglossum_pauxillum[bee_species$Lasioglossum_
 #3
 plot(BL_WT)
 abline(a=BL_WT[103],b=0,col=2)
-abline(a=confint(lm(bee_species$Bombus_lucorum[bee_species$Bombus_lucorum$Sex == "Female",]$Spec.wgt~1))[1],b=0,col=3)
-abline(a=confint(lm(bee_species$Bombus_lucorum[bee_species$Bombus_lucorum$Sex == "Female",]$Spec.wgt~1))[2],b=0,col=3)
+abline(a=confint(lm(bee_species$Bombus_terrestris[bee_species$Bombus_terrestris$Sex == "Female",]$Spec.wgt~1))[1],b=0,col=3)
+abline(a=confint(lm(bee_species$Bombus_terrestris[bee_species$Bombus_terrestris$Sex == "Female",]$Spec.wgt~1))[2],b=0,col=3)
 #4
 plot(AF_WT)
 abline(a=AF_WT[59],b=0,col=2)

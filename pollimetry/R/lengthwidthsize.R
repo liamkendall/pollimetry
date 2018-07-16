@@ -8,15 +8,15 @@
 #'
 #' @param Eq a vector of a predictive allometry for flies. Options implemented are: S93DBLW, S93DCLW, S93DALW and S93DNLW.
 #'
-#' @return A dataframe with fly body size (mg) is returned for each specimen from selected equation.
+#' @return A dataframe with body size, in dry weight (mg) is returned for each specimen from selected equation.
 #' 
 #' @examples
-#' lengthwidthsize(LW=c(10,5,2), Eq = c("S93DBLW","S93DBLW","S93DBLW"))
+#' lengthwidthsize(BLW=c(10,5,2), Eq = c("S93DBLW","S93DBLW","S93DBLW"))
 #' @references Kendall, Bartomeus... Rader (20XX) Pollinator size and its consequences: Predictive allometry for pollinating insects 
 #' #ADD Sage
 #' 
 #' @export
-lengthwidthsize <- function(LW, Eq = "DIP"){
+lengthwidthsize <- function(BLW, Eq = "DIP"){
   if(!Eq %in% c("Brachycera", 
                 "Cyclorrapha", 
                 "DIP",
@@ -48,12 +48,12 @@ lengthwidthsize <- function(LW, Eq = "DIP"){
     S93HPLW <-  exp(-1.946+1.444*log(BLW))
     S93HVLW <-exp(-1.537+1.319*log(BLW))
     #LEP
-    S93LGLW <- exp(-2.343+1.387*log(BLW))}
-    S93LMLW <- exp(-2.715+1.395*log(BLW))}
-    S93LALW <- exp(-2.607+1.457*log(BLW))}
-    W13LLW <- exp(-2.1+1.37*log(BLW))}
-    S93LCLW <- exp(-1.658+1.222*log(BLW))}
-    S93LNLW <-  exp(-1.607+1.214*log(BLW))}
+    S93LGLW <- exp(-2.343+1.387*log(BLW))
+    S93LMLW <- exp(-2.715+1.395*log(BLW))
+    S93LALW <- exp(-2.607+1.457*log(BLW))
+    W13LLW <- exp(-2.1+1.37*log(BLW))
+    S93LCLW <- exp(-1.658+1.222*log(BLW))
+    S93LNLW <-  exp(-1.607+1.214*log(BLW))
    
     if (Eq == "Brachycera") out <- Brachycera
     if (Eq == "Cyclorrapha") out <- Cyclorrapha
@@ -73,10 +73,8 @@ lengthwidthsize <- function(LW, Eq = "DIP"){
    if (Eq == "S93LMLW") out <- Cyclorrapha
    if (Eq == "S93LALW") out <- Sage_All
    if (Eq == "W13LLW") out <- Nematocera
-   if (Eq == "W13LLW") out <- Nematocera
-   if (Eq == "W13LLW") out <- Nematocera
    if (Eq == "All") out <- cbind(W13LLW,S93LALW)
     out
   }
 }
-lengthwidthsize(LW=c(5,2),Eq=c(W13LLW,W13LLW))
+

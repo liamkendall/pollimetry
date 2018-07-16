@@ -4,6 +4,8 @@
 .Ruserdata
 *.pdf
 *.xls
+*.doc
+*.docx
 /raw_data
 trees.nexus
 trees.tre

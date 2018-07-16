@@ -2,17 +2,17 @@
 % Please edit documentation in R/bodysize.R
 \name{bodysize}
 \alias{bodysize}
-\title{Converts the inter-tegular distance (ITD) to body size (Dry weight mg) for bees or hoverflies.}
+\title{Converts the intertegular distance (ITD) and co-variates to body size (dry weight (mg)) for bees or hoverflies.}
 \usage{
 bodysize(x, taxa, type)
 }
 \arguments{
-\item{x}{A data frame with columns containing ITD values (numeric) and Sex ('Male' or 'Female'). 
-Optional: Family/Subfamily (character/factor), Region (Only NorthAmerica, SouthAmerica, Australasia and Europe) and Species ("Genus_species")}
+\item{x}{A data frame with columns containing ITD values and Sex ('Male' or 'Female'). 
+Optional: Family/Subfamily, Region (Only NorthAmerica, SouthAmerica, Australasia and Europe) and Species ("Genus_species")}
 
-\item{taxa}{A vector specifying taxa of interest, can be either "bee" for bee models and "hov" for hoverfly models}
+\item{taxa}{A vector specifying insect taxa of interest, can be either "bee" for bee models and "hov" for hoverfly models}
 
-\item{type}{A vector specifying model type to be used: for bees it can be either "tax" for taxonomic models, "phy" for phylogenetic model or "IT" for ITD-only model. In hoverflies: it can either be "h1" for Weight ~ IT + Sex or "h2" for Weight ~ IT * Subfamily + Sex.}
+\item{type}{A vector specifying model type to be used: for bees this can be either "tax" for taxonomic models, "phy" for phylogenetic model or "IT" for ITD-only model. In hoverflies: it can either be "h1" for Weight ~ IT + Sex, "h2" for Weight ~ IT * Subfamily + Sex or IT for ITD-only model.}
 }
 \value{
 The original dataframe (x) is returned along with four additional columns: body size (dry weight (mg)), S.E. and 95% confidence intervals.

@@ -4,7 +4,7 @@
 #' 
 #' @description Calculates tongue length (mm) from Cariveau et al. (2015) using intertegular distance values (IT).  
 #' 
-#' @param IT A vector of bee intertegular spans (IT) measurments in cm.
+#' @param IT A vector of bee intertegular distance (IT) measurments in cm.
 #' @param family a vector of bee families. Only implemented 5 out of the extant 7 families: 
 #' "Andrenidae", "Apidae", "Colletidae", "Halictidae", "Megachilidae".
 #' @param mouthpart The mouth part you are interested in. Options are "all", glossa", "prementum" and "tongue" (i.e. gloss + prementum)
@@ -12,8 +12,8 @@
 #' @return A dataframe with bee tongue length (mm) is returned for each bees species.
 #' 
 #' @examples
-#' ITtongue(c(10,5,2), family = c("Andrenidae", "Apidae", "Colletidae"))
-#' ITtongue(c(10,5,2), family = c("Andrenidae", "Apidae", "Colletidae"), mouthpart = "tongue")
+#' ITtongue(IT=c(10,5,2), family = c("Andrenidae", "Apidae", "Colletidae"))
+#' ITtongue(IT=c(10,5,2), family = c("Andrenidae", "Apidae", "Colletidae"), mouthpart = "tongue")
 #' @references Cariveau, Nayak, Bartomeus, Zientek, Ascher, Winfree (2015) The allometry of bee tongue length an its uses in ecology and evolution 
 #' 
 #'

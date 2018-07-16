@@ -4,10 +4,7 @@
 #' 
 #' @description Calculates dry body weight (mg) from existing allometries (See 'Details') using body length values (mm).  
 #' 
-#' 
-#' @param Type Type of morphometric measurement. Can be either: "BL" - body length, "BLW" - body length x width or "HW" - head width.
-#' 
-#' @param mm A vector of pollinator body length (BL) measurements (mm).
+#' @param BL A vector of pollinator body length (BL) measurements (mm).
 #' 
 #' @param Eq A vector specificing which predictive allometry to use. 
 #' Options implemented are: DIP (10 equations): BN06D, G97D, GR84D, JS00DA, R77D, 
@@ -40,7 +37,7 @@
 #' @return A dataframe with pollinator body size (mg) is returned for each species from selected equation/s.
 #' 
 #' @examples
-#' BodyLength(Type=c("HW","HW","HW"),mm=c(10,5,2), Eq = c("H97DB", "H97DN", "H97DA"))
+#' lengthsize(BL=c(10,5,2), Eq = c("H97DB", "H97DN", "H97DA"))
 #' @references Kendall, Bartomeus... Rader (20XX) Pollinator size and its consequences: Predictive allometry for pollinating insects 
 #' #ADD ALL REFERENCES
 #' 

@@ -2076,16 +2076,24 @@ sd(bee_bl_rmse)/sqrt(12)
 rmse((bee_all$Spec.wgt),(Cane(IT=bee_all$IT)))
 ```
 
-#Save data files - Rdata files
+#Save data files - rda files
 ```{r}
-save(bee2,file="pollimetry/data/bee_tax_mod.Rdata")
-save(bee_p1,file="pollimetry/data/bee_phy_mod.Rdata")
-save(hov2,file="pollimetry/data/hov_mod.Rdata")
-save(hov7,file="pollimetry/data/hov_tax_mod.Rdata")
-save(bee_p3,file="pollimetry/data/bee_IT.Rdata")
-save(hov1,file="pollimetry/data/hov_IT.Rdata")
-save(poll_all,file="pollimetry/data/pollimetry_dataset.Rdata")
-save(bee_mean,file="pollimetry/data/bee_mean_dataset.Rdata")
-save(hov_mean,file="pollimetry/data/hov_mean_dataset.Rdata")
-
+bee_tax_mod=bee2
+save(bee_tax_mod,file="pollimetry/inst/testdata/bee_tax_mod.rda",compress="xz")
+bee_phy_mod=bee_p1
+save(bee_phy_mod,file="pollimetry/inst/testdata/bee_phy_mod.rda",compress="xz")
+h1=hov2
+save(h1,file="pollimetry/inst/testdata/hov_mod.rda",compress="xz")
+h2=hov7
+save(h2,file="pollimetry/inst/testdata/hov_tax_mod.rda",compress="xz")
+bee_IT=bee_p3
+save(bee_IT,file="pollimetry/inst/testdata/bee_IT.rda",compress="xz")
+hov_IT=hov1
+save(hov_IT,file="pollimetry/inst/testdata/hov_IT.rda",compress="xz")
+pollimetry_dataset=poll_all
+save(pollimetry_dataset,file="pollimetry/data/pollimetry_dataset.rdata",compress="xz")
+bee_mean_dataset=bee_mean
+save(bee_mean_dataset,file="pollimetry/data/bee_mean_dataset.rdata",compress="xz")
+hov_mean_dataset=hov_mean
+save(hov_mean_dataset,file="pollimetry/data/hov_mean_dataset.rdata",compress="xz")
 ```

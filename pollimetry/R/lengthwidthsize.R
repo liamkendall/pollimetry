@@ -4,7 +4,7 @@
 #' 
 #' @description Calculates dry body weight (mg) from the allometries of Sage (1983) allometries (See 'Details') using body length*body width values (mm).  
 #' 
-#' @param BL A vector of fly body length*body width measurments (mm).
+#' @param BLW A vector of fly body length*body width measurments (mm).
 #'
 #' @param Eq a vector of a predictive allometry for flies. Options implemented are: S93DBLW, S93DCLW, S93DALW and S93DNLW.
 #'

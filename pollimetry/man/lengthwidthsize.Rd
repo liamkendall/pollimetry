@@ -7,18 +7,18 @@
 lengthwidthsize(BLW, Eq = "DIP")
 }
 \arguments{
-\item{Eq}{a vector of a predictive allometry for flies. Options implemented are: S93DBLW, S93DCLW, S93DALW and S93DNLW.}
+\item{BLW}{A vector of fly body length*body width measurments (mm).}
 
-\item{BL}{A vector of fly body length*body width measurments (mm).}
+\item{Eq}{a vector of a predictive allometry for flies. Options implemented are: S93DBLW, S93DCLW, S93DALW and S93DNLW.}
 }
 \value{
-A dataframe with fly body size (mg) is returned for each specimen from selected equation.
+A dataframe with body size, in dry weight (mg) is returned for each specimen from selected equation.
 }
 \description{
 Calculates dry body weight (mg) from the allometries of Sage (1983) allometries (See 'Details') using body length*body width values (mm).
 }
 \examples{
-lengthwidthsize(LW=c(10,5,2), Eq = c("S93DBLW","S93DBLW","S93DBLW"))
+lengthwidthsize(BLW=c(10,5,2), Eq = c("S93DBLW","S93DBLW","S93DBLW"))
 }
 \references{
 Kendall, Bartomeus... Rader (20XX) Pollinator size and its consequences: Predictive allometry for pollinating insects 

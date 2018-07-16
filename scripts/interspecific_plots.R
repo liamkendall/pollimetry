@@ -1,8 +1,9 @@
 ##INTERSPECIFIC PLOTS
 
 #LOG LM
-bee1=ggplot(bee_mean,aes(x=log(IT),y=log(Spec.wgt),col=Region))+geom_point(col=1,pch=1)+
-  geom_smooth(method = "lm", formula = y ~ x,se=TRUE)+theme(aspect.ratio=1)+theme_bw()
+bee1=ggplot(bee_mean,aes(x=IT,y=Spec.wgt,col=Region))+geom_point(col=1,pch=1)+
+  geom_smooth(method = "glm", formula = y ~ 0+exp(x),se=FALSE)+theme(aspect.ratio=1)+theme_bw()+coord_flip()
+bee1
 bee2=ggplot(bee_mean,aes(x=log(IT),y=log(Spec.wgt),col=Sex))+geom_point(col=1,pch=1)+
   geom_smooth(method = "lm",se=TRUE)+theme(aspect.ratio=1)+theme_bw()
 bee3=ggplot(bee_mean,aes(x=log(IT),y=log(Spec.wgt),col=Family))+geom_point(col=1,pch=1)+
@@ -15,7 +16,7 @@ bee3=ggplotGrob(bee3)
 grid.draw(cbind(bee1, bee2,bee3, size = "first"))
 
 hov1=ggplot(hov_mean,aes(x=log(IT),y=log(Spec.wgt),col=Region))+geom_point(col=1,pch=1)+
-  geom_smooth(method="lm",se=TRUE)+theme(aspect.ratio=1)+theme_bw()
+  geom_smooth(method="glm",se=TRUE)+theme(aspect.ratio=1)+theme_bw()
 hov2=ggplot(hov_mean,aes(x=log(IT),y=log(Spec.wgt),col=Sex))+geom_point(col=1,pch=1)+
   geom_smooth(method="lm",se=TRUE)+theme(aspect.ratio=1)+theme_bw()
 hov3=ggplot(hov_mean,aes(x=log(IT),y=log(Spec.wgt),col=Subfamily))+geom_point(col=1,pch=1)+
@@ -59,11 +60,12 @@ bee.plot=root(bee.plot,outgroup="Tachysphex")
 #bee.plot=force.ultrametric(bee.plot) #Not sure if this is required
 bee.plot=drop.tip(bee.plot, setdiff(bee.plot$tip.label,bee_phylo$Genus))
 bee.plot=genus.to.species.tree(bee.plot, species=bee_phylo$Species)
+bee.plot$tip.label=="Heriades"
 
 
 bee_wgt_phy=contMap(bee.tree,WGT,plot=FALSE)
-
-plot(bee_wgt_phy
+bee_wgt_phy=setMap(bee_wgt_phy,invert=TRUE)
+plot(bee_wgt_phy,type="fan"
 ,ftype="off",
 fsize=c(0.4,1),lwd=0.95,
 xlim=c(0,1.25*max(nodeHeights(bee.tree))),
@@ -80,7 +82,7 @@ cladelabels(bee.tree,node=findMRCA(bee.tree,mel_tips),text="Melittidae",
 cladelabels(bee.tree,node=findMRCA(bee.tree,megachil_tips),text="Megachilidae",
             orientation="horizontal",offset=2)
 cladelabels(bee.tree,node=findMRCA(bee.tree,apid_tips),text="Apidae",
-            orientation="horizontal",offset=2.01)
+            orientation="horizontal",offset=2.0)
 cladelabels(bee.tree,node=findMRCA(bee.tree,andren_tips),text="Andrenidae",
             orientation="horizontal",offset=2)
 cladelabels(bee.tree,node=findMRCA(bee.tree,halicti_tips),text="Halictidae",
@@ -89,7 +91,7 @@ cladelabels(bee.tree,node=findMRCA(bee.tree,colletid_tips),text="Colletidae",
             orientation="horizontal",offset=2)
 
 
-
+str(hov_all)
 ##DENSITY PLOTS
 ggplot(bee_mean,aes(x=log(Spec.wgt),col=Region))+geom_density(cex=0.75)+theme_bw()+facet_grid(Family ~.)
 ggplot(bee_mean,aes(x=log(Spec.wgt),col=Sex))+geom_density(cex=0.75)+theme_bw()+facet_grid(Family ~.)

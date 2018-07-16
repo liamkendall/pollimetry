@@ -1,4 +1,3 @@
-
 ##BEES##
 
 #libraries
@@ -435,6 +434,6 @@ colnames(RMSE_sets)=c("LM1","LM2","LM3","LM4","LM5","LM6","LM7","LM8","PG1","PG2
 RMSE_sets=as.data.frame(RMSE_sets)
 
 #Box plots
-bee_RMSE=RMSE_sets%>%gather(.,c("LM1","PG1"),key ="Model",value = "RMSE")%>%ggplot(aes(x=Model,y=RMSE,fill=Model))+geom_boxplot()+theme_bw()+ theme(aspect.ratio=1)
+bee_RMSE=RMSE_sets%>%gather(.,c("LM1","PG1","JC87"),key ="Model",value = "RMSE")%>%ggplot(aes(x=Model,y=RMSE,fill=Model))+geom_boxplot()+theme_bw()+ theme(aspect.ratio=1)
 bee_RMSE
 

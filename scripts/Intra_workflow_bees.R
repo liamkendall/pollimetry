@@ -8,7 +8,9 @@
 ###More than ten species
 
 ##Top five
-bee_species=split(bee_all,bee_all$Species)
+bee_species2=split(bee_all,bee_all$Species)
+scale(bee_species2$Homalictus_urbanus[bee_species2$Homalictus_urbanus$Sex == "Female",]$IT,center=0)
+
 
 #Homalictus_urbanus
 #Lasioglossum_pauxillum
@@ -110,12 +112,12 @@ plot(LL_WT)
 par(pty="s")
 par(mfrow=c(2,5))
 #1
-plot(HU_IT,main="Homalictus urbanus",ylab = "ITD (mm)",xlab="")
+plot(HU_IT,main="Homalictus urbanus",ylab = "ITD (mm)",xlab="",ylim=c(0,),xlim=c(0,50))
 abline(a=HU_IT[211],b=0,col=2)
 abline(a=confint(lm(bee_species$Homalictus_urbanus[bee_species$Homalictus_urbanus$Sex == "Female",]$IT~1))[1],b=0,col=3)
 abline(a=confint(lm(bee_species$Homalictus_urbanus[bee_species$Homalictus_urbanus$Sex == "Female",]$IT~1))[2],b=0,col=3)
 #2
-plot(LP_IT,main="Lasioglossum pauxillum",ylab = "ITD (mm)",xlab="")
+points(LP_IT,main="Lasioglossum pauxillum",ylab = "ITD (mm)",xlab="")
 abline(a=LP_IT[112],b=0,col=2)
 abline(a=confint(lm(bee_species$Lasioglossum_pauxillum[bee_species$Lasioglossum_pauxillum$Sex == "Female",]$IT~1))[1],b=0,col=3)
 abline(a=confint(lm(bee_species$Lasioglossum_pauxillum[bee_species$Lasioglossum_pauxillum$Sex == "Female",]$IT~1))[2],b=0,col=3)

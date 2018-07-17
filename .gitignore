@@ -2,14 +2,3 @@
 .Rhistory
 .RData
 .Ruserdata
-*.pdf
-*.xls
-*.doc
-*.docx
-/raw_data
-trees.nexus
-trees.tre
-Notes from Nacho from workflow
-PollinateR.Rproj
-swiss edits.R
-Pollimetry.html

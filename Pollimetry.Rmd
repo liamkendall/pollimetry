@@ -117,7 +117,7 @@ rownames(bee_phylo)=droplevels(bee_phylo$Species)
 
 #Tree for MCMC
 
-bee.trees=read.tree(file="raw_data/Bee_phylogeny_Hedtke_etal2013/12862_2013_2375_MOESM3_ESM.txt")
+bee.trees=read.tree(file="data/hedtke_genera_tree.txt")
 ##Use tree 1 (376 genera) #Genera-level phylogney
 bee.mcmc=bee.trees[[1]]
 

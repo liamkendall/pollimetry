@@ -5,11 +5,11 @@
 #' @description Calculates body size in dry weight (mg) from Kendall et al. (2018) using ITD (and co-variate) values.  
 #' 
 #' @param x A data frame with columns containing IT values and Sex ('Male' or 'Female'). 
-#' Optional attributes depending on model choice: Taxonomic family (bees) or subfamily (hoverfly), Region (Only NorthAmerica, SouthAmerica, Australasia and Europe implemented) and Species ("Genus_species")
+#' Optional attributes depending on model choice: Taxonomic family (bees) or subfamily (hoverfly), Region (Only "NorthAmerica", "SouthAmerica", "Australasia" and "Europe" implemented) and Species ("Genus_species")
 #'
 #' @param taxa A vector specifying insect taxa of interest, can be either "bee" for bee models and "hov" for hoverfly models
 #' 
-#' @param type A vector specifying model type to be used: for bees this can be either "taxo" for taxonomic models, "phy" for phylogenetic model or "IT" for ITD-only model. In hoverflies: it can either be "h1" for Weight ~ IT + Sex, "h2" for Weight ~ IT * Subfamily + Sex or IT for ITD-only model.
+#' @param type A vector specifying model type to be used: for bees this can be either "taxo" for taxonomic models, "phy" for phylogenetic model or "IT" for ITD-only model. In hoverflies: it can either be "h1" for Weight ~ IT + Sex, "h2" for Weight ~ IT * Subfamily + Sex or "IT" for ITD-only model.
 #' 
 #' @return The original dataframe (x) is returned along with four additional columns: body size (dry weight (mg)), S.E. and 95% confidence intervals.
 #' 
@@ -20,7 +20,7 @@
 #'  For hoverflies, type 'h1' requires ITD and Sex for each specimen 
 #'  and type 'h2' requires ITD, Sex and subfamily. Type "IT" for both 
 #'  taxa only requires ITD values (Optional: region and species but again check `setdiff`). 
-#'  If specimens are from included regions (see above) or species we recommend 
+#'  If specimens are from included regions or species (see above) we recommend 
 #'  including these as additional columns. Estimates (and variance components) are 
 #'  returned as four additional columns bound to the original dataframe.
 #' 

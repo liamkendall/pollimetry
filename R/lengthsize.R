@@ -73,8 +73,6 @@ if(!Eq %in% c("DIP","HYM","LEP", "S93DB","Sabo02DB", "Sabo02DA", "Sabo02DBB", "R
   JS00DN <- exp(-2.462+1.881*log(BL))
   S93DN <- exp(-3.675+2.212*log(BL))
   Sabo02DN <- 0.1*(BL)^1.57
- 
-  
   Sabo02HA <- 0.006*(BL)^3.407
   S93HB <- exp(-3.854+2.441*log(BL))
   BN06HF <- exp(log(0.001)+2.33*log(BL))

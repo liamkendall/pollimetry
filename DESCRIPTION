@@ -1,12 +1,12 @@
 Package: pollimetry
 Type: Package
 Title: Estimate pollinator body size and co-varying ecological traits
-Version: 0.1.0
+Version: 0.1.1
 Date: 2018-07-17
 Author: c(Authors@R: person("Liam", "Kendall", email = "liam.k.kendall@gmail.com",role=c("aut","cre"),
                      person("Ignasi","Bartomeus", email = "nacho.bartomeus@gmail.com",role="aut"))
 Maintainer: Liam Kendall <liam.k.kendall@gmail.com>
-Description: Tools to estimate pollinator body size, bee tongue length and foraging distances. This package combines novel (described in Kendall et al. 2018) as well as pre-existing predictive allometries for pollinator body size, bee tongue length and foraging distance. Pre-existing body size equations are implemented for a variety of Diptera, Lepidoptera and Hymenoptera taxa.
+Description: Tools to estimate pollinator body size and co-varying traits: bee tongue length and foraging distances. This package combines novel (described in Kendall et al. 2018) as well as pre-existing predictive allometries for pollinator body size, bee tongue length and foraging distance. Pre-existing body size equations are implemented for a variety of Diptera, Lepidoptera and Hymenoptera taxa.
 Depends:
   R (>= 3.0.0), brms (>= 2.3.5)
 Imports:

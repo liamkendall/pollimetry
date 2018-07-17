@@ -44,7 +44,7 @@ A dataframe with pollinator body size (mg) is returned for each species from sel
 Calculates body size as dry  weight (mg) from existing allometries (See 'Details') using body length values (mm).
 }
 \examples{
-lengthsize(BL=c(10,5,2), Eq = c("H97DB", "H97DN", "H97DA"))
+lengthsize(BL=c(10,5,2), Eq = c("S80DCR"))
 }
 \references{
 Kendall, Bartomeus... Rader (20XX) Pollinator size and its consequences: Predictive allometry for pollinating insects 

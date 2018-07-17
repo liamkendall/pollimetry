@@ -2,18 +2,17 @@
 #' 
 #' @title Converts pollinator body length*body width to body size (dry weight (mg)).
 #' 
-#' @description Calculates body size as dry weight (mg) from the allometries of Sage (1983) allometries (See 'Details') using body length*body width values (mm).  
+#' @description Calculates body size as dry weight (mg) from the equations described by Sample (1993) and others using body length*body width values (mm).  
 #' 
 #' @param BLW A vector of fly body length*body width measurments (mm).
 #'
-#' @param Eq a vector of a predictive allometry for flies. Options implemented are: S93DBLW, S93DCLW, S93DALW and S93DNLW.
+#' @param Eq a vector of a predictive allometry for Diptera, Hymenoptera or Lepidoptera. Options implemented are:
 #'
 #' @return A dataframe with body size, as dry weight (mg) is returned for each specimen from selected equation.
 #' 
 #' @examples
-#' lengthwidthsize(BLW=c(10,5,2), Eq = c("S93DBLW","S93DBLW","S93DBLW"))
-#' @references Kendall, Bartomeus... Rader (20XX) Pollinator size and its consequences: Predictive allometry for pollinating insects 
-#' #ADD Sage
+#' lengthwidthsize(BLW=c(3,5,2), Eq = c("Brachycera"))
+#' @references Sample et al. (1993). Estimation of insect biomass by length and width. American Midland Naturalist, 234-240.
 #' 
 #' @export
 lengthwidthsize <- function(BLW, Eq = "DIP"){

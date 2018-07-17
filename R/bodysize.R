@@ -19,12 +19,14 @@
 #' Please run `setdiff` using `bee_mean_dataset` for region and species to check matches.
 #'  For hoverflies, type 'h1' requires ITD and Sex for each specimen 
 #'  and type 'h2' requires ITD, Sex and subfamily. Type "IT" for both 
-#'  taxa only requires ITD values (Optional: region and species, if included). 
-#'  If specimens are from included regions (see above) or  species we recommend 
-#'  including these as additional columns.Estimates (and variance components) are 
+#'  taxa only requires ITD values (Optional: region and species but again check `setdiff`). 
+#'  If specimens are from included regions (see above) or species we recommend 
+#'  including these as additional columns. Estimates (and variance components) are 
 #'  returned as four additional columns bound to the original dataframe.
 #' 
 #' @importFrom stats predict
+#' 
+#' @import brms
 #' 
 #' @examples
 #' example=cbind.data.frame(IT=1:2,
@@ -72,7 +74,6 @@ bodysize=function(x,taxa,type) {
       } 
     ##OUTPUT
     out = predict(object=mod,newdata=x,allow_new_levels=TRUE,transform=exp)
-    rownames(out)=rownames(x)
     colnames(out)=c("Est.Weight","SE","CI_Lower","CI_Upper")
     out=cbind(x,out)
     out

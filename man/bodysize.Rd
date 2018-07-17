@@ -27,9 +27,9 @@ but is only recommended to be used for species (and regions) included in model f
 Please run `setdiff` using `bee_mean_dataset` for region and species to check matches.
  For hoverflies, type 'h1' requires ITD and Sex for each specimen 
  and type 'h2' requires ITD, Sex and subfamily. Type "IT" for both 
- taxa only requires ITD values (Optional: region and species, if included). 
- If specimens are from included regions (see above) or  species we recommend 
- including these as additional columns.Estimates (and variance components) are 
+ taxa only requires ITD values (Optional: region and species but again check `setdiff`). 
+ If specimens are from included regions (see above) or species we recommend 
+ including these as additional columns. Estimates (and variance components) are 
  returned as four additional columns bound to the original dataframe.
 }
 \examples{

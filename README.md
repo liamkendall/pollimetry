@@ -1,7 +1,7 @@
 Pollimetry: Predictive allometry for pollinating insects
 ==========
 
-Tools to estimate pollinator body size, measured as dry weight (mg) as well as bee tongue length and foraging distances.
+Tools to estimate pollinator body size as well as bee tongue length and foraging distances.
 
 To install
 ==========

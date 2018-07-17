@@ -16,11 +16,11 @@ library(pollimetry)
 Estimating body size
 ====================
 
-The `bodysize` function uses Bayesian generalised linear mixed models to provide posterior estimates (along with S.E. and 95% confidence intervals) of pollinator body size (i.e. dry weight (mg)) using intertegular distance (ITD) values while taking into account specimen sex, taxonomy or phylogeny and biogeographical region of origin. Estimates (and variance components) are returned as four additional columns bound to original dataframe.
+The `bodysize` function uses Bayesian generalised linear mixed models (GLMMs) to provide posterior estimates (along with S.E. and 95% confidence intervals) of pollinator body size (i.e. dry weight (mg)) using intertegular distance (ITD) values as well as taxonomy or phylogeny and species sex and biogeography (at present only Australia, Europe, North America and South America). Estimates (and variance components) are returned as four additional columns bound to the original dataframe. These models will be periodically updated using novel data as and when it becomes available.
 
 Pre-existing equations for Diptera, Hymenoptera and Lepidopteran taxa using body length (`lengthsize`), body length * width (`lengthwidthsize`) and head width (`headwidthsize`) are also provided.
 
 Allometric traits
 =================
 
-Currently, users can predict bee tongue length (`tonguelength`) from Cariveau et al. (2015) and bee foraging distances (`foragedist`) from equations described in van Nieuwstadt and Iraheta (1996) for Meliponini, Greenleaf et al. (2007) and Guedot et al. (2009) for Osmia spp.
+Users can predict bee tongue length (`tonguelength`) from Cariveau et al. (2015) and bee foraging distances (`foragedist`) from equations described in van Nieuwstadt and Iraheta (1996) for Meliponini, Greenleaf et al. (2007) and Guedot et al. (2009) for Osmia spp.

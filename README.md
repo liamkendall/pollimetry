@@ -16,7 +16,7 @@ library(pollimetry)
 Estimating body size
 ====================
 
-The `bodysize` function uses Bayesian generalised linear mixed models (GLMMs) to provide posterior estimates (along with S.E. and 95% confidence intervals) of pollinator body size (i.e. dry weight (mg)) using intertegular distance (ITD) values as well as taxonomy or phylogeny and species sex and biogeography (at present only Australia, Europe, North America and South America). Estimates (and variance components) are returned as four additional columns bound to the original dataframe. These models will be periodically updated using novel data as and when it becomes available.
+The `bodysize` function uses Bayesian generalised linear mixed models (GLMMs) to provide posterior estimates (along with S.E. and 95% confidence intervals) of pollinator body size (i.e. dry weight (mg)) using the intertegular distance (ITD), species taxonomy or phylogeny (bees only `type="phylo"`), sex and biogeography (at present only Australia, Europe, North America and South America). Estimates (and variance components) are returned as four additional columns bound to the original dataframe. These models will be periodically updated using novel data as and when it becomes available. See `bodysize` details for more information.
 
 Pre-existing equations for Diptera, Hymenoptera and Lepidopteran taxa using body length (`lengthsize`), body length * width (`lengthwidthsize`) and head width (`headwidthsize`) are also provided.
 

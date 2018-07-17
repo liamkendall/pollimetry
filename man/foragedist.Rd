@@ -9,7 +9,7 @@ foragedist(x, type = "GreenleafAll")
 \arguments{
 \item{x}{A vector of either bee intertegular spans (IT) measurements in cm, head width values in mm or dry weight values (mg).}
 
-\item{type}{The type of foraging distance desired. Options are "GrAll", GrMhd ("Maximum homing distance"),
+\item{type}{The type of foraging distance desired. Options are "GreenleafAll", GrMhd ("Maximum homing distance"),
 GrThd ("Typical homing distance"), GrMfd ("Maximum feeder training distance"), GrMcd("Maximum communication distance"),"Osmia", "MeliMR" , "MeliFT" or "MeliAll". See details in Greenleaf et al. (2007), Guedot et al. (2009) and van Nieuwstadt and Iraheta (1996).}
 }
 \value{

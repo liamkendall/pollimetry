@@ -2,7 +2,7 @@
 % Please edit documentation in R/headwidthsize.R
 \name{headwidthsize}
 \alias{headwidthsize}
-\title{Converts pollinator (Diptera, Hymenoptera and Lepidoptera) head width (mm) to body weight (mg).}
+\title{Converts pollinator (Diptera, Hymenoptera and Lepidoptera) head width (mm) to body size (dry weight (mg)).}
 \usage{
 headwidthsize(HW, Eq = "H97DB")
 }
@@ -13,7 +13,7 @@ headwidthsize(HW, Eq = "H97DB")
 Options implemented are: H97DB (Brachycera), H97DN (Nematocera), H97HA (Hymenoptera), H97LH (Heterocera) and H97LR (Rhopalocera).}
 }
 \value{
-A dataframe with pollinator body size (mg) is returned for each specimen from selected equation.
+A dataframe with pollinator body size as dry weight (mg) is returned for each specimen from selected equation.
 }
 \description{
 Calculates dry body weight (mg) using head width (mm) from Hodar (1997).

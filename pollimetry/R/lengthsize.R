@@ -1,8 +1,8 @@
 #' @name lengthsize
 #' 
-#' @title Converts body length to body weight (mg) for three pollinating insect groups (Diptera, Hymenoptera and Lepidoptera).
+#' @title Converts body length to body size (body weight (mg)) for three pollinating insect groups (Diptera, Hymenoptera and Lepidoptera).
 #' 
-#' @description Calculates dry body weight (mg) from existing allometries (See 'Details') using body length values (mm).  
+#' @description Calculates body size as dry  weight (mg) from existing allometries (See 'Details') using body length values (mm).  
 #' 
 #' @param BL A vector of pollinator body length (BL) measurements (mm).
 #' 

@@ -2,7 +2,7 @@
 % Please edit documentation in R/lengthsize.R
 \name{lengthsize}
 \alias{lengthsize}
-\title{Converts body length to body weight (mg) for three pollinating insect groups (Diptera, Hymenoptera and Lepidoptera).}
+\title{Converts body length to body size (body weight (mg)) for three pollinating insect groups (Diptera, Hymenoptera and Lepidoptera).}
 \usage{
 lengthsize(BL, Eq = "DIP")
 }
@@ -41,7 +41,7 @@ Options implemented are: DIP (10 equations): BN06D, G97D, GR84D, JS00DA, R77D,
 A dataframe with pollinator body size (mg) is returned for each species from selected equation/s.
 }
 \description{
-Calculates dry body weight (mg) from existing allometries (See 'Details') using body length values (mm).
+Calculates body size as dry  weight (mg) from existing allometries (See 'Details') using body length values (mm).
 }
 \examples{
 lengthsize(BL=c(10,5,2), Eq = c("H97DB", "H97DN", "H97DA"))

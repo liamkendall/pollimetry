@@ -2,7 +2,7 @@
 % Please edit documentation in R/lengthwidthsize.R
 \name{lengthwidthsize}
 \alias{lengthwidthsize}
-\title{Converts pollinator body length*body width to body weight (mg).}
+\title{Converts pollinator body length*body width to body size (dry weight (mg)).}
 \usage{
 lengthwidthsize(BLW, Eq = "DIP")
 }
@@ -12,10 +12,10 @@ lengthwidthsize(BLW, Eq = "DIP")
 \item{Eq}{a vector of a predictive allometry for flies. Options implemented are: S93DBLW, S93DCLW, S93DALW and S93DNLW.}
 }
 \value{
-A dataframe with body size, in dry weight (mg) is returned for each specimen from selected equation.
+A dataframe with body size, as dry weight (mg) is returned for each specimen from selected equation.
 }
 \description{
-Calculates dry body weight (mg) from the allometries of Sage (1983) allometries (See 'Details') using body length*body width values (mm).
+Calculates body size as dry weight (mg) from the allometries of Sage (1983) allometries (See 'Details') using body length*body width values (mm).
 }
 \examples{
 lengthwidthsize(BLW=c(10,5,2), Eq = c("S93DBLW","S93DBLW","S93DBLW"))

@@ -1,6 +1,6 @@
 #' @name headwidthsize
 #' 
-#' @title Converts pollinator (Diptera, Hymenoptera and Lepidoptera) head width (mm) to body weight (mg).
+#' @title Converts pollinator (Diptera, Hymenoptera and Lepidoptera) head width (mm) to body size (dry weight (mg)).
 #' 
 #' @description Calculates dry body weight (mg) using head width (mm) from Hodar (1997).  
 #' 
@@ -9,7 +9,7 @@
 #' @param Eq a vector of predictive allometries for insect taxa from Hodar (1997). 
 #' Options implemented are: H97DB (Brachycera), H97DN (Nematocera), H97HA (Hymenoptera), H97LH (Heterocera) and H97LR (Rhopalocera).
 #'
-#' @return A dataframe with pollinator body size (mg) is returned for each specimen from selected equation.
+#' @return A dataframe with pollinator body size as dry weight (mg) is returned for each specimen from selected equation.
 #' 
 #' @examples
 #' headwidthsize(HW=c(10,5,2), Eq = c("H97DB","H97DB","H97DB")

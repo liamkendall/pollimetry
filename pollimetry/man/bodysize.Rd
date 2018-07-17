@@ -2,7 +2,7 @@
 % Please edit documentation in R/bodysize.R
 \name{bodysize}
 \alias{bodysize}
-\title{Converts the intertegular distance (ITD) and co-variates to body size (dry weight (mg)) for bees or hoverflies.}
+\title{Converts the intertegular distance (ITD) and co-variates to body size in dry weight (mg) for bees or hoverflies.}
 \usage{
 bodysize(x, taxa, type)
 }
@@ -12,17 +12,26 @@ Optional: Family/Subfamily, Region (Only NorthAmerica, SouthAmerica, Australasia
 
 \item{taxa}{A vector specifying insect taxa of interest, can be either "bee" for bee models and "hov" for hoverfly models}
 
-\item{type}{A vector specifying model type to be used: for bees this can be either "tax" for taxonomic models, "phy" for phylogenetic model or "IT" for ITD-only model. In hoverflies: it can either be "h1" for Weight ~ IT + Sex, "h2" for Weight ~ IT * Subfamily + Sex or IT for ITD-only model.}
+\item{type}{A vector specifying model type to be used: for bees this can be either "taxo" for taxonomic models, "phy" for phylogenetic model or "IT" for ITD-only model. In hoverflies: it can either be "h1" for Weight ~ IT + Sex, "h2" for Weight ~ IT * Subfamily + Sex or IT for ITD-only model.}
 }
 \value{
 The original dataframe (x) is returned along with four additional columns: body size (dry weight (mg)), S.E. and 95% confidence intervals.
 }
 \description{
-Calculates dry body weight (mg) from Kendall et al. (2018) using ITD (and co-variate) values.
+Calculates body size in dry weight (mg) from Kendall et al. (2018) using ITD (and co-variate) values.
+}
+\details{
+For bees, type option 'taxo' requires ITD, 
+sex and taxonomic family.   Option 'phylo' 
+ is only recommended for species included in model formulation. 
+ For hoverflies, type 'h1' requires ITD and Sex for each specimen 
+ and type 'h2' requires ITD, Sex and subfamily. Type "IT" for both 
+ taxa only requires ITD values (Optional: region and species, if included). 
+ If specimens are from included regions (see above) or  species we recommend 
+ including these as additional columns.
 }
 \examples{
 example=cbind.data.frame(IT=1:2,
-Taxa=c("bee","bee"), 
 Sex=c("Female","Male"), 
 Family=c("Apidae","Andrenidae"),
 Region=c("NorthAmerica","Europe"),

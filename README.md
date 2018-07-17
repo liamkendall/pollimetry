@@ -1,7 +1,7 @@
 Pollimetry: Predictive allometry for pollinating insects
 ==========
 
-Tools to estimate pollinator body size (dry weight), bee tongue length and foraging distances.
+Tools to estimate pollinator body size measured as dry weight (mg), bee tongue length and foraging distances.
 
 To install
 ==========
@@ -16,7 +16,7 @@ library(pollimetry)
 Estimating body size
 ====================
 
-The `bodysize` function uses Bayesian generalised linear mixed models to provide posterior estimates (along with S.E. and 95% confidence intervals) of pollinator body size (i.e. dry weight (mg)) using intertegular distance (ITD) values while taking into account specimen sex, taxonomy or phylogeny and biogeographical region of origin. Estimates (and error/variance) are returned bound to original dataframe.
+The `bodysize` function uses Bayesian generalised linear mixed models to provide posterior estimates (along with S.E. and 95% confidence intervals) of pollinator body size (i.e. dry weight (mg)) using intertegular distance (ITD) values while taking into account specimen sex, taxonomy or phylogeny and biogeographical region of origin. Estimates (and variance components) are returned as four additional columns bound to original dataframe.
 
 Pre-existing equations for Diptera, Hymenoptera and Lepidopteran taxa using body length (`lengthsize`), body length * width (`lengthwidthsize`) and head width (`headwidthsize`) are also provided.
 

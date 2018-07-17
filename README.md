@@ -24,3 +24,8 @@ Allometric traits
 =================
 
 Users can predict bee tongue length (`tonguelength`) from Cariveau et al. (2015) and bee foraging distances (`foragedist`) from equations described in van Nieuwstadt and Iraheta (1996) for Meliponini, Greenleaf et al. (2007) and Guedot et al. (2009) for Osmia spp.
+
+Future traits of interest
+=========================
+
+Many other ecological traits crucial to pollination are likely to be allometric. Therefore, we hope to examine these unexplored body size - trait relationships with the aim of including new predictive models in the future. 

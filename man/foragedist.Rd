@@ -4,12 +4,12 @@
 \alias{foragedist}
 \title{Converts body weight to measures of foraging distance for bees.}
 \usage{
-foragedist(x, Type = "GreenleafAll")
+foragedist(x, type = "GreenleafAll")
 }
 \arguments{
 \item{x}{A vector of either bee intertegular spans (IT) measurements in cm, head width values in mm or dry weight values (mg).}
 
-\item{Type}{The type of foraging distance desired. Options are "GrAll", GrMhd ("Maximum homing distance"),
+\item{type}{The type of foraging distance desired. Options are "GrAll", GrMhd ("Maximum homing distance"),
 GrThd ("Typical homing distance"), GrMfd ("Maximum feeder training distance"), GrMcd("Maximum communication distance"),"Osmia", "MeliMR" , "MeliFT" or "MeliAll". See details in Greenleaf et al. (2007), Guedot et al. (2009) and van Nieuwstadt and Iraheta (1996).}
 }
 \value{
@@ -25,5 +25,7 @@ foragedist(c(10,5,2), type = "MeliMR")
 
 }
 \references{
-Greenleaf, S.S., Williams, N.M., Winfree, R. & Kremen, C. (2007) Bee foraging ranges and their relationship to body size. Oecologia, 153, 589-596. Guedot, C., Bosch, J., & Kemp, W. P. (2009). Relationship between body size and homing ability in the genus Osmia (Hymenoptera; Megachilidae). Ecological Entomology, 34(1), 158-161. Van Nieuwstadt, M. G. L., & Iraheta, C. R. (1996). Relation between size and foraging range in stingless bees (Apidae, Meliponinae). Apidologie, 27(4), 219-228.
+Greenleaf, S.S., Williams, N.M., Winfree, R. & Kremen, C. (2007) Bee foraging ranges and their relationship to body size. Oecologia, 153, 589-596. 
+Guedot, C., Bosch, J., & Kemp, W. P. (2009). Relationship between body size and homing ability in the genus Osmia (Hymenoptera; Megachilidae). Ecological Entomology, 34(1), 158-161. 
+van Nieuwstadt, M. G. L., & Iraheta, C. R. (1996). Relation between size and foraging range in stingless bees (Apidae, Meliponinae). Apidologie, 27(4), 219-228.
 }

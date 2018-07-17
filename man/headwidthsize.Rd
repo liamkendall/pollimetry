@@ -19,9 +19,9 @@ A dataframe with pollinator body size as dry weight (mg) is returned for each sp
 Calculates dry body weight (mg) using head width (mm) from Hodar (1997).
 }
 \examples{
-headwidthsize(HW=c(10,5,2), Eq = c("H97DB","H97DB","H97DB")
+headwidthsize(HW=c(10,5,2), Eq = c("H97DB"))
 }
 \references{
-Kendall, Bartomeus... Rader (20XX) Pollinator size and its consequences: Predictive allometry for pollinating insects 
-#ADD Hodar 1997
+Kendall, Rader, Gagic... Bartomeus (2018)  Pollinator size and its consequences: Predictive allometry for pollinating insects.
+Hodar, J. A. (1997). The use of regresion equations for the estimation of prey length and biomass in diet studies of insectivore vertebrates. Miscellania Zoologica, 20(2), 1-10.
 }

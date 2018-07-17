@@ -37,7 +37,7 @@
 #' @return A dataframe with pollinator body size (mg) is returned for each species from selected equation/s.
 #' 
 #' @examples
-#' lengthsize(BL=c(10,5,2), Eq = c("H97DB", "H97DN", "H97DA"))
+#' lengthsize(BL=c(10,5,2), Eq = c("S80DCR"))
 #' @references Kendall, Bartomeus... Rader (20XX) Pollinator size and its consequences: Predictive allometry for pollinating insects 
 #' #ADD ALL REFERENCES
 #' 

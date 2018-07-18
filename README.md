@@ -1,4 +1,5 @@
-[![DOI](https://zenodo.org/badge/120989038.svg)](https://zenodo.org/badge/latestdoi/120989038)
+[![DOI](https://zenodo.org/badge/120989038.svg)](https://zenodo.org/badge/latestdoi/120989038)[![Travis build status](https://travis-ci.org/liamkendall/pollimetry.svg?branch=master)](https://travis-ci.org/liamkendall/pollimetry)
+
 
 Pollimetry: Predictive allometry for pollinating insects
 ==========

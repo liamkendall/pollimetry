@@ -36,23 +36,14 @@ Many other ecological traits crucial to pollination are likely to be allometric.
 Example
 ========
 
-`Pollimetry` needs the developmental version of brms, you can get it here:
-
-```
-if (!requireNamespace("devtools")) {
-  install.packages("devtools")
-}
-devtools::install_github("paul-buerkner/brms")
-
-```
-
-Second, you can install and call the pollimetry library as follows:
+Install and call the pollimetry library as follows:
 
 ```
 devtools::install_github("liamkendall/pollimetry",)
 library(pollimetry)
 ```
 
+This will install pollimetry and it's dependency `brms`.
 You can check the raw data used in the paper as follows:
 
 ```

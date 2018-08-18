@@ -39,7 +39,7 @@ Example
 Install and call the pollimetry library as follows:
 
 ```
-devtools::install_github("liamkendall/pollimetry",)
+devtools::install_github("liamkendall/pollimetry")
 library(pollimetry)
 ```
 
@@ -62,6 +62,7 @@ Let's predict some body sizes from a dataframe using taxonomy:
                             Species = c("Ceratina_dupla","Andrena_flavipes")))
 
 bodysize(x = example, taxa = "bee", type = "taxo")
+?bodysize
 ```
 
 Now let's calculate some foraging distances based only in ITDs:

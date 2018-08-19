@@ -29,7 +29,7 @@ but should be only be used for with Species (and Region) included in model formu
  taxa only requires ITD values (Optional: region and species but check `setdiff`). 
  If specimens are from included regions or species (see above) we recommend 
  including these as additional columns. Estimates (and variance components) are 
- returned as four additional columns bound to the original dataframe.
+ returned as four additional columns bound to the original dataframe. In the likely case that non-represented taxa and regions are included in inputted datasets, `allow_new_levels` is set to true for all models. Estimates will be then averaged after random variance components.
 }
 \examples{
 example=cbind.data.frame(IT=1:2,

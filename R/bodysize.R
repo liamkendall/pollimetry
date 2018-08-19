@@ -71,24 +71,25 @@ bodysize=function(x,taxa,type) {
   if(type=="phylo" & taxa =="hov"){
     stop("Bad combination: No phylogenetic model implemented for hoverflies yet!")
     } else if(rownames <- "pollimetrydata" %in% rownames(installed.packages()) == TRUE) {
-    if(type=="taxo" & taxa=="bee"){
-      data(bee_tax_mod, envir = environment())
+       
+      if(type=="taxo" & taxa=="bee"){
+      data(pollimetrydata::bee_tax_mod, envir = environment())
       mod=bee_tax_mod
     }
     if(type=="phylo" & taxa=="bee"){  
-      data(bee_phy_mod, envir = environment())
+      data(pollimetrydata::bee_phy_mod, envir = environment())
       mod=bee_phy_mod
     }
     if(type=="IT" & taxa=="bee"){  
-      data(bee_IT, envir = environment())
+      data(pollimetrydata::bee_IT, envir = environment())
       mod=bee_IT
     }
     if(type=="taxo" & taxa=="hov"){  
-      data(hov_tax_mod, envir = environment())
+      data(pollimetrydata::hov_tax_mod, envir = environment())
       mod=hov_tax_mod
     }
     if(type=="IT" & taxa=="hov"){  
-      data(hov_IT, envir = environment())
+      data(pollimetrydata::hov_IT, envir = environment())
       mod=hov_IT
     }
     }else {

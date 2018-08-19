@@ -71,7 +71,6 @@ bodysize=function(x,taxa,type) {
   if(type=="phylo" & taxa =="hov"){
     stop("Bad combination: No phylogenetic model implemented for hoverflies yet!")
     } else if(rownames <- "pollimetrydata" %in% rownames(installed.packages()) == TRUE) {
-       
       if(type=="taxo" & taxa=="bee"){
       data(pollimetrydata::bee_tax_mod, envir = environment())
       mod=bee_tax_mod

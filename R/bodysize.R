@@ -41,34 +41,28 @@
 #' @export
 bodysize=function(x,taxa,type) {
   data("pollimetry_dataset", envir = environment())
-  check_sp <- x$Species %in% pollimetry_dataset$Species #in original data? Call the Rdata object?
+  check_sp <- x$Species %in% pollimetry_dataset$Species 
   if(any(check_sp==FALSE)){
-    warning("Some species are different from those used in model formulation, use type = 'taxo'")
-    #LIAM, WHAT THE MODEL DO WHEN species IS Unknown even in taxo models?? Explain as in Region. 
-    #This general species test should be added at the main level, not only for phylo!
+    warning("Some species are different from those used in model formulation, for those, 
+            Model will only consider population-level (fixed) effects")
   } 
   check_Region <- x$Region %in% c("Australasia","NorthAmerica","SouthAmerica","Europe")
   if(any(check_Region == FALSE)){
-    warning("Only the following regions are supported currently; 'Australasia','NorthAmerica','SouthAmerica' and 'Europe'. Model will only consider population-level (fixed) effects")
+    warning("Only the following regions are supported currently; 'Australasia','NorthAmerica','SouthAmerica' and 'Europe'. 
+            Model will only consider population-level (fixed) effects")
   }
   if(type == "taxo"){
     check_taxo <- x$Family %in% c("Andrenidae","Apidae","Colletidae","Halictidae","Melittidae","Megachilidae")
     if(any(check_taxo == FALSE)){
-      stop("Family should be either 'Andrenidae','Apidae','Colletidae',Halictidae','Megachilidae','Melittidae'. If family is unknown, use type IT.")
-      #LIAM, WHAT THE MODEL DO WHEN FAMILY IS Unknown?? Now fails. Do same as with Sex.
+      stop("Family should be either 'Andrenidae','Apidae','Colletidae',Halictidae','Megachilidae','Melittidae'.
+           If family is unknown, use type = 'IT'.")
     }
   }
-  
-  if(type == "taxo"){
+  if(type %in% c("taxo", "phylo")){
   if("Sex" %in% colnames(x)==FALSE) {
     stop("Sex should be either 'Female' and/or 'Male'. If sex is unknown, we recommend adding a data column denoting all specimens as females i.e df$Sex='Female'")
-  }
-  }  
-  if(type == "phylo"){
-    if("Sex" %in% colnames(x)==FALSE) {
-      stop("Sex should be either 'Female' and/or 'Male'. If sex is unknown, we recommend adding a data column denoting all specimens as females i.e df$Sex='Female'")
     }
-  } 
+  }  
   check_Sex <- x$Sex %in% c("Female","Male")
   if(any(check_Sex==FALSE)){
     stop("Sex should be either 'Female' and/or 'Male'. If sex is unknown, we recommend adding a data column denoting all specimens as females i.e df$Sex='Female'")
@@ -76,7 +70,7 @@ bodysize=function(x,taxa,type) {
   ##Incorrect type and taxa combos
   if(type=="phylo" & taxa =="hov"){
     stop("Bad combination: No phylogenetic model implemented for hoverflies yet!")
-  }else if(rownames <- "pollimetrydata" %in% rownames(installed.packages()) == TRUE) {
+    } else if(rownames <- "pollimetrydata" %in% rownames(installed.packages()) == TRUE) {
     if(type=="taxo" & taxa=="bee"){
       data(bee_tax_mod, envir = environment())
       mod=bee_tax_mod

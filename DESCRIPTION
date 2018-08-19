@@ -12,7 +12,7 @@ Depends:
 Imports:
  stats, repmis
 Suggests:
- rstan
+ rstan, pollimetrydata
 License: GPL (>= 2)
 LazyData: true
 RoxygenNote: 6.1.0

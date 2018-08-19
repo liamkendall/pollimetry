@@ -27,7 +27,6 @@
 #' 
 #' @import brms
 #' 
-#' 
 #' @examples
 #' example=cbind.data.frame(IT=1:2,
 #'                          Sex=c("Female","Male"), 
@@ -43,8 +42,8 @@ bodysize=function(x,taxa,type) {
   data("pollimetry_dataset", envir = environment())
   check_sp <- x$Species %in% pollimetry_dataset$Species 
   if(any(check_sp==FALSE)){
-    warning("Some species are different from those used in model formulation, for those, 
-            Model will only consider population-level (fixed) effects")
+    warning("Some species are different from those used in model formulation, for those species, these 
+            models will only consider population-level (fixed) effects")
   } 
   check_Region <- x$Region %in% c("Australasia","NorthAmerica","SouthAmerica","Europe")
   if(any(check_Region == FALSE)){
@@ -72,24 +71,19 @@ bodysize=function(x,taxa,type) {
     stop("Bad combination: No phylogenetic model implemented for hoverflies yet!")
     } else if(rownames <- "pollimetrydata" %in% rownames(installed.packages()) == TRUE) {
       if(type=="taxo" & taxa=="bee"){
-      data(pollimetrydata::bee_tax_mod, envir = environment())
-      mod=bee_tax_mod
+      mod=pollimetrydata::bee_tax_mod
     }
     if(type=="phylo" & taxa=="bee"){  
-      data(pollimetrydata::bee_phy_mod, envir = environment())
-      mod=bee_phy_mod
+      mod=pollimetrydata::bee_phy_mod
     }
     if(type=="IT" & taxa=="bee"){  
-      data(pollimetrydata::bee_IT, envir = environment())
-      mod=bee_IT
+      mod=pollimetrydata::bee_IT
     }
     if(type=="taxo" & taxa=="hov"){  
-      data(pollimetrydata::hov_tax_mod, envir = environment())
-      mod=hov_tax_mod
+      mod=pollimetrydata::hov_tax_mod
     }
     if(type=="IT" & taxa=="hov"){  
-      data(pollimetrydata::hov_IT, envir = environment())
-      mod=hov_IT
+      mod=pollimetrydata::hov_IT
     }
     }else {
     ###BEES

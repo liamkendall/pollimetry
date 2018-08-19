@@ -12,7 +12,8 @@ Depends:
 Imports:
  stats, repmis
 Suggests:
- rstan, pollimetrydata
+ rstan
+Additional_repositories: https://github.com/liamkendall/pollimetrydata
 License: GPL (>= 2)
 LazyData: true
 RoxygenNote: 6.1.0

@@ -15,18 +15,18 @@
 #' 
 #' @details For bees, type option 'taxo' requires ITD, 
 #' sex and taxonomic family.  Type option 'phylo' only requires ITD and Sex to run 
-#' but is only recommended to be used for species (and regions) included in model formulation. 
-#' Please run `setdiff` using `bee_mean_dataset` for region and species to check matches.
-#'  For hoverflies, type 'h1' requires ITD and Sex for each specimen 
-#'  and type 'h2' requires ITD, Sex and subfamily. Type "IT" for both 
-#'  taxa only requires ITD values (Optional: region and species but again check `setdiff`). 
+#' but should be only be used for with Species (and Region) included in model formulation n.b. the function checks for contained species.  
+#' 
+#'  For hoverflies, type 'taxo' requires ITD, Subfamily and Sex for each specimen. Type "IT" for both 
+#'  taxa only requires ITD values (Optional: region and species but check `setdiff`). 
 #'  If specimens are from included regions or species (see above) we recommend 
 #'  including these as additional columns. Estimates (and variance components) are 
-#'  returned as four additional columns bound to the original dataframe.
+#'  returned as four additional columns bound to the original dataframe. In the likely case that non-represented taxa and regions are included in inputted datasets, `allow_new_levels` is set to true for all models. Estimates will be then averaged after random variance components.
 #' 
 #' @importFrom stats predict
 #' 
 #' @import brms
+#' 
 #' 
 #' @examples
 #' example=cbind.data.frame(IT=1:2,
@@ -40,61 +40,102 @@
 #' 
 #' @export
 bodysize=function(x,taxa,type) {
+  data("pollimetry_dataset", envir = environment())
+  check_sp <- x$Species %in% pollimetry_dataset$Species #in original data? Call the Rdata object?
+  if(any(check_sp==FALSE)){
+    warning("Some species are different from those used in model formulation, use type = 'taxo'")
+    #LIAM, WHAT THE MODEL DO WHEN species IS Unknown even in taxo models?? Explain as in Region. 
+    #This general species test should be added at the main level, not only for phylo!
+  } 
   check_Region <- x$Region %in% c("Australasia","NorthAmerica","SouthAmerica","Europe")
   if(any(check_Region == FALSE)){
     warning("Only the following regions are supported currently; 'Australasia','NorthAmerica','SouthAmerica' and 'Europe'. Model will only consider population-level (fixed) effects")
   }
-  check_Sex <- x$Family %in% c("Female","Male")
-  if(any(check_Sex==FALSE)){
-    warning("Sex should be either 'Female' and/or 'Male'")
-    #LIAM, WHAT THE MODEL DO WHEN Sex IS Unknown?? 
-    #Right now it fails! Hence, either we allow the model to run an average, or we stop the function here if Sex has a wrong value. and provide an informative error message.
-  } 
-  if(type = "taxo"){
-    check_taxo <- x$Family %in% c("xxxx","xxxx")
-    if(any(check_taxo==FALSE)){
-      warning("Family should be either 'xxxx', 'xxxx'")
+  if(type == "taxo"){
+    check_taxo <- x$Family %in% c("Andrenidae","Apidae","Colletidae","Halictidae","Melittidae","Megachilidae")
+    if(any(check_taxo == FALSE)){
+      stop("Family should be either 'Andrenidae','Apidae','Colletidae',Halictidae','Megachilidae','Melittidae'. If family is unknown, use type IT.")
       #LIAM, WHAT THE MODEL DO WHEN FAMILY IS Unknown?? Now fails. Do same as with Sex.
-    } 
+    }
   }
-  if(type = "phylo"){
-    check_sp <- x$Species %in% c("xxxx","xxxx") #in original data? Call the Rdata object?
-    if(any(check_sp==FALSE)){
-      warning("Species should be either contained into the phylogeny, try type = 'taxo'")
-      #LIAM, WHAT THE MODEL DO WHEN species IS Unknown even in taxo models?? Explain as in Region. 
-      #This general species test should be addedd at the main level, not only for phylo!
-    } 
+  
+  if(type == "taxo"){
+  if("Sex" %in% colnames(x)==FALSE) {
+    stop("Sex should be either 'Female' and/or 'Male'. If sex is unknown, we recommend adding a data column denoting all specimens as females i.e df$Sex='Female'")
+  }
+  }  
+  if(type == "phylo"){
+    if("Sex" %in% colnames(x)==FALSE) {
+      stop("Sex should be either 'Female' and/or 'Male'. If sex is unknown, we recommend adding a data column denoting all specimens as females i.e df$Sex='Female'")
+    }
+  } 
+  check_Sex <- x$Sex %in% c("Female","Male")
+  if(any(check_Sex==FALSE)){
+    stop("Sex should be either 'Female' and/or 'Male'. If sex is unknown, we recommend adding a data column denoting all specimens as females i.e df$Sex='Female'")
   }
   ##Incorrect type and taxa combos
   if(type=="phylo" & taxa =="hov"){
     stop("Bad combination: No phylogenetic model implemented for hoverflies yet!")
-  } else {
+  }else if(rownames <- "pollimetrydata" %in% rownames(installed.packages()) == TRUE) {
+    if(type=="taxo" & taxa=="bee"){
+      data(bee_tax_mod, envir = environment())
+      mod=bee_tax_mod
+    }
+    if(type=="phylo" & taxa=="bee"){  
+      data(bee_phy_mod, envir = environment())
+      mod=bee_phy_mod
+    }
+    if(type=="IT" & taxa=="bee"){  
+      data(bee_IT, envir = environment())
+      mod=bee_IT
+    }
+    if(type=="taxo" & taxa=="hov"){  
+      data(hov_tax_mod, envir = environment())
+      mod=hov_tax_mod
+    }
+    if(type=="IT" & taxa=="hov"){  
+      data(hov_IT, envir = environment())
+      mod=hov_IT
+    }
+    }else {
     ###BEES
-    if(type=="taxo" & taxa=="bee") {
-            mod=bee_tax_mod
-      } 
-    if(type=="phylo" & taxa=="bee") {
-            mod=bee_phy_mod #most complex 
+      if(type=="taxo" & taxa=="bee"){
+      if(rownames <- "pollimetrydata" %in% rownames(installed.packages()) == FALSE){
+        repmis::source_data("https://github.com/liamkendall/pollimetrydata/raw/master/data/bee_tax_mod.rdata", envir = environment())
+        mod=bee_tax_mod}
+        }
       }
-    if(type=="IT" & taxa=="bee") {
-            mod=bee_IT #PHYLO IT only
+      
+    if(type=="phylo" & taxa=="bee"){
+        if(rownames <- "pollimetrydata" %in% rownames(installed.packages()) == FALSE){
+          repmis::source_data("https://github.com/liamkendall/pollimetrydata/raw/master/data/bee_phy_mod.rdata", envir = environment())
+          mod=bee_phy_mod
+          }
       }
+     
+      if(type=="IT" & taxa=="bee"){
+    if(rownames <- "pollimetrydata" %in% rownames(installed.packages()) == FALSE){
+      repmis::source_data("https://github.com/liamkendall/pollimetrydata/raw/master/data/bee_IT.rdata", envir = environment())
+      mod=bee_IT}
+  }
+      
     ###HOVERFLIES
-    if(type=="h1" & taxa=="hov") {
-            mod=h1 #Top RANKED IT + SEx
-      } 
-    if(type=="h2" & taxa=="hov") {
-           mod=h2 #2nd IT*SUBFAMILY + Sex
-      } 
-    if(type=="IT" & taxa=="hov") {
-           mod=hov_IT #IT only
-    } 
-    #More tests can be implemented e.g. warn depreciated columns (e.g. if Family is provided with type Phylo, explain that it will be depreciated)
-    ##OUTPUT
-    out = predict(object=mod,newdata=x,allow_new_levels=TRUE,transform=exp)
-    colnames(out)=c("Est.Weight","SE","CI_Lower","CI_Upper")
-    out=cbind(x,out)
-    out
+if(type=="taxo" & taxa=="hov"){
+    if(rownames <- "pollimetrydata" %in% rownames(installed.packages()) == FALSE){
+      repmis::source_data("https://github.com/liamkendall/pollimetrydata/raw/master/data/hov_tax_mod.rdata", envir = environment())
+      mod=hov_tax_mod}
+  }
+
+if(type=="IT" & taxa=="hov"){
+    if(rownames <- "pollimetrydata" %in% rownames(installed.packages()) == FALSE){
+      repmis::source_data("https://github.com/liamkendall/pollimetrydata/raw/master/data/hov_IT.rdata", envir = environment())
+      mod=hov_IT
   }
 }
-
+    #More tests can be implemented e.g. warn depreciated columns (e.g. if Family is provided with type Phylo, explain that it will be depreciated)
+    ##OUTPUT
+    out <- predict(object=mod,newdata=x,allow_new_levels=TRUE,transform=exp)
+    colnames(out)=c("Est.Weight","SE","CI_Lower","CI_Upper")
+    out<-cbind(x,out)
+    out
+  }

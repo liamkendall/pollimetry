@@ -16,6 +16,16 @@ devtools::install_github("liamkendall/pollimetry")
 library(pollimetry)
 ```
 
+We also recommend downloading the data package so the `bodysize` function runs faster
+
+```
+if (!requireNamespace("devtools")) {
+  install.packages("devtools")
+}
+devtools::install_github("liamkendall/pollimetrydata")
+library(pollimetrydata)
+```
+
 Estimating body size
 ====================
 
@@ -72,9 +82,3 @@ foragedist(c(10,5,2), type = "GreenleafAll")
 ```
 
 Other functions included are `headwidthsize()`, `lengthwidthsize()`, and `lengthsize()` for X. And `tonguelength()` for estimating tongue length.
-
-```
-
-
-
-

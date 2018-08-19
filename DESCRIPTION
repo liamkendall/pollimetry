@@ -1,8 +1,8 @@
 Package: pollimetry
 Type: Package
 Title: Estimate pollinator body size and co-varying ecological traits
-Version: 0.1.1
-Date: 2018-07-17
+Version: 0.2.0
+Date: 2018-08-20
 Author: c(Authors@R: person("Liam", "Kendall", email = "liam.k.kendall@gmail.com",role=c("aut","cre"),
                      person("Ignasi","Bartomeus", email = "nacho.bartomeus@gmail.com",role="aut"))
 Maintainer: Liam Kendall <liam.k.kendall@gmail.com>
@@ -10,9 +10,9 @@ Description: Tools to estimate pollinator body size and co-varying traits: bee t
 Depends:
   R (>= 3.0.0), brms (>= 2.4.0)
 Imports:
- stats
+ stats, repmis
 Suggests:
  rstan
 License: GPL (>= 2)
 LazyData: true
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.0

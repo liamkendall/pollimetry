@@ -12,7 +12,7 @@ Optional attributes depending on model choice: Taxonomic family (bees) or subfam
 
 \item{taxa}{A vector specifying insect taxa of interest, can be either "bee" for bee models and "hov" for hoverfly models}
 
-\item{type}{A vector specifying model type to be used: for bees this can be either "taxo" for taxonomic models, "phy" for phylogenetic model or "ITD" for ITD-only model. In hoverflies: it can either be "taxo" for full taxonomic and sex model or "ITD" for ITD-only model.}
+\item{type}{A vector specifying model type to be used: for bees this can be either "taxo" for taxonomic models, "phy" for phylogenetic model or "IT" for ITD-only model. In hoverflies: it can either be "taxo" for full taxonomic and sex model or "IT" for ITD-only model.}
 }
 \value{
 The original dataframe (x) is returned along with four additional columns: body size (dry weight (mg)), S.E. and 95 perent confidence intervals.
@@ -32,7 +32,7 @@ but should be only be used for with Species (and Region) included in model formu
  returned as four additional columns bound to the original dataframe. In the likely case that non-represented taxa and regions are included in inputted datasets, `allow_new_levels` is set to true for all models. Estimates will be then averaged after random variance components.
 }
 \examples{
-example=cbind.data.frame(ITD=1:2,
+example=cbind.data.frame(IT=c(1.3,2.3),
                          Sex=c("Female","Male"), 
                          Family=c("Apidae","Andrenidae"),
                          Region=c("NorthAmerica","Europe"),

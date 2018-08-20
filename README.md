@@ -19,6 +19,7 @@ library(pollimetry)
 We also recommend downloading the data package so the `bodysize` function runs faster
 
 ```
+#Loading is slow (~ 50 Mb)
 if (!requireNamespace("devtools")) {
   install.packages("devtools")
 }
@@ -81,4 +82,4 @@ Now let's calculate some foraging distances based only in ITDs:
 foragedist(c(10,5,2), type = "GreenleafAll") 
 ```
 
-Other functions included are `headwidthsize()`, `lengthwidthsize()`, and `lengthsize()` for X. And `tonguelength()` for estimating tongue length.
+Other functions included are `tonguelength()` for estimating tongue length and older allometric equations: `headwidthsize()`, `lengthwidthsize()`, and `lengthsize()`.

@@ -41,5 +41,5 @@ bodysize(x=example,taxa="bee",type="taxo")
 
 }
 \references{
-Kendall, Rader, Gagic... Bartomeus (2018) Pollinator size and its consequences: Predictive allometry for pollinating insects
+Kendall et al. (2018) Pollinator size and its consequences: Predictive allometry for pollinating insects. In prep.
 }

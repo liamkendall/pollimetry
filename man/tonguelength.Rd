@@ -2,7 +2,7 @@
 % Please edit documentation in R/tonguelength.R
 \name{tonguelength}
 \alias{tonguelength}
-\title{Converts ITD to tongue length for bees.}
+\title{Converts ITD (cm) to tongue length for bees.}
 \usage{
 tonguelength(IT, family, mouthpart = "all")
 }
@@ -18,12 +18,13 @@ tonguelength(IT, family, mouthpart = "all")
 A dataframe with bee tongue length (mm) is returned for each bees species.
 }
 \description{
-Calculates tongue length (mm) from Cariveau et al. (2015) using intertegular distance values (ITD).
+Calculates tongue length (mm) from Cariveau et al. (2015) using intertegular distance (ITD) values (cm)..
 }
 \examples{
 tonguelength(IT=c(10,5,2), family = c("Andrenidae", "Apidae", "Colletidae"))
 tonguelength(IT=c(10,5,2), family = c("Andrenidae", "Apidae", "Colletidae"), mouthpart = "tongue")
+
 }
 \references{
-Cariveau, Nayak, Bartomeus, Zientek, Ascher, Winfree (2015) The allometry of bee tongue length an its uses in ecology and evolution
+Cariveau et al. (2016) The allometry of bee tongue length an its uses in ecology and evolution. PLoS ONE 11(3): e0151482 <doi:10.1371/journal.pone.0151482>
 }

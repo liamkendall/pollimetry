@@ -25,7 +25,7 @@ foragedist(c(10,5,2), type = "MeliMR")
 
 }
 \references{
-Greenleaf, S.S., Williams, N.M., Winfree, R. & Kremen, C. (2007) Bee foraging ranges and their relationship to body size. Oecologia, 153, 589-596. 
-Guedot, C., Bosch, J., & Kemp, W. P. (2009). Relationship between body size and homing ability in the genus Osmia (Hymenoptera; Megachilidae). Ecological Entomology, 34(1), 158-161. 
+Greenleaf et al. (2007) Bee foraging ranges and their relationship to body size. Oecologia, 153, 589-596. <doi:10.1007/s00442-007-0752-9>
+Guedot et al. (2009). Relationship between body size and homing ability in the genus Osmia (Hymenoptera; Megachilidae). Ecological Entomology, 34(1), 158-161. <doi:10.1111/j.1365-2311.2008.01054.x>
 van Nieuwstadt, M. G. L., & Iraheta, C. R. (1996). Relation between size and foraging range in stingless bees (Apidae, Meliponinae). Apidologie, 27(4), 219-228.
 }

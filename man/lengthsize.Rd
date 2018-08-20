@@ -9,7 +9,7 @@ lengthsize(BL, Eq = "DIP")
 \arguments{
 \item{BL}{A vector of pollinator body length (BL) measurements (mm).}
 
-\item{Eq}{A vector specificing which predictive allometry to use. 
+\item{Eq}{A vector specificing which predictive allometry to use. Acronyms denote first (and second author), publication date and taxon.
 Options implemented are: DIP (10 equations): BN06D, G97D, GR84D, JS00DA, R77D, 
                          S80DCF, S80DCR, S80DMF, S93DA, W13D),
                          
@@ -47,6 +47,5 @@ Calculates body size as dry  weight (mg) from existing allometries (See 'Details
 lengthsize(BL=c(10,5,2), Eq = c("S80DCR"))
 }
 \references{
-Kendall, Bartomeus... Rader (20XX) Pollinator size and its consequences: Predictive allometry for pollinating insects 
-#ADD ALL REFERENCES
+Full reference list is available within Kendall et al. (2018) Pollinator size and its consequences: Predictive allometry for pollinating insects. In prep.
 }

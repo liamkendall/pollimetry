@@ -6,7 +6,7 @@
 #' 
 #' @param BL A vector of pollinator body length (BL) measurements (mm).
 #' 
-#' @param Eq A vector specificing which predictive allometry to use. 
+#' @param Eq A vector specificing which predictive allometry to use. Acronyms denote first (and second author), publication date and taxon.
 #' Options implemented are: DIP (10 equations): BN06D, G97D, GR84D, JS00DA, R77D, 
 #'                          S80DCF, S80DCR, S80DMF, S93DA, W13D),
 #'                          
@@ -38,8 +38,8 @@
 #' 
 #' @examples
 #' lengthsize(BL=c(10,5,2), Eq = c("S80DCR"))
-#' @references Kendall, Bartomeus... Rader (20XX) Pollinator size and its consequences: Predictive allometry for pollinating insects 
-#' #ADD ALL REFERENCES
+#' @references Full reference list is available within Kendall et al. (2018) Pollinator size and its consequences: Predictive allometry for pollinating insects. In prep.
+#' 
 #' 
 #' @export
 lengthsize=function(BL, Eq = "DIP"){

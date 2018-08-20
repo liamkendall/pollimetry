@@ -9,6 +9,6 @@
 pollimetry_dataset
 }
 \description{
-A dataset containing the body size in dry weight (mg), intertegular distance (mm), body length and metadata for 4438 measured bee and hoverfly specimens.
+A dataset containing the body size in dry weight (mg), intertegular distance (mm), body length (mg) and metadata for 4438 measured bee and hoverfly specimens.
 }
 \keyword{datasets}

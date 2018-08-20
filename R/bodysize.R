@@ -25,6 +25,9 @@
 #' 
 #' @importFrom stats predict
 #' 
+#' @importFrom utils data installed.packages globalVariables
+#' 
+#' 
 #' @import brms
 #' 
 #' @examples
@@ -35,7 +38,7 @@
 #'                          Species=c("Ceratina_dupla","Andrena_flavipes"))
 #' bodysize(x=example,taxa="bee",type="taxo")
 #' 
-#' @references Kendall, Rader, Gagic... Bartomeus (2018) Pollinator size and its consequences: Predictive allometry for pollinating insects 
+#' @references Kendall et al. (2018) Pollinator size and its consequences: Predictive allometry for pollinating insects. In prep.
 #' 
 #' @export
 bodysize=function(x,taxa,type) {

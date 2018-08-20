@@ -41,6 +41,7 @@
 #' 
 #' @export
 bodysize=function(x,taxa,type) {
+  bee_IT <- bee_phy_mod <- bee_tax_mod <- hov_IT <- hov_tax_mod <- pollimetry_dataset <- NULL
   if(is.null(x$Species)==TRUE & is.null(x$Region)==FALSE){
     warning("Species have not been provided, these models will only consider fixed and random biogeographical effects.")
   }

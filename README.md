@@ -19,7 +19,7 @@ library(pollimetry)
 We also recommend downloading the data package so the `bodysize` function runs faster
 
 ```
-#Loading is slow (~ up to 26 Mb per estimate)
+#Loading is slow (~ up to 26 Mb per model file)
 if (!requireNamespace("devtools")) {
   install.packages("devtools")
 }

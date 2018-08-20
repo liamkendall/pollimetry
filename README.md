@@ -19,7 +19,7 @@ library(pollimetry)
 We also recommend downloading the data package so the `bodysize` function runs faster
 
 ```
-#Loading is slow (~ 50 Mb)
+#Loading is slow (~ up to 26 Mb per estimate)
 if (!requireNamespace("devtools")) {
   install.packages("devtools")
 }
@@ -30,7 +30,7 @@ library(pollimetrydata)
 Estimating body size
 ====================
 
-The `bodysize` function uses Bayesian generalised linear mixed models (BGLMMs) to provide posterior estimates (along with S.E. and 95% confidence intervals) of pollinator body size (i.e. dry body weight (mg)) using the intertegular distance (ITD), species taxonomy or phylogeny (bees only `type="phylo"`), sex and biogeography (at present only Australia, Europe, North America and South America). Estimates (and variance components) are returned as four additional columns bound to the original dataframe. These models will be periodically updated using novel data as and when it becomes available. See `bodysize` details for more information.
+The `bodysize` function uses Bayesian generalised linear mixed models (BGLMMs) to provide posterior estimates (along with S.E. and 95% credible intervals) of pollinator body size (i.e. dry body weight (mg)) using the intertegular distance (ITD), species taxonomy or phylogeny (bees only `type="phylo"`), sex and biogeography (at present only Australia, Europe, North America and South America). Estimates (and variance components) are returned as four additional columns bound to the original dataframe. These models will be periodically updated using novel data as and when it becomes available. See `bodysize` details for more information.
 
 Pre-existing equations for Diptera, Hymenoptera and Lepidopteran taxa using body length (`lengthsize`), body length * width (`lengthwidthsize`) and head width (`headwidthsize`) are also provided.
 

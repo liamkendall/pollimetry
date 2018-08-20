@@ -1,6 +1,6 @@
 ##BEE IT TEST
 
-example <- cbind.data.frame(ITD = c(1.2, 2.3), 
+example <- cbind.data.frame(IT = c(1.2, 2.3), 
                             Sex = c("Female","Male"), 
                             Family = c("Apidae","Andrenidae"),
                             Region = c("NorthAmerica","Europe"),

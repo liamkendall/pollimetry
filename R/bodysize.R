@@ -9,7 +9,7 @@
 #'
 #' @param taxa A vector specifying insect taxa of interest, can be either "bee" for bee models and "hov" for hoverfly models
 #' 
-#' @param type A vector specifying model type to be used: for bees this can be either "taxo" for taxonomic models, "phy" for phylogenetic model or "ITD" for ITD-only model. In hoverflies: it can either be "taxo" for full taxonomic and sex model or "ITD" for ITD-only model.
+#' @param type A vector specifying model type to be used: for bees this can be either "taxo" for taxonomic models, "phy" for phylogenetic model or "IT" for ITD-only model. In hoverflies: it can either be "taxo" for full taxonomic and sex model or "IT" for ITD-only model.
 #' 
 #' @return The original dataframe (x) is returned along with four additional columns: body size (dry weight (mg)), S.E. and 95 perent confidence intervals.
 #' 
@@ -31,7 +31,7 @@
 #' @import brms
 #' 
 #' @examples
-#' example=cbind.data.frame(ITD=c(1.3,2.3),
+#' example=cbind.data.frame(IT=c(1.3,2.3),
 #'                          Sex=c("Female","Male"), 
 #'                          Family=c("Apidae","Andrenidae"),
 #'                          Region=c("NorthAmerica","Europe"),
@@ -42,7 +42,6 @@
 #' 
 #' @export
 bodysize=function(x,taxa,type) {
-
   if(is.null(x$Species)==TRUE & is.null(x$Region)==FALSE){
     warning("Species have not been provided, these models will only consider fixed and random biogeographical effects.")
   }
@@ -69,16 +68,16 @@ bodysize=function(x,taxa,type) {
   if(type == "taxo" & taxa == "bee"){
     check_taxo <- x$Family %in% c("Andrenidae","Apidae","Colletidae","Halictidae","Melittidae","Megachilidae")
     if(any(check_taxo == FALSE)){
-      stop("Family should be either 'Andrenidae','Apidae','Colletidae',Halictidae','Megachilidae','Melittidae'. If family is unknown, use type = 'ITD'.")
+      stop("Family should be either 'Andrenidae','Apidae','Colletidae',Halictidae','Megachilidae','Melittidae'. If family is unknown, use type = 'IT'.")
     }
   }
   if(type == "taxo" & taxa == "bee" & is.null(x$Family)==TRUE){
-    stop("Family not provided. If family is unknown, use type = 'ITD'.")
+    stop("Family not provided. If family is unknown, use type = 'IT'.")
   }
   if(type == "taxo" & taxa == "hov"){
     check_taxo <- x$Family %in% c("Eristalinae","Syrphinae")
     if(any(check_taxo == FALSE)){
-      stop("Subfamily should be either 'Eristalinae' or 'Syrphinae'. If family is unknown, use type = 'ITD'.")
+      stop("Subfamily should be either 'Eristalinae' or 'Syrphinae'. If family is unknown, use type = 'IT'.")
     }
   }
   if(type %in% c("taxo", "phylo")){
@@ -109,11 +108,8 @@ bodysize=function(x,taxa,type) {
   }
   check_hovsub <- x$Subfamily %in% c("Eristalinae","Syrphinae")
   if(type=="taxo" & any(check_hovsub==FALSE)){
-    stop("Only Eristalinae and Syrphinae supported currently. Use type = 'ITD'.")
-  }
-  if(type=="taxo" & is.null(x$Subfamily)==TRUE){
-    stop("No subfamily column (Eristalinae and/or Syrphinae) found. Use type = 'ITD'.")
-  }
+    stop("Only Eristalinae and Syrphinae supported currently. Use type = 'IT'.")
+  } 
   if(taxa=="hov" & is.null(x$Region)==TRUE){
     warning("Region not found. Only fixed effects will be inferred.") 
   }
@@ -130,13 +126,13 @@ bodysize=function(x,taxa,type) {
     if(type=="phylo" & taxa=="bee"){  
       mod=pollimetrydata::bee_phy_mod
     }
-    if(type=="ITD" & taxa=="bee"){  
+    if(type=="IT" & taxa=="bee"){  
       mod=pollimetrydata::bee_IT
     }
     if(type=="taxo" & taxa=="hov"){  
       mod=pollimetrydata::hov_tax_mod
     }
-    if(type=="ITD" & taxa=="hov"){  
+    if(type=="IT" & taxa=="hov"){  
       mod=pollimetrydata::hov_IT
     }
   }else {
@@ -155,7 +151,7 @@ bodysize=function(x,taxa,type) {
     }
   }
   
-  if(type=="ITD" & taxa=="bee"){
+  if(type=="IT" & taxa=="bee"){
     if(rownames <- "pollimetrydata" %in% rownames(installed.packages()) == FALSE){
       repmis::source_data("https://github.com/liamkendall/pollimetrydata/raw/master/data/bee_IT.rdata", envir = environment())
       mod=bee_IT}
@@ -168,7 +164,7 @@ bodysize=function(x,taxa,type) {
       mod=hov_tax_mod}
   }
   
-  if(type=="ITD" & taxa=="hov"){
+  if(type=="IT" & taxa=="hov"){
     if(rownames <- "pollimetrydata" %in% rownames(installed.packages()) == FALSE){
       repmis::source_data("https://github.com/liamkendall/pollimetrydata/raw/master/data/hov_IT.rdata", envir = environment())
       mod=hov_IT

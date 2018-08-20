@@ -22,5 +22,6 @@ lengthwidthsize(BLW=c(3,5,2), Eq = c("Brachycera"))
 }
 \references{
 Kendall et al. (2018) Pollinator size and its consequences: Predictive allometry for pollinating insects. In prep.
+
 Sample et al. (1993) Estimation of insect biomass by length and width. American Midland Naturalist, 234-240.
 }

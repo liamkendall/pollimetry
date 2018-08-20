@@ -2,17 +2,17 @@
 % Please edit documentation in R/bodysize.R
 \name{bodysize}
 \alias{bodysize}
-\title{Converts the intertegular distance (ITD) and co-variates to body size in dry weight (mg) for bees or hoverflies.}
+\title{Converts the intertegular distance (IT) and co-variates to body size in dry weight (mg) for bees or hoverflies.}
 \usage{
 bodysize(x, taxa, type)
 }
 \arguments{
-\item{x}{A data frame with columns containing ITD values and Sex ('Male' or 'Female'). 
-Optional attributes depending on model choice: Taxonomic family (bees) or subfamily (hoverfly), Region (Only "NorthAmerica", "SouthAmerica", "Australasia" and "Europe" implemented) and Species ("Genus_species"). For non implemented regions, the model will work, but only consider population-level (fixed) effects.}
+\item{x}{A data frame with columns containing 'IT' values and Sex ('Male' or 'Female'). 
+Optional attributes depending on model choice: Taxonomy ('Family' for bees or 'Subfamily for hoverflies), 'Region' (Currently only "NorthAmerica", "SouthAmerica", "Australasia" and "Europe" implemented) and 'Species' ("Genus_species" format). Non-implemented regions and/or species are acceptable. See details.}
 
 \item{taxa}{A vector specifying insect taxa of interest, can be either "bee" for bee models and "hov" for hoverfly models}
 
-\item{type}{A vector specifying model type to be used: for bees this can be either "taxo" for taxonomic models, "phy" for phylogenetic model or "IT" for ITD-only model. In hoverflies: it can either be "taxo" for full taxonomic and sex model or "IT" for ITD-only model.}
+\item{type}{A vector specifying model type to be used: for bees this can be either "taxo" for the full taxonomic model, "phy" for the full phylogenetic model or "IT" for the ITD-only model. In hoverflies: it can either be "taxo" for the full taxonomic model or "IT" for the ITD-only model.}
 }
 \value{
 The original dataframe (x) is returned along with four additional columns: body size (dry weight (mg)), S.E. and 95 perent confidence intervals.
@@ -21,7 +21,7 @@ The original dataframe (x) is returned along with four additional columns: body 
 Calculates body size in dry weight (mg) from Kendall et al. (2018) using ITD (and co-variate) values.
 }
 \details{
-For bees, type option 'taxo' requires ITD, 
+For bees, type option 'taxo' requires IT, 
 sex and taxonomic family.  Type option 'phylo' only requires ITD and Sex to run 
 but should be only be used for with Species (and Region) included in model formulation n.b. the function checks for contained species.  
 
@@ -29,7 +29,7 @@ but should be only be used for with Species (and Region) included in model formu
  taxa only requires ITD values (Optional: region and species but check `setdiff`). 
  If specimens are from included regions or species (see above) we recommend 
  including these as additional columns. Estimates (and variance components) are 
- returned as four additional columns bound to the original dataframe. In the likely case that non-represented taxa and regions are included in inputted datasets, `allow_new_levels` is set to true for all models. Estimates will be then averaged after random variance components.
+ returned as four additional columns bound to the original dataframe. In the likely case that non-represented taxa and regions are included in inputted datasets, `allow_new_levels` is set to true for all models. Estimates will then be modelled with group-level uncertainty in the predictions based on the variation of the existing levels.
 }
 \examples{
 example=cbind.data.frame(IT=c(1.3,2.3),

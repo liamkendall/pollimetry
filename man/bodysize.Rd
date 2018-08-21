@@ -15,7 +15,7 @@ Optional attributes depending on model choice: Taxonomy ('Family' for bees or 'S
 \item{type}{A vector specifying model type to be used: for bees this can be either "taxo" for the full taxonomic model, "phy" for the full phylogenetic model or "IT" for the ITD-only model. In hoverflies: it can either be "taxo" for the full taxonomic model or "IT" for the ITD-only model.}
 }
 \value{
-The original dataframe (x) is returned along with four additional columns: body size (dry weight (mg)), S.E. and 95 perent confidence intervals.
+The original dataframe (x) is returned along with four additional columns: body size (dry weight (mg)), S.E. and 95% credible intervals.
 }
 \description{
 Calculates body size in dry weight (mg) from Kendall et al. (2018) using ITD (and co-variate) values.

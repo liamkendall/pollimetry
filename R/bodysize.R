@@ -11,7 +11,7 @@
 #' 
 #' @param type A vector specifying model type to be used: for bees this can be either "taxo" for the full taxonomic model, "phy" for the full phylogenetic model or "IT" for the ITD-only model. In hoverflies: it can either be "taxo" for the full taxonomic model or "IT" for the ITD-only model.
 #' 
-#' @return The original dataframe (x) is returned along with four additional columns: body size (dry weight (mg)), S.E. and 95 perent confidence intervals.
+#' @return The original dataframe (x) is returned along with four additional columns: body size (dry weight (mg)), S.E. and 95% credible intervals.
 #' 
 #' @details For bees, type option 'taxo' requires IT, 
 #' sex and taxonomic family.  Type option 'phylo' only requires ITD and Sex to run 

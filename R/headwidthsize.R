@@ -13,7 +13,7 @@
 #' 
 #' @examples
 #' headwidthsize(HW=c(10,5,2), Eq = c("H97DB"))
-#' @references Kendall et al. (2018)  Pollinator size and its consequences: Predictive allometry for pollinating insects.
+#' @references Kendall et al. (2018)  Pollinator size and its consequences: Predictive allometry for pollinating insects. <doi:10.1101/397604>
 #' 
 #' Hodar, J. A. (1997). The use of regresion equations for the estimation of prey length and biomass in diet studies of insectivore vertebrates. Miscellania Zoologica, 20(2), 1-10. 
 #' 

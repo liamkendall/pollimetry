@@ -46,5 +46,5 @@ Calculates body size as dry  weight (mg) from existing allometries (See 'Details
 lengthsize(BL=c(10,5,2), Eq = c("S80DCR"))
 }
 \references{
-Full reference list is available within Kendall et al. (2018) Pollinator size and its consequences: Predictive allometry for pollinating insects. In prep.
+Full reference list is available within Kendall et al. (2018) Pollinator size and its consequences: Predictive allometry for pollinating insects. <doi:10.1101/397604>
 }

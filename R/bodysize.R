@@ -37,7 +37,7 @@
 #'                          Species=c("Sphaerophoria_macrogaster","Myathropa_florea"))
 #' bodysize(x=example,taxa="hov",type="taxo")
 #' 
-#' @references Kendall et al. (2018) Pollinator size and its consequences: Predictive allometry for pollinating insects. In prep.
+#' @references Kendall et al. (2018) Pollinator size and its consequences: Predictive allometry for pollinating insects. <doi:10.1101/397604>
 #' 
 #' @export
 bodysize=function(x,taxa,type) {

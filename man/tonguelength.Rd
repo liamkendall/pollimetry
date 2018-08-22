@@ -26,5 +26,7 @@ tonguelength(IT=c(10,5,2), family = c("Andrenidae", "Apidae", "Colletidae"), mou
 
 }
 \references{
+Kendall et al. (2018)  Pollinator size and its consequences: Predictive allometry for pollinating insects. <doi:10.1101/397604>
+
 Cariveau et al. (2016) The allometry of bee tongue length an its uses in ecology and evolution. PLoS ONE 11(3): e0151482 <doi:10.1371/journal.pone.0151482>
 }

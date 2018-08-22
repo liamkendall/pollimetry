@@ -34,8 +34,8 @@ but should be only be used for with Species (and Region) included in model formu
 \examples{
 example=cbind.data.frame(IT=c(1.3,2.3),
                          Sex=c("Female","Male"), 
-                         Family=c("Syrphinae","Eristalinae"),
-                         Region=c("Australia","Europe"),
+                         Subfamily=c("Syrphinae","Eristalinae"),
+                         Region=c("Australasia","Europe"),
                          Species=c("Sphaerophoria_macrogaster","Myathropa_florea"))
 bodysize(x=example,taxa="hov",type="taxo")
 

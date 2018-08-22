@@ -32,8 +32,8 @@
 #' @examples
 #' example=cbind.data.frame(IT=c(1.3,2.3),
 #'                          Sex=c("Female","Male"), 
-#'                          Family=c("Syrphinae","Eristalinae"),
-#'                          Region=c("Australia","Europe"),
+#'                          Subfamily=c("Syrphinae","Eristalinae"),
+#'                          Region=c("Australasia","Europe"),
 #'                          Species=c("Sphaerophoria_macrogaster","Myathropa_florea"))
 #' bodysize(x=example,taxa="hov",type="taxo")
 #' 
@@ -98,9 +98,9 @@ bodysize=function(x,taxa,type) {
     warning("Region not provided. Model will only consider fixed and random species-level effects.")
   }
   ##HOV ERRORS
-  check_hovregion <- x$Region %in% c("Europe","Australia")
+  check_hovregion <- x$Region %in% c("Europe","Australasia")
   if(any(check_Sex==FALSE)){
-    warning("Only specimens from Europe and Australia were used in model formulation. New regions will be modelled with group-level uncertainty in the predictions based on the variation of the existing levels.")
+    warning("Only specimens from Europe and Australasia were used in model formulation. New regions will be modelled with group-level uncertainty in the predictions based on the variation of the existing levels.")
   }
   check_hovsex <- x$Sex %in% c("Female","Male")
   if(type=="taxo" & any(check_hovsex==FALSE)){

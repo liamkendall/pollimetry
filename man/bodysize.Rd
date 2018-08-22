@@ -34,10 +34,10 @@ but should be only be used for with Species (and Region) included in model formu
 \examples{
 example=cbind.data.frame(IT=c(1.3,2.3),
                          Sex=c("Female","Male"), 
-                         Family=c("Apidae","Andrenidae"),
-                         Region=c("NorthAmerica","Europe"),
-                         Species=c("Ceratina_dupla","Andrena_flavipes"))
-bodysize(x=example,taxa="bee",type="taxo")
+                         Family=c("Syrphinae","Eristalinae"),
+                         Region=c("Australia","Europe"),
+                         Species=c("Sphaerophoria_macrogaster","Myathropa_florea"))
+bodysize(x=example,taxa="hov",type="taxo")
 
 }
 \references{

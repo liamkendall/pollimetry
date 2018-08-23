@@ -22,6 +22,7 @@
 #'  If specimens are from included regions or species (see above) we recommend 
 #'  including these as additional columns. Estimates (and variance components) are 
 #'  returned as four additional columns bound to the original dataframe. In the likely case that non-represented taxa and regions are included in inputted datasets, `allow_new_levels` is set to true for all models. Estimates will then be modelled with group-level uncertainty in the predictions based on the variation of the existing levels.
+#'  This function makes use of external model objects hosted on GitHub. In the case of slow loading, we recommend you download the pollimetrydata package from https://github.com/liamkendall/pollimetrydata. 
 #' 
 #' @importFrom stats predict
 #' 

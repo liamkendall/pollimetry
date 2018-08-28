@@ -58,10 +58,9 @@ This will install pollimetry and it's dependency `brms`.
 You can check the raw data used in the paper as follows:
 
 ```
-load("data/bee_mean_dataset.rdata")
-head(bee_mean_dataset)
-?bee_mean_dataset #for metadata.
-#See also hov_mean_dataset.rdata and pollimetry_dataset.rdata
+load("data/pollimetry_dataset.rdata")
+head(pollimetry_dataset)
+?pollimetry_dataset #for metadata.
 ```
 Let's predict some body sizes from a dataframe using taxonomy:
 

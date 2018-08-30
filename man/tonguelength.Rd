@@ -4,26 +4,24 @@
 \alias{tonguelength}
 \title{Converts ITD (cm) to tongue length for bees.}
 \usage{
-tonguelength(IT, family, mouthpart = "all")
+tonguelength(x, mouthpart = "all")
 }
 \arguments{
-\item{IT}{A vector of bee intertegular distance (IT) measurments in cm.}
-
-\item{family}{a vector of bee families. Only implemented 5 out of the extant 7 families: 
+\item{x}{A dataframe with the following two columns: bee intertegular distance (IT) measurments in mm and Family, a vector of bee families. Only implemented 5 out of the extant 7 families: 
 "Andrenidae", "Apidae", "Colletidae", "Halictidae", "Megachilidae".}
 
 \item{mouthpart}{The mouth part you are interested in. Options are "all", glossa", "prementum" and "tongue" (i.e. gloss + prementum)}
 }
 \value{
-A dataframe with bee tongue length (mm) is returned for each bees species.
+A dataframe with bee tongue length (mm) and 95% confidence intervals are returned for each bees species along with your original dataframe.
 }
 \description{
 Calculates tongue length (mm) from Cariveau et al. (2015) using intertegular distance (ITD) values (cm)..
 }
 \examples{
-tonguelength(IT=c(10,5,2), family = c("Andrenidae", "Apidae", "Colletidae"))
-tonguelength(IT=c(10,5,2), family = c("Andrenidae", "Apidae", "Colletidae"), mouthpart = "tongue")
-
+example=cbind.data.frame(IT=c(1.3,2.3),
+                         Family=c("Andrenidae","Apidae"))
+tonguelength(example,mouthpart="all")
 }
 \references{
 Kendall et al. (2018)  Pollinator size and its consequences: Predictive allometry for pollinating insects. <doi:10.1101/397604>

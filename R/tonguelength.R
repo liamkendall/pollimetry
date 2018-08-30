@@ -4,58 +4,72 @@
 #' 
 #' @description Calculates tongue length (mm) from Cariveau et al. (2015) using intertegular distance (ITD) values (cm)..  
 #' 
-#' @param IT A vector of bee intertegular distance (IT) measurments in cm.
-#' 
-#' @param family a vector of bee families. Only implemented 5 out of the extant 7 families: 
+#' @param x A dataframe with the following two columns: bee intertegular distance (IT) measurments in mm and Family, a vector of bee families. Only implemented 5 out of the extant 7 families: 
 #' "Andrenidae", "Apidae", "Colletidae", "Halictidae", "Megachilidae".
+#' 
 #' @param mouthpart The mouth part you are interested in. Options are "all", glossa", "prementum" and "tongue" (i.e. gloss + prementum)
 #' 
-#' @return A dataframe with bee tongue length (mm) is returned for each bees species.
+#' @return A dataframe with bee tongue length (mm) and 95% confidence intervals are returned for each bees species along with your original dataframe.
 #' 
 #' @examples
-#' tonguelength(IT=c(10,5,2), family = c("Andrenidae", "Apidae", "Colletidae"))
-#' tonguelength(IT=c(10,5,2), family = c("Andrenidae", "Apidae", "Colletidae"), mouthpart = "tongue")
-#' 
+#' example=cbind.data.frame(IT=c(1.3,2.3),
+#'                          Family=c("Andrenidae","Apidae"))
+#' tonguelength(example,mouthpart="all")
 #' @references Kendall et al. (2018)  Pollinator size and its consequences: Predictive allometry for pollinating insects. <doi:10.1101/397604>
 #' 
 #' Cariveau et al. (2016) The allometry of bee tongue length an its uses in ecology and evolution. PLoS ONE 11(3): e0151482 <doi:10.1371/journal.pone.0151482>
 #' 
+#' @importFrom stats lm
 #'
 #' @export
-tonguelength <- function(IT, family, mouthpart = "all"){
-  if(!length(IT) == length(family)){
-    stop("IT and family should be the same length")
-  }
-  check_family <- family %in% c("Andrenidae", "Apidae", 
-                                "Colletidae", "Halictidae", "Megachilidae")
+tonguelength <- function(x, mouthpart = "all"){
+  check_family <- x$family %in% c("Andrenidae", "Apidae", 
+                                  "Colletidae", "Halictidae", "Megachilidae")
   if(any(check_family == FALSE)){
     stop("family should be one of: 'Andrenidae', 'Apidae', 
          'Colletidae', 'Halictidae', 'Megachilidae'")
   }
-  check_mouthpart <- mouthpart %in% c("all", "glossa", "prementum", "tongue")
+  check_mouthpart <- x$mouthpart %in% c("all", "glossa", "prementum", "tongue")
   if(any(check_mouthpart == FALSE)){
     stop("mouthpart should be one of: 'all', glossa', 'prementum', 'tongue'")
   }
-  family_intercepts <- data.frame(families = c("Andrenidae", "Apidae", 
-                                               "Colletidae", "Halictidae", "Megachilidae"),
-                                  intercepts_tongue = c(1.06, 2.13, 0.86, 1.38, 1.87),
-                                  intercepts_glossa = c(0.23, 1.27, 0.21, 0.43, 1.16),
-                                  intercepts_prementum = c(0.88, 0.91, 0.56, 0.89, 0.77),
-                                  slopes_prementum = c(0.83, 0.73, 1.14, 1.04,0.68))
-  family_intercepts2 <- merge(data.frame(id = c(1:length(family)), families = family), 
-                              family_intercepts)
-  family_intercepts2 <- family_intercepts2[order(family_intercepts2$id),]
-  tongue <- exp(log(family_intercepts2$intercepts_tongue)
-                + 0.96*log(IT))  
-  glossa <- exp(log(family_intercepts2$intercepts_glossa)
-                + 1.04*log(IT))  
-  prementum <- exp(log(family_intercepts2$intercepts_prementum)
-                   + family_intercepts2$slopes_prementum*log(IT))
-  if (mouthpart == "all") out <- cbind(tongue, glossa, prementum)
-  if (mouthpart == "tongue") out <- tongue
-  if (mouthpart == "glossa") out <- glossa
-  if (mouthpart == "prementum") out <- prementum
-  out
-}
+  
+  repmis::source_data("https://github.com/ibartomeus/traitbase/raw/master/raw_data/Cariveau_2016.rda", envir = environment())
+  colnames(tongues)[7]="IT"
+  proboscis=lm(log(mean_tongue_length_mm)~log(IT)+Family,tongues)
+  glossa=lm(log(mean_glossa_length_mm)~log(IT)+Family,tongues)
+  prementum=lm(log(mean_prementum_length_mm)~log(IT)*Family,tongues)
+  
+  if(mouthpart=="all"){
+    out<-exp(predict(proboscis,x,interval = c( "confidence"),
+                     level = 0.95))
+    out2<-exp(predict(glossa,x,interval = c( "confidence"),
+                      level = 0.95))
+    out3<-exp(predict(prementum,x,interval = c( "confidence"),
+                      level = 0.95))
+    out=cbind(out,out2,out3)
+    colnames(out)=c("Proboscis","P.lwr.CI","P.upr.CI","Glossa","G.lwr.CI","G.upr.CI","Prementum","Pr.lwr.CI","Pr.upr.CI")
+    cbind(x,out)
+    out
+  }else{
+    if(mouthpart=="glossa"){
+      out<-exp(predict(glossa,x,interval = c( "confidence"),
+                       level = 0.95))
+      colnames(out)=c("Prementum","lwr.CI","upr.CI")
+    }
+    if(mouthpart=="prementum"){
+      out<-exp(predict(prementum,x,interval = c( "confidence"),
+                       level = 0.95))
+      colnames(out)=c("Prementum","lwr.CI","upr.CI")
+    }
+    if(mouthpart=="tongue"){
+      out<-exp(predict(proboscis,x,interval = c( "confidence"),
+                       level = 0.95))
+      colnames(out)=c("Proboscis","lwr.CI","upr.CI")
+    }
+    out=cbind(x,out)
+    out
+  }
+  }
 
 

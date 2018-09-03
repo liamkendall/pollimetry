@@ -120,7 +120,7 @@ bodysize=function(x,taxa,type) {
     stop("Bad combination: No phylogenetic model implemented for hoverflies yet!")
     
     #FIT MODELS
-  } else if(rownames <- "pollimetrydata" %in% rownames(installed.packages()) == TRUE) {
+  } else if(requireNamespace('pollimetrydata')) {
     if(type=="taxo" & taxa=="bee"){
       mod=pollimetrydata::bee_tax_mod
     }
@@ -139,34 +139,34 @@ bodysize=function(x,taxa,type) {
   }else {
     ###BEES
     if(type=="taxo" & taxa=="bee"){
-      if(rownames <- "pollimetrydata" %in% rownames(installed.packages()) == FALSE){
+      if(system.file("pollimetrydata")==""){
         repmis::source_data("https://github.com/liamkendall/pollimetrydata/raw/master/data/bee_tax_mod.rdata", envir = environment())
         mod=bee_tax_mod}
     }
   }
   
   if(type=="phylo" & taxa=="bee"){
-    if(rownames <- "pollimetrydata" %in% rownames(installed.packages()) == FALSE){
+    if(system.file("pollimetrydata")==""){
       repmis::source_data("https://github.com/liamkendall/pollimetrydata/raw/master/data/bee_phy_mod.rdata", envir = environment())
       mod=bee_phy_mod
     }
   }
   
   if(type=="IT" & taxa=="bee"){
-    if(rownames <- "pollimetrydata" %in% rownames(installed.packages()) == FALSE){
+    if(system.file("pollimetrydata")==""){
       repmis::source_data("https://github.com/liamkendall/pollimetrydata/raw/master/data/bee_IT.rdata", envir = environment())
       mod=bee_IT}
   }
   
   ###HOVERFLIES
   if(type=="taxo" & taxa=="hov"){
-    if(rownames <- "pollimetrydata" %in% rownames(installed.packages()) == FALSE){
+    if(system.file("pollimetrydata")==""){
       repmis::source_data("https://github.com/liamkendall/pollimetrydata/raw/master/data/hov_tax_mod.rdata", envir = environment())
       mod=hov_tax_mod}
   }
   
   if(type=="IT" & taxa=="hov"){
-    if(rownames <- "pollimetrydata" %in% rownames(installed.packages()) == FALSE){
+    if(system.file("pollimetrydata")==""){
       repmis::source_data("https://github.com/liamkendall/pollimetrydata/raw/master/data/hov_IT.rdata", envir = environment())
       mod=hov_IT
     }
@@ -177,4 +177,12 @@ bodysize=function(x,taxa,type) {
   colnames(out)=c("Est.Weight","SE","CI_Lower","CI_Upper")
   out<-cbind(x,out)
   out
-  }
+}
+example=cbind.data.frame(IT=1:2,
+                         Sex=c("Female","Male"), 
+                         Family=c("Apidae","Andrenidae"),
+                         Region=c("NorthAmerica","Europe"),
+                         Species=c("Ceratina_dupla","Andrena_flavipes"))
+bodysize(x=example,taxa="bee",type="taxo")
+
+

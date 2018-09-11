@@ -11,7 +11,7 @@
 #' 
 #' @param type A vector specifying model type to be used: for bees this can be either "taxo" for the full taxonomic model, "phy" for the full phylogenetic model or "IT" for the ITD-only model. In hoverflies: it can either be "taxo" for the full taxonomic model or "IT" for the ITD-only model.
 #' 
-#' @return The original dataframe (x) is returned along with four additional columns: body size (dry weight (mg)), S.E. and 95% credible intervals.
+#' @return The original dataframe (x) is returned along with four additional columns: body size (dry weight (mg)), S.E. and 90% credible intervals.
 #' 
 #' @details For bees, type option 'taxo' requires IT, 
 #' sex and taxonomic family.  Type option 'phylo' only requires ITD and Sex to run 
@@ -173,16 +173,10 @@ bodysize=function(x,taxa,type) {
   }
   #More tests can be implemented e.g. warn depreciated columns (e.g. if Family is provided with type Phylo, explain that it will be depreciated)
   ##OUTPUT
-  out <- predict(object=mod,newdata=x,allow_new_levels=TRUE,transform=exp)
+  out <- predict(object=mod,newdata=x,allow_new_levels=TRUE,transform=exp,probs = c(0.05, 0.95))
   colnames(out)=c("Est.Weight","SE","CI_Lower","CI_Upper")
   out<-cbind(x,out)
   out
 }
-example=cbind.data.frame(IT=1:2,
-                         Sex=c("Female","Male"), 
-                         Family=c("Apidae","Andrenidae"),
-                         Region=c("NorthAmerica","Europe"),
-                         Species=c("Ceratina_dupla","Andrena_flavipes"))
-bodysize(x=example,taxa="bee",type="taxo")
 
 

@@ -9,7 +9,7 @@
 #'
 #' @param taxa A vector specifying insect taxa of interest, can be either "bee" for bee models and "hov" for hoverfly models
 #' 
-#' @param type A vector specifying model type to be used: for bees this can be either "taxo" for the full taxonomic model, "phy" for the full phylogenetic model or "IT" for the ITD-only model. In hoverflies: it can either be "taxo" for the full taxonomic model or "IT" for the ITD-only model.
+#' @param type A vector specifying model type to be used: for bees this can be either "taxo" for the full taxonomic model, "phy" for the full phylogenetic model, "sex" for the reduced sexual dimorphic model or "IT" for the ITD-only model. In hoverflies: it can either be "taxo" for the full taxonomic model, "sex" for the reduced sexual dimorphic model or "IT" for the ITD-only model.
 #' 
 #' @return The original dataframe (x) is returned along with four additional columns: body size (dry weight (mg)), S.E. and 90% credible intervals.
 #' 
@@ -42,7 +42,7 @@
 #' 
 #' @export
 bodysize=function(x,taxa,type) {
-  bee_IT <- bee_phy_mod <- bee_tax_mod <- hov_IT <- hov_tax_mod <- pollimetry_dataset <- NULL
+  bee_IT <- bee_phy_mod <- bee_tax_mod <- hov_IT <- hov_tax_mod <- bee_sex <- hov_sex <- pollimetry_dataset <- NULL
   if(is.null(x$Species)==TRUE & is.null(x$Region)==FALSE){
     warning("Species have not been provided, these models will only consider fixed and random biogeographical effects.")
   }
@@ -69,7 +69,7 @@ bodysize=function(x,taxa,type) {
   if(type == "taxo" & taxa == "bee"){
     check_taxo <- x$Family %in% c("Andrenidae","Apidae","Colletidae","Halictidae","Melittidae","Megachilidae")
     if(any(check_taxo == FALSE)){
-      stop("Family should be either 'Andrenidae','Apidae','Colletidae',Halictidae','Megachilidae','Melittidae'. If family is unknown, use type = 'IT'.")
+      stop("Family should be either 'Andrenidae','Apidae','Colletidae',Halictidae','Megachilidae','Melittidae'. If family = 'Stenotritidae' or is unknown, use type = 'sex' or 'IT'.")
     }
   }
   if(type == "taxo" & taxa == "bee" & is.null(x$Family)==TRUE){
@@ -81,7 +81,7 @@ bodysize=function(x,taxa,type) {
       stop("Subfamily should be either 'Eristalinae' or 'Syrphinae'. If family is unknown, use type = 'IT'.")
     }
   }
-  if(type %in% c("taxo", "phylo")){
+  if(type %in% c("taxo", "phylo","sex")){
     if("Sex" %in% colnames(x)==FALSE) {
       stop("Sex should be either 'Female' and/or 'Male'. If sex is unknown, we recommend adding a data column denoting all specimens as females i.e df$Sex='Female'.")
     }
@@ -107,6 +107,10 @@ bodysize=function(x,taxa,type) {
   if(type=="taxo" & any(check_hovsex==FALSE)){
     stop("Sex should be either 'Female' and/or 'Male'. If sex is unknown, we recommend adding a data column denoting all specimens as females i.e df$Sex='Female'.")
   }
+  check_hov_sex <- x$Sex %in% c("Female","Male")
+  if(type=="sex" & any(check_hov_sex==FALSE)){
+    stop("Sex should be either 'Female' and/or 'Male'. If sex is unknown, we recommend adding a data column denoting all specimens as females i.e df$Sex='Female'.")
+  }
   check_hovsub <- x$Subfamily %in% c("Eristalinae","Syrphinae")
   if(type=="taxo" & any(check_hovsub==FALSE)){
     stop("Only Eristalinae and Syrphinae supported currently. Use type = 'IT'.")
@@ -127,11 +131,17 @@ bodysize=function(x,taxa,type) {
     if(type=="phylo" & taxa=="bee"){  
       mod=pollimetrydata::bee_phy_mod
     }
+    if(type=="sex" & taxa=="bee"){  
+      mod=pollimetrydata::bee_sex
+    }
     if(type=="IT" & taxa=="bee"){  
       mod=pollimetrydata::bee_IT
     }
     if(type=="taxo" & taxa=="hov"){  
       mod=pollimetrydata::hov_tax_mod
+    }
+    if(type=="sex" & taxa=="hov"){  
+      mod=pollimetrydata::hov_sex
     }
     if(type=="IT" & taxa=="hov"){  
       mod=pollimetrydata::hov_IT
@@ -151,7 +161,12 @@ bodysize=function(x,taxa,type) {
       mod=bee_phy_mod
     }
   }
-  
+  if(type=="sex" & taxa=="bee"){
+    if(system.file("pollimetrydata")==""){
+      repmis::source_data("https://github.com/liamkendall/pollimetrydata/raw/master/data/bee_sex_mod.rdata", envir = environment())
+      mod=bee_sex
+    }
+  }
   if(type=="IT" & taxa=="bee"){
     if(system.file("pollimetrydata")==""){
       repmis::source_data("https://github.com/liamkendall/pollimetrydata/raw/master/data/bee_IT.rdata", envir = environment())
@@ -163,6 +178,11 @@ bodysize=function(x,taxa,type) {
     if(system.file("pollimetrydata")==""){
       repmis::source_data("https://github.com/liamkendall/pollimetrydata/raw/master/data/hov_tax_mod.rdata", envir = environment())
       mod=hov_tax_mod}
+  }
+  if(type=="sex" & taxa=="hov"){
+    if(system.file("pollimetrydata")==""){
+      repmis::source_data("https://github.com/liamkendall/pollimetrydata/raw/master/data/hov_sex_mod.rdata", envir = environment())
+      mod=hov_sex}
   }
   
   if(type=="IT" & taxa=="hov"){

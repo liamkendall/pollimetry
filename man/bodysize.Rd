@@ -12,7 +12,7 @@ Optional attributes depending on model choice: Taxonomy ('Family' for bees or 'S
 
 \item{taxa}{A vector specifying insect taxa of interest, can be either "bee" for bee models and "hov" for hoverfly models}
 
-\item{type}{A vector specifying model type to be used: for bees this can be either "taxo" for the full taxonomic model, "phy" for the full phylogenetic model or "IT" for the ITD-only model. In hoverflies: it can either be "taxo" for the full taxonomic model or "IT" for the ITD-only model.}
+\item{type}{A vector specifying model type to be used: for bees this can be either "taxo" for the full taxonomic model, "phy" for the full phylogenetic model, "sex" for the reduced sexual dimorphic model or "IT" for the ITD-only model. In hoverflies: it can either be "taxo" for the full taxonomic model, "sex" for the reduced sexual dimorphic model or "IT" for the ITD-only model.}
 }
 \value{
 The original dataframe (x) is returned along with four additional columns: body size (dry weight (mg)), S.E. and 90% credible intervals.

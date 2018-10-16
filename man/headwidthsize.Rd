@@ -7,7 +7,7 @@
 headwidthsize(HW, Eq = "H97DB")
 }
 \arguments{
-\item{HW}{A vector of head width measurments (mm).}
+\item{HW}{A vector of head width measurements (mm).}
 
 \item{Eq}{a vector of predictive allometries for insect taxa from Hodar (1997). 
 Options implemented are: H97DB (Brachycera), H97DN (Nematocera), H97HA (Hymenoptera), H97LH (Heterocera) and H97LR (Rhopalocera).}

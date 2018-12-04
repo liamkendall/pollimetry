@@ -3,11 +3,10 @@
 [![CRAN status](https://www.r-pkg.org/badges/version/pollimetry)](https://www.r-pkg.org/badges/version/pollimetry)
 
 
-
 Pollimetry: Predictive allometry for pollinating insects
 ==========
 
-Tools to estimate pollinator body size as well as bee tongue length and foraging distances.
+Tools to estimate pollinator body size and co-varying ecological traits.
 
 To install
 ==========
@@ -19,7 +18,7 @@ devtools::install_github("liamkendall/pollimetry")
 library(pollimetry)
 ```
 
-We also recommend downloading the data package so the `bodysize` function runs faster
+We also recommend downloading the data package so the `bodysize` function runs more efficiently.
 
 ```
 #Loading is slow (~ up to 26 Mb per model file)
@@ -40,7 +39,7 @@ Pre-existing equations for Diptera, Hymenoptera and Lepidopteran taxa using body
 Allometric traits
 =================
 
-Users can predict bee tongue length (`tonguelength`) from Cariveau et al. (2015) and bee foraging distances (`foragedist`) from equations described in van Nieuwstadt and Iraheta (1996) for Meliponini, Greenleaf et al. (2007) and Guedot et al. (2009) for Osmia spp.
+Users can predict, i) bee tongue length (`tonguelength`) from Cariveau et al. (2015), ii) bee foraging distances (`foragedist`) from equations described in van Nieuwstadt and Iraheta (1996) for Meliponini, Greenleaf et al. (2007) and Guedot et al. (2009) for Osmia spp, iii) wing loading (`wingloading`) from Bullock et al. (1999) and, iv)  field nectar loads (`nectarload`) from Henry and Rodet (2018).
 
 Future traits of interest
 =========================
@@ -84,4 +83,9 @@ Now let's calculate some foraging distances based only in ITDs:
 foragedist(c(10,5,2), type = "GreenleafAll") 
 ```
 
-Other functions included are `tonguelength()` for estimating tongue length and older allometric equations: `headwidthsize()`, `lengthwidthsize()`, and `lengthsize()`.
+
+Manuscript R code
+=================
+
+Accompanying R code used to develop Bayesian body size models is available here <doi:10.6084/m9.figshare.7357217>
+

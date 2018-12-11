@@ -1,5 +1,4 @@
 [![DOI](https://zenodo.org/badge/120989038.svg)](https://zenodo.org/badge/latestdoi/120989038)
-[![Travis build status](https://travis-ci.org/liamkendall/pollimetry.svg?branch=master)](https://travis-ci.org/liamkendall/pollimetry)
 [![CRAN status](https://www.r-pkg.org/badges/version/pollimetry)](https://www.r-pkg.org/badges/version/pollimetry)
 
 
@@ -87,5 +86,4 @@ foragedist(c(10,5,2), type = "GreenleafAll")
 Manuscript R code
 =================
 
-Accompanying R code used to develop Bayesian body size models is available here <doi:10.6084/m9.figshare.7357217>
-
+[Figshare link](https://figshare.com/articles/Pollimetry_R_code/7357217)

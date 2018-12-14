@@ -1,5 +1,6 @@
 [![DOI](https://zenodo.org/badge/120989038.svg)](https://zenodo.org/badge/latestdoi/120989038)
 [![CRAN status](https://www.r-pkg.org/badges/version/pollimetry)](https://www.r-pkg.org/badges/version/pollimetry)
+![](http://cranlogs.r-pkg.org/badges/pollimetry?color=pink)
 
 
 Pollimetry: Predictive allometry for pollinating insects

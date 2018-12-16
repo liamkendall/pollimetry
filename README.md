@@ -87,4 +87,4 @@ foragedist(c(10,5,2), type = "GreenleafAll")
 Manuscript R code
 =================
 
-[Figshare link](https://figshare.com/articles/Pollimetry_R_code/7357217)
+[Figshare](https://figshare.com/articles/Pollimetry_R_code/7357217)

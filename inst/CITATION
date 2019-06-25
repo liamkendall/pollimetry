@@ -1,7 +1,7 @@
 citHeader("To cite pollimetry in publications use:")
 
 citEntry(entry = "Article",
-  title        = "Pollinator size and its consequences: Predictive allometry for pollinating insects",
+  title        = "Pollinator size and its consequences: Robust estimates of body size in pollinating insects",
   author       = personList(as.person("Liam K. Kendall"),
   as.person("Romina Rader"),
    as.person("Vesna Gagic"),
@@ -21,14 +21,14 @@ citEntry(entry = "Article",
               as.person("Louis Sutter"),
               as.person("Nicolas J. Vereecken"),
                    as.person("Ignasi Bartomeus")),
-  journal      = "bioRxiv",
-  year         = "2018",
-  volume       = "T.B.C.",
-  number       = "T.B.C.",
-  pages        = "T.B.C.",
-  url          = "T.B.C.",
-  doi          = "10.1101/397604",
+  journal      = "Ecology and Evolution",
+  year         = "2019",
+  volume       = "9",
+  issue       = "4",
+  pages        = "1702-1714",
+  url          = "https://onlinelibrary.wiley.com/doi/full/10.1002/ece3.4835",
+  doi          = "10.1002/ece3.4835",
 
   textVersion  =
-  paste("Liam K. Kendall, Romina Rader, Vesna Gagic, Daniel P. Cariveau, Matthias Albrecht, Katherine C. R. Baldock, Breno M. Freitas, Mark Hall, Andrea Holzschuh, Francisco P. Molina, Joanne M. Morten, Janaely S. Pereira, Zachary M. Portman, Stuart P. M. Roberts, Juanita Rodriguez, Laura Russo, Louis Sutter, Nicolas J. Vereecken and Ignasi Bartomeus.","2018.","'Pollinator size and its consequences: Predictive allometry for pollinating insects.'", "bioRxiv","10.1101/397604")
+  paste("Liam K. Kendall, Romina Rader, Vesna Gagic, Daniel P. Cariveau, Matthias Albrecht, Katherine C. R. Baldock, Breno M. Freitas, Mark Hall, Andrea Holzschuh, Francisco P. Molina, Joanne M. Morten, Janaely S. Pereira, Zachary M. Portman, Stuart P. M. Roberts, Juanita Rodriguez, Laura Russo, Louis Sutter, Nicolas J. Vereecken and Ignasi Bartomeus.","2019.","'Pollinator size and its consequences: Robust estimates of body size in pollinating insects.'", "Ecology and Evolution","9(4), 1702-1714","10.1002/ece3.4835")
 )

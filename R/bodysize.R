@@ -38,7 +38,7 @@
 #'                          Species=c("Sphaerophoria_macrogaster","Myathropa_florea"))
 #' bodysize(x=example,taxa="hov",type="taxo")
 #' 
-#' @references Kendall et al. (2018) Pollinator size and its consequences: Predictive allometry for pollinating insects. <doi:10.1101/397604>
+#' @references Kendall et al. (2019) Pollinator size and its consequences: Robust estimates of body size in pollinating insects. Ecology and Evolution, 9(4), 1702-1714. <doi:10.1002/ece3.4835>
 #' 
 #' @export
 bodysize=function(x,taxa,type) {
@@ -193,7 +193,11 @@ bodysize=function(x,taxa,type) {
   }
   #More tests can be implemented e.g. warn depreciated columns (e.g. if Family is provided with type Phylo, explain that it will be depreciated)
   ##OUTPUT
-  out <- predict(object=mod,newdata=x,allow_new_levels=TRUE,transform=exp,probs = c(0.05, 0.95))
+  out <- predict(object=mod,
+                 newdata=x,
+                 allow_new_levels=TRUE,
+                 transform=exp,
+                 probs = c(0.05, 0.95))
   colnames(out)=c("Est.Weight","SE","CI_Lower","CI_Upper")
   out<-cbind(x,out)
   out

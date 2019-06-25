@@ -1,4 +1,4 @@
-#' @name tonguelength
+#' @name tonguelength2
 #' 
 #' @title Converts ITD (cm) to tongue length for bees.
 #' 
@@ -20,9 +20,13 @@
 #' Kendall et al. (2019) Pollinator size and its consequences: Robust estimates of body size in pollinating insects. Ecology and Evolution, 9(4), 1702-1714. <doi:10.1002/ece3.4835>
 #' 
 #' @importFrom stats lm
-#'
+#' 
+#' @importFrom dplyr %>% group_by summarize
+#' 
+#' @importFrom plyr rbind.fill
+#' 
 #' @export
-tonguelength <- function(x, mouthpart = "all"){
+tonguelength2 <- function(x, mouthpart = "all"){
   check_family <- x$family %in% c("Andrenidae", "Apidae", 
                                   "Colletidae", "Halictidae", "Megachilidae")
   if(any(check_family == FALSE)){
@@ -33,13 +37,34 @@ tonguelength <- function(x, mouthpart = "all"){
   if(any(check_mouthpart == FALSE)){
     stop("mouthpart should be one of: 'all', glossa', 'prementum', 'tongue'")
   }
+  #quiet global variable concerns
+  Melin_et_al_2019 <- Family <- genus <- species <- proboscis_length_mm <-  ITD <- glossa_length_mm <- prementum_length_mm <- tongues <- NULL
   
+  #load datasets
+  #Cariveau et al 2016
   repmis::source_data("https://github.com/ibartomeus/traitbase/raw/master/raw_data/Cariveau_2016.rda", envir = environment())
-  colnames(tongues)[7]="IT"
-  proboscis=lm(log(mean_tongue_length_mm)~log(IT)+Family,tongues)
-  glossa=lm(log(mean_glossa_length_mm)~log(IT)+Family,tongues)
-  prementum=lm(log(mean_prementum_length_mm)~log(IT)*Family,tongues)
   
+  #Melin et al 2019
+  load("data/Melin_et_al_2019.rda",envir = environment())
+  
+  #summarise and combine
+  mel.dat <- Melin_et_al_2019 %>% 
+    group_by(Family, genus, species) %>%
+    summarize(mean_tongue_length_mm = mean(proboscis_length_mm), 
+              mean_IT_length_mm = mean(ITD),
+              mean_glossa_length_mm = mean(glossa_length_mm),
+              mean_prementum_length_mm = mean(prementum_length_mm),
+              sample_size = length(species)) #average by species, rename the same as Cariveau dataset
+
+  tongue.dat <- rbind.fill(tongues,mel.dat) #bind both data frames
+  colnames(tongue.dat)[7] ="IT" #rename IT column
+  
+  #fit models
+  proboscis=lm(log(mean_tongue_length_mm)~Family+log(IT),tongue.dat)
+  glossa=lm(log(mean_glossa_length_mm)~log(IT)+Family,tongue.dat)
+  prementum=lm(log(mean_prementum_length_mm)~log(IT)*Family,tongue.dat)
+  
+  #print predictions
   if(mouthpart=="all"){
     out<-exp(predict(proboscis,x,interval = c("confidence"),
                      level = 0.95))
@@ -70,6 +95,6 @@ tonguelength <- function(x, mouthpart = "all"){
     out=cbind(x,out)
     out
   }
-  }
+}
 
 

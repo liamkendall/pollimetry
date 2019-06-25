@@ -2,7 +2,7 @@
 #' 
 #' @title Converts pollinator body length*body width to body size (dry weight (mg)).
 #' 
-#' @description Calculates body size as dry weight (mg) from the equations described by Sample (1993) and others using body length*body width values (mm).  
+#' @description Calculates body size as dry weight (mg) from the equations described by Sample (1993) and others using body length*body width values (mm).
 #' 
 #' @param BLW A vector of fly body length*body width measurments (mm).
 #'
@@ -12,9 +12,10 @@
 #' 
 #' @examples
 #' lengthwidthsize(BLW=c(3,5,2), Eq = c("Brachycera"))
-#' @references Kendall et al. (2019) Pollinator size and its consequences: Robust estimates of body size in pollinating insects. Ecology and Evolution, 9(4), 1702-1714. <doi:10.1002/ece3.4835>
-#' 
-#' Sample et al. (1993) Estimation of insect biomass by length and width. American Midland Naturalist, 234-240.
+#' @references \itemize{
+#' \item Kendall et al. (2019) Pollinator size and its consequences: Robust estimates of body size in pollinating insects. \emph{Ecology and Evolution}, 9(4), 1702-1714. \url{https://doi.org/10.1002/ece3.4835}.
+#' \item Sample et al. (1993) Estimation of insect biomass by length and width. \emph{American Midland Naturalist}, 234-240.
+#' }
 #' 
 #' @export
 lengthwidthsize <- function(BLW, Eq = "DIP"){

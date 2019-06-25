@@ -19,7 +19,8 @@ Calculates total field nectar load (ul) using body length (mm) from Henry & Rode
 nectarload(BL=c(10,5,2))
 }
 \references{
-Kendall et al. (2019) Pollinator size and its consequences: Robust estimates of body size in pollinating insects. Ecology and Evolution, 9(4), 1702-1714. <doi:10.1002/ece3.4835>
-
-Henry, M., & Rodet, G. (2018). Controlling the impact of the managed honeybee on wild bees in protected areas. Scientific reports, 8(1), 9308.
+\itemize{
+\item Kendall et al. (2019) Pollinator size and its consequences: Robust estimates of body size in pollinating insects. Ecology and Evolution, 9(4), 1702-1714. \url{https://doi.org/10.1002/ece3.4835}.
+\item Henry, M., & Rodet, G. (2018). Controlling the impact of the managed honeybee on wild bees in protected areas. Scientific reports, 8(1), 9308. \url{https://doi.org/10.1038/s41598-018-27591-y}.
+}
 }

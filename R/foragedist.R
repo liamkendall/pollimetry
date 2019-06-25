@@ -14,16 +14,14 @@
 #' @return A dataframe with bee and foraging distance (Km) is returned for each bees species.
 #'
 #' @examples
-#' foragedist(c(10,5,2), type = "MeliMR") 
+#' foragedist(c(10,5,2), type = "MeliMR")
 #' 
-#' @references Kendall et al. (2019) Pollinator size and its consequences: Robust estimates of body size in pollinating insects. Ecology and Evolution, 9(4), 1702-1714. <doi:10.1002/ece3.4835>
-#' 
-#' Greenleaf et al. (2007) Bee foraging ranges and their relationship to body size. Oecologia, 153, 589-596. <doi:10.1007/s00442-007-0752-9>
-#' 
-#' Guedot et al. (2009). Relationship between body size and homing ability in the genus Osmia (Hymenoptera; Megachilidae). Ecological Entomology, 34(1), 158-161. <doi:10.1111/j.1365-2311.2008.01054.x>
-#' 
-#' van Nieuwstadt, M. G. L., & Iraheta, C. R. (1996). Relation between size and foraging range in stingless bees (Apidae, Meliponinae). Apidologie, 27(4), 219-228.
-#' 
+#' @references \itemize{
+#' \item Kendall et al. (2019) Pollinator size and its consequences: Robust estimates of body size in pollinating insects. \emph{Ecology and Evolution}, 9(4), 1702-1714. \url{https://doi.org/10.1002/ece3.4835}.
+#' \item Greenleaf et al. (2007) Bee foraging ranges and their relationship to body size. \emph{Oecologia}, 153, 589-596. \url{https://doi.org/10.1007/s00442-007-0752-9}.
+#' \item Guedot et al. (2009). Relationship between body size and homing ability in the genus Osmia (Hymenoptera; Megachilidae). \emph{Ecological Entomology}, 34(1), 158-161. \url{https://doi.org/10.1111/j.1365-2311.2008.01054.x}.
+#' \item van Nieuwstadt, M. G. L., & Iraheta, C. R. (1996). Relation between size and foraging range in stingless bees (Apidae, Meliponinae). \emph{Apidologie}, 27(4), 219-228.
+#' }
 #'
 #' @export
 foragedist <- function(x, type = "GreenleafAll"){

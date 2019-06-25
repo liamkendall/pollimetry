@@ -7,38 +7,37 @@
 #' @param BL A vector of pollinator body length (BL) measurements (mm).
 #' 
 #' @param Eq A vector specificing which predictive allometry to use. Acronyms denote first (and second author), publication date and taxon. DIP, HYM and LEP options are cases where authors modelled body size across all specimens within each order.
-#' Options implemented are: DIP (10 equations): BN06D, G97D, GR84D, JS00DA, R77D, 
-#'                          S80DCF, S80DCR, S80DMF, S93DA, W13D)<br />
-#'                          Brachycera (2 equations): S93DB, Sabo02DB 
-#'                          Nematocera (3 equations): JS00DN, S93DN, Sabo02DN; 
-#'                          Asilidae (2 equations): Sabo02DA, S93DB; 
-#'                          Bombyliidae (2 equations): S93DB, Sabo02DBB;
-#'                          Cyclorrapha: S93DC
+#' Options implemented are: \itemize{
+#' \item DIP (10 equations): BN06D, G97D, GR84D, JS00DA, R77D, S80DCF, S80DCR, S80DMF, S93DA, W13D.  
+#' \item                    Brachycera (2 equations): S93DB, Sabo02DB.
+#' \item                    Nematocera (3 equations): JS00DN, S93DN, Sabo02DN.
+#' \item                    Asilidae (2 equations): Sabo02DA, S93DB.
+#' \item                    Bombyliidae (2 equations): S93DB, Sabo02DBB.
+#' \item                    Cyclorrapha: S93DC.
 #'                          
-#'                          HYM (12 equations): BN06H1, G97H, G97F, GR84H, JS00HA, 
-#'                          R77H, S80HCF, S80HCR, S80HMF, S93HA, Sabo02H, W13H<br />
-#'                          Formicidae (13 equations): BN06HF, GR84F, JS00HF, R77A,
-#'                          S80FCF, S80FCR, S80FMF, S93HF, S93HH, S93HI, BN06H1, G97H, G97F<br />
-#'                          Apidae: Sabo02HA; 
-#'                          Braconidae: S93HB; 
-#'                          Halictidae: S93HH; 
-#'                          Ichneumonidae: S93HI; 
-#'                          Pompilidae: S93HP; 
-#'                          Vespidae: S93HV and Sabo02HV
+#' \item                    HYM (12 equations): BN06H1, G97H, G97F, GR84H, JS00HA, R77H, S80HCF, S80HCR, S80HMF, S93HA, Sabo02H, W13H.
+#' \item                    Formicidae (13 equations): BN06HF, GR84F, JS00HF, R77A, S80FCF, S80FCR, S80FMF, S93HF, S93HH, S93HI, BN06H1, G97H, G97F.
+#' \item                    Apidae: Sabo02HA.
+#' \item                    Braconidae: S93HB.
+#' \item                    Halictidae: S93HH.
+#' \item                    Ichneumonidae: S93HI.
+#' \item                    Pompilidae: S93HP.
+#' \item                    Vespidae: S93HV & Sabo02HV.
 #'                          
-#'                          LEP(9 equations): BN06L,G97L,JS00L,R77L,S80LCF, S80LCR,
-#'                          S80LMF,S93LA,W13L<br />
-#'                          Noctuidea: S93LC, S93LN; 
-#'                          Geometridae: S93LG; 
-#'                          Microlepidoptera: S93LM; 
-#'                          Arctiinae: S93LC.
+#' \item                    LEP(9 equations): BN06L,G97L,JS00L,R77L,S80LCF, S80LCR.
+#' \item                    S80LMF,S93LA,W13L.
+#' \item                    Noctuidea: S93LC, S93LN.
+#' \item                    Geometridae: S93LG.
+#' \item                    Microlepidoptera: S93LM.
+#' \item                    Arctiinae: S93LC.
+#' }
 #' 
 #' @return A dataframe with pollinator body size (mg) is returned for each species from selected equation/s.
 #' 
 #' @examples
 #' lengthsize(BL=c(10,5,2), Eq = c("S80DCR"))
-#' @references Full reference list is available within Kendall et al. (2019) Pollinator size and its consequences: Robust estimates of body size in pollinating insects. Ecology and Evolution, 9(4), 1702-1714. <doi:10.1002/ece3.4835>
 #' 
+#' @references Full reference list provided within Kendall et al. (2019) Pollinator size and its consequences: Robust estimates of body size in pollinating insects. \emph{Ecology and Evolution}, 9(4), 1702-1714. \url{https://doi.org/10.1002/ece3.4835}.
 #' 
 #' @export
 lengthsize=function(BL, Eq = "DIP"){

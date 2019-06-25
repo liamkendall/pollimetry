@@ -11,14 +11,15 @@ lengthsize(BL, Eq = "DIP")
 
 \item{Eq}{A vector specificing which predictive allometry to use. Acronyms denote first (and second author), publication date and taxon. DIP, HYM and LEP options are cases where authors modelled body size across all specimens within each order.
 Options implemented are: \itemize{
-\item DIP (10 equations): BN06D, G97D, GR84D, JS00DA, R77D, S80DCF, S80DCR, S80DMF, S93DA, W13D.  
+\item [Diptera] (DIP, 10 equations): BN06D, G97D, GR84D, JS00DA, R77D, S80DCF, S80DCR, S80DMF, S93DA, W13D.  
 \item                    Brachycera (2 equations): S93DB, Sabo02DB.
 \item                    Nematocera (3 equations): JS00DN, S93DN, Sabo02DN.
 \item                    Asilidae (2 equations): Sabo02DA, S93DB.
 \item                    Bombyliidae (2 equations): S93DB, Sabo02DBB.
 \item                    Cyclorrapha: S93DC.
-                         
-\item                    HYM (12 equations): BN06H1, G97H, G97F, GR84H, JS00HA, R77H, S80HCF, S80HCR, S80HMF, S93HA, Sabo02H, W13H.
+           }      
+           \itemize{        
+\item Hymenoptera (HYM, 12 equations): BN06H1, G97H, G97F, GR84H, JS00HA, R77H, S80HCF, S80HCR, S80HMF, S93HA, Sabo02H, W13H.
 \item                    Formicidae (13 equations): BN06HF, GR84F, JS00HF, R77A, S80FCF, S80FCR, S80FMF, S93HF, S93HH, S93HI, BN06H1, G97H, G97F.
 \item                    Apidae: Sabo02HA.
 \item                    Braconidae: S93HB.
@@ -26,9 +27,9 @@ Options implemented are: \itemize{
 \item                    Ichneumonidae: S93HI.
 \item                    Pompilidae: S93HP.
 \item                    Vespidae: S93HV & Sabo02HV.
-                         
-\item                    LEP(9 equations): BN06L,G97L,JS00L,R77L,S80LCF, S80LCR.
-\item                    S80LMF,S93LA,W13L.
+        }
+        \itemize{                 
+\item Lepidoptera (LEP, 9 equations): BN06L, G97L, JS00L, R77L, S80LCF, S80LCR, S80LMF,S93LA,W13L.
 \item                    Noctuidea: S93LC, S93LN.
 \item                    Geometridae: S93LG.
 \item                    Microlepidoptera: S93LM.

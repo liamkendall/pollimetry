@@ -45,7 +45,7 @@ tonguelength2 <- function(x, mouthpart = "all"){
   repmis::source_data("https://github.com/ibartomeus/traitbase/raw/master/raw_data/Cariveau_2016.rda", envir = environment())
   
   #Melin et al 2019
-  load("data/Melin_et_al_2019.rda",envir = environment())
+  load("Melin_et_al_2019.rda",envir = environment())
   
   #summarise and combine
   mel.dat <- Melin_et_al_2019 %>% 

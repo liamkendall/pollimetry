@@ -2,7 +2,7 @@
 % Please edit documentation in R/wingloading.R
 \name{wingloading}
 \alias{wingloading}
-\title{Converts intertegular distance (mm) to  wing loading (mg mm2).}
+\title{Converts intertegular distance (mm) to wing loading (mg mm2).}
 \usage{
 wingloading(IT)
 }

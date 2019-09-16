@@ -11,6 +11,7 @@ lengthsize(BL, Eq = "DIP")
 
 \item{Eq}{A vector specificing which predictive allometry to use. Acronyms denote first (and second author), publication date and taxon. DIP, HYM and LEP options are cases where authors modelled body size across all specimens within each order.
 Options implemented are: \cr 
+\cr
 \strong{Diptera}
 \itemize{
 \item                    All: BN06D, G97D, GR84D, JS00DA, R77D, S80DCF, S80DCR, S80DMF, S93DA, W13D.  

@@ -6,7 +6,7 @@
 #'  van Nieuwstadt and Iraheta (1996) using head width (HW) values for Meliponini (stingless bees) and 
 #'  Guedot et al. (2009) using dry weight (mg) values for Osmia species.
 #'
-#' @param x A vector of either bee intertegular spans (IT) measurements in cm, head width values in mm or dry weight values (mg).
+#' @param x A vector of either bee intertegular spans (IT) measurements in mm, head width values in mm or dry weight values (mg).
 #' 
 #' @param type The type of foraging distance desired. Options are "GreenleafAll", GrMhd ("Maximum homing distance"),
 #' GrThd ("Typical homing distance"), GrMfd ("Maximum feeder training distance"), GrMcd("Maximum communication distance"),"Osmia", "MeliMR" , "MeliFT" or "MeliAll". See details in Greenleaf et al. (2007), Guedot et al. (2009) and van Nieuwstadt and Iraheta (1996). 
@@ -33,10 +33,10 @@ foragedist <- function(x, type = "GreenleafAll"){
     stop("type should be one of 'GreenleafAll', 'GrMhd', 'GrThd', 'GrMfd', 
          'GrMcd','MeliMR','MeliFT','MeliAll','Osmia")
   } else {
-    GrMhd  <- 10^((-1.363) + 3.366*log10(x))  
-    GrThd  <- 10^((-1.643) + 3.242*log10(x))  
-    GrMfd  <- 10^((-0.760) + 2.313*log10(x))  
-    GrMcd  <- 10^((-0.993) + 2.788*log10(x))  
+    GrMhd  <- exp((-1.363) + 3.366*log10(x))  
+    GrThd  <- exp((-1.643) + 3.242*log10(x))  
+    GrMfd  <- exp((-0.760) + 2.313*log10(x))  
+    GrMcd  <- exp((-0.993) + 2.788*log10(x))  
     MeliMR <- 560.8*(x) - 808.2
     MeliFT <- 550.9*(x) - 579.1
     Osmia  <- 54.526*(x) - 866.63

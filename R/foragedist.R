@@ -11,7 +11,7 @@
 #' @param type The type of foraging distance desired. Options are "GreenleafAll", GrMhd ("Maximum homing distance"),
 #' GrThd ("Typical homing distance"), GrMfd ("Maximum feeder training distance"), GrMcd("Maximum communication distance"),"Osmia", "MeliMR" , "MeliFT" or "MeliAll". See details in Greenleaf et al. (2007), Guedot et al. (2009) and van Nieuwstadt and Iraheta (1996). 
 #' 
-#' @return A dataframe with bee and foraging distance (Km) is returned for each bees species.
+#' @return A dataframe with bee and foraging distance (km) is returned for each bees species.
 #'
 #' @examples
 #' foragedist(c(10,5,2), type = "MeliMR")

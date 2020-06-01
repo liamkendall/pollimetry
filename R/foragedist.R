@@ -33,10 +33,10 @@ foragedist <- function(x, type = "GreenleafAll"){
     stop("type should be one of 'GreenleafAll', 'GrMhd', 'GrThd', 'GrMfd', 
          'GrMcd','MeliMR','MeliFT','MeliAll','Osmia")
   } else {
-    GrMhd  <- exp((-1.363) + 3.366*log10(x))  
-    GrThd  <- exp((-1.643) + 3.242*log10(x))  
-    GrMfd  <- exp((-0.760) + 2.313*log10(x))  
-    GrMcd  <- exp((-0.993) + 2.788*log10(x))  
+    GrMhd  <- 10^((-1.363) + 3.366*log10(x))  
+    GrThd  <- 10^((-1.643) + 3.242*log10(x))  
+    GrMfd  <- 10^((-0.760) + 2.313*log10(x))  
+    GrMcd  <- 10^((-0.993) + 2.788*log10(x))  
     MeliMR <- 560.8*(x) - 808.2
     MeliFT <- 550.9*(x) - 579.1
     Osmia  <- 54.526*(x) - 866.63

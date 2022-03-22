@@ -4,7 +4,7 @@
 #' 
 #' @description Calculates tongue length (mm) from Cariveau et al. (2015) and Melin et al. (2019) using intertegular distance (ITD) values (mm).  
 #' 
-#' @param x A dataframe with the following two columns: bee intertegular distance (IT) measurments in mm and Family, a vector of bee families. Only implemented 6 out of the extant 7 families: 
+#' @param x A dataframe with the following two columns: bee intertegular distance (IT) measurements in mm and Family, a vector of bee families. Only implemented 6 out of the extant 7 families: 
 #' "Andrenidae", "Apidae", "Colletidae", "Halictidae", "Melittidae" and "Megachilidae".
 #' 
 #' @param mouthpart The mouthpart you are interested in. Options are: "all", "glossa", "prementum" and "tongue" (i.e. gloss + prementum)

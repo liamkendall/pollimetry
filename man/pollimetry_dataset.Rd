@@ -3,8 +3,10 @@
 \docType{data}
 \name{pollimetry_dataset}
 \alias{pollimetry_dataset}
-\title{Body size and intertegular distance measurements of ~4500 pollinating insect specimens.}
-\format{An object of class \code{data.frame} with 4434 rows and 25 columns.}
+\title{Body size and intertegular distance measurements of 4438 pollinating insect specimens.}
+\format{
+An object of class \code{data.frame} with 4434 rows and 23 columns.
+}
 \usage{
 pollimetry_dataset
 }

@@ -4,7 +4,9 @@
 \name{Melin_et_al_2019}
 \alias{Melin_et_al_2019}
 \title{Bee tongue length measurements for 11 Melittidae bee species.}
-\format{An object of class \code{data.frame} with 179 rows and 7 columns.}
+\format{
+An object of class \code{data.frame} with 179 rows and 7 columns.
+}
 \usage{
 Melin_et_al_2019
 }

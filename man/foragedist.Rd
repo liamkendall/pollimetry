@@ -13,7 +13,7 @@ foragedist(x, type = "GreenleafAll")
 GrThd ("Typical homing distance"), GrMfd ("Maximum feeder training distance"), GrMcd("Maximum communication distance"),"Osmia", "MeliMR" , "MeliFT" or "MeliAll". See details in Greenleaf et al. (2007), Guedot et al. (2009) and van Nieuwstadt and Iraheta (1996).}
 }
 \value{
-A dataframe with bee and foraging distance (Km) is returned for each bees species.
+A dataframe with bee and foraging distance (km) is returned for each bees species.
 }
 \description{
 Calculates foraging distance from Greenleaf et al. (2007) using intertegular distance (ITD) values,

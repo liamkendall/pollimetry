@@ -2,17 +2,17 @@
 % Please edit documentation in R/bodysize.R
 \name{bodysize}
 \alias{bodysize}
-\title{Converts the intertegular distance (IT) and co-variates to body size in dry weight (mg) for bees or hoverflies.}
+\title{Converts the intertegular distance (ITD) and co-variates to body size in dry weight (mg) for bees or hoverflies.}
 \usage{
 bodysize(x, taxa, type)
 }
 \arguments{
-\item{x}{A data frame with columns containing 'IT' values and Sex ('Male' or 'Female'). 
+\item{x}{A data frame with columns containing 'ITD' values and Sex ('Male' or 'Female'). 
 Optional attributes depending on model choice: Taxonomy ('Family' for bees or 'Subfamily for hoverflies), 'Region' (Currently only "NorthAmerica", "SouthAmerica", "Australasia" and "Europe" implemented) and 'Species' ("Genus_species" format). Non-implemented regions and/or species are acceptable. See details.}
 
 \item{taxa}{A vector specifying insect taxa of interest, can be either "bee" for bee models and "hov" for hoverfly models}
 
-\item{type}{A vector specifying model type to be used: for bees this can be either "taxo" for the full taxonomic model, "phy" for the full phylogenetic model, "sex" for the reduced sexual dimorphic model or "IT" for the ITD-only model. In hoverflies: it can either be "taxo" for the full taxonomic model, "sex" for the reduced sexual dimorphic model or "IT" for the ITD-only model.}
+\item{type}{A vector specifying model type to be used: for bees this can be either "taxo" for the full taxonomic model, "phy" for the full phylogenetic model, "sex" for the reduced sexual dimorphic model or "ITD" for the ITD-only model. In hoverflies: this can either be "taxo" for the full taxonomic model, "sex" for the reduced sexual dimorphic model or "ITD" for the ITD-only model.}
 }
 \value{
 The original dataframe (x) is returned along with four additional columns: body size (dry weight (mg)), S.E. and 90% credible intervals.
@@ -21,7 +21,7 @@ The original dataframe (x) is returned along with four additional columns: body 
 Calculates body size in dry weight (mg) from Kendall et al. (2018) using ITD (and co-variate) values.
 }
 \details{
-For bees, type option 'taxo' requires IT, 
+For bees, type option 'taxo' requires ITD, 
 sex and taxonomic family.  Type option 'phylo' only requires ITD and Sex to run 
 but should be only be used for with Species (and Region) included in model formulation n.b. the function checks for contained species.  
 
@@ -33,7 +33,7 @@ but should be only be used for with Species (and Region) included in model formu
  This function makes use of external model objects hosted on GitHub. In the case of slow loading, we recommend you download the pollimetrydata package from https://github.com/liamkendall/pollimetrydata.
 }
 \examples{
-example=cbind.data.frame(IT=c(1.3,2.3),
+example=cbind.data.frame(ITD=c(1.3,2.3),
                          Sex=c("Female","Male"), 
                          Subfamily=c("Syrphinae","Eristalinae"),
                          Region=c("Australasia","Europe"),

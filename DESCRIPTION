@@ -2,7 +2,7 @@ Package: pollimetry
 Type: Package
 Title: Estimate Pollinator Body Size and Co-Varying Ecological Traits
 Version: 1.1.0
-Date: 2021-09-20
+Date: 2022-06-20
 Authors@R: c(person("Liam","Kendall", email = "liam.k.kendall@gmail.com",role=c("aut","cre")),
   person("Ignasi","Bartomeus", email = "nacho.bartomeus@gmail.com",role="aut"))
 Maintainer: Liam Kendall <liam.k.kendall@gmail.com>

@@ -6,7 +6,7 @@ Date: 2021-09-20
 Authors@R: c(person("Liam","Kendall", email = "liam.k.kendall@gmail.com",role=c("aut","cre")),
   person("Ignasi","Bartomeus", email = "nacho.bartomeus@gmail.com",role="aut"))
 Maintainer: Liam Kendall <liam.k.kendall@gmail.com>
-Description: Tools to estimate pollinator body size and co-varying traits. This package contains novel Bayesian predictive models of pollinator body size (for bees and hoverflies) as well as preexisting predictive models for pollinator body size (currently implemented for ants, bees, butterflies, flies, moths and wasps) as well as bee tongue length and foraging distance, total field nectar loads and wing loading. An additional GitHub repository <https://github.com/liamkendall/pollimetrydata> provides model objects to use the bodysize function internally. All models are described in Kendall et al. (2019) <doi:10.1002/ece3.4835>.
+Description: Tools to estimate pollinator body size and co-varying traits. This package contains novel Bayesian predictive models of pollinator body size (for bees and hoverflies) and bee foraging range, as well as preexisting predictive models for pollinator body size (currently implemented for ants, bees, butterflies, flies, moths and wasps), bee tongue length, foraging range, total field nectar loads and wing loading. An additional GitHub repository <https://github.com/liamkendall/pollimetrydata> provides model objects to use the bodysize and foraging.range functions internally. All models are described in Kendall et al. (2019) <doi:10.1002/ece3.4835> & Kendall et al. (2022)  <doi:TBC>.
 Depends:
   R (>= 4.0.0), brms (>= 2.16.1)
 Imports:
@@ -15,5 +15,5 @@ Suggests:
  pollimetrydata
 License: GPL (>= 2)
 LazyData: true
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.0
 Encoding: UTF-8

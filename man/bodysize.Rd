@@ -15,7 +15,7 @@ Optional attributes depending on model choice: Taxonomy ('Family' for bees or 'S
 \item{type}{A vector specifying model type to be used: for bees this can be either "taxo" for the full taxonomic model, "phy" for the full phylogenetic model, "sex" for the reduced sexual dimorphic model or "ITD" for the ITD-only model. In hoverflies: this can either be "taxo" for the full taxonomic model, "sex" for the reduced sexual dimorphic model or "ITD" for the ITD-only model.}
 }
 \value{
-The original dataframe (x) is returned along with four additional columns: body size (dry weight (mg)), S.E. and 90% credible intervals.
+The original dataframe (x) along with additional columns of body size, and 90% CI's.
 }
 \description{
 Calculates body size in dry weight (mg) from Kendall et al. (2018) using ITD (and co-variate) values.
@@ -33,12 +33,13 @@ but should be only be used for with Species (and Region) included in model formu
  This function makes use of external model objects hosted on GitHub. In the case of slow loading, we recommend you download the pollimetrydata package from https://github.com/liamkendall/pollimetrydata.
 }
 \examples{
-example=cbind.data.frame(ITD=c(1.3,2.3),
-                         Sex=c("Female","Male"), 
-                         Subfamily=c("Syrphinae","Eristalinae"),
-                         Region=c("Australasia","Europe"),
-                         Species=c("Sphaerophoria_macrogaster","Myathropa_florea"))
-bodysize(x=example,taxa="hov",type="taxo")
+ITD=c(1.3,2.3)
+Sex=c("Female","Male")
+Subfamily=c("Syrphinae","Eristalinae")
+Region=c("Australasia","Europe")
+Species=c("Sphaerophoria_macrogaster","Myathropa_florea")
+example.data <- data.frame(ITD,Sex,Subfamily,Region,Species)
+bodysize(x=example.data,taxa="hov",type="taxo")
 
 }
 \references{

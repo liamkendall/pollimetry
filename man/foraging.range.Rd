@@ -38,6 +38,6 @@ foraging.range(example.data,random.effects = "full",measure.type = "realized")
 }
 \references{
 \itemize{
-\item Kendall et al. (2022) Sociality and body size determine the potential and realized foraging ranges of bees \emph{TBC} \url{TBC}.
+\item Kendall et al. (2022) The potential and realized foraging movements of bees are differentially determined by body size and sociality \emph{Ecology} \url{TBC}.
 }
 }

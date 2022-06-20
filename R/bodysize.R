@@ -11,7 +11,7 @@
 #' 
 #' @param type A vector specifying model type to be used: for bees this can be either "taxo" for the full taxonomic model, "phy" for the full phylogenetic model, "sex" for the reduced sexual dimorphic model or "ITD" for the ITD-only model. In hoverflies: this can either be "taxo" for the full taxonomic model, "sex" for the reduced sexual dimorphic model or "ITD" for the ITD-only model.
 #' 
-#' @return The original dataframe (x) is returned along with four additional columns: body size (dry weight (mg)), S.E. and 90% credible intervals.
+#' @return The original dataframe (x) along with additional columns of body size, and 90% CI's.
 #' 
 #' @details For bees, type option 'taxo' requires ITD, 
 #' sex and taxonomic family.  Type option 'phylo' only requires ITD and Sex to run 
@@ -32,12 +32,13 @@
 #' @import brms
 #' 
 #' @examples
-#' example=cbind.data.frame(ITD=c(1.3,2.3),
-#'                          Sex=c("Female","Male"), 
-#'                          Subfamily=c("Syrphinae","Eristalinae"),
-#'                          Region=c("Australasia","Europe"),
-#'                          Species=c("Sphaerophoria_macrogaster","Myathropa_florea"))
-#' bodysize(x=example,taxa="hov",type="taxo")
+#' ITD=c(1.3,2.3)
+#' Sex=c("Female","Male")
+#' Subfamily=c("Syrphinae","Eristalinae")
+#' Region=c("Australasia","Europe")
+#' Species=c("Sphaerophoria_macrogaster","Myathropa_florea")
+#' example.data <- data.frame(ITD,Sex,Subfamily,Region,Species)
+#' bodysize(x=example.data,taxa="hov",type="taxo")
 #' 
 #' @references \itemize{
 #' \item Kendall et al. (2019) Pollinator size and its consequences: Robust estimates of body size in pollinating insects. \emph{Ecology and Evolution}, 9(4), 1702-1714. \url{https://doi.org/10.1002/ece3.4835}.
@@ -46,18 +47,24 @@
 #' @export
 bodysize=function(x,taxa,type) {
   bee_IT <- bee_phy_mod <- bee_tax_mod <- hov_IT <- hov_tax_mod <- bee_sex <- hov_sex <- pollimetry_dataset <- IT <- Est.Error <- NULL
-  if(is.null(x$Species)==TRUE & is.null(x$Region)==FALSE){
+   if(is.null(x$Species)==FALSE & is.null(x$Region)==FALSE){
+    random.effects="both" 
+   }
+   if(is.null(x$Species)==TRUE & is.null(x$Region)==FALSE){
     warning("Species have not been provided, these models will only consider fixed and random biogeographical effects.",call. = FALSE)
-  }
+    random.effects="region"
+    }
   
   if(is.null(x$Species)==TRUE & is.null(x$Region)==TRUE){
     warning("Species and region have not been provided, these 
             models will only consider fixed effects.",call. = FALSE)
-  }
+    random.effects="none"
+    }
   if(is.null(x$Species)==FALSE & is.null(x$Region)==TRUE){
     warning("Region has not been provided, these 
             models will only consider fixed and species-level random effects.",call. = FALSE)
-  }
+    random.effects="spp"
+    }
   
   data("pollimetry_dataset", envir = environment())
   check_sp <- x$Species %in% pollimetry_dataset$Species 
@@ -194,13 +201,18 @@ bodysize=function(x,taxa,type) {
       mod=hov_IT
     }
   }
-  #More tests can be implemented e.g. warn depreciated columns (e.g. if Family is provided with type Phylo, explain that it will be depreciated)
   ##OUTPUT
   x$IT <- x$ITD
   out <- exp(predict(object=mod,
                  newdata=x,
                  allow_new_levels=TRUE,
-                # transform=exp, #deprecated
+                 re_formula=ifelse(random.effects=="both",
+                                   "~(1|Region/Species)",
+                                   ifelse(random.effects=="spp",
+                                          "~(1|Species)",
+                                   ifelse(random.effects=="region",
+                                          "~(1|Region)",
+                                          NA))),
                  probs = c(0.05, 0.95))) %>% 
     as.data.frame() 
   out <- select(out, -Est.Error)

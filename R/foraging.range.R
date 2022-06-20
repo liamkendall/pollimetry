@@ -32,7 +32,7 @@
 #' foraging.range(example.data,random.effects = "full",measure.type = "realized")
 #' 
 #' @references \itemize{
-#' \item Kendall et al. (2022) Sociality and body size determine the potential and realized foraging ranges of bees \emph{TBC} \url{TBC}.
+#' \item Kendall et al. (2022) The potential and realized foraging movements of bees are differentially determined by body size and sociality \emph{Ecology} \url{TBC}.
 #' }
 #'
 #' @export
@@ -49,7 +49,7 @@ foraging.range <- function(data,
   data.nrow = nrow(data)
   data.out = data %>% 
     dplyr::slice(rep(1:dplyr::n(), each = 4)) %>% 
-    dplyr::mutate(genus=word(species,1,sep="_")) %>% 
+    dplyr::mutate(genus=stringr::word(species,1,sep="_")) %>% 
     dplyr::mutate(range.4=rep(c("Typ-Realised",
                          "Typ-Potential",
                          "Max-Realised",
@@ -116,11 +116,11 @@ foraging.range <- function(data,
   out <- exp(predict(it.mod,
                      newdata=data.out,
                      allow_new_levels=T,
-                       re_formula = ifelse(random.effects=="full",
-                                           "~(1|genus)+(1|species)",
-                                           ifelse(random.effects=="phylo",
-                                                  "~(1|genus)",
-                                                  NA))))
+                     re_formula = ifelse(random.effects=="full",
+                                         "~(1|genus)+(1|species)",
+                                         ifelse(random.effects=="phylo",
+                                         "~(1|genus)",
+                                         NA))))
   
   } else if(model.type == "social"){
   
@@ -130,17 +130,17 @@ foraging.range <- function(data,
                      re_formula = ifelse(random.effects=="full",
                                          "~(1|genus)+(1|species)",
                                          ifelse(random.effects=="phylo",
-                                                "~(1|genus)",
-                                                NA))))
+                                         "~(1|genus)",
+                                         NA))))
   
   }
   
   out2 <- cbind(data.out,out) %>% 
     dplyr::mutate(range.type=plyr::revalue(range.4,
-                              c("Typ-Realised" = "Realized typical range",
-                                "Typ-Potential"= "Potential typical range",
-                                "Max-Realised"= "Realized maximum range",
-                                "Max-Potential"= "Potential maximum range"))) %>% 
+                              c("Typ-Realised"  = "Realized typical range",
+                                "Typ-Potential" = "Potential typical range",
+                                "Max-Realised"  = "Realized maximum range",
+                                "Max-Potential" = "Potential maximum range"))) %>% 
     dplyr::select(-range.4,-Est.Error,wgt10) %>% 
     dplyr::relocate(range.type,.before=Estimate)%>%
     dplyr::rename(range.estimate=Estimate,

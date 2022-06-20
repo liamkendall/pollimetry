@@ -41,7 +41,7 @@
 #' bodysize(x=example.data,taxa="hov",type="taxo")
 #' 
 #' @references \itemize{
-#' \item Kendall et al. (2019) Pollinator size and its consequences: Robust estimates of body size in pollinating insects. \emph{Ecology and Evolution}, 9(4), 1702-1714. \url{https://doi.org/10.1002/ece3.4835}.
+#' \item Kendall et al. (2019) Pollinator size and its consequences: Robust estimates of body size in pollinating insects. \emph{Ecology and Evolution}, 9(4), 1702-1714. \doi{10.1002/ece3.4835}.
 #' }
 #' 
 #' @export

@@ -43,7 +43,7 @@
 #' @examples
 #' lengthsize(BL=c(10,5,2), Eq = c("S80DCR"))
 #' 
-#' @references Full reference list provided within Kendall et al. (2019) Pollinator size and its consequences: Robust estimates of body size in pollinating insects. \emph{Ecology and Evolution}, 9(4), 1702-1714. \url{https://doi.org/10.1002/ece3.4835}.
+#' @references Full reference list provided within Kendall et al. (2019) Pollinator size and its consequences: Robust estimates of body size in pollinating insects. \emph{Ecology and Evolution}, 9(4), 1702-1714. \doi{10.1002/ece3.4835}.
 #' 
 #' @export
 lengthsize=function(BL, Eq = "DIP"){

@@ -14,7 +14,7 @@
 #' @examples
 #' headwidthsize(HW=c(10,5,2), Eq = c("H97DB"))
 #' @references \itemize{
-#' \item Kendall et al. (2019) Pollinator size and its consequences: Robust estimates of body size in pollinating insects. \emph{Ecology and Evolution}, 9(4), 1702-1714. \url{https://doi.org/10.1002/ece3.4835}.
+#' \item Kendall et al. (2019) Pollinator size and its consequences: Robust estimates of body size in pollinating insects. \emph{Ecology and Evolution}, 9(4), 1702-1714. \doi{10.1002/ece3.4835}.
 #' \item Hodar, J. A. (1997). The use of regresion equations for the estimation of prey length and biomass in diet studies of insectivore vertebrates. \emph{Miscellania Zoologica}, 20(2), 1-10. 
 #' }
 #' 

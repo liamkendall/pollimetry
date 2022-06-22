@@ -20,7 +20,7 @@ wingloading(IT=c(10,5,2))
 }
 \references{
 \itemize{
-\item Kendall et al. (2019) Pollinator size and its consequences: Robust estimates of body size in pollinating insects. Ecology and Evolution, 9(4), 1702-1714. \url{https://doi.org/10.1002/ece3.4835}.
+\item Kendall et al. (2019) Pollinator size and its consequences: Robust estimates of body size in pollinating insects. Ecology and Evolution, 9(4), 1702-1714. \doi{10.1002/ece3.4835}.
 \item Bullock, S. H. (1999). Relationships among body size, wing size and mass in bees from a tropical dry forest in Mexico. Journal of the Kansas Entomological Society, 426-439.
 }
 }

@@ -1,6 +1,6 @@
 #' @name foraging.range
 #' 
-#' @title Uses intertegular distance, and degree of sociality, to predict foraging range for bees.
+#' @title Predict foraging range for bees using intertegular distance and degree of sociality
 #' 
 #' @description Calculates realized* foraging range from Kendall et al. (2022) using intertegular distance (ITD) values
 #'  and degree of sociality (highly eusocial, primitively eusocial or solitary). *Potential estimates are not recommended to be used but can be obtained by selecting `measure.type = "potential"`.
@@ -83,7 +83,7 @@ foraging.range <- function(data,
       it.mod=pollimetrydata::all_IT_bm_mod
       soc.mod=pollimetrydata::all_social_bm_mod
       
-  }else if(!pollimetrydata %in% rownames(installed.packages())){
+  }else if(system.file("pollimetrydata")==""){
       repmis::source_data("https://github.com/liamkendall/pollimetrydata/raw/master/data/all_IT_bm_mod.rdata",
                           envir = environment())
     it.mod <- all_IT_bm_mod

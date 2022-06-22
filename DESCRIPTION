@@ -10,7 +10,7 @@ Description: Tools to estimate pollinator body size and co-varying traits. This 
 Depends:
   R (>= 4.0.0), brms (>= 2.16.1)
 Imports:
- stats, repmis, stringr, plyr, dplyr
+ stats, repmis, stringr, plyr, dplyr, lifecycle
 Suggests:
  pollimetrydata
 License: GPL (>= 2)

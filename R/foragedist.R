@@ -1,17 +1,20 @@
 #' @name foragedist
 #' 
-#' @title Converts body weight to measures of foraging distance for bees.
+#' @title (Deprecated) Converts body weight to measures of foraging range for bees.
 #' 
-#' @description Calculates foraging distance from Greenleaf et al. (2007) using intertegular distance (ITD) values,
+#' @description 
+#' `r lifecycle::badge("deprecated")` This function is now deprecated and has been superceded by `foraging.range`
+#' 
+#' Calculates foraging range from Greenleaf et al. (2007) using intertegular distance (ITD) values,
 #'  van Nieuwstadt and Iraheta (1996) using head width (HW) values for Meliponini (stingless bees) and 
 #'  Guedot et al. (2009) using dry weight (mg) values for Osmia species.
 #'
 #' @param x A vector of either bee intertegular spans (IT) measurements in mm, head width values in mm or dry weight values (mg).
 #' 
-#' @param type The type of foraging distance desired. Options are "GreenleafAll", GrMhd ("Maximum homing distance"),
+#' @param type The type of foraging range desired. Options are "GreenleafAll", GrMhd ("Maximum homing distance"),
 #' GrThd ("Typical homing distance"), GrMfd ("Maximum feeder training distance"), GrMcd("Maximum communication distance"),"Osmia", "MeliMR" , "MeliFT" or "MeliAll". See details in Greenleaf et al. (2007), Guedot et al. (2009) and van Nieuwstadt and Iraheta (1996). 
 #' 
-#' @return A dataframe with bee and foraging distance (km) is returned for each bees species.
+#' @return A dataframe with bee and foraging range (km) is returned for each bee species.
 #'
 #' @examples
 #' foragedist(c(10,5,2), type = "MeliMR")
@@ -22,9 +25,10 @@
 #' \item Guedot et al. (2009). Relationship between body size and homing ability in the genus Osmia (Hymenoptera; Megachilidae). \emph{Ecological Entomology}, 34(1), 158-161. \doi{10.1111/j.1365-2311.2008.01054.x}.
 #' \item van Nieuwstadt, M. G. L., & Iraheta, C. R. (1996). Relation between size and foraging range in stingless bees (Apidae, Meliponinae). \emph{Apidologie}, 27(4), 219-228.
 #' }
-#'
+#' @import lifecycle
 #' @export
 foragedist <- function(x, type = "GreenleafAll"){
+  lifecycle::deprecate_warn("1.1.0", "foragedist()", "foraging.range()")
   if(!type %in% c("GreenleafAll", 
                   "GrMhd", 
                   "GrThd",

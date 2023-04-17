@@ -26,6 +26,7 @@
 #' \item van Nieuwstadt, M. G. L., & Iraheta, C. R. (1996). Relation between size and foraging range in stingless bees (Apidae, Meliponinae). \emph{Apidologie}, 27(4), 219-228.
 #' }
 #' @import lifecycle
+#' 
 #' @export
 foragedist <- function(x, type = "GreenleafAll"){
   lifecycle::deprecate_warn("1.1.0", "foragedist()", "foraging.range()")

@@ -2,7 +2,7 @@
 % Please edit documentation in R/foraging.range.R
 \name{foraging.range}
 \alias{foraging.range}
-\title{Uses intertegular distance, and degree of sociality, to predict foraging range for bees.}
+\title{Predict foraging range for bees using intertegular distance and degree of sociality}
 \usage{
 foraging.range(
   data,
@@ -19,14 +19,14 @@ foraging.range(
 \item{random.effects}{A sting stating if random effects are to be used using predictive purposes. Options are 1) phylogenetic effect and species effects "full", 
 2) only phylogenetic effect ("phylo"), or 3) fixed effects only ("reduced"). Default is "reduced".}
 
-\item{measure.type}{A string stating whether to return realized ("realized"), potential ("potential") estimates.}
+\item{measure.type}{A string stating whether to return realized ("realized") or potential ("potential") estimates.}
 }
 \value{
 A dataframe with bee foraging range (km) is returned for each bee species (row).
 }
 \description{
-Calculates realized* foraging range from Kendall et al. (2022) using intertegular distance (ITD) values
- and degree of sociality (highly eusocial, primitively eusocial or solitary). *Potential estimates are not recommended to be used but can be obtained by selecting `measure.type = "potential"`.
+Calculates realized (or potential) foraging range from Kendall et al. (2022) using intertegular distance (ITD) values
+ and degree of sociality (highly eusocial, primitively eusocial or solitary).
 }
 \examples{
 ITD=c(2.9,2.9,2.9)

@@ -1,6 +1,6 @@
 citHeader("To cite pollimetry in publications use:")
 
-citEntry(entry = "Article",
+bibentry(bibtype = "Article",
   title        = "Pollinator size and its consequences: Robust estimates of body size in pollinating insects",
   author=personList(as.person("Liam K. Kendall"),
   as.person("Romina Rader"),
@@ -23,7 +23,7 @@ citEntry(entry = "Article",
   volume       = "9",
   number       = "4",
   pages        = "1702-1714",
-  DOI          = "http://doi.org/10.1002/ece3.4835",
+  doi          = "10.1002/ece3.4835",
 
   textVersion  =
   paste("Liam K. Kendall, Romina Rader, Vesna Gagic, Daniel Cariveau, Matthias Albrecht, Katherine C.R. Baldock, Breno Freitas, Mark Hall, Andrea Holzschuh, Janeally Pereira, Stuart P.M. Roberts, Juanita Rodriguez, Laura Russo, Louis Sutter, Nicolas J. Vereecken and Ignasi Bartomeus (2019).",

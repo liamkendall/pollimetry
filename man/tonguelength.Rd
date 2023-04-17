@@ -7,13 +7,13 @@
 tonguelength(x, mouthpart = "all")
 }
 \arguments{
-\item{x}{A dataframe with the following two columns: bee intertegular distance (IT) measurements in mm and Family, a vector of bee families. Only implemented 6 out of the extant 7 families: 
+\item{x}{A dataframe with the following two columns: bee intertegular distance (IT) measurements in mm and family, a vector of bee families. Only six out of the extant seven families are implemented: 
 "Andrenidae", "Apidae", "Colletidae", "Halictidae", "Melittidae" and "Megachilidae".}
 
 \item{mouthpart}{The mouthpart you are interested in. Options are: "all", "glossa", "prementum" and "tongue" (i.e. gloss + prementum)}
 }
 \value{
-A dataframe with bee tongue length (mm) and 95% confidence intervals are returned for each bees species bound to your original dataframe.
+A dataframe with bee tongue length (mm) and 95% confidence intervals are returned for each bee species bound to your original dataframe.
 }
 \description{
 Calculates tongue length (mm) from Cariveau et al. (2015) and Melin et al. (2019) using intertegular distance (ITD) values (mm).

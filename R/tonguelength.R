@@ -4,12 +4,12 @@
 #' 
 #' @description Calculates tongue length (mm) from Cariveau et al. (2015) and Melin et al. (2019) using intertegular distance (ITD) values (mm).  
 #' 
-#' @param x A dataframe with the following two columns: bee intertegular distance (IT) measurements in mm and Family, a vector of bee families. Only implemented 6 out of the extant 7 families: 
+#' @param x A dataframe with the following two columns: bee intertegular distance (IT) measurements in mm and family, a vector of bee families. Only six out of the extant seven families are implemented: 
 #' "Andrenidae", "Apidae", "Colletidae", "Halictidae", "Melittidae" and "Megachilidae".
 #' 
 #' @param mouthpart The mouthpart you are interested in. Options are: "all", "glossa", "prementum" and "tongue" (i.e. gloss + prementum)
 #' 
-#' @return A dataframe with bee tongue length (mm) and 95% confidence intervals are returned for each bees species bound to your original dataframe.
+#' @return A dataframe with bee tongue length (mm) and 95% confidence intervals are returned for each bee species bound to your original dataframe.
 #' 
 #' @examples
 #' example=cbind.data.frame(IT=c(1.3,2.3),
@@ -31,10 +31,10 @@
 #' @export
 tonguelength <- function(x, mouthpart = "all"){
   check_family <- x$family %in% c("Andrenidae", "Apidae", 
-                                  "Colletidae", "Halictidae", "Megachilidae")
+                                  "Colletidae", "Halictidae", "Megachilidae","Melittidae")
   if(any(check_family == FALSE)){
     stop("family should be one of: 'Andrenidae', 'Apidae', 
-         'Colletidae', 'Halictidae', 'Megachilidae'")
+         'Colletidae', 'Halictidae', 'Megachilidae','Melittidae'")
   }
   check_mouthpart <- x$mouthpart %in% c("all", "glossa", "prementum", "tongue")
   if(any(check_mouthpart == FALSE)){

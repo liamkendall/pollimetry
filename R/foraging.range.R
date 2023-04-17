@@ -2,8 +2,8 @@
 #' 
 #' @title Predict foraging range for bees using intertegular distance and degree of sociality
 #' 
-#' @description Calculates realized* foraging range from Kendall et al. (2022) using intertegular distance (ITD) values
-#'  and degree of sociality (highly eusocial, primitively eusocial or solitary). *Potential estimates are not recommended to be used but can be obtained by selecting `measure.type = "potential"`.
+#' @description Calculates realized (or potential) foraging range from Kendall et al. (2022) using intertegular distance (ITD) values
+#'  and degree of sociality (highly eusocial, primitively eusocial or solitary).
 #'  
 #' @param data  A dataframe containing between two to four columns: bee intertegular distance (ITD) measurements in mm, species (Format: "Genus_species") and sociality (Format: "Highly Eusocial","Primitively Eusocial", "Solitary").
 #' 
@@ -12,7 +12,7 @@
 #' 
 #' @param model.type A string stating which model should be used: "social", for the model that includes sociality, body size (ITD) and measurement type, or "ITD", for the reduced model that only includes body size and measurement type.
 #' 
-#' @param measure.type A string stating whether to return realized ("realized"), potential ("potential") estimates. 
+#' @param measure.type A string stating whether to return realized ("realized") or potential ("potential") estimates. 
 #' 
 #' @return A dataframe with bee foraging range (km) is returned for each bee species (row).
 #'
@@ -70,10 +70,6 @@ foraging.range <- function(data,
   }
   if(!measure.type%in% c("potential","realized")){
     stop("measure.type should be 'realized' or 'potential'")
-  }
-  if(measure.type %in% c("potential")){
-    warning("Potential estimates are not recommeded for predictive purposes, 
-             consider using realized estimates",call. = FALSE)
   }
   if(random.effects %in%c("full") & any(grepl("species",colnames(data)))==FALSE){
     stop("species not provided. We suggest using random.effects = 'phylo' or 'reduced'")

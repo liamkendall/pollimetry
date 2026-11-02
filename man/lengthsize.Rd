@@ -10,19 +10,19 @@ lengthsize(BL, Eq = "DIP")
 \item{BL}{A nonempty numeric vector of body lengths in mm. All values must be finite, strictly positive and nonmissing.}
 
 \item{Eq}{A single character string selecting one equation or a group of equations. Acronyms denote author, publication date and taxon. DIP, HYM and LEP select the implemented collections for each order. Other group selectors are Brachycera, Nematocera, Asilidae, Bombyliidae, Formicidae, Vespidae and Noctuidea. Taxon labels below identify equation applicability; only these listed group selectors and equation codes are accepted.
-Options implemented are: \cr 
+Options implemented are: \cr
 \cr
 \strong{Diptera}
 \itemize{
-\item                    All: BN06D, G97D, GR84D, JS00DA, R77D, S80DCF, S80DCR, S80DMF, S93DA, W13D.  
+\item                    All: BN06D, G97D, GR84D, JS00DA, R77D, S80DCF, S80DCR, S80DMF, S93DA, W13D.
 \item                    Brachycera (2 equations): S93DB, Sabo02DB.
 \item                    Nematocera (3 equations): JS00DN, S93DN, Sabo02DN.
 \item                    Asilidae (2 equations): Sabo02DA, S93DB.
 \item                    Bombyliidae (2 equations): S93DB, Sabo02DBB.
 \item                    Cyclorrapha: S93DC.
- }  
-\strong{Hymenoptera} 
-           \itemize{        
+ }
+\strong{Hymenoptera}
+           \itemize{
 \item                    All: BN06H1, G97H, G97F, GR84H, JS00HA, R77H, S80HCF, S80HCR, S80HMF, S93HA, Sabo02H, W13H.
 \item                    Formicidae (13 equations): BN06HF, GR84F, JS00HF, R77A, S80FCF, S80FCR, S80FMF, S93HF, S93HH, S93HI, BN06H1, G97H, G97F.
 \item                    Apidae: Sabo02HA.
@@ -33,7 +33,7 @@ Options implemented are: \cr
 \item                    Vespidae: S93HV & Sabo02HV.
  }
 \strong{Lepidoptera}
-        \itemize{                 
+        \itemize{
 \item                    All: BN06L, G97L, JS00L, R77L, S80LCF, S80LCR, S80LMF,S93LA,W13L.
 \item                    Noctuidea: S93LC, S93LN.
 \item                    Geometridae: S93LG.

@@ -18,15 +18,15 @@ devtools::install_github("liamkendall/pollimetry")
 library(pollimetry)
 ```
 
-The companion `pollimetrydata` package provides fitted model objects for `bodysize()` and `foraging.range()`. Install it when using those Bayesian functions. The equation-based functions below do not use these model objects.
+The Bayesian functions use fitted models from `pollimetrydata`. Installing version 1.0.1 or later is optional and enables offline predictions. Otherwise, only the required models are downloaded from GitHub and reused within the current R session. The equation-based functions below do not require these downloads.
 
 ```
 # The companion package contains large fitted model objects.
 if (!requireNamespace("devtools", quietly = TRUE)) {
   install.packages("devtools")
 }
+# Optional: install all fitted models for offline use
 devtools::install_github("liamkendall/pollimetrydata")
-library(pollimetrydata)
 ```
 
 Estimating body size

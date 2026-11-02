@@ -15,7 +15,7 @@ Description: Tools to estimate pollinator body size and co-varying traits. This 
            et al. (2019) <doi:10.1002/ece3.4835> & Kendall et al. (2022) <doi:10.1002/ecy.3809>.
 Depends: R (>= 4.0.0)
 Imports: stats, utils, lifecycle, brms (>= 2.16.1)
-Suggests: pollimetrydata
+Suggests: pollimetrydata (>= 1.0.1)
 License: GPL (>= 2)
 LazyData: true
 Encoding: UTF-8

@@ -1,3 +1,9 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^\.travis\.yml$
+^model-building$
+^pollimetrydata-update$
+^CHECK_.*[.]R$
+^APPLY_CHECK_FIXES[.]R$
+^DESCRIPTION[.]before-check-fixes$
+^cran-comments[.]md$

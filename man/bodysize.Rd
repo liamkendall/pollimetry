@@ -2,48 +2,33 @@
 % Please edit documentation in R/bodysize.R
 \name{bodysize}
 \alias{bodysize}
-\title{Converts the intertegular distance (ITD) and co-variates to body size in dry weight (mg) for bees or hoverflies.}
+\title{Predict bee and hoverfly dry body weight}
 \usage{
 bodysize(x, taxa, type)
 }
 \arguments{
-\item{x}{A data frame with columns containing 'ITD' values and Sex ('Male' or 'Female'). 
-Optional attributes depending on model choice: Taxonomy ('Family' for bees or 'Subfamily for hoverflies), 'Region' (Currently only "NorthAmerica", "SouthAmerica", "Australasia" and "Europe" implemented) and 'Species' ("Genus_species" format). Non-implemented regions and/or species are acceptable. See details.}
+\item{x}{A nonempty data frame with positive, finite ITD measurements in mm. Sex (Female or Male) is required except for type = "ITD". Taxonomic models also require Family for bees or Subfamily for hoverflies. Accepted hoverfly subfamilies are Eristalinae, Pipizinae and Syrphinae. Optional grouping columns are Region and Species (Genus_species); Species requires Region. The phylogenetic model requires both Region and Species.}
 
-\item{taxa}{A vector specifying insect taxa of interest, can be either "bee" for bee models and "hov" for hoverfly models}
+\item{taxa}{One string: "bee" or "hov".}
 
-\item{type}{A vector specifying model type to be used: for bees this can be either "taxo" for the full taxonomic model, "phy" for the full phylogenetic model, "sex" for the reduced sexual dimorphic model or "ITD" for the ITD-only model. In hoverflies: this can either be "taxo" for the full taxonomic model, "sex" for the reduced sexual dimorphic model or "ITD" for the ITD-only model.}
+\item{type}{One string: "taxo", "sex", "ITD", or "phylo" (bees only).}
 }
 \value{
-The original dataframe (x) along with additional columns of body size, and 90% CI's.
+The input data frame with Est.Weight, CI_Lower and CI_Upper appended, in mg. Bounds are the 5th and 95th percentiles of the posterior predictive distribution.
 }
 \description{
-Calculates body size in dry weight (mg) from Kendall et al. (2018) using ITD (and co-variate) values.
+Predict dry body weight (mg) from intertegular distance and covariates using the fitted models of Kendall et al. (2019).
 }
 \details{
-For bees, type option 'taxo' requires ITD, 
-sex and taxonomic family.  Type option 'phylo' only requires ITD and Sex to run 
-but should be only be used for with Species (and Region) included in model formulation n.b. the function checks for contained species.  
-
- For hoverflies, type 'taxo' requires ITD, Subfamily and Sex for each specimen. Type "ITD" for both 
- taxa only requires ITD values (Optional: region and species but check `setdiff`). 
- If specimens are from included regions or species (see above) we recommend 
- including these as additional columns. Estimates (and variance components) are 
- returned as four additional columns bound to the original dataframe. In the likely case that non-represented taxa and regions are included in inputted datasets, `allow_new_levels` is set to true for all models. Estimates will then be modelled with group-level uncertainty in the predictions based on the variation of the existing levels.
- This function makes use of external model objects hosted on GitHub. In the case of slow loading, we recommend you download the pollimetrydata package from https://github.com/liamkendall/pollimetrydata.
+With Region and Species, both fitted grouping effects are included. With Region alone, only the regional effect is included. With neither, group effects are excluded (set to zero, not integrated out). Species alone is rejected because the fitted species effect is nested within Region. New grouping levels use brms uncertainty sampling from existing levels; this does not place a new species on a phylogenetic tree. Fixed-effect categories must be supported by the fitted model. Est.Weight is exp(mean(log-scale predictive draws)), not arithmetic mean weight. Intervals include residual variation. Use set.seed() for reproducibility. Requires brms and a locally installed pollimetrydata package; prediction does not fit or download models.
 }
 \examples{
-ITD=c(1.3,2.3)
-Sex=c("Female","Male")
-Subfamily=c("Syrphinae","Eristalinae")
-Region=c("Australasia","Europe")
-Species=c("Sphaerophoria_macrogaster","Myathropa_florea")
-example.data <- data.frame(ITD,Sex,Subfamily,Region,Species)
-bodysize(x=example.data,taxa="hov",type="taxo")
-
+if (requireNamespace("pollimetrydata", quietly = TRUE)) {
+  x <- data.frame(ITD = c(1.5, 2), Sex = c("Female", "Male"),
+                  Subfamily = c("Pipizinae", "Syrphinae"))
+  bodysize(x, taxa = "hov", type = "taxo")
+}
 }
 \references{
-\itemize{
-\item Kendall et al. (2019) Pollinator size and its consequences: Robust estimates of body size in pollinating insects. \emph{Ecology and Evolution}, 9(4), 1702-1714. \doi{10.1002/ece3.4835}.
-}
+Kendall et al. (2019). Pollinator size and its consequences: Robust estimates of body size in pollinating insects. Ecology and Evolution, 9, 1702-1714. \doi{10.1002/ece3.4835}.
 }

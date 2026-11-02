@@ -7,23 +7,23 @@
 headwidthsize(HW, Eq = "H97DB")
 }
 \arguments{
-\item{HW}{A vector of head width measurements (mm).}
+\item{HW}{A nonempty numeric vector of head widths in mm. All values must be finite, strictly positive and nonmissing.}
 
-\item{Eq}{a vector of predictive allometries for insect taxa from Hodar (1997). 
+\item{Eq}{A single character string selecting an equation from Hodar (1997).
 Options implemented are: H97DB (Brachycera), H97DN (Nematocera), H97HA (Hymenoptera), H97LH (Heterocera) and H97LR (Rhopalocera).}
 }
 \value{
-A dataframe with pollinator body size as dry weight (mg) is returned for each specimen from selected equation.
+A numeric vector of predicted dry weights (mg), one per input measurement.
 }
 \description{
 Calculates dry body weight (mg) using head width (mm) from Hodar (1997).
 }
 \examples{
-headwidthsize(HW=c(10,5,2), Eq = c("H97DB"))
+headwidthsize(HW = c(1, 2, 3), Eq = "H97HA")
 }
 \references{
 \itemize{
 \item Kendall et al. (2019) Pollinator size and its consequences: Robust estimates of body size in pollinating insects. \emph{Ecology and Evolution}, 9(4), 1702-1714. \doi{10.1002/ece3.4835}.
-\item Hodar, J. A. (1997). The use of regresion equations for the estimation of prey length and biomass in diet studies of insectivore vertebrates. \emph{Miscellania Zoologica}, 20(2), 1-10. 
+\item Hodar, J. A. (1997). The use of regresion equations for the estimation of prey length and biomass in diet studies of insectivore vertebrates. \emph{Miscellania Zoologica}, 20(2), 1-10.
 }
 }

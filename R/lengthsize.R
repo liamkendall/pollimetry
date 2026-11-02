@@ -1,25 +1,25 @@
 #' @name lengthsize
-#' 
+#'
 #' @title Converts body length to body size (body weight (mg)) for three pollinating insect groups (Diptera, Hymenoptera and Lepidoptera).
-#' 
-#' @description Calculates body size as dry  weight (mg) from existing allometries (See 'Details') using body length values (mm).  
-#' 
-#' @param BL A vector of pollinator body length (BL) measurements (mm).
-#' 
-#' @param Eq A vector specificing which predictive allometry to use. Acronyms denote first (and second author), publication date and taxon. DIP, HYM and LEP options are cases where authors modelled body size across all specimens within each order.
-#' Options implemented are: \cr 
+#'
+#' @description Calculates dry body weight (mg) from existing allometries using body length (mm).
+#'
+#' @param BL A nonempty numeric vector of body lengths in mm. All values must be finite, strictly positive and nonmissing.
+#'
+#' @param Eq A single character string selecting one equation or a group of equations. Acronyms denote author, publication date and taxon. DIP, HYM and LEP select the implemented collections for each order. Other group selectors are Brachycera, Nematocera, Asilidae, Bombyliidae, Formicidae, Vespidae and Noctuidea. Taxon labels below identify equation applicability; only these listed group selectors and equation codes are accepted.
+#' Options implemented are: \cr
 #' \cr
 #' \strong{Diptera}
 #' \itemize{
-#' \item                    All: BN06D, G97D, GR84D, JS00DA, R77D, S80DCF, S80DCR, S80DMF, S93DA, W13D.  
+#' \item                    All: BN06D, G97D, GR84D, JS00DA, R77D, S80DCF, S80DCR, S80DMF, S93DA, W13D.
 #' \item                    Brachycera (2 equations): S93DB, Sabo02DB.
 #' \item                    Nematocera (3 equations): JS00DN, S93DN, Sabo02DN.
 #' \item                    Asilidae (2 equations): Sabo02DA, S93DB.
 #' \item                    Bombyliidae (2 equations): S93DB, Sabo02DBB.
 #' \item                    Cyclorrapha: S93DC.
-#'  }  
-#' \strong{Hymenoptera} 
-#'            \itemize{        
+#'  }
+#' \strong{Hymenoptera}
+#'            \itemize{
 #' \item                    All: BN06H1, G97H, G97F, GR84H, JS00HA, R77H, S80HCF, S80HCR, S80HMF, S93HA, Sabo02H, W13H.
 #' \item                    Formicidae (13 equations): BN06HF, GR84F, JS00HF, R77A, S80FCF, S80FCR, S80FMF, S93HF, S93HH, S93HI, BN06H1, G97H, G97F.
 #' \item                    Apidae: Sabo02HA.
@@ -30,35 +30,27 @@
 #' \item                    Vespidae: S93HV & Sabo02HV.
 #'  }
 #' \strong{Lepidoptera}
-#'         \itemize{                 
+#'         \itemize{
 #' \item                    All: BN06L, G97L, JS00L, R77L, S80LCF, S80LCR, S80LMF,S93LA,W13L.
 #' \item                    Noctuidea: S93LC, S93LN.
 #' \item                    Geometridae: S93LG.
 #' \item                    Microlepidoptera: S93LM.
 #' \item                    Arctiinae: S93LC.
 #'  }
-#' 
-#' @return A dataframe with pollinator body size (mg) is returned for each species from selected equation/s.
-#' 
+#'
+#' @return A numeric vector of predicted dry weights (mg) for one equation, or a numeric matrix for a group of equations. Matrix rows follow input order and columns are named by equation.
+#'
 #' @examples
-#' lengthsize(BL=c(10,5,2), Eq = c("S80DCR"))
-#' 
+#' lengthsize(BL = c(10, 5, 2), Eq = "S80DCR")
+#' lengthsize(BL = c(10, 5, 2), Eq = "HYM")
 #' @references Full reference list provided within Kendall et al. (2019) Pollinator size and its consequences: Robust estimates of body size in pollinating insects. \emph{Ecology and Evolution}, 9(4), 1702-1714. \doi{10.1002/ece3.4835}.
-#' 
+#'
 #' @export
 lengthsize=function(BL, Eq = "DIP"){
-  
-if(!Eq %in% c("DIP","HYM","LEP", "S93DB","Sabo02DB", "Sabo02DA", "Sabo02DBB", "R77D",
-              "S93DC", "BN06D", "G97D", "GR84D", "JS00DA",
-              "S80DCF", "S80DCR", "S80DMF", "S93DA", "W13D", "JS00DN", 
-              "S93DN", "Sabo02DN","DIP","Brachycera","Nematocera",
-              "Asilidae","Bombyliidae")){
-  stop("Equation should be one of 'DIP','HYM','LEP','R77D',
-       'S93DB', 'Sabo02DB', 'Sabo02DA', 'Sabo02DBB', 
-       'S93DC', 'BN06D', 'G97D', 'GR84D', 'JS00DA', 
-       'S80DCF', 'S80DCR', 'S80DMF', 'S93DA', 'W13D', 'JS00DN', 
-       'S93DN', 'Sabo02DN','All','Brachycera','Nematocera','Asilidae','Bombyliidae'")
-} else {
+
+  .positive(BL, "BL")
+  .choice(Eq, c("S93DB", "Sabo02DB", "Sabo02DA", "Sabo02DBB", "S93DC", "BN06D", "G97D", "GR84D", "JS00DA", "R77D", "S80DCF", "S80DCR", "S80DMF", "S93DA", "W13D", "JS00DN", "S93DN", "Sabo02DN", "Brachycera", "Nematocera", "Asilidae", "Bombyliidae", "DIP", "Sabo02HA", "S93HB", "BN06HF", "GR84F", "JS00HF", "R77A", "S80FCF", "S80FCR", "S80FMF", "S93HF", "S93HH", "S93HI", "BN06H1", "G97H", "G97F", "GR84H", "JS00HA", "R77H", "S80HCF", "S80HCR", "S80HMF", "S93HA", "Sabo02H", "W13H", "S93HP", "S93HV", "Sabo02HV", "Vespidae", "Formicidae", "HYM", "S93LG", "S93LM", "BN06L", "G97L", "JS00L", "R77L", "S80LCF", "S80LCR", "S80LMF", "S93LA", "W13L", "S93LC", "S93LN", "LEP", "Noctuidea"), "Eq")
+  {
   S93DB <- exp(-3.374+2.158*log(BL))
   Sabo02DB <- 0.006*(BL)^3.05
   Sabo02DA <- 0.38*(BL)^1.5
@@ -117,8 +109,8 @@ if(!Eq %in% c("DIP","HYM","LEP", "S93DB","Sabo02DB", "Sabo02DA", "Sabo02DBB", "R
   W13L <- exp(-3.83+2.77*log(BL))
   S93LC <- exp(-3.755+2.658*log(BL))
   S93LN <- exp(-3.337+2.499*log(BL))
-  
-  
+
+
   if (Eq ==  "S93DB") out <- S93DB
   if (Eq == "Sabo02DB") out <- Sabo02DB
   if (Eq == "Sabo02DA") out <- Sabo02DA
@@ -142,7 +134,7 @@ if(!Eq %in% c("DIP","HYM","LEP", "S93DB","Sabo02DB", "Sabo02DA", "Sabo02DBB", "R
   if (Eq == "Asilidae") out <- cbind(Sabo02DA, S93DB)
   if (Eq == "Bombyliidae") out <-cbind(Sabo02DBB,S93DB)
   if (Eq == "DIP") out <- cbind(BN06D, G97D, GR84D, JS00DA, R77D, S80DCF, S80DCR, S80DMF, S93DA, W13D)
-  
+
   if (Eq ==  "Sabo02HA") out <- Sabo02HA
   if (Eq == "S93HB") out <- S93HB
   if (Eq == "BN06HF") out <- BN06HF
@@ -173,7 +165,7 @@ if(!Eq %in% c("DIP","HYM","LEP", "S93DB","Sabo02DB", "Sabo02DA", "Sabo02DBB", "R
   if (Eq == "Vespidae") out <- cbind(S93HV,Sabo02HV)
   if (Eq == "Formicidae") out <- cbind(BN06HF,GR84F,JS00HF,R77A,S80FCF,S80FCR,S80FMF,S93HF,S93HH,S93HI,BN06H1,G97H,G97F)
   if (Eq == "HYM") out = cbind(BN06H1,G97H, G97F,GR84H,JS00HA,R77H,S80HCF,S80HCR,S80HMF,S93HA,Sabo02H,W13H)
-  
+
   if (Eq ==  "S93LG") out <- S93LG
   if (Eq == "S93LM") out <- S93LM
   if (Eq == "BN06L") out <- BN06L
@@ -191,4 +183,4 @@ if(!Eq %in% c("DIP","HYM","LEP", "S93DB","Sabo02DB", "Sabo02DA", "Sabo02DBB", "R
   if (Eq == "Noctuidea") out <- cbind(S93LC, S93LN)
   out
 }
-}  
+}

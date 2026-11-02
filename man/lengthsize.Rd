@@ -7,9 +7,9 @@
 lengthsize(BL, Eq = "DIP")
 }
 \arguments{
-\item{BL}{A vector of pollinator body length (BL) measurements (mm).}
+\item{BL}{A nonempty numeric vector of body lengths in mm. All values must be finite, strictly positive and nonmissing.}
 
-\item{Eq}{A vector specificing which predictive allometry to use. Acronyms denote first (and second author), publication date and taxon. DIP, HYM and LEP options are cases where authors modelled body size across all specimens within each order.
+\item{Eq}{A single character string selecting one equation or a group of equations. Acronyms denote author, publication date and taxon. DIP, HYM and LEP select the implemented collections for each order. Other group selectors are Brachycera, Nematocera, Asilidae, Bombyliidae, Formicidae, Vespidae and Noctuidea. Taxon labels below identify equation applicability; only these listed group selectors and equation codes are accepted.
 Options implemented are: \cr 
 \cr
 \strong{Diptera}
@@ -42,14 +42,14 @@ Options implemented are: \cr
  }}
 }
 \value{
-A dataframe with pollinator body size (mg) is returned for each species from selected equation/s.
+A numeric vector of predicted dry weights (mg) for one equation, or a numeric matrix for a group of equations. Matrix rows follow input order and columns are named by equation.
 }
 \description{
-Calculates body size as dry  weight (mg) from existing allometries (See 'Details') using body length values (mm).
+Calculates dry body weight (mg) from existing allometries using body length (mm).
 }
 \examples{
-lengthsize(BL=c(10,5,2), Eq = c("S80DCR"))
-
+lengthsize(BL = c(10, 5, 2), Eq = "S80DCR")
+lengthsize(BL = c(10, 5, 2), Eq = "HYM")
 }
 \references{
 Full reference list provided within Kendall et al. (2019) Pollinator size and its consequences: Robust estimates of body size in pollinating insects. \emph{Ecology and Evolution}, 9(4), 1702-1714. \doi{10.1002/ece3.4835}.

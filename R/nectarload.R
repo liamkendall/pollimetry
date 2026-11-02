@@ -2,11 +2,11 @@
 #' 
 #' @title Converts bee body length (mm) to total field nectar load (ul).
 #' 
-#' @description Calculates total field nectar load (ul) using body length (mm) from Henry & Rodet (2008).
+#' @description Calculates total field nectar load (ul) using body length (mm) from Henry & Rodet (2018).
 #' 
-#' @param BL vector of body length measurements (mm).
+#' @param BL A nonempty numeric vector of finite, positive body lengths (mm), without missing values.
 #'
-#' @return A dataframe with bee total field nectar load (ul) is returned for each specimen.
+#' @return A numeric vector of total field nectar load estimates in microlitres, one per input measurement.
 #' 
 #' @examples
 #' nectarload(BL=c(10,5,2))
@@ -16,6 +16,7 @@
 #' }
 #' @export
 nectarload <- function(BL){
+  .positive(BL, "BL")
     out <- 0.005 * BL^3.0618
     out
   }

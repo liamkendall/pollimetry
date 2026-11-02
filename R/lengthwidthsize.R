@@ -2,16 +2,23 @@
 #' 
 #' @title Converts pollinator body length*body width to body size (dry weight (mg)).
 #' 
-#' @description Calculates body size as dry weight (mg) from the equations described by Sample (1993) and others using body length*body width values (mm).
+#' @description Calculates body size as dry weight (mg) from the equations described by Sample (1993) and others using body length multiplied by body width (mm squared).
 #' 
-#' @param BLW A vector of fly body length*body width measurments (mm).
+#' @param BLW A nonempty numeric vector of body length multiplied by body width, in square millimetres (mm squared). All values must be finite, strictly positive and nonmissing.
 #'
-#' @param Eq a vector of a predictive allometry for Diptera, Hymenoptera or Lepidoptera. Options implemented are:
+#' @param Eq A single character string selecting an equation or the LEP group. Options implemented are:
+#' \itemize{
+#' \item Diptera: Brachycera, Cyclorrapha, DIP (the default general Diptera equation), Nematocera.
+#' \item Hymenoptera: S93HBLW, S93HFLW, S93HHLW, S93HILW, S93HALW, S93HPLW, S93HVLW.
+#' \item Lepidoptera: S93LGLW, S93LMLW, S93LALW, W13LLW, S93LCLW, S93LNLW. LEP returns W13LLW and S93LALW, in that order.
+#' }
 #'
-#' @return A dataframe with body size, as dry weight (mg) is returned for each specimen from selected equation.
+#' @return A numeric vector of predicted dry weights (mg) for one equation, or a numeric matrix for a group of equations. Matrix rows follow input order and columns are named by equation.
 #' 
 #' @examples
-#' lengthwidthsize(BLW=c(3,5,2), Eq = c("Brachycera"))
+#' lengthwidthsize(BLW = c(3, 5, 2), Eq = "Brachycera")
+#' lengthwidthsize(BLW = c(3, 5, 2))
+#' lengthwidthsize(BLW = c(3, 5, 2), Eq = "LEP")
 #' @references \itemize{
 #' \item Kendall et al. (2019) Pollinator size and its consequences: Robust estimates of body size in pollinating insects. \emph{Ecology and Evolution}, 9(4), 1702-1714. \doi{10.1002/ece3.4835}.
 #' \item Sample et al. (1993) Estimation of insect biomass by length and width. \emph{American Midland Naturalist}, 234-240.
@@ -19,23 +26,9 @@
 #' 
 #' @export
 lengthwidthsize <- function(BLW, Eq = "DIP"){
-  if(!Eq %in% c("Brachycera", 
-                "Cyclorrapha", 
-                "DIP",
-                "Nematocera","S93HBLW", 
-                "S93HFLW", 
-                "S93HHLW",
-                "S93HILW",
-                "S93HALW",
-                "S93HPLW","S93HVLW","S93LGLW", 
-                "S93LMLW", 
-                "S93LALW",
-                "W13LLW",
-                "S93LCLW",
-                "S93LNLW","LEP")) {
-    stop("Eq should be one of 'Brachycera', 'Cyclorrapha', 'Nematocera' or 'DIP','S93HBLW', 'S93HFLW', 'S93HHLW' , 'S93HILW','S93HALW','S93HPLW','S93HVLW',
-'S93LGLW', 'S93LMLW', 'S93LALW' , 'W13LLW','S93LCLW','S93LNLW','LEP'")
-  } else {
+  .positive(BLW, "BLW")
+  .choice(Eq, c("Brachycera", "Cyclorrapha", "DIP", "Nematocera", "S93HBLW", "S93HFLW", "S93HHLW", "S93HILW", "S93HALW", "S93HPLW", "S93HVLW", "S93LGLW", "S93LMLW", "S93LALW", "W13LLW", "S93LCLW", "S93LNLW", "LEP"), "Eq")
+  {
     #DIP
     Brachycera <- exp(-2.2+1.259*log(BLW))
     Cyclorrapha <- exp(-2.02+1.298*log(BLW))  
@@ -59,7 +52,7 @@ lengthwidthsize <- function(BLW, Eq = "DIP"){
    
     if (Eq == "Brachycera") out <- Brachycera
     if (Eq == "Cyclorrapha") out <- Cyclorrapha
-    if (Eq == "All") out <- Sage_All
+    if (Eq == "DIP") out <- Sage_All
     if (Eq == "Nematocera") out <- Nematocera
     
     if (Eq == "S93HBLW") out <- S93HBLW
@@ -71,11 +64,13 @@ lengthwidthsize <- function(BLW, Eq = "DIP"){
     if (Eq == "S93HVLW") out <- S93HVLW
     
    
-   if (Eq == "S93LGLW") out <- Brachycera
-   if (Eq == "S93LMLW") out <- Cyclorrapha
-   if (Eq == "S93LALW") out <- Sage_All
-   if (Eq == "W13LLW") out <- Nematocera
-   if (Eq == "All") out <- cbind(W13LLW,S93LALW)
+   if (Eq == "S93LGLW") out <- S93LGLW
+   if (Eq == "S93LMLW") out <- S93LMLW
+   if (Eq == "S93LALW") out <- S93LALW
+   if (Eq == "W13LLW") out <- W13LLW
+   if (Eq == "LEP") out <- cbind(W13LLW,S93LALW)
+   if (Eq == "S93LCLW") out <- S93LCLW
+   if (Eq == "S93LNLW") out <- S93LNLW
     out
   }
 }

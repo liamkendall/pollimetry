@@ -7,13 +7,13 @@
 nectarload(BL)
 }
 \arguments{
-\item{BL}{vector of body length measurements (mm).}
+\item{BL}{A nonempty numeric vector of finite, positive body lengths (mm), without missing values.}
 }
 \value{
-A dataframe with bee total field nectar load (ul) is returned for each specimen.
+A numeric vector of total field nectar load estimates in microlitres, one per input measurement.
 }
 \description{
-Calculates total field nectar load (ul) using body length (mm) from Henry & Rodet (2008).
+Calculates total field nectar load (ul) using body length (mm) from Henry & Rodet (2018).
 }
 \examples{
 nectarload(BL=c(10,5,2))

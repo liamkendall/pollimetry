@@ -2,7 +2,7 @@
 % Please edit documentation in R/foraging.range.R
 \name{foraging.range}
 \alias{foraging.range}
-\title{Predict foraging range for bees using intertegular distance and degree of sociality}
+\title{Predict typical and maximum bee foraging ranges}
 \usage{
 foraging.range(
   data,
@@ -12,32 +12,30 @@ foraging.range(
 )
 }
 \arguments{
-\item{data}{A dataframe containing between two to four columns: bee intertegular distance (ITD) measurements in mm, species (Format: "Genus_species") and sociality (Format: "Highly Eusocial","Primitively Eusocial", "Solitary").}
+\item{data}{A nonempty data frame with positive, finite ITD measurements in mm. The social model requires sociality: "Highly Eusocial", "Primitively Eusocial" or "Solitary". Group effects require species in Genus_species format; genus is derived from species.}
 
-\item{model.type}{A string stating which model should be used: "social", for the model that includes sociality, body size (ITD) and measurement type, or "ITD", for the reduced model that only includes body size and measurement type.}
+\item{model.type}{One string: "social" (default) or "ITD". Both models use estimated body weight; the social model also uses sociality.}
 
-\item{random.effects}{A sting stating if random effects are to be used using predictive purposes. Options are 1) phylogenetic effect and species effects "full", 
-2) only phylogenetic effect ("phylo"), or 3) fixed effects only ("reduced"). Default is "reduced".}
+\item{random.effects}{One string: "reduced" (default, no group effects), "phylo" (genus effect), or "full" (genus and species effects). Publication and metric effects are excluded for all choices.}
 
-\item{measure.type}{A string stating whether to return realized ("realized") or potential ("potential") estimates.}
+\item{measure.type}{One string: "realized" (default) or "potential".}
 }
 \value{
-A dataframe with bee foraging range (km) is returned for each bee species (row).
+A data frame with two rows per input specimen, typical then maximum range. range.estimate, range.lower and range.upper are in kilometres; bounds give a 95% posterior predictive interval. wgt is estimated female dry weight in mg and wgt10 is its base-10 logarithm. Additional columns include range.type and, when species is supplied, genus.
 }
 \description{
-Calculates realized (or potential) foraging range from Kendall et al. (2022) using intertegular distance (ITD) values
- and degree of sociality (highly eusocial, primitively eusocial or solitary).
+Predict realized or potential bee foraging ranges using the models of Kendall et al. (2022).
+}
+\details{
+The response is log10(range in km), so predictions and interval endpoints are back-transformed with 10^x. range.estimate is 10 raised to the mean log10-scale predictive draw, not arithmetic mean distance. Intervals include residual variation. Female body weight is estimated once per input row using the bee sex model without group effects, then reused for both range types. Body-weight uncertainty is not propagated through the range model. Excluded group effects are set to zero, not integrated out. New included grouping levels use uncertainty sampling from existing levels, not a new phylogenetic placement. Use set.seed() for reproducibility. Requires locally installed brms and pollimetrydata; no fitting or downloads occur.
 }
 \examples{
-ITD=c(2.9,2.9,2.9)
-species=c("Apis_mellifera","Osmia_cornifrons","Bombus_bifarius")
-sociality=c("Highly Eusocial","Solitary","Primitively Eusocial")
-example.data <- data.frame(ITD,species,sociality)
-foraging.range(example.data,random.effects = "full",measure.type = "realized")
-
+if (requireNamespace("pollimetrydata", quietly = TRUE)) {
+  x <- data.frame(ITD = c(2.9, 2.5),
+                  sociality = c("Highly Eusocial", "Solitary"))
+  foraging.range(x)
+}
 }
 \references{
-\itemize{
-\item Kendall et al. (2022) The potential and realized foraging movements of bees are differentially determined by body size and sociality \emph{Ecology} \url{TBC}.
-}
+Kendall et al. (2022). The potential and realized foraging movements of bees are differentially determined by body size and sociality. Ecology, 103(11), e3809. \doi{10.1002/ecy.3809}.
 }

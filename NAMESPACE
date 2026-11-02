@@ -10,14 +10,8 @@ export(nectarload)
 export(tonguelength)
 export(wingloading)
 import(brms)
-import(dplyr)
-import(lifecycle)
-importFrom(dplyr,"%>%")
-importFrom(dplyr,group_by)
-importFrom(dplyr,summarize)
-importFrom(plyr,rbind.fill)
-importFrom(stats,lm)
-importFrom(stats,predict)
-importFrom(stringr,word)
+importFrom(stats,
+  lm,
+  predict
+)
 importFrom(utils,data)
-importFrom(utils,installed.packages)

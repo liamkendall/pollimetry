@@ -23,7 +23,8 @@ Predict dry body weight (mg) from intertegular distance and covariates using the
 With Region and Species, both fitted grouping effects are included. With Region alone, only the regional effect is included. With neither, group effects are excluded (set to zero, not integrated out). Species alone is rejected because the fitted species effect is nested within Region. New grouping levels use brms uncertainty sampling from existing levels; this does not place a new species on a phylogenetic tree. Fixed-effect categories must be supported by the fitted model. Est.Weight is exp(mean(log-scale predictive draws)), not arithmetic mean weight. Intervals include residual variation. Use set.seed() for reproducibility. Requires brms. Uses pollimetrydata (>= 1.0.1) when installed; otherwise downloads only the required fitted models from GitHub. Downloaded models are cached in memory for the current R session. An internet connection is required for each model's first download in a session. No Bayesian models are fitted during prediction.
 }
 \examples{
-if (requireNamespace("pollimetrydata", quietly = TRUE) && utils::packageVersion("pollimetrydata") >= "1.0.1") {
+if (requireNamespace("pollimetrydata", quietly = TRUE) && 
+utils::packageVersion("pollimetrydata") >= "1.0.1") {
   x <- data.frame(ITD = c(1.5, 2), Sex = c("Female", "Male"),
                   Subfamily = c("Pipizinae", "Syrphinae"))
   bodysize(x, taxa = "hov", type = "taxo")

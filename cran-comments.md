@@ -1,27 +1,31 @@
-## Release
+## Resubmission of archived package
 
-This update introduces Bayesian foraging range predictions and extends
-tongue length predictions to Melittidae using the combined Cariveau and
-Melin datasets. It also improves input validation and documentation.
+This release addresses the historical citation issues by replacing
+old-style citation syntax and the T.B.C. placeholder with complete
+published references.
 
-## Test environment
+The repmis dependency has been removed. On-demand model downloads
+are retained using utils::download.file(), with models cached for
+the current R session. Users can alternatively install pollimetrydata
+(>= 1.0.1) for offline predictions. Public installation and the
+download fallback have been tested.
 
-- macOS Sequoia 15.7.9
-- R 4.6.1 (2026-06-24)
-- brms 2.23.0; pollimetrydata 1.0.1
+The archived check results also list an additional OpenBLAS issue.
+The linked diagnostic report now returns HTTP 404, so we have not
+been able to identify or reproduce that specific historical failure.
+We do not claim that it has been resolved and would welcome details
+if it persists in the current submission.
 
-## R CMD check results
+## Current checks
 
-pollimetry 1.1.1: 0 errors, 0 warnings, 0 notes.
+- macOS Sequoia 15.7.9, R 4.6.1: 0 errors, 0 warnings, 0 notes.
+- Windows Server 2022, R 4.6.2: 0 errors, 0 warnings, 1 NOTE.
+- Windows Server 2022, R-devel (2026-11-02 r90827):
+  0 errors, 0 warnings, 1 NOTE.
 
-## Optional model package
+The Windows incoming-check NOTE identifies the previous archival,
+the optional GitHub-hosted pollimetrydata package and spelling flags
+(et al., bodysize and hoverflies). The spelling is intentional.
 
-Bayesian predictions optionally use pollimetrydata (>= 1.0.1), available at
-https://github.com/liamkendall/pollimetrydata.
-Installation of version 1.0.1 from the public GitHub source archive
-was verified in a separate temporary library without authentication.
-
-Without this package, required models are downloaded on demand 
-and cached in memory for the current session. 
-The download fallback and cache reuse were verified for hov_IT. 
-Examples require the installed companion package and do not download models.
+Both Windows checks completed without pollimetrydata installed;
+Bayesian examples are conditional on its availability.

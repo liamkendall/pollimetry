@@ -96,4 +96,5 @@ foraging.range(
 Manuscript R code
 =================
 
-[Figshare](https://figshare.com/articles/dataset/Pollimetry_R_code/7357217)
+Kendall, L. (2018). Pollimetry R code. Figshare.
+doi:10.6084/m9.figshare.7357217.v1

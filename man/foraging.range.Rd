@@ -30,7 +30,8 @@ Predict realized or potential bee foraging ranges using the models of Kendall et
 The response is log10(range in km), so predictions and interval endpoints are back-transformed with 10^x. range.estimate is 10 raised to the mean log10-scale predictive draw, not arithmetic mean distance. Intervals include residual variation. Female body weight is estimated once per input row using the bee sex model without group effects, then reused for both range types. Body-weight uncertainty is not propagated through the range model. Excluded group effects are set to zero, not integrated out. New included grouping levels use uncertainty sampling from existing levels, not a new phylogenetic placement. Use set.seed() for reproducibility. Requires brms. Uses pollimetrydata (>= 1.0.1) when installed; otherwise downloads only the required fitted models from GitHub. Downloaded models are cached in memory for the current R session. An internet connection is required for each model's first download in a session. No Bayesian models are fitted during prediction.
 }
 \examples{
-if (requireNamespace("pollimetrydata", quietly = TRUE) && utils::packageVersion("pollimetrydata") >= "1.0.1") {
+if (requireNamespace("pollimetrydata", quietly = TRUE) && 
+utils::packageVersion("pollimetrydata") >= "1.0.1") {
   x <- data.frame(ITD = c(2.9, 2.5),
                   sociality = c("Highly Eusocial", "Solitary"))
   foraging.range(x)
